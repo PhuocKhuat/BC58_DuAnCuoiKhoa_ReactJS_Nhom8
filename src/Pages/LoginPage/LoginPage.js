@@ -1,9 +1,11 @@
 import React from 'react'
+import './style.css'
+import FormLogin from './FormLogin'
 
 export default function LoginPage() {
   return (
-    <div className='text-3xl font-bold underline'>
-        Hello World
+    <div className='loginPage'>
+        <FormLogin/>
     </div>
   )
 }

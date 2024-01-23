@@ -1,11 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-import LoginPage from './Pages/LoginPage/LoginPage';
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import FormLogin from "./Pages/LoginPage/FormLogin";
+import FormSignup from "./Pages/LoginPage/FormSignup";
 
 function App() {
   return (
     <>
-     <LoginPage/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/account" element={<FormLogin />} />
+          <Route path="/signup" element={<FormSignup />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
