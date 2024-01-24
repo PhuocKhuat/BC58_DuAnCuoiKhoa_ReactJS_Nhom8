@@ -1,5 +1,5 @@
 .container{
-    width: 76%;
+    width: 80%;
     margin: 0 auto;
 }
 .truongDuLieu{
@@ -7,7 +7,7 @@
     font-size: 14px;
     height: 40px;
 }
-[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled){
+.formLogin [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled), .formSignUp [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled){
    background: linear-gradient(to right, #227df9, #7462f9, #df3ef8) !important;
    padding: 7px;
    color: white !important;    
@@ -27,14 +27,32 @@
     padding: 2px 11px;
 }
 .login-form-forgot{
-    margin-left: 257px;
+    margin-left: 210px;
 }
-:where(.css-dev-only-do-not-override-1qhpsh8).ant-form-item:nth-child(8) {
-    margin-bottom: 0px;
-}
+
 /* LOGINPAGE */
 .loginPage{
     background-color: #eff0f5 !important;
+    display: flex;
+}
+/* LOGIN */
+.formLogin .title{
+    font-size: 22px;
+    color: #424242;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+.formLogin .formDNhap{
+    background-color: white;
+    padding: 25px 50px 50px 25px;
+    width: 520px;
+}
+.formLogin .textLogin{
+    position: relative;
+    bottom: 7px;
+}
+.formLogin :where(.css-dev-only-do-not-override-1qhpsh8).ant-form-item:nth-child(4) {
+    margin-bottom: 0px;
 }
 /* SIGNUP */
 .formSignUp .title{
@@ -46,9 +64,24 @@
 .formSignUp .formDky{
     background-color: white;
     padding: 25px 50px 50px 25px;
-    width: 560px;
+    width: 520px;
 }
 .formSignUp .textSignUp{
     position: relative;
     bottom: 7px;
+}
+.formSignUp :where(.css-dev-only-do-not-override-1qhpsh8).ant-form-item:nth-child(8) {
+    margin-bottom: 0px;
+}
+
+/* BG ANIMATE */
+.bgAnimate{
+    overflow: hidden !important;
+}
+.bgAnimate svg{
+    width: 1000px !important;
+    height: 1080px !important;
+    position: relative;
+    right: 70px;
+    bottom: 80px;
 }

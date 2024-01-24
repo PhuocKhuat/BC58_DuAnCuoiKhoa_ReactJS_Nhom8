@@ -18,12 +18,12 @@ const FormSignUp = () => {
     https
       .post("/api/QuanLyNguoiDung/DangKy", values)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         message.success("Sign up success");
         navigate("/account");
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         message.error("Registration failed");
       });
     console.log("Success: ", values);
