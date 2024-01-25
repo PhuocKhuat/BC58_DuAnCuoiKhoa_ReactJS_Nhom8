@@ -2,11 +2,11 @@ import React from "react";
 
 export default function HeaderAbove() {
   return (
-    <div className="relative headerAbove">
+    <div className="relative headerAbove text-sm">
       <div className="container">
         <ul className="flex justify-end space-x-5 cursor-pointer">
           <li>Blog</li>
-          <li className="flex space-x-1">
+          <li className="flex space-x-1 hover:text-red-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

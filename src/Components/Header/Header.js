@@ -82,7 +82,8 @@ export default function Header() {
       >
         <div className="container flex justify-between pt-3">
           <div className="flex space-x-3 uppercase">
-            <div className="flex space-x-1 cursor-pointer">
+            <div className="cursor-pointer">
+              <a href="/" className="flex space-x-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -98,6 +99,7 @@ export default function Header() {
                 />
               </svg>
               <span>E-Learning</span>
+              </a>
             </div>
             <form>
               <input type="text" placeholder="Search" className="search" />
