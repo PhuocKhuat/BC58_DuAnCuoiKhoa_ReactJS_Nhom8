@@ -1,19 +1,40 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import "./style.css";
+import "./styleHeader.css";
 import HeaderAbove from "./HeaderAbove";
 
 export default function Header() {
   let { user } = useSelector((state) => state.headerSlice);
   // console.log("🚀 ~ Header ~ taiKhoan:", taiKhoan)
+  const handleLogOut = () => {
+    localStorage.removeItem("USER_INFO");
+    window.location.reload();
+  };
   let renderMenu = () => {
     if (user) {
       return (
         <>
-          <span className="me-2">Hi,{user.taiKhoan}</span>
           <div>
-            <NavLink className="flex items-center">
+            <NavLink to="/personalInfo">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                />
+              </svg>
+            </NavLink>
+          </div>
+          <div>
+            <NavLink className="flex items-center" onClick={handleLogOut}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -84,21 +105,21 @@ export default function Header() {
           <div className="flex space-x-3 uppercase">
             <div className="cursor-pointer">
               <a href="/" className="flex space-x-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="computer absolute"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"
-                />
-              </svg>
-              <span>E-Learning</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="computer absolute"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"
+                  />
+                </svg>
+                <span>E-Learning</span>
               </a>
             </div>
             <form>
@@ -132,7 +153,9 @@ export default function Header() {
               </li>
             </ul>
           </div>
-          <div className="flex space-x-3">{renderMenu()}</div>
+          <div className="flex space-x-3 items-center mb-10">
+            {renderMenu()}
+          </div>
         </div>
       </div>
     </div>

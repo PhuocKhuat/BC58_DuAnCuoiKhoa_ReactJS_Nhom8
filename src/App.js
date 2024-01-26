@@ -6,6 +6,7 @@ import FormSignup from "./Pages/LoginPage/FormSignup";
 import HomePage from "./Pages/HomePage/HomePage";
 import LayoutLottie from "./Layouts/LayoutLottie";
 import Header from "./Components/Header/Header";
+import PersonalInfo from "./Pages/PersonalInfo/PersonalInfo";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/account" element={<FormLogin />} />
             <Route path="/signup" element={<FormSignup />} />
           </Route>
+          <Route path="/personalInfo" element={<PersonalInfo/>}/>
         </Routes>
       </BrowserRouter>
     </>

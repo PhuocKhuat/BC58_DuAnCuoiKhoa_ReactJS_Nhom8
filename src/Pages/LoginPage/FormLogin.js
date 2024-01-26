@@ -18,6 +18,7 @@ const FormLogin = () => {
         navigate("/");
         message.success("Logged in successfully");
         dispatch(setUser(res.data));
+        localStorage.setItem("USER_INFO", JSON.stringify(res.data));
       })
       .catch((err) => {
         // console.log(err);
