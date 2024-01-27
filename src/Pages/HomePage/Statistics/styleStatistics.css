@@ -1,0 +1,19 @@
+.boxNumberColor{
+    padding: 50px;
+    background:  #f0f8ff;
+}
+.boxNumber{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imgStatistical{
+    height: 80px !important;
+    width: 80px !important;
+}
+.textNumber {
+    font-family: fontNumber;
+    color: #7b5ff9;
+    font-size: 50px;
+    font-weight: bold;
+}
