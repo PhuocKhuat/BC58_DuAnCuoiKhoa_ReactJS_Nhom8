@@ -1,19 +1,23 @@
 .boxNumberColor{
-    padding: 50px;
-    background:  #f0f8ff;
+    padding: 74px 0 90px;
+    background:  #f0fff0;
 }
-.boxNumber{
+.statistic .boxNumber{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.imgStatistical{
+.statistic .imgStatistical{
     height: 80px !important;
     width: 80px !important;
 }
-.textNumber {
+.statistic .textNumber {
     font-family: fontNumber;
     color: #7b5ff9;
     font-size: 50px;
     font-weight: bold;
+}
+.statistic .titleStatistic{
+    font-size: 35px;
+    line-height: 68px;
 }

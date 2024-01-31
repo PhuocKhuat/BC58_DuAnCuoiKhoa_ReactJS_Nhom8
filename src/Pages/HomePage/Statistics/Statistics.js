@@ -4,8 +4,11 @@ import './styleStatistics.css';
 
 export default function Statistics() {
   return (
-     <div className="boxNumberColor">
-     <div className="grid grid-cols-4 container">
+     <div className="boxNumberColor statistic">
+      <div className="container">
+      <h1 className="titleStatistic font-bold text-center">E-LEARNING - TRAINING PROGRAMMING ACCORDING TO THE PROJECT ROADMAP</h1>
+      <p className="text-2xl text-center pb-8">Statistics through numbers</p>
+     <div className="grid grid-cols-4">
        <div className="boxNumber">
          <div>
            <img className="imgStatistical" alt="" src="/img/students.png" />
@@ -59,6 +62,7 @@ export default function Statistics() {
          </div>
        </div>
      </div>
+      </div>
    </div>
   );
 }

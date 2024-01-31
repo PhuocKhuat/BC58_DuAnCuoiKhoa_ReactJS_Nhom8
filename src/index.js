@@ -6,10 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
 import headerSlice from './Redux/headerSlice';
 import { Provider } from 'react-redux';
+import homeSlice from './Redux/homeSlice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = configureStore({reducer:{
   headerSlice,
+  homeSlice,
 }})
 root.render(
   <Provider store={store}>

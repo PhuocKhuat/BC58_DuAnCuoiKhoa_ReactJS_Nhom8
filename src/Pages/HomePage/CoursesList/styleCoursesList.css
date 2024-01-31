@@ -1,0 +1,27 @@
+.courseList{
+    background: #505170;
+    padding: 74px 0 90px;
+}
+.courseList .bgCourseList{
+    background: white;
+    border-radius: 10px;
+}
+.courseList .bgCourse{
+    background: #272634;
+    border-radius: 10px 10px 0 0;
+    padding: 30px;
+    font-size: 25px;
+    line-height: 35px;
+}
+.courseList .exploreTitle{
+    font-size: 40px;
+    line-height: 50px;
+}
+.courseList .courseDesc{
+    margin-top: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
+}
+.courseList .courseMoTa{
+    color: #989898 !important;
+}
