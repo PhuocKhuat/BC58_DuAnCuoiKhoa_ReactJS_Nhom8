@@ -57,7 +57,7 @@ export default function Header() {
     }
     return (
       <>
-        <NavLink to="/login" className="flex">
+        <NavLink to="/login" className="flex btnLogIn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -72,9 +72,9 @@ export default function Header() {
               d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
             />
           </svg>
-          Log In
+          <span>Log In</span>
         </NavLink>
-        <NavLink to="/signup" className="flex space-x-2">
+        <NavLink to="/signup" className="flex space-x-2 btnSignUp">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -89,7 +89,7 @@ export default function Header() {
               d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
             />
           </svg>
-          Sign up
+          <span>Sign up</span>
         </NavLink>
       </>
     );
@@ -129,7 +129,7 @@ export default function Header() {
           <div className="uppercase cursor-pointer items-center">
             <ul className="flex space-x-5">
               <li className="flex">
-                <span>Category</span>
+                <span className="catalogHeader">Category</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -146,10 +146,10 @@ export default function Header() {
                 </svg>
               </li>
               <li>
-                <span>Course</span>
+                <span className="catalogHeader">Course</span>
               </li>
               <li>
-                <span>Information</span>
+                <span className="catalogHeader">Information</span>
               </li>
             </ul>
           </div>

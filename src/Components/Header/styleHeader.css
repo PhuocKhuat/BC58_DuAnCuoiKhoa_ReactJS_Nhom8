@@ -33,3 +33,34 @@
 .headerAbove{
     padding: 3px 0 9px;
 }
+.header .catalogHeader{
+    display: block;
+    height: 30px;
+    transition: all 0.3s;
+    position: relative;
+}
+.header .catalogHeader::after{
+    content: "";
+    background-color: #825df9;
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    bottom: 0; left: 0;
+    transition: all 0.3s;
+    padding: 0 10px;
+    opacity: 0;
+}
+.header .catalogHeader:hover{
+    color: #2f79f9;
+}
+.header .catalogHeader:hover:after{
+    width: 100%;
+    opacity: 1;
+}
+.header .btnLogIn, .header .btnSignUp{
+    transition: all 0.3s;
+}
+.header .btnLogIn:hover, .header .btnSignUp:hover{
+    color: #2f79f9;
+}
+

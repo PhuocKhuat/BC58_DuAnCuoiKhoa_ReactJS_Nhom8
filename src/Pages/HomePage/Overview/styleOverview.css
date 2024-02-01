@@ -3,3 +3,18 @@
     font-size: 35px;
     color: #c6a63d;
 }
+.overview .imgHighlight{
+    border: 4px dashed #cf44f8 !important;
+    transition: all 0.3s;
+    background: radial-gradient(#eb2f96, transparent);
+}
+.overview .imgHighlight:hover{
+    transform: translateY(-40px);
+}
+.overview .catalogHighlight{
+    transition: all 0.3s;
+}
+.overview .catalogHighlight:hover{
+    color: #6366f1;
+    background-color: white;
+}

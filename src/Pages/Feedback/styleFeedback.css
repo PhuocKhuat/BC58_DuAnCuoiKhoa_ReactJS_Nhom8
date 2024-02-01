@@ -1,0 +1,24 @@
+.feedBack{
+    overflow: hidden;
+}
+.feedBack .slick-next:before, .feedBack .slick-prev:before{
+ position: relative;
+ bottom: 8px;
+}
+.feedBack .slick-next, .feedBack .slick-prev{
+    overflow: hidden;
+    padding: 16px 45px;
+    z-index: 100;   
+}
+.feedBack .slick-next:before{   
+    right: 18px;
+}
+.feedBack .slick-dots button{
+    background: transparent !important;
+    position: relative;
+    bottom: 75px;
+}
+.feedBack .slick-dots li.slick-active button:before {
+    color: #d043f8;
+    font-size: 15px;
+}
