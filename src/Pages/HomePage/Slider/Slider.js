@@ -5,7 +5,8 @@ import "./styleSlider.css";
 
 export default function Slider() {
   return (
-    <div className="container">
+    <div className="slider">
+      <div className="container">
       <div className="grid grid-cols-12 sliderHome">
         <div className="col-span-6 sloganBox">
           <div className="triangleTopLeft"></div>
@@ -25,8 +26,9 @@ export default function Slider() {
           </div>
         </div>
         <div className="imgLottie col-span-6">
-          <Lottie animationData={bgAnimateLearing} loop={true} />
+          <Lottie animationData={bgAnimateLearing} loop={true} className=""/>
         </div>
+      </div>
       </div>
     </div>
   );

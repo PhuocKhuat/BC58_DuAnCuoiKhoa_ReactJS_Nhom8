@@ -1,4 +1,8 @@
-.triangleTopLeft{
+.slider{
+    background: #f0f8ff;
+    height: 538px;
+}
+.slider .triangleTopLeft{
     position: absolute;
     transform: rotate(-45deg);
     top: 8%;
@@ -9,13 +13,13 @@
     border-right: 20px solid transparent;
     border-bottom: 50px solid #c6a63d;
 }
-.smallBoxTopLeft {
+.slider .smallBoxTopLeft {
     top: 10%;
     left: 10%;
     height: 70px !important;
     width: 28% !important;
 }
-.smallBox {
+.slider .smallBox {
     position: absolute;
     z-index: 1;
     height: 10%;
@@ -23,38 +27,45 @@
     background-image: radial-gradient(#522722 10%,transparent 11%),radial-gradient(#522722 10%,transparent 11%);
     background-size: 10px 10px;
 }
-.smallBoxTopRight {
+.slider .smallBoxTopRight {
     top: 24px;
     right: 0;
     transform: rotate(45deg);
     background-image: radial-gradient(#c6a63d 10%,transparent 11%);
 }
-.smallBoxRightBottom {
+.slider .smallBoxRightBottom {
     bottom: 10%;
     left: 70%;
     height: 10% !important;
     width: 10% !important;
     background-image: radial-gradient(#c6a63d 10%,transparent 11%);
 }
-.sloganBox{
+.slider .sloganBox{
     position: relative;
+    top: 92px;
 }
-.sloganBox .doubleBox {
+.slider .sloganBox .doubleBox {
     left: 74%;
 }
-.sloganContainer h1 {
+.slider .sloganContainer h1 {
     position: relative;
-    z-index: 10px;
+    z-index: 10;
     font-weight: 600;
-    font-size: 50px;
+    font-size: 55px;
 }
-.sloganContainer h1:nth-of-type(3) {
+.slider .sloganContainer h1:nth-child(1) {
+    color: #2f79f9;
+}
+.slider .sloganContainer h1:nth-child(2) {
+    color: #8275f8;
+}
+.slider .sloganContainer h1:nth-of-type(3) {
     font-size: 65px;
     color: #d343f9;
     overflow: hidden;
     animation: aniText 5s steps(10) infinite;
 }
-.sliderPlaneImg {
+.slider .sliderPlaneImg {
     position: absolute;
     object-fit: cover;
     right: 20%;
@@ -62,9 +73,14 @@
     width: 20%;
     height: 20%;
 }
-.imgLottie{
+.slider .imgLottie{
     width: 500px !important;
 }
+.slider .imgLottie svg{
+    width: 680px !important;
+    height: 500px !important;
+}
+
 @keyframes aniText {
     0%{
         width: 0;
