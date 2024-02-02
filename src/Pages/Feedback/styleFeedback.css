@@ -1,5 +1,6 @@
 .feedBack{
     overflow: hidden;
+    padding: 74px 0 20px;
 }
 .feedBack .slick-next:before, .feedBack .slick-prev:before{
  position: relative;
@@ -21,4 +22,19 @@
 .feedBack .slick-dots li.slick-active button:before {
     color: #d043f8;
     font-size: 15px;
+}
+.feedBack .slick-dots li button:before{
+    font-size: 15px;
+}
+.feedBack .imgFeedBack{
+    width: 120px;
+    border-radius: 50%;
+    height: 120px;
+    line-height: 120px;
+    object-fit: cover;
+}
+.feedBack .tittleFeedBack{
+    font-size: 40px;
+    line-height: 50px;
+    color: #db40f9;
 }

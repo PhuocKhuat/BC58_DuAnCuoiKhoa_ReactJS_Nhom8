@@ -7,6 +7,7 @@ import HomePage from "./Pages/HomePage/HomePage";
 import LayoutLottie from "./Layouts/LayoutLottie";
 import Header from "./Components/Header/Header";
 import PersonalInfo from "./Pages/PersonalInfo/PersonalInfo";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           </Route>
           <Route path="/personalInfo" element={<PersonalInfo/>}/>
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </>
   );
