@@ -25,3 +25,15 @@
 .courseList .courseMoTa{
     color: #989898 !important;
 }
+
+.courseList .btnLearnMore{
+    transition: all 0.3s;
+}
+.courseList .btnLearnMore:hover .arrow{
+    animation: arrow 1.25s linear 0.25s infinite; 
+    /* animation: name duration timing-function delay iteration-count direction fill-mode;  */
+}
+@keyframes arrow {
+    50% {transform: translateX(20px); opacity: 0;}
+    100% {opacity: 0;}
+}

@@ -46,10 +46,10 @@ export default function CoursesList() {
                   {course.moTa} 
                 </p>
                 </Tooltip>
-                <NavLink to={`/detail/${course.maKhoaHoc}`} className="text-indigo-500 inline-flex items-center mt-4">
+                <NavLink to={`/detail/${course.maKhoaHoc}`} className="text-indigo-500 inline-flex items-center mt-4 btnLearnMore">
                   Learn More
                   <svg
-                    className="w-4 h-4 ml-2"
+                    className="w-4 h-4 ml-2 arrow"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     strokeWidth={2}

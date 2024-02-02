@@ -44,3 +44,13 @@
     width: 155px;
     color: #76767a;
 }
+.footer .copyright{
+    color: white;
+    border-top: 5px solid white;
+}
+.footer .khoaHoc span{
+    transition: all 0.3s;
+}
+.footer .khoaHoc span:hover{
+    color: #76767a;color: rgb(4, 4, 251);
+}

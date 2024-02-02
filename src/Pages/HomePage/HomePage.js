@@ -4,7 +4,7 @@ import Slider from "./Slider/Slider";
 import Statistics from "./Statistics/Statistics";
 import CoursesList from "./CoursesList/CoursesList";
 import Overview from "./Overview/Overview";
-import Feedback from "../Feedback/Feedback";
+import Feedback from "./Feedback/Feedback";
 
 export default function HomePage() {
   return (

@@ -8,6 +8,7 @@ import LayoutLottie from "./Layouts/LayoutLottie";
 import Header from "./Components/Header/Header";
 import PersonalInfo from "./Pages/PersonalInfo/PersonalInfo";
 import Footer from "./Components/Footer/Footer";
+import DetailPage from "./Pages/DetailPage/DetailPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage/>}/>
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/detail/:idKhoaHoc" element={<DetailPage />} />
           <Route path="/" element={<LayoutLottie/>}>
             <Route path="/account" element={<FormLogin />} />
             <Route path="/signup" element={<FormSignup />} />
