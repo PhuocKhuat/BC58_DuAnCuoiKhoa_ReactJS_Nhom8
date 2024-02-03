@@ -1,3 +1,13 @@
+.detail .containerDetail{
+    width: 97%;
+    margin: 0 auto;
+}
+.detail .titleDetail{
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
 .detail .imgDetail{
     position: relative;
     z-index: 4;
@@ -23,11 +33,11 @@
     height: 30%;
     position: absolute;
     left: -40px;
-    bottom: -412px;
+    bottom: -473px;
 }
 .detail .detailRight{
     width: 100%;
-    aspect-ratio: 1/1;
+    /* aspect-ratio: 1/1; */
     position: relative;
     border-radius: 5% 35% 5% 5%/6% 35% 5% 5%;
     z-index: 1;
@@ -37,6 +47,7 @@
     position: relative;
     background: white;
     border-radius: 0 0 5% 5%;
+    line-height: 50px;
 }
 .detail .btnRegisterCourse{
     background: white;
@@ -56,4 +67,81 @@
 }
 .detail .infoDetail svg{
     color: #df3ef8;
+}
+.detail .participateDetail .anticon-check{
+    color: black;
+    font-weight: bold;
+}
+.detail .catalogHeader{
+    color: #7462f9;
+    font-weight: bold;
+}
+.detail .titleNDKHoc{
+    font-size: 38px;
+    line-height: 50px;
+    font-weight: 700;
+}
+.detail .imgChuongTrinh{
+    z-index: 100;
+    position: relative;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+.detail .bgChuongTrinh{
+    position: relative;
+    padding: 15px;
+    transition: all 0.5s;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+    /* margin: 20px 0px; */
+    height: 100%;
+    color: white;
+}
+.detail .bgOverpay1{
+    position: absolute;
+    transition: height 0.5s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(209.21deg, rgb(4, 55, 174) 13.57%, rgb(29, 81, 146) 98.38%) !important;
+}
+.detail .bgOverpay2{
+    position: absolute;
+    transition: height 0.5s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(209.21deg, rgb(211,40,149) 13.57%, rgb(75,20,167) 98.38%);
+}
+.detail .bgOverpay3{
+    position: absolute;
+    transition: height 0.5s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(209.21deg, rgb(211,40,149) 13.57%, rgb(75,20,167) 98.38%);
+}
+.detail .bgChuongTrinh h3, .detail .bgChuongTrinh span{
+   position: relative;
+   z-index: 100;
+}
+.detail .bgChuongTrinh span{
+    top: 8px;
+    display: inline-block;
+    /* width: 100px; */
+    border: 1px solid gray;
+    border-radius: 50px;
+    padding: 2px 6px;
+    color: white;
+    margin-top: 4px;        
+    margin-left: 6px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 12px;
 }

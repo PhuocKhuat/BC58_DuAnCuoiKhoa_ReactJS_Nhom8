@@ -79,7 +79,7 @@ export default function CoursesList() {
   };
   const renderListPopularCourses = () => {
     return coursesList.slice(3, 7).map((courses, index) => (
-      <section class="text-gray-600 body-font" key={index}>
+      <NavLink to={`/detail/${courses.maKhoaHoc}`} class="text-gray-600 body-font" key={index} >
         <div className="px-3">
         <div className="flex flex-wrap -m-4">
         <div className="xl:w-full p-4">
@@ -100,7 +100,7 @@ export default function CoursesList() {
       </div>
       </div>
         </div>
-      </section>
+      </NavLink>
     ));
   };
   return (

@@ -38,12 +38,17 @@
     100% {opacity: 0;}
 }
 .courseList .divImgPopular{
-    width: 680px;
+    /* width: 680px;
+    height: 70px; */
+    width: 370px;
     height: 70px;
+    padding: 20px;
+    border-radius: 50%;
 }
 .courseList .imgPopular{
     width: 35px;
     height: 35px;
+    object-fit: cover;
 }
 .courseList .popular{
     position: absolute;
