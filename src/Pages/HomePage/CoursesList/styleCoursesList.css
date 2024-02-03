@@ -37,3 +37,46 @@
     50% {transform: translateX(20px); opacity: 0;}
     100% {opacity: 0;}
 }
+.courseList .divImgPopular{
+    width: 680px;
+    height: 70px;
+}
+.courseList .imgPopular{
+    width: 35px;
+    height: 35px;
+}
+.courseList .popular{
+    position: absolute;
+    left: -7px;
+    top: 5px;
+    background-color: red;
+    font-weight: bold;
+    width: 85px;
+    height: 30px;
+    padding: 5px 8px 4px;
+    color: white;
+    text-transform: uppercase;
+}
+.courseList .hoverBorder{
+    transition: all 0.25s;
+}
+.courseList .hoverBorder:hover{
+    border: 1.5px solid #d043f8 !important;
+}
+.courseList .popular::before{
+    content: "";
+    left: 2px;
+    bottom: -10px;
+    position: absolute;
+    border-bottom: 10px solid transparent;
+    border-right: 5px solid red;
+}
+.courseList .popular::after{
+    top: 0;
+    right: -12px;
+    border-color: red transparent;
+    border-style: solid;
+    border-width: 15px 12px 15px 0;
+    content: "";
+    position: absolute;
+}
