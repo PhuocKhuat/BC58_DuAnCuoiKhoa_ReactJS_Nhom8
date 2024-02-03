@@ -1,0 +1,59 @@
+.detail .imgDetail{
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5% 35% 5% 5%/6% 35% 0% 0%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.detail .borderBig{
+    border-radius: 5% 35% 5% 5%/6% 35% 5% 5%;
+    border: 10px solid #3f73f9;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+}
+.detail .borderSmall{
+    border-radius: 5% 35% 5% 5%/6% 35% 5% 5%;
+    border: 10px solid #c347f8;
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    left: -40px;
+    bottom: -412px;
+}
+.detail .detailRight{
+    width: 100%;
+    aspect-ratio: 1/1;
+    position: relative;
+    border-radius: 5% 35% 5% 5%/6% 35% 5% 5%;
+    z-index: 1;
+}
+.detail .payCourseDetail{
+    z-index: 100;
+    position: relative;
+    background: white;
+    border-radius: 0 0 5% 5%;
+}
+.detail .btnRegisterCourse{
+    background: white;
+    color: #227df9 !important;
+    transition: all 0.3s;
+    border: 1px solid #227df9 ;
+}
+.detail .btnRegisterCourse:hover{
+    background: linear-gradient(to right, #227df9, #7462f9, #df3ef8);
+    color: white !important;
+}
+.detail .payCourseDetail .infoDetail li{
+    border-bottom: 2px solid #f0f8ff;
+}
+.detail .priceCourseDetail{
+    color: #895bf9;
+}
+.detail .infoDetail svg{
+    color: #df3ef8;
+}
