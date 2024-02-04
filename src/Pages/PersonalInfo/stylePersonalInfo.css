@@ -1,5 +1,48 @@
-.modals .btnModals{
+.modals .btnModals {
   display: flex;
   align-items: center;
   padding: 20px 10px;
+}
+.personalInfo .skillBtn {
+  width: 78px;
+  height: 45px;
+  border-radius: 8px;
+  border: none;
+  text-transform: uppercase;
+  margin-right: 5px;
+  padding: 10px 40px 0;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+.personalInfo .skillBtnHtml{
+  background-color: #1677ff;
+}
+.personalInfo .skillBtnCss{
+  background-color: #ff4560;
+}
+.personalInfo .skillBtnGit{
+  background-color: #feb019;
+}
+.personalInfo .skillBtnJs{
+  background-color: #00e396;
+}
+.personalInfo .skillBtnApi{
+  background-color: #775dd0;
+}
+.personalInfo .skillBtnEs6{
+  background-color: #1677ff;
+}
+.personalInfo .skillBtnReact{
+  background-color: #ff4560;
+}
+.personalInfo .skillBtnExpress{
+  background-color: #feb019;
+}
+.personalInfo .skillBtnNode{
+  background-color: #00e396;
+}
+.personalInfo .skillBtnNest{
+  background-color: #775dd0;
 }
