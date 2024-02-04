@@ -57,10 +57,9 @@
     width: 100%;
     opacity: 1;
 }
-.header .btnLogIn, .header .btnSignUp{
+.header .btnLogIn, .header .userInfo, .header .btnLogOut, .header .btnSignUp{
     transition: all 0.3s;
 }
-.header .btnLogIn:hover, .header .btnSignUp:hover{
+.header .btnLogIn:hover, .header .userInfo:hover, .header .btnLogOut:hover, .header .btnSignUp:hover{
     color: #2f79f9;
 }
-

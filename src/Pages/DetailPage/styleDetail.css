@@ -96,11 +96,13 @@
     width: 100%;
     overflow: hidden;
     border-radius: 16px;
-    /* margin: 20px 0px; */
     height: 100%;
     color: white;
 }
-.detail .bgOverpay1{
+.detail .bgChuongTrinh:hover{
+    transform: scale(1.05);
+}
+.detail .bgOverlay1{
     position: absolute;
     transition: height 0.5s ease;
     top: 0;
@@ -109,7 +111,7 @@
     height: 100%;
     background: linear-gradient(209.21deg, rgb(4, 55, 174) 13.57%, rgb(29, 81, 146) 98.38%) !important;
 }
-.detail .bgOverpay2{
+.detail .bgOverlay2{
     position: absolute;
     transition: height 0.5s ease;
     top: 0;
@@ -118,14 +120,59 @@
     height: 100%;
     background: linear-gradient(209.21deg, rgb(211,40,149) 13.57%, rgb(75,20,167) 98.38%);
 }
-.detail .bgOverpay3{
+.detail .bgOverlay3{
     position: absolute;
     transition: height 0.5s ease;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(209.21deg, rgb(211,40,149) 13.57%, rgb(75,20,167) 98.38%);
+    background: linear-gradient(209.21deg, rgb(0,223,255) 13.57%, rgb(78,123,211) 98.38%);
+}
+.detail .bgOverlay4{
+    position: absolute;
+    transition: height 0.5s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(209.21deg, rgb(210,221,249) 13.57%, rgb(210,221,249) 98.38%);
+}
+.detail .bgOverlay5{
+    position: absolute;
+    transition: height 0.5s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(209.21deg, rgb(132,205,247) 13.57%, rgb(152,218,232) 98.38%);
+}
+.detail .bgOverlay6{
+    position: absolute;
+    transition: height 0.5s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(209.21deg, rgb(231,237,253) 13.57%, rgb(147,180,251) 98.38%);
+}
+.detail .bgOverlay7{
+    position: absolute;
+    transition: height 0.5s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(209.21deg, rgb(249,214,24) 13.57%, rgb(26,46,53) 98.38%);
+}
+.detail .bgOverlay8{
+    position: absolute;
+    transition: height 0.5s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(209.21deg, rgb(147,180,251) 13.57%,  rgb(91,74,238) 98.38%);
 }
 .detail .bgChuongTrinh h3, .detail .bgChuongTrinh span{
    position: relative;

@@ -6,7 +6,7 @@ import HeaderAbove from "./HeaderAbove";
 
 export default function Header() {
   let { user } = useSelector((state) => state.headerSlice);
-  // console.log("🚀 ~ Header ~ taiKhoan:", taiKhoan)
+  // console.log("🚀 ~ Header ~ taiKhoan:", user);
   const handleLogOut = () => {
     localStorage.removeItem("USER_INFO");
     window.location.reload();
@@ -16,7 +16,7 @@ export default function Header() {
       return (
         <>
           <div>
-            <NavLink to="/personalInfo">
+            <NavLink to="/personalInfo" className="userInfo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -34,7 +34,7 @@ export default function Header() {
             </NavLink>
           </div>
           <div>
-            <NavLink className="flex items-center" onClick={handleLogOut}>
+            <NavLink className="flex items-center btnLogOut" onClick={handleLogOut}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
