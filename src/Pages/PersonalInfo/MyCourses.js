@@ -6,22 +6,28 @@ import {
   BarChartOutlined,
 } from "@ant-design/icons";
 import { Tooltip } from "antd";
-import { setDeleteCourse } from "../../Redux/personalSlice";
-// import { https } from "../../Services/api";
+import { https } from "../../Services/api";
+import { fetchCoursesList } from "../../Redux/personalSliceThunk";
+import Search from "antd/es/input/Search";
 
 export default function MyCourses() {
   const { coursesList } = useSelector((state) => state.personalSlice);
   const dispatch = useDispatch();
-  console.log("🚀 ~ MyCourses ~ coursesList:", coursesList) 
-  // const handleHuyGhiDanh = (maKhoaHoc) => {
-  //   https.post("/api/QuanLyKhoaHoc/HuyGhiDanh")
-  //   .then((res) =>  {
-  //         console.log(res);
-  //    })
-  //    .catch((err) =>  {
-  //         console.log(err);
-  //    });
-  // };
+  console.log("🚀 ~ MyCourses ~ coursesList:", coursesList);
+  const handleHuyGhiDanh = async (maKhoaHoc) => {
+    try {
+      await https.delete(
+        `/api/QuanLyKhoaHoc/XoaKhoaHoc?MaKhoaHoc=${maKhoaHoc}`
+      );
+      dispatch(fetchCoursesList());
+    } catch (error) {
+      console.log("🚀 ~ handleHuyGhiDanh ~ error:", error);
+    }
+  };
+  const onSearch = (value) => {
+    console.log("🚀 ~ onSearch ~ value:", value)
+    dispatch(fetchCoursesList(value))
+  };
   const renderRegisterCourses = () =>
     coursesList.map((course, index) => (
       <div className="pt-4 mb-5" key={index}>
@@ -136,8 +142,8 @@ export default function MyCourses() {
               <button
                 className="flex ml-auto text-white border-0 py-2 px-6 focus:outline-none rounded btnCancelCourse"
                 onClick={() => {
-                  dispatch(setDeleteCourse(course.maKhoaHoc))
-                  // console.log(course.maKhoaHoc)
+                  // dispatch(setDeleteCourse(course.maKhoaHoc))
+                  handleHuyGhiDanh(course.maKhoaHoc);
                 }}
               >
                 Cancel Course
@@ -153,12 +159,12 @@ export default function MyCourses() {
         <div>
           <h3 className="text-xl text-black uppercase font-bold">My courses</h3>
         </div>
-        <form>
-          <input
-            type="text"
-            className="searchCoursesInfo"
+        <form className="searchFormPersonal">
+          <Search
             placeholder="Search courses..."
-          ></input>
+            onSearch={onSearch}
+            enterButton
+          />
         </form>
       </div>
       <div className="overflow-y-scroll h-96 mb-5">

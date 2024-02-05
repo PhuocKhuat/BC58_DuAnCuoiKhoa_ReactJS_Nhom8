@@ -5,7 +5,7 @@ import { message } from 'antd';
 
 const initialState = {
   infoUser : new individualInfo(),
-  coursesList: [],
+  coursesList: [] ,
 }
 
 const personalSlice = createSlice({

@@ -6,18 +6,20 @@ import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
 import headerSlice from './Redux/headerSlice';
 import { Provider } from 'react-redux';
-import homeSlice from './Redux/homeSlice';
+// import homeSlice from './Redux/homeSlice';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import detailSlice from './Redux/detailSlice';
 import personalSlice from './Redux/personalSlice';
+import personalSliceThunk from './Redux/personalSliceThunk';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = configureStore({reducer:{
   headerSlice,
-  homeSlice,
+  // homeSlice,
   detailSlice,
   personalSlice,
+  personalSliceThunk,
 }})
 root.render(
   <Provider store={store}>

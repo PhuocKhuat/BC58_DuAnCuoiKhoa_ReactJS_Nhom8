@@ -1,25 +1,26 @@
 import React, { useEffect } from "react";
-import { https } from "../../../Services/api";
 import { useDispatch, useSelector } from "react-redux";
-import { setCoursesList } from "../../../Redux/homeSlice";
 import "./styleCoursesList.css";
 import { NavLink } from "react-router-dom";
 import { Tooltip } from "antd";
+import { fetchCoursesList } from "../../../Redux/personalSliceThunk";
 
 export default function CoursesList() {
   const dispatch = useDispatch();
-  const { coursesList } = useSelector((state) => state.homeSlice);
-  //   console.log("🚀 ~ CoursesList ~ CoursesList:", coursesList);
+  // const { coursesList } = useSelector((state) => state.homeSlice);
+  const { coursesList } = useSelector((state) => state.personalSliceThunk);
+    // console.log("🚀 ~ CoursesList ~ CoursesList:", coursesList);
   useEffect(() => {
-    https
-      .get("/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP09")
-      .then((res) => {
-        // console.log(res.data);
-        dispatch(setCoursesList(res.data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // https
+    //   .get("/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP09")
+    //   .then((res) => {
+    //     // console.log(res.data);
+    //     dispatch(setCoursesList(res.data));
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    dispatch(fetchCoursesList());
   }, []);
   const renderCoursesList = () => {
     return coursesList.map((course, index) => (
