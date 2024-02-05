@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setDetail } from "../../Redux/detailSlice";
 import { UserOutlined, CheckOutlined } from "@ant-design/icons";
 import "./styleDetail.css";
+import { setAddCourse } from "../../Redux/personalSlice";
 
 export default function DetailPage() {
   const { idKhoaHoc } = useParams();
@@ -196,7 +197,9 @@ export default function DetailPage() {
                   <span>1.200</span>
                 </p>
               </div>
-              <NavLink className="btnRegisterCourse rounded py-2 px-14 flex justify-center text-white uppercase font-bold">
+              <NavLink className="btnRegisterCourse rounded py-2 px-14 flex justify-center text-white uppercase font-bold" onClick={()=>{
+                 dispatch(setAddCourse(detail))
+              }}>
                 Register the course
               </NavLink>
               <div className="infoDetail">
