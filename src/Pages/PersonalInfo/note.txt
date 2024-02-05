@@ -31,3 +31,8 @@
   );
   background-size: 1rem 1rem;
 }
+
+/* :where(.css-dev-only-do-not-override-1qhpsh8).ant-tabs .ant-tabs-tab-btn:active{
+  background: linear-gradient(to right, #227df9, #7462f9, #df3ef8) !important;
+  color: white !important;
+} */

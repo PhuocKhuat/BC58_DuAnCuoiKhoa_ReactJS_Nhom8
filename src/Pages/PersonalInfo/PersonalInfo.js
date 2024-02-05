@@ -26,7 +26,7 @@ export default function PersonalInfo() {
     <section className="text-gray-600 body-font personalInfo">
       <div className="mb-5 sflex flex-col">
         <div className="">
-          <div className="flex flex-col sm:flex-row mt-10">
+          <div className="flex flex-col sm:flex-row mt-10 borderFrame">
             <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
               <div className="w-40 h-40 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
                 <img
@@ -86,12 +86,12 @@ export default function PersonalInfo() {
               </div>
               <div>
                 <div>
-                  <h4 className="font-bold text-2xl">MY SKILLS</h4>
+                  <h4 className="font-bold text-2xl text-black">MY SKILLS</h4>
                 </div>
                 <div>
                   <div className="grid grid-cols-12 space-x-5">
                     <div className="col-span-6">
-                      <div className="flex items-center p-3">
+                      <div className="flex items-center p-3 ps-0">
                         <p className="skillBtn skillBtnHtml">
                           <span>html</span>
                         </p>
@@ -104,7 +104,7 @@ export default function PersonalInfo() {
                           size={[300, 20]}
                         />
                       </div>
-                      <div className="flex items-center p-3">
+                      <div className="flex items-center p-3 ps-0">
                         <p className="skillBtn skillBtnCss">
                           <span>css</span>
                         </p>
@@ -117,7 +117,7 @@ export default function PersonalInfo() {
                           size={[300, 20]}
                         />
                       </div>
-                      <div className="flex items-center p-3">
+                      <div className="flex items-center p-3 ps-0">
                         <p className="skillBtn skillBtnGit">
                           <span>Git</span>
                         </p>
@@ -130,7 +130,7 @@ export default function PersonalInfo() {
                           size={[300, 20]}
                         />
                       </div>
-                      <div className="flex items-center p-3">
+                      <div className="flex items-center p-3 ps-0">
                         <p className="skillBtn skillBtnJs">
                           <span>JS</span>
                         </p>
@@ -143,7 +143,7 @@ export default function PersonalInfo() {
                           size={[300, 20]}
                         />
                       </div>
-                      <div className="flex items-center p-3">
+                      <div className="flex items-center p-3 ps-0">
                         <p className="skillBtn skillBtnApi">
                           <span>API</span>
                         </p>
@@ -158,7 +158,7 @@ export default function PersonalInfo() {
                       </div>
                     </div>
                     <div className="col-span-6">
-                      <div className="flex items-center p-3">
+                      <div className="flex items-center p-3 ps-0">
                         <p className="skillBtn skillBtnEs6">ES6</p>
                         <Progress
                           percent={75}
@@ -169,7 +169,7 @@ export default function PersonalInfo() {
                           size={[300, 20]}
                         />
                       </div>
-                      <div className="flex items-center p-3">
+                      <div className="flex items-center p-3 ps-0">
                         <p className="skillBtn skillBtnReact">
                           <span>React</span>
                         </p>
@@ -182,7 +182,7 @@ export default function PersonalInfo() {
                           size={[300, 20]}
                         />
                       </div>
-                      <div className="flex items-center p-3">
+                      <div className="flex items-center p-3 ps-0">
                         <p className="skillBtn skillBtnExpress">
                           <span>Express</span>
                         </p>
@@ -195,7 +195,7 @@ export default function PersonalInfo() {
                           size={[300, 20]}
                         />
                       </div>
-                      <div className="flex items-center p-3">
+                      <div className="flex items-center p-3 ps-0">
                         <p className="skillBtn skillBtnNode">
                           <span>Node</span>
                         </p>
@@ -208,7 +208,7 @@ export default function PersonalInfo() {
                           size={[300, 20]}
                         />
                       </div>
-                      <div className="flex items-center p-3">
+                      <div className="flex items-center p-3 ps-0">
                         <p className="skillBtn skillBtnNest">
                           <span>Nest</span>
                         </p>
@@ -227,45 +227,45 @@ export default function PersonalInfo() {
               </div>
               <div>
                 <div>
-                  <h4>MY SCORES</h4>
+                  <h4 className="text-2xl font-bold mb-2 mt-1 text-black">MY SCORES</h4>
                 </div>
-                <div className="timeStudy">
-                  <div className="timeStudyItem">
+                <div className="timeStudy grid grid-cols-3 space-x-3 space-y-3">
+                  <div className="timeStudyItem space-x-2 ms-2 mt-2">
                   <FieldTimeOutlined />
                   <div>
                     <h6>Study of hours</h6>
                     <p>80</p>
                   </div>
                   </div>
-                  <div className="timeStudyItem">
+                  <div className="timeStudyItem space-x-2">
                   <BookOutlined />
                   <div>
                     <h6>Lesson</h6>
                     <p>48</p>
                   </div>
                   </div>
-                  <div className="timeStudyItem">
+                  <div className="timeStudyItem space-x-2">
                   <SwitcherOutlined />
                   <div>
                     <h6>Learning ability</h6>
                     <p>Good</p>
                   </div>
                   </div>
-                  <div className="timeStudyItem">
+                  <div className="timeStudyItem space-x-2">
                   <LayoutOutlined />
                   <div>
                     <h6>Total score</h6>
                     <p>80</p>
                   </div>
                   </div>
-                  <div className="timeStudyItem">
+                  <div className="timeStudyItem space-x-2">
                   <BarChartOutlined />
                   <div>
                     <h6>Study of hours</h6>
                     <p>80</p>
                   </div>
                   </div>
-                  <div className="timeStudyItem">
+                  <div className="timeStudyItem space-x-2">
                   <FileProtectOutlined />
                   <div>
                     <h6>Exercise</h6>
