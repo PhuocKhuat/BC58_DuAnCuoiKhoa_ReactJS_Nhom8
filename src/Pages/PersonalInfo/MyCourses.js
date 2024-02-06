@@ -7,7 +7,8 @@ import {
 } from "@ant-design/icons";
 import { Tooltip } from "antd";
 import Search from "antd/es/input/Search";
-import { setDeleteCourse, setSearchForm } from "../../Redux/personalSlice";
+import { setSearchForm } from "../../Redux/personalSlice";
+import ModalDelete from "./ModalDelete";
 
 export default function MyCourses() {
   const { coursesList } = useSelector((state) => state.personalSlice);
@@ -137,12 +138,15 @@ export default function MyCourses() {
               <button
                 className="flex ml-auto text-white border-0 py-2 px-6 focus:outline-none rounded btnCancelCourse"
                 onClick={() => {
-                  dispatch(setDeleteCourse(course.maKhoaHoc))
+                  
                   // handleHuyGhiDanh(course.maKhoaHoc);
                 }}
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
               >
                 Cancel Course
               </button>
+              <ModalDelete course={course}/>  
             </div>
           </div>
         </div>

@@ -10,12 +10,14 @@ import Footer from "./Components/Footer/Footer";
 import DetailPage from "./Pages/DetailPage/DetailPage";
 import PrivateLayout from './Layouts/PrivateLayout';
 import TabPersonalInfo from "./Pages/PersonalInfo/TabsPersonalInfo";
+import Spinner from "./Components/Spinner/Spinner";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Header/>
+        <Spinner/>
         <Routes>
           <Route path="/" element={<HomePage/>}/>
           <Route path="/login" element={<LoginPage />} />

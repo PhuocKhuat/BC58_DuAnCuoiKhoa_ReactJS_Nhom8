@@ -12,14 +12,16 @@ import "slick-carousel/slick/slick-theme.css";
 import detailSlice from './Redux/detailSlice';
 import personalSlice from './Redux/personalSlice';
 import personalSliceThunk from './Redux/personalSliceThunk';
+import spinnerSlice from './Redux/spinnerSlice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const store = configureStore({reducer:{
+export const store = configureStore({reducer:{
   headerSlice,
   // homeSlice,
   detailSlice,
   personalSlice,
   personalSliceThunk,
+  spinnerSlice,
 }})
 root.render(
   <Provider store={store}>
