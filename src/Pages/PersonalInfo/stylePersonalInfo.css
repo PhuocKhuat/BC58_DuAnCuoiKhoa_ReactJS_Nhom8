@@ -4,7 +4,46 @@
   align-items: center;
   padding: 20px 10px;
 }
-
+:where(.css-dev-only-do-not-override-1qhpsh8).ant-modal .ant-modal-title {
+  font-size: 20px !important;
+  border-bottom: 2px solid #ce44f8 !important;
+  background: linear-gradient(
+    209.21deg,
+    rgb(58, 161, 183) 13.57%,
+    rgb(41, 48, 208) 98.38%
+  ) !important;
+  color: white;
+  text-align: center;
+}
+:where(.css-dev-only-do-not-override-1qhpsh8)[class^="ant-modal"]
+  [class*=" ant-modal"] {
+  background: red !important;
+}
+:where(.css-dev-only-do-not-override-1qhpsh8).ant-modal .ant-modal-close {
+  border: 2px solid red;
+}
+:where(.css-dev-only-do-not-override-1qhpsh8).ant-modal .ant-modal-content {
+  position: relative;
+  background: linear-gradient(
+    209.21deg,
+    rgb(58, 161, 183) 13.57%,
+    rgb(41, 48, 208) 98.38%
+  ) !important;
+}
+.modalForm label {
+  font-size: 16px;
+  color: white;
+}
+.modalForm input:focus {
+  padding: 10px;
+  border-color: #ced4da;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+.modalForm input{
+  padding: 8px;
+  border-radius: 4px;
+}
 /* personalInfo */
 .personalInfo .skillBtn {
   width: 78px;
@@ -118,24 +157,33 @@
   color: black;
 } */
 
-.myCourses .searchFormPersonal :where(.css-dev-only-do-not-override-1qhpsh8).ant-input-search >.ant-input-group >.ant-input-group-addon:last-child .ant-input-search-button {
-  padding: 15px !important;
+.myCourses
+  .searchFormPersonal
+  :where(.css-dev-only-do-not-override-1qhpsh8).ant-input-search
+  > .ant-input-group
+  > .ant-input-group-addon:last-child
+  .ant-input-search-button {
+  padding: 10px !important;
 }
-.myCourses .searchFormPersonal .ant-input .css-dev-only-do-not-override-1qhpsh8 .ant-input-outlined{
-  padding: 5px;
+.myCourses
+  .searchFormPersonal
+  .ant-input
+  .css-dev-only-do-not-override-1qhpsh8
+  .ant-input-outlined {
+  padding: 5px !important;
 }
-.myCourses .imgLectures{
+.myCourses .imgLectures {
   width: 50px;
   height: 50px;
   line-height: 50px;
   border-radius: 50%;
   object-fit: cover;
 }
-.myCourses .btnCancelCourse{
+.myCourses .btnCancelCourse {
   background: rgb(210, 33, 33) !important;
   transition: all 0.3s;
 }
-.myCourses .btnCancelCourse:hover{
+.myCourses .btnCancelCourse:hover {
   background: white !important;
   color: rgb(210, 33, 33) !important;
   border: 1px solid rgb(210, 33, 33) !important;

@@ -6,7 +6,7 @@
     position: relative;
     bottom: 15px;
 }
-.search{
+/* .search{
     outline: none;
     border: none;
     width: 100%;
@@ -20,7 +20,7 @@
     background-repeat: no-repeat;
     background-color: #f5f5f5;
     color: black;
-}
+} */
 .headerTopWrapper::after{
     content: "";
     position: absolute;
@@ -62,4 +62,7 @@
 }
 .header .btnLogIn:hover, .header .userInfo:hover, .header .btnLogOut:hover, .header .btnSignUp:hover{
     color: #2f79f9;
+}
+.header :where(.css-dev-only-do-not-override-1qhpsh8).ant-input-search >.ant-input-group >.ant-input-group-addon:last-child .ant-input-search-button {
+    padding: 10px;
 }

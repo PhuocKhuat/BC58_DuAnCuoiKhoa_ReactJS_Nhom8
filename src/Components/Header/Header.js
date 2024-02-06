@@ -1,17 +1,27 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "./styleHeader.css";
 import HeaderAbove from "./HeaderAbove";
+import Search from "antd/es/input/Search";
+import { fetchCoursesList } from "../../Redux/personalSliceThunk";
 
 export default function Header() {
   let { user } = useSelector((state) => state.headerSlice);
   // console.log("🚀 ~ Header ~ taiKhoan:", user);
+  const dispatch = useDispatch();
   const handleLogOut = () => {
     localStorage.removeItem("USER_INFO");
     window.location.reload();
   };
-  let renderMenu = () => {
+  const onSearch = (value) => {
+    // console.log("🚀 ~ onSearch ~ value:", value)
+    dispatch(fetchCoursesList(value));
+  };
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+  }
+  const renderMenu = () => {
     if (user) {
       return (
         <>
@@ -34,7 +44,10 @@ export default function Header() {
             </NavLink>
           </div>
           <div>
-            <NavLink className="flex items-center btnLogOut" onClick={handleLogOut}>
+            <NavLink
+              className="flex items-center btnLogOut"
+              onClick={handleLogOut}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -122,8 +135,12 @@ export default function Header() {
                 <span>E-Learning</span>
               </a>
             </div>
-            <form>
-              <input type="text" placeholder="Search" className="search" />
+            <form onSubmit={handleSubmit}>
+              <Search
+                placeholder="Search courses..."
+                onSearch={onSearch}
+                enterButton={true}
+              />
             </form>
           </div>
           <div className="uppercase cursor-pointer items-center">

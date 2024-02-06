@@ -20,7 +20,7 @@ const personalSlice = createSlice({
       let indexCourse = cloneCoursesList.findIndex(course => course.maKhoaHoc === action.payload.maKhoaHoc);
       if(indexCourse === -1){
         cloneCoursesList.push(action.payload);
-        message.success("Sign up success");
+        message.success("Sign up success. If you want, go to your personal information page to check");
       }
       else{
         Swal.fire({
@@ -35,12 +35,18 @@ const personalSlice = createSlice({
     },
     setDeleteCourse: (state, action)=>{
       let cloneFilterList = [...state.coursesList];
-      cloneFilterList.filter(course => course.maKhoaHoc !== action.payload);
-      state.coursesList = cloneFilterList;
+      let indexFilter = cloneFilterList.filter(course => course.maKhoaHoc !== action.payload);
+      state.coursesList = indexFilter;
+    },
+    setSearchForm : (state, action)=>{
+      let cloneCoursesList = [...state.coursesList];
+      let filterSearch = cloneCoursesList.filter(course => course.tenKhoaHoc.toLowerCase().includes(action.payload.toLowerCase())); 
+      console.log("🚀 ~ filterSearch:", filterSearch)
+      state.coursesList = filterSearch;
     },
   }
 });
 
-export const { setInfoUser, setAddCourse, setDeleteCourse } = personalSlice.actions
+export const { setInfoUser, setAddCourse, setDeleteCourse, setSearchForm } = personalSlice.actions
 
 export default personalSlice.reducer
