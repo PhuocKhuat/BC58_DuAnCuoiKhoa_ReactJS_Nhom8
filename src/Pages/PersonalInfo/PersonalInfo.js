@@ -9,7 +9,7 @@ import {FieldTimeOutlined, BookOutlined, SwitcherOutlined, LayoutOutlined, BarCh
 
 export default function PersonalInfo() {
   const { infoUser } = useSelector((state) => state.personalSlice);
-  console.log("🚀 ~ PersonalInfo ~ infoUser:", infoUser);
+  // console.log("🚀 ~ PersonalInfo ~ infoUser:", infoUser);
   const dispatch = useDispatch();
   useEffect(() => {
     https
