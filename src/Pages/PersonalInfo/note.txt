@@ -36,3 +36,110 @@
   background: linear-gradient(to right, #227df9, #7462f9, #df3ef8) !important;
   color: white !important;
 } */
+
+import React, { useState } from "react";
+import { Button, Modal } from "antd";
+import { FastField, Form, Formik } from "formik";
+import InputFlied from "../../CustomFlied/InputFlied";
+import { https } from "../../Services/api";
+import { useDispatch } from "react-redux";
+import { setUpdateForm } from "../../Redux/personalSlice";
+
+const Modals = () => {
+  const initialValues = {
+    hoTen: "",
+    matKhau: "",
+    email: "",
+    soDT: "",
+    taiKhoan: "nguyenTest",
+    maNhom: "GP09",
+    maLoaiNguoiDung: "HV",
+  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleUpdate = (infoUsers) => {
+    console.log("🚀 ~ handleUpdate ~ infoUsers:", infoUsers)
+    https
+      .put("/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung", infoUsers)
+      .then((res) => {
+        console.log(res);
+        dispatch(setUpdateForm(res.data));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    };
+    const handleChange = ()=>{
+    
+    }
+  return (
+    <div className="modals">
+      <Button type="primary" className="btnModals" onClick={showModal}>
+        <p>Personal Infomation</p>
+      </Button>
+      <Modal
+        title="Edit personal information"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <Formik initialValues={initialValues}>
+          {(formikProps) => {
+            const { values, errors, touched } = formikProps;
+            console.log("🚀 ~ Modals ~ touched:", touched);
+            console.log("🚀 ~ Modals ~ errors:", errors);
+            console.log("🚀 ~ Modals ~ values:", values);
+            return (
+              <Form className="modalForm">
+                <FastField
+                  name="hoTen"
+                  type="text"
+                  component={InputFlied}
+                  label="Full Name:"
+                  placeholder="Edit your full name"
+                  onChange={handleChange}
+                />
+                <FastField
+                  name="matKhau"
+                  type="password"
+                  component={InputFlied}
+                  label="Password:"
+                  placeholder="Edit your password"
+                />
+                <FastField
+                  name="email"
+                  type="email"
+                  component={InputFlied}
+                  label="Email:"
+                  placeholder="Edit your email"
+                />
+                <FastField
+                  name="soDT"
+                  type="number"
+                  component={InputFlied}
+                  label="Phone Number:"
+                  placeholder="Edit your phone number"
+                />
+                <Button onClick={()=>{
+                  handleUpdate(initialValues)
+                }} className="btnUpdate">
+                  Update
+                </Button>
+              </Form>
+            );
+          }}
+        </Formik>
+      </Modal>
+    </div>
+  );
+};
+export default Modals;

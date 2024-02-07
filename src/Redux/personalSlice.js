@@ -51,10 +51,13 @@ const personalSlice = createSlice({
       // console.log("🚀 ~ filterSearch:", filterSearch)
       state.coursesList = filterSearch;
     },
+    setUpdateForm: (state, action)=>{
+      state.infoUser = action.payload;
+    },
   },
 });
 
-export const { setInfoUser, setAddCourse, setDeleteCourse, setSearchForm } =
+export const { setInfoUser, setAddCourse, setDeleteCourse, setSearchForm, setUpdateForm } =
   personalSlice.actions;
 
 export default personalSlice.reducer;
