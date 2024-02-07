@@ -198,7 +198,7 @@ export default function DetailPage() {
                 </p>
               </div>
               <NavLink className="btnRegisterCourse rounded py-2 px-14 flex justify-center text-white uppercase font-bold" onClick={()=>{
-                 dispatch(setAddCourse(detail))
+                 dispatch(setAddCourse(detail));
               }}>
                 Register the course
               </NavLink>

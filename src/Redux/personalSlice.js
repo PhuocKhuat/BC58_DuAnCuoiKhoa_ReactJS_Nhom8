@@ -5,8 +5,12 @@ import { message } from "antd";
 
 const initialState = {
   infoUser: new individualInfo(),
-  coursesList: [],
+  coursesList: localStorage.getItem("courseItem")!== null ? JSON.parse(localStorage.getItem("courseItem")) : [],
 };
+
+const saveLocalStorage = (courseItem)=>{
+  localStorage.setItem("courseItem", JSON.stringify(courseItem));
+}
 
 const personalSlice = createSlice({
   name: "personalSlice",
@@ -35,6 +39,7 @@ const personalSlice = createSlice({
         });
       }
       state.coursesList = cloneCoursesList;
+      saveLocalStorage(state.coursesList.map(course => course));
     },
     setDeleteCourse: (state, action) => {
       let cloneFilterList = [...state.coursesList];
@@ -42,6 +47,7 @@ const personalSlice = createSlice({
         (course) => course.maKhoaHoc !== action.payload
       );
       state.coursesList = indexFilter;
+      saveLocalStorage(state.coursesList.map(course => course));
     },
     setSearchForm: (state, action) => {
       let cloneCoursesList = [...state.coursesList];

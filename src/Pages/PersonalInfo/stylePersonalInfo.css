@@ -52,6 +52,8 @@
   right: 24px;
   bottom: 20px;
   padding: 13px 38px;
+  border-radius: 20px;
+  color: white;
   background: green !important;
 }
 :where(.css-dev-only-do-not-override-1qhpsh8).ant-modal .ant-modal-footer {

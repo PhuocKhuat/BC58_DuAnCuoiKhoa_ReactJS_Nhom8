@@ -5,7 +5,14 @@ import { https } from "../../Services/api";
 import { useDispatch, useSelector } from "react-redux";
 import { setInfoUser } from "../../Redux/personalSlice";
 import { Progress } from "antd";
-import {FieldTimeOutlined, BookOutlined, SwitcherOutlined, LayoutOutlined, BarChartOutlined, FileProtectOutlined} from "@ant-design/icons";
+import {
+  FieldTimeOutlined,
+  BookOutlined,
+  SwitcherOutlined,
+  LayoutOutlined,
+  BarChartOutlined,
+  FileProtectOutlined,
+} from "@ant-design/icons";
 
 export default function PersonalInfo() {
   const { infoUser } = useSelector((state) => state.personalSlice);
@@ -59,7 +66,7 @@ export default function PersonalInfo() {
                   </div>
                   <div>
                     <p>
-                      <strong>Phone number: </strong>{" "}
+                      <strong>Phone number: </strong>
                       <span>{infoUser.soDT}</span>
                     </p>
                   </div>
@@ -67,13 +74,13 @@ export default function PersonalInfo() {
                 <div className="space-y-3 ms-44">
                   <div>
                     <p>
-                      <strong>Account: </strong>{" "}
+                      <strong>Account: </strong>
                       <span>{infoUser.taiKhoan}</span>
                     </p>
                   </div>
                   <div>
                     <p>
-                      <strong>Group code: </strong>{" "}
+                      <strong>Group code: </strong>
                       <span>{infoUser.maNhom}</span>
                     </p>
                   </div>
@@ -227,50 +234,52 @@ export default function PersonalInfo() {
               </div>
               <div>
                 <div>
-                  <h4 className="text-2xl font-bold mb-2 mt-1 text-black">MY SCORES</h4>
+                  <h4 className="text-2xl font-bold mb-2 mt-1 text-black">
+                    MY SCORES
+                  </h4>
                 </div>
                 <div className="timeStudy grid grid-cols-3 space-x-3 space-y-3">
                   <div className="timeStudyItem space-x-2 ms-2 mt-2">
-                  <FieldTimeOutlined />
-                  <div>
-                    <h6>Study of hours</h6>
-                    <p>80</p>
-                  </div>
-                  </div>
-                  <div className="timeStudyItem space-x-2">
-                  <BookOutlined />
-                  <div>
-                    <h6>Lesson</h6>
-                    <p>48</p>
-                  </div>
+                    <FieldTimeOutlined />
+                    <div>
+                      <h6>Study of hours</h6>
+                      <p>80</p>
+                    </div>
                   </div>
                   <div className="timeStudyItem space-x-2">
-                  <SwitcherOutlined />
-                  <div>
-                    <h6>Learning ability</h6>
-                    <p>Good</p>
-                  </div>
-                  </div>
-                  <div className="timeStudyItem space-x-2">
-                  <LayoutOutlined />
-                  <div>
-                    <h6>Total score</h6>
-                    <p>80</p>
-                  </div>
+                    <BookOutlined />
+                    <div>
+                      <h6>Lesson</h6>
+                      <p>48</p>
+                    </div>
                   </div>
                   <div className="timeStudyItem space-x-2">
-                  <BarChartOutlined />
-                  <div>
-                    <h6>Study of hours</h6>
-                    <p>80</p>
-                  </div>
+                    <SwitcherOutlined />
+                    <div>
+                      <h6>Learning ability</h6>
+                      <p>Good</p>
+                    </div>
                   </div>
                   <div className="timeStudyItem space-x-2">
-                  <FileProtectOutlined />
-                  <div>
-                    <h6>Exercise</h6>
-                    <p>80</p>
+                    <LayoutOutlined />
+                    <div>
+                      <h6>Total score</h6>
+                      <p>80</p>
+                    </div>
                   </div>
+                  <div className="timeStudyItem space-x-2">
+                    <BarChartOutlined />
+                    <div>
+                      <h6>Study of hours</h6>
+                      <p>80</p>
+                    </div>
+                  </div>
+                  <div className="timeStudyItem space-x-2">
+                    <FileProtectOutlined />
+                    <div>
+                      <h6>Exercise</h6>
+                      <p>80</p>
+                    </div>
                   </div>
                 </div>
               </div>
