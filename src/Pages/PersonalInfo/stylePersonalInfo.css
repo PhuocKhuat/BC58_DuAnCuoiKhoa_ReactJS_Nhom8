@@ -51,6 +51,7 @@
   position: absolute;
   right: 24px;
   bottom: 20px;
+  padding: 13px 38px;
   background: green !important;
 }
 :where(.css-dev-only-do-not-override-1qhpsh8).ant-modal .ant-modal-footer {
