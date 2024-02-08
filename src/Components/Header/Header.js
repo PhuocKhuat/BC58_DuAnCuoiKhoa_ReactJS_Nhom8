@@ -6,10 +6,11 @@ import HeaderAbove from "./HeaderAbove";
 import Search from "antd/es/input/Search";
 import { fetchCoursesList } from "../../Redux/personalSliceThunk";
 import { https } from "../../Services/api";
-import { setCatalog } from "../../Redux/headerSlice";
+import { setCatalog, setIsHovering } from "../../Redux/headerSlice";
 
 export default function Header() {
-  let { user, catalog } = useSelector((state) => state.headerSlice);
+  let { user, catalog, isHovering } = useSelector((state) => state.headerSlice);
+  console.log("🚀 ~ Header ~ isHovering:", isHovering);
   // console.log("🚀 ~ Header ~ catalog:", catalog)
   // console.log("🚀 ~ Header ~ taiKhoan:", user);
   const dispatch = useDispatch();
@@ -25,7 +26,25 @@ export default function Header() {
       });
   }, []);
   const renderCatalog = () =>
-    catalog.map((item, index) => <li key={index}>{item.tenDanhMuc}</li>);
+    catalog.map((item, index) => (
+      <li key={index} className="flex gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
+          />
+        </svg>{" "}
+        {item.tenDanhMuc}
+      </li>
+    ));
   const renderMenu = () => {
     if (user) {
       return (
@@ -161,8 +180,16 @@ export default function Header() {
           </div>
           <div className="uppercase cursor-pointer items-center">
             <ul className="flex space-x-5">
-              <li className="flex relative">
-                <span className="catalogHeader">Category</span>
+              <li
+                className="flex relative h-20 transition-all"
+                onMouseEnter={() => {
+                  dispatch(setIsHovering(true));
+                }}
+                onMouseLeave={() => {
+                  dispatch(setIsHovering(false));
+                }}
+              >
+                <span className="catalogHeader catalogHover">Category</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -177,7 +204,11 @@ export default function Header() {
                     d="m19.5 8.25-7.5 7.5-7.5-7.5"
                   />
                 </svg>
-                <ul className="absolute top-12 z-50  space-y-4 catalogUl">
+                <ul
+                  className={`absolute top-12 z-50  space-y-4 catalogUl p-3 ${
+                    isHovering ? "" : "hidden"
+                  }`}
+                >
                   {renderCatalog()}
                 </ul>
               </li>
@@ -186,6 +217,9 @@ export default function Header() {
               </li>
               <li>
                 <span className="catalogHeader">Information</span>
+              </li>
+              <li>
+                <span className="catalogHeader">Event</span>
               </li>
             </ul>
           </div>

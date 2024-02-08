@@ -35,7 +35,7 @@
 }
 .header .catalogHeader{
     display: block;
-    height: 30px;
+    height: 40px;
     transition: all 0.3s;
     position: relative;
 }
@@ -67,6 +67,11 @@
     padding: 10px;
 }
 .header .catalogUl{
-    width: 178px;
+    width: 220px;
     background: rgba(0, 0, 0, 0.4) !important;
+    transition: all 0.3s;
+}
+.header .catalogUl li:hover{
+    scale: 1.1;
+    color: #ce44f8;
 }
