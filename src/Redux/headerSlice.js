@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   user: JSON.parse(localStorage.getItem("USER_INFO")),
+  catalog: [],
 }
 
 const headerSlice = createSlice({
@@ -11,9 +12,12 @@ const headerSlice = createSlice({
     setUser: (state, action)=>{
       state.user = action.payload;
     },
+    setCatalog : (state, action)=>{
+      state.catalog = action.payload;
+    },
   }
 });
 
-export const { setUser } = headerSlice.actions
+export const { setUser, setCatalog } = headerSlice.actions
 
 export default headerSlice.reducer

@@ -16,7 +16,7 @@ const Modals = () => {
     maNhom: "GP09",
     maLoaiNguoiDung: "HV",
   };
-  const { handleChange, values, handleSubmit, errors, touched } = useFormik({
+  const { handleChange, values, handleSubmit, errors } = useFormik({
     initialValues: initialValues,
     validationSchema: updateValidate,
     onSubmit: (values) => {
@@ -27,6 +27,7 @@ const Modals = () => {
     // }
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [modal, setModal] = useModal();
   const dispatch = useDispatch();
   const handleUpdate = (infoUsers) => {
     console.log("🚀 ~ handleUpdate ~ infoUsers:", infoUsers);
@@ -35,6 +36,7 @@ const Modals = () => {
       .then((res) => {
         console.log(res);
         dispatch(setUpdateForm(res.data));
+        window.location.reload();
       })
       .catch((err) => {
         console.log(err);
@@ -49,12 +51,13 @@ const Modals = () => {
   const handleOk = () => {
     setIsModalOpen(false);
   };
+  
   return (
     <div className="modals">
       <Button type="primary" className="btnModals" onClick={showModal}>
         <p>Personal Infomation</p>
       </Button>
-      <Modal
+      <Modal 
         title="Edit personal information"
         open={isModalOpen}
         onOk={handleOk}
@@ -108,9 +111,6 @@ const Modals = () => {
             </div>
             {(errors.hoTen || errors.matKhau || errors.email || errors.soDT) ? <button
               type="submit"
-              onClick={() => {
-                handleUpdate(values);
-              }}
               className="btnUpdate cursor-not-allowed font-bold"
               disabled
             >

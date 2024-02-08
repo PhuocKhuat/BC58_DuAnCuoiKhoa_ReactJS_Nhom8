@@ -66,3 +66,7 @@
 .header :where(.css-dev-only-do-not-override-1qhpsh8).ant-input-search >.ant-input-group >.ant-input-group-addon:last-child .ant-input-search-button {
     padding: 10px;
 }
+.header .catalogUl{
+    width: 178px;
+    background: rgba(0, 0, 0, 0.4) !important;
+}

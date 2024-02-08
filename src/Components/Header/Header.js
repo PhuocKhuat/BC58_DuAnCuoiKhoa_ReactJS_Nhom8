@@ -1,26 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "./styleHeader.css";
 import HeaderAbove from "./HeaderAbove";
 import Search from "antd/es/input/Search";
 import { fetchCoursesList } from "../../Redux/personalSliceThunk";
+import { https } from "../../Services/api";
+import { setCatalog } from "../../Redux/headerSlice";
 
 export default function Header() {
-  let { user } = useSelector((state) => state.headerSlice);
+  let { user, catalog } = useSelector((state) => state.headerSlice);
+  // console.log("🚀 ~ Header ~ catalog:", catalog)
   // console.log("🚀 ~ Header ~ taiKhoan:", user);
   const dispatch = useDispatch();
-  const handleLogOut = () => {
-    localStorage.removeItem("USER_INFO");
-    window.location.reload();
-  };
-  const onSearch = (value) => {
-    // console.log("🚀 ~ onSearch ~ value:", value)
-    dispatch(fetchCoursesList(value));
-  };
-  const handleSubmit = (e)=>{
-    e.preventDefault();
-  }
+  useEffect(() => {
+    https
+      .get("/api/QuanLyKhoaHoc/LayDanhMucKhoaHoc")
+      .then((res) => {
+        console.log(res);
+        dispatch(setCatalog(res.data));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  const renderCatalog = () =>
+    catalog.map((item, index) => <li key={index}>{item.tenDanhMuc}</li>);
   const renderMenu = () => {
     if (user) {
       return (
@@ -107,6 +112,17 @@ export default function Header() {
       </>
     );
   };
+  const handleLogOut = () => {
+    localStorage.removeItem("USER_INFO");
+    window.location.reload();
+  };
+  const onSearch = (value) => {
+    // console.log("🚀 ~ onSearch ~ value:", value)
+    dispatch(fetchCoursesList(value));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <div>
       <HeaderAbove />
@@ -145,7 +161,7 @@ export default function Header() {
           </div>
           <div className="uppercase cursor-pointer items-center">
             <ul className="flex space-x-5">
-              <li className="flex">
+              <li className="flex relative">
                 <span className="catalogHeader">Category</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -161,6 +177,9 @@ export default function Header() {
                     d="m19.5 8.25-7.5 7.5-7.5-7.5"
                   />
                 </svg>
+                <ul className="absolute top-12 z-50  space-y-4 catalogUl">
+                  {renderCatalog()}
+                </ul>
               </li>
               <li>
                 <span className="catalogHeader">Course</span>
