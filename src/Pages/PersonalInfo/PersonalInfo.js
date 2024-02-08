@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Modals from "./Modals";
+import Modals from "./FormFormik/Modals";
 import "./stylePersonalInfo.css";
 import { https } from "../../Services/api";
 import { useDispatch, useSelector } from "react-redux";

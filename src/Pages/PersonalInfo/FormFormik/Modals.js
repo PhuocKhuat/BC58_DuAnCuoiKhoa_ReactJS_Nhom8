@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import { Field, Form, Formik, useFormik } from "formik";
-import { https } from "../../Services/api";
+import { https } from "../../../Services/api";
 import { useDispatch } from "react-redux";
-import { setUpdateForm } from "../../Redux/personalSlice";
+import { setUpdateForm } from "../../../Redux/personalSlice";
 import { updateValidate } from "./updateValidate";
 
 const Modals = () => {
@@ -22,12 +22,8 @@ const Modals = () => {
     onSubmit: (values) => {
       console.log("values", values);
     },
-    // handleChange : (e) => {
-    //   formik.setFieldValue(e.target.value);
-    // }
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [modal, setModal] = useModal();
   const dispatch = useDispatch();
   const handleUpdate = (infoUsers) => {
     console.log("🚀 ~ handleUpdate ~ infoUsers:", infoUsers);
@@ -110,7 +106,6 @@ const Modals = () => {
               {errors.soDT && <p>{errors.soDT}</p>}
             </div>
             {(errors.hoTen || errors.matKhau || errors.email || errors.soDT) ? <button
-              type="submit"
               className="btnUpdate cursor-not-allowed font-bold"
               disabled
             >

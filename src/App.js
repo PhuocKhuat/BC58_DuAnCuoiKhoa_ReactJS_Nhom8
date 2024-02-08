@@ -11,6 +11,7 @@ import DetailPage from "./Pages/DetailPage/DetailPage";
 import PrivateLayout from './Layouts/PrivateLayout';
 import TabPersonalInfo from "./Pages/PersonalInfo/TabsPersonalInfo";
 import Spinner from "./Components/Spinner/Spinner";
+import CourseCatalog from "./Pages/CourseCatalog/CourseCatalog";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/personalInfo" element={<PrivateLayout>
             <TabPersonalInfo/>
           </PrivateLayout>}/>
+          <Route path="/coursecatalog/:idMaDanhMuc" element={<CourseCatalog/>} />
         </Routes>
         <Footer/>
       </BrowserRouter>

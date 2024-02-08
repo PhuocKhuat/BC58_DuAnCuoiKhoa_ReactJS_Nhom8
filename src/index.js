@@ -13,6 +13,7 @@ import detailSlice from './Redux/detailSlice';
 import personalSlice from './Redux/personalSlice';
 import personalSliceThunk from './Redux/personalSliceThunk';
 import spinnerSlice from './Redux/spinnerSlice';
+import courseCatalogSlice from './Redux/courseCatalogSlice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export const store = configureStore({reducer:{
@@ -22,6 +23,7 @@ export const store = configureStore({reducer:{
   personalSlice,
   personalSliceThunk,
   spinnerSlice,
+  courseCatalogSlice,
 }})
 root.render(
   <Provider store={store}>

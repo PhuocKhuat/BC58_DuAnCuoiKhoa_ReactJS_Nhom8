@@ -35,7 +35,7 @@
 }
 .header .catalogHeader{
     display: block;
-    height: 40px;
+    height: 35px;
     transition: all 0.3s;
     position: relative;
 }
