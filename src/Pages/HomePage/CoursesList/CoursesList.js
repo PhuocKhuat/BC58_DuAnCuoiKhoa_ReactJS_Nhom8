@@ -14,7 +14,7 @@ export default function CoursesList() {
     // https
     //   .get("/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP09")
     //   .then((res) => {
-    //     // console.log(res.data);
+        // console.log(res.data);
     //     dispatch(setCoursesList(res.data));
     //   })
     //   .catch((err) => {

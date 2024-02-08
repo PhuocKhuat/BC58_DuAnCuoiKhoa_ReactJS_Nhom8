@@ -6,11 +6,13 @@ import HeaderAbove from "./HeaderAbove";
 import Search from "antd/es/input/Search";
 import { fetchCoursesList } from "../../Redux/personalSliceThunk";
 import { https } from "../../Services/api";
-import { setCatalog, setIsHovering } from "../../Redux/headerSlice";
+import { setCatalog, setIsHovering, setSearchCourse } from "../../Redux/headerSlice";
 
 export default function Header() {
-  let { user, catalog, isHovering } = useSelector((state) => state.headerSlice);
-  console.log("🚀 ~ Header ~ isHovering:", isHovering);
+  const { user, catalog, isHovering, searchCourse } = useSelector((state) => state.headerSlice);
+  // console.log("🚀 ~ Header ~ searchCourse:", searchCourse)
+  // console.log("🚀 ~ Header ~ coursesList:", coursesList)
+  // console.log("🚀 ~ Header ~ isHovering:", isHovering);
   // console.log("🚀 ~ Header ~ catalog:", catalog)
   // console.log("🚀 ~ Header ~ taiKhoan:", user);
   const dispatch = useDispatch();
@@ -127,6 +129,7 @@ export default function Header() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+
   };
   return (
     <div>
@@ -157,11 +160,15 @@ export default function Header() {
               </a>
             </div>
             <form onSubmit={handleSubmit}>
+              <span onClick={()=>{
+                  dispatch(setSearchCourse(true))
+                }}>
               <Search
                 placeholder="Search courses..."
                 onSearch={onSearch}
                 enterButton={true}
               />
+              </span>
             </form>
           </div>
           <div className="uppercase cursor-pointer items-center">

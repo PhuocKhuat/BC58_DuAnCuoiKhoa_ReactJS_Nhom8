@@ -13,6 +13,7 @@ export default function DetailPage() {
   const { detail } = useSelector((state) => state.detailSlice);
   // console.log("🚀 ~ DetailPage ~ detail:", detail)
   useEffect(() => {
+    window.scrollTo(0,0);
     https
       .get(`/api/QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=${idKhoaHoc}`)
       .then((res) => {

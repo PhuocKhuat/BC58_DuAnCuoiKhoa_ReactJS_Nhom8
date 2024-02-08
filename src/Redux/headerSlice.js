@@ -4,6 +4,7 @@ const initialState = {
   user: JSON.parse(localStorage.getItem("USER_INFO")),
   catalog: [],
   isHovering: false,
+  searchCourse: false,
 }
 
 const headerSlice = createSlice({
@@ -19,9 +20,12 @@ const headerSlice = createSlice({
     setIsHovering: (state, action)=>{
       state.isHovering = action.payload;  
     },
+    setSearchCourse: (state, action)=>{
+      state.searchCourse = action.payload;
+    },
   }
 });
 
-export const { setUser, setCatalog, setIsHovering } = headerSlice.actions
+export const { setUser, setCatalog, setIsHovering, setSearchCourse } = headerSlice.actions
 
 export default headerSlice.reducer
