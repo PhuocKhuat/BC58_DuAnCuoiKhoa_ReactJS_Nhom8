@@ -7,7 +7,7 @@ const initialState = {
 
 export const fetchCoursesList = createAsyncThunk(
   "fetchCoursesList",
-  async (tenKhoaHoc = "", maDanhMuc) => {
+  async (tenKhoaHoc = "", maDanhMuc="") => {
     if (tenKhoaHoc.trim() !== "") {
       let res = await https.get(
         `/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?tenKhoaHoc=${tenKhoaHoc}&MaNhom=GP09`
