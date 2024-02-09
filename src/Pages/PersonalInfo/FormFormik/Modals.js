@@ -32,7 +32,8 @@ const Modals = () => {
       .then((res) => {
         console.log(res);
         dispatch(setUpdateForm(res.data));
-        window.location.reload();
+        setIsModalOpen(false);
+        // window.location.reload();
       })
       .catch((err) => {
         console.log(err);
