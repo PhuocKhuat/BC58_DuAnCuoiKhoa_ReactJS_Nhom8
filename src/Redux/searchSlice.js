@@ -11,7 +11,7 @@ const searchSlice = createSlice({
   reducers: {
     setSelectedCategory: (state, action)=>{
         state.selectedCategory = action.payload;
-    },
+    },  
     setSelectedCategoryCourse: (state, action)=>{
         state.selectedCategoryCourse = action.payload;
     },

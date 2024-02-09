@@ -4,14 +4,10 @@ import "./styleCoursesList.css";
 import { NavLink } from "react-router-dom";
 import { Tooltip } from "antd";
 import { fetchCoursesList } from "../../../Redux/personalSliceThunk";
-import SearchPage from "../../SearchPage/SearchPage";
 
 export default function CoursesList() {
   const dispatch = useDispatch();
-  // const { coursesList } = useSelector((state) => state.homeSlice);
   const { coursesList } = useSelector((state) => state.personalSliceThunk);
-  const { searchCourse } = useSelector(state => state.headerSlice);
-    // console.log("🚀 ~ CoursesList ~ searchCourse:", searchCourse)
     // console.log("🚀 ~ CoursesList ~ CoursesList:", coursesList);
   useEffect(() => {
     // https
@@ -107,7 +103,7 @@ export default function CoursesList() {
     ));
   };
   return (
-    searchCourse ? <SearchPage/> : <div className="courseList">
+    <div className="courseList">
     <div className="container">
       <h1 className="exploreTitle font-bold pb-9  text-white text-center uppercase">
         Explore E-learing courses

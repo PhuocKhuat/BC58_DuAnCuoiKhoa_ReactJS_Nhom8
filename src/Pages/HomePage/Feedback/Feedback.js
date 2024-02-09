@@ -1,11 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
 import "./styleFeedback.css";
-import { useSelector } from "react-redux";
 
 export default function Feedback() {
-  const { searchCourse } = useSelector(state => state.headerSlice);
-  // console.log("🚀 ~ Feedback ~ searchCourse:", searchCourse)
   const settings = {
     dots: true,
     infinite: true,
@@ -14,7 +11,7 @@ export default function Feedback() {
     slidesToScroll: 1,
   };
   return (
-    searchCourse ? "" : <div className="feedBack">
+    <div className="feedBack">
     <div className="container">
     <div>
       <h1 className="text-center font-bold tittleFeedBack">WHAT STUDENTS SAY ABOUT E-LEARNING</h1>

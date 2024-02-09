@@ -11,27 +11,32 @@ import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCourseCatalogById } from "../../Redux/courseCatalogSlice";
 import { Tooltip } from "antd";
+import { fetchCourseCatalog } from "../../Redux/searchCatalogThunk";
 
 export default function CourseCatalog() {
+  // const { courseCatalogById } = useSelector(
+  //   (state) => state.courseCatalogSlice
+  // );
   const { courseCatalogById } = useSelector(
-    (state) => state.courseCatalogSlice
+    (state) => state.searchCatalogThunk
   );
   console.log("🚀 ~ CourseCatalog ~ courseCatalogById:", courseCatalogById);
   const { idMaDanhMuc } = useParams();
   const dispatch = useDispatch();
   // console.log("🚀 ~ CourseCatalog ~ idMaDanhMuc:", idMaDanhMuc)
   useEffect(() => {
-    https
-      .get(
-        `/api/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${idMaDanhMuc}&MaNhom=GP09`
-      )
-      .then((res) => {
-        console.log(res);
-        dispatch(setCourseCatalogById(res.data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // https
+    //   .get(
+    //     `/api/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${idMaDanhMuc}&MaNhom=GP09`
+    //   )
+    //   .then((res) => {
+    //     console.log(res);
+    //     dispatch(setCourseCatalogById(res.data));
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    dispatch(fetchCourseCatalog(idMaDanhMuc))
   }, []);
   const rednerCourseCatalog = () =>
     courseCatalogById.map((course, index) => (
@@ -91,7 +96,7 @@ export default function CourseCatalog() {
   const renderTitleCatalog = () =>
     courseCatalogById.map((title, index) =>
       index === 0 ? (
-        <strong className="titleCourseCatalog flex p-2 gap-2 mb-5" key={index}>
+        <strong className="titleCourseCatalog flex p-2 gap-2 rounded-2xl" key={index}>
           <span className="text-yellow-400">
             <LaptopOutlined />
           </span>
@@ -116,7 +121,7 @@ export default function CourseCatalog() {
           </span>
         </h1>
         <div>
-          <div className="flex gap-2 text-xl">{renderTitleCatalog()}</div>
+          <div className="flex gap-2 text-xl mb-10">{renderTitleCatalog()}</div>
           <div className="grid grid-cols-3 sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6 gap-3">
             {rednerCourseCatalog()}
           </div>

@@ -9,7 +9,7 @@ import { https } from "../../Services/api";
 import {
   setCatalog,
   setIsHovering,
-  setSearchCourse,
+  // setSearchCourse,
 } from "../../Redux/headerSlice";
 
 export default function Header() {
@@ -24,20 +24,23 @@ export default function Header() {
   // console.log("🚀 ~ Header ~ taiKhoan:", user);
   const dispatch = useDispatch();
   useEffect(() => {
-    https
-      .get("/api/QuanLyKhoaHoc/LayDanhMucKhoaHoc")
-      .then((res) => {
-        console.log(res);
-        dispatch(setCatalog(res.data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    fetchCourseCatalog();
   }, []);
+  const fetchCourseCatalog = async () => {
+    try {
+      let res = await https.get("/api/QuanLyKhoaHoc/LayDanhMucKhoaHoc");
+      dispatch(setCatalog(res.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const renderCatalog = () =>
     catalog.map((item, index) => (
       <li key={index}>
-        <NavLink to={`/coursecatalog/${item.maDanhMuc}`}>
+        <NavLink to={`/coursecatalog/${item.maDanhMuc}`} onClick={()=>{
+          window.location.href(`/coursecatalog/${item.maDanhMuc}`)
+        }}
+        >
           {item.tenDanhMuc}
         </NavLink>
       </li>
@@ -132,15 +135,18 @@ export default function Header() {
     localStorage.removeItem("USER_INFO");
     window.location.reload();
   };
-  const onSearch = (value) => {
-    // console.log("🚀 ~ onSearch ~ value:", value)
-    dispatch(fetchCoursesList(value));
-    dispatch(setSearchCourse(true));
-    navigate("/searchcourse");
+  const onSearch = async (value) => {
+    // console.log("🚀 ~ onSearch ~ value:", typeof value)
+    await navigate("/searchcourse");
+    await dispatch(fetchCoursesList(value));
+    // dispatch(setSearchCourse(true));
   };
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+  // const handleCourseCatalog = async (maDanhMuc)=>{
+
+  // }
   return (
     <div>
       <HeaderAbove />

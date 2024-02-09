@@ -1,5 +1,10 @@
 .courseCatalog .titleCourseCatalog {
   border: 2px solid rgb(222, 213, 213);
+  transition: all 0.3s;
+}
+.courseCatalog .titleCourseCatalog:hover {
+  scale: 1.1;
+  background-color: #fefae0;
 }
 .courseCatalog .borderCourse {
   background: white;

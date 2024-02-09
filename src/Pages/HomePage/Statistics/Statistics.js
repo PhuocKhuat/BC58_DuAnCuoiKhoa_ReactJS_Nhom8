@@ -1,12 +1,10 @@
 import React from "react";
 import CountUp from "react-countup";
 import './styleStatistics.css';
-import { useSelector } from "react-redux";
 
 export default function Statistics() {
-  const { searchCourse } = useSelector(state => state.headerSlice);
   return (
-     searchCourse ? "" : <div className="boxNumberColor statistic">
+     <div className="boxNumberColor statistic">
       <div className="container">
       <h1 className="titleStatistic font-bold text-center">E-LEARNING - TRAINING PROGRAMMING ACCORDING TO THE PROJECT ROADMAP</h1>
       <p className="text-2xl text-center pb-8">Statistics through numbers</p>
