@@ -143,3 +143,42 @@ const Modals = () => {
   );
 };
 export default Modals;
+
+const onChangeFilterCourseByIdMa = (checkedValues)=>{
+    dispatch(fetchCoursesList(checkedValues.toString()));
+    console.log("checked = ", typeof checkedValues);
+}
+
+<h6 className="mb-3 text-base font-medium text-gray-900 dark:text-white">
+                  Courses Catalog
+                </h6>
+                <Checkbox.Group
+                  style={{
+                    width: "100%",
+                  }}
+                  onChange={onChangeFilterCourseByIdMa}
+                >
+                  <ul
+                    className="space-y-2 text-sm mb-4"
+                    aria-labelledby="dropdownDefault"
+                  >
+                    {renderCourseCatalog()}
+                  </ul>
+                </Checkbox.Group>
+                
+ const renderCourseCatalog = () => {
+    return catalog.map((courseCatalog, index) => (
+      <li className="flex items-center" key={index}>
+        <Checkbox value={courseCatalog.maDanhMuc}>
+          {courseCatalog.maDanhMuc}
+        </Checkbox>
+      </li>
+    ));
+  };
+
+else if(maDanhMuc.trim() !== ""){
+      let res = await https.get(
+        `/api/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${maDanhMuc}&MaNhom=GP09`
+      );
+      return res.data;
+    }

@@ -13,6 +13,8 @@ import TabPersonalInfo from "./Pages/PersonalInfo/TabsPersonalInfo";
 import Spinner from "./Components/Spinner/Spinner";
 import CourseCatalog from "./Pages/CourseCatalog/CourseCatalog";
 import SearchPage from "./Pages/SearchPage/SearchPage";
+import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
+import AdminUserPage from "./Pages/AdminUserPage/AdminUserPage";
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
           </PrivateLayout>}/>
           <Route path="/coursecatalog/:idMaDanhMuc" element={<CourseCatalog/>} />
           <Route path="/searchcourse" element={<SearchPage/>}/>
+          <Route path="*" element={<NotFoundPage/>}/>
+          <Route path="/adminuserpage" element={<AdminUserPage/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

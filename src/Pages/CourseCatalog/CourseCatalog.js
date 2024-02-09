@@ -6,10 +6,8 @@ import {
   BarChartOutlined,
 } from "@ant-design/icons";
 import "./styleCourseCatalog.css";
-import { https } from "../../Services/api";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setCourseCatalogById } from "../../Redux/courseCatalogSlice";
 import { Tooltip } from "antd";
 import { fetchCourseCatalog } from "../../Redux/searchCatalogThunk";
 
@@ -19,7 +17,7 @@ export default function CourseCatalog() {
   // );
   const { courseCatalogById } = useSelector(
     (state) => state.searchCatalogThunk
-  );
+  );  
   console.log("🚀 ~ CourseCatalog ~ courseCatalogById:", courseCatalogById);
   const { idMaDanhMuc } = useParams();
   const dispatch = useDispatch();

@@ -9,13 +9,10 @@ import { Checkbox, Tooltip } from "antd";
 import { NavLink } from "react-router-dom";
 import { fetchCoursesList } from "../../Redux/personalSliceThunk";
 import "./styleSearchPage.css";
-import { fetchCourseCatalog } from "../../Redux/searchCatalogThunk";
 
 export default function SearchPage() {
   const { coursesList } = useSelector((state) => state.personalSliceThunk);
-  const { courseCatalogById } = useSelector((state) => state.searchCatalogThunk);
   const { catalog } = useSelector((state) => state.headerSlice);
-  //   const { selectedCategory, selectedCategoryCourse } = useSelector((state) => state.searchSlice);
   //   console.log("🚀 ~ SearchPage ~ catalog:", catalog)
   //   console.log("🚀 ~ SearchPage ~ coursesList:", coursesList);
   const dispatch = useDispatch();
@@ -163,23 +160,10 @@ export default function SearchPage() {
       </li>
     ));
   };
-  const renderCourseCatalog = () => {
-    return catalog.map((courseCatalog, index) => (
-      <li className="flex items-center" key={index}>
-        <Checkbox value={courseCatalog.maDanhMuc}>
-          {courseCatalog.maDanhMuc}
-        </Checkbox>
-      </li>
-    ));
-  };
   const onChangeFilterCourse = (checkedValues) => {
     dispatch(fetchCoursesList(checkedValues.toString()));
     console.log("checked = ", typeof checkedValues);
   };
-  const onChangeFilterCourseByIdMa = (checkedValues)=>{
-    dispatch(fetchCoursesList("",checkedValues.toString()));
-    console.log("checked = ", typeof checkedValues);
-  }
 
   return (
     <div className="searchPage text-gray-600 body-font overflow-hidden">
@@ -194,22 +178,6 @@ export default function SearchPage() {
                 <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl">
                   Category
                 </h3>
-                <h6 className="mb-3 text-base font-medium text-gray-900 dark:text-white">
-                  Courses Catalog
-                </h6>
-                <Checkbox.Group
-                  style={{
-                    width: "100%",
-                  }}
-                  onChange={onChangeFilterCourseByIdMa}
-                >
-                  <ul
-                    className="space-y-2 text-sm mb-4"
-                    aria-labelledby="dropdownDefault"
-                  >
-                    {renderCourseCatalog()}
-                  </ul>
-                </Checkbox.Group>
                 <h6 className="mb-3 text-base font-medium text-gray-900 dark:text-white">
                   Courses
                 </h6>

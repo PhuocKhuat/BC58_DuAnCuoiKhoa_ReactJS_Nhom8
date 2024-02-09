@@ -7,23 +7,17 @@ const initialState = {
 
 export const fetchCoursesList = createAsyncThunk(
   "fetchCoursesList",
-  async (tenKhoaHoc = "", maDanhMuc="") => {
+  async (tenKhoaHoc = "") => {
     if (tenKhoaHoc.trim() !== "") {
       let res = await https.get(
         `/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?tenKhoaHoc=${tenKhoaHoc}&MaNhom=GP09`
       );
       return res.data;
-    } else if (tenKhoaHoc.trim() === "") {
-      let res = await https.get(
-        "/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP09"
-      );
-      return res.data;
-    } else if(maDanhMuc.trim() !== ""){
-      let res = await https.get(
-        `/api/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${maDanhMuc}&MaNhom=GP09`
-      );
-      return res.data;
     }
+    let res = await https.get(
+      "/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP09"
+    );
+    return res.data;
   }
 );
 

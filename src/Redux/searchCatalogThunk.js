@@ -10,7 +10,6 @@ export const fetchCourseCatalog = createAsyncThunk("fetchCourseCatalog", async (
     let res = await https.get(`/api/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${maDanhMuc}&MaNhom=GP09`);
     return res.data;
   }
-  
 })
 
 const searchCatalogThunk = createSlice({
