@@ -25,7 +25,7 @@ export default function MyCourses() {
   //   }
   // };
   const renderRegisterCourses = () =>
-    coursesList.filter(course => course.tenKhoaHoc.toLowerCase()).map((course, index) => (
+    coursesList.map((course, index) => (
       <div className="pt-4 mb-5" key={index}>
         <div className="lg:w-4/5 flex mx-auto w-4/5 flex-wrap">
           <img

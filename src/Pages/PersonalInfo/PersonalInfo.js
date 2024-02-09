@@ -30,7 +30,7 @@ export default function PersonalInfo() {
       });
   }, []);
   return (
-    <section className="text-gray-600 body-font personalInfo">
+    <div className="text-gray-600 body-font personalInfo">
       <div className="mb-5 sflex flex-col">
         <div className="">
           <div className="flex flex-col sm:flex-row mt-10 borderFrame">
@@ -287,6 +287,6 @@ export default function PersonalInfo() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -1,15 +1,22 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./styleHeader.css";
 import HeaderAbove from "./HeaderAbove";
 import Search from "antd/es/input/Search";
 import { fetchCoursesList } from "../../Redux/personalSliceThunk";
 import { https } from "../../Services/api";
-import { setCatalog, setIsHovering, setSearchCourse } from "../../Redux/headerSlice";
+import {
+  setCatalog,
+  setIsHovering,
+  setSearchCourse,
+} from "../../Redux/headerSlice";
 
 export default function Header() {
-  const { user, catalog, isHovering, searchCourse } = useSelector((state) => state.headerSlice);
+  const { user, catalog, isHovering } = useSelector(
+    (state) => state.headerSlice
+  );
+  const navigate = useNavigate();
   // console.log("🚀 ~ Header ~ searchCourse:", searchCourse)
   // console.log("🚀 ~ Header ~ coursesList:", coursesList)
   // console.log("🚀 ~ Header ~ isHovering:", isHovering);
@@ -30,7 +37,9 @@ export default function Header() {
   const renderCatalog = () =>
     catalog.map((item, index) => (
       <li key={index}>
-        <NavLink to={`/coursecatalog/${item.maDanhMuc}`}>{item.tenDanhMuc}</NavLink>
+        <NavLink to={`/coursecatalog/${item.maDanhMuc}`}>
+          {item.tenDanhMuc}
+        </NavLink>
       </li>
     ));
   const renderMenu = () => {
@@ -126,10 +135,11 @@ export default function Header() {
   const onSearch = (value) => {
     // console.log("🚀 ~ onSearch ~ value:", value)
     dispatch(fetchCoursesList(value));
+    dispatch(setSearchCourse(true));
+    navigate("/searchcourse");
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-
   };
   return (
     <div>
@@ -160,15 +170,11 @@ export default function Header() {
               </a>
             </div>
             <form onSubmit={handleSubmit}>
-              <span onClick={()=>{
-                  dispatch(setSearchCourse(true))
-                }}>
               <Search
                 placeholder="Search courses..."
                 onSearch={onSearch}
                 enterButton={true}
               />
-              </span>
             </form>
           </div>
           <div className="uppercase cursor-pointer items-center">

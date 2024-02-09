@@ -12,6 +12,7 @@ import PrivateLayout from './Layouts/PrivateLayout';
 import TabPersonalInfo from "./Pages/PersonalInfo/TabsPersonalInfo";
 import Spinner from "./Components/Spinner/Spinner";
 import CourseCatalog from "./Pages/CourseCatalog/CourseCatalog";
+import SearchPage from "./Pages/SearchPage/SearchPage";
 
 function App() {
   return (
@@ -27,10 +28,11 @@ function App() {
             <Route path="/account" element={<FormLogin />} />
             <Route path="/signup" element={<FormSignup />} />
           </Route>
-          <Route path="/personalInfo" element={<PrivateLayout>
+          <Route path="/personalinfo" element={<PrivateLayout>
             <TabPersonalInfo/>
           </PrivateLayout>}/>
           <Route path="/coursecatalog/:idMaDanhMuc" element={<CourseCatalog/>} />
+          <Route path="/searchcourse" element={<SearchPage/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

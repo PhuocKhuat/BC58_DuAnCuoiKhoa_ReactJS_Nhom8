@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { https } from "../Services/api";
+import { useDispatch } from "react-redux";
+import { setSelectedCategory } from "./searchSlice";
 
 const initialState = {
   coursesList: [],
@@ -11,12 +13,12 @@ export const fetchCoursesList = createAsyncThunk(
     if(tenKhoaHoc.trim() !== ""){
       let res = await https.get(
         `/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?tenKhoaHoc=${tenKhoaHoc}&MaNhom=GP09`
-      );
-      return res.data;  
-    }
-    let res = await https.get(
-      "/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP09"
-    );
+        );
+        return res.data;  
+      }
+      let res = await https.get(
+        "/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP09"
+        );
     return res.data;
   }
 );

@@ -2,10 +2,12 @@ import Lottie from "lottie-react";
 import React from "react";
 import bgAnimateLearing from "./bgAnimateLearning.json";
 import "./styleSlider.css";
+import { useSelector } from "react-redux";
 
 export default function Slider() {
+  const { searchCourse } = useSelector(state => state.headerSlice);
   return (
-    <div className="slider">
+    searchCourse ? "" : <div className="slider">
       <div className="container">
       <div className="grid grid-cols-12 sliderHome">
         <div className="col-span-6 sloganBox">
