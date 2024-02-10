@@ -4,7 +4,7 @@ import { Field, Form, Formik, useFormik } from "formik";
 import { https } from "../../../Services/api";
 import { useDispatch } from "react-redux";
 import { setUpdateForm } from "../../../Redux/personalSlice";
-import { updateValidate } from "./updateValidate";
+import { updateValidate } from "../../../Validation/updateValidate";
 
 const saveForm = ()=>{
  const storeValues = localStorage.getItem("FORM_USER");
@@ -14,9 +14,9 @@ const saveForm = ()=>{
     matKhau: "",
     email: "",
     soDT: "",
-    taiKhoan: "nguyenTest",
-    maNhom: "GP09",
-    maLoaiNguoiDung: "HV",
+    taiKhoan: "",
+    maNhom: "",
+    maLoaiNguoiDung: "",
   };
  }
  return JSON.parse(storeValues);

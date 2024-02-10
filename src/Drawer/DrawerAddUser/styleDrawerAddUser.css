@@ -25,3 +25,27 @@ header div span span input, header div span span button{
   border-radius: 5px;
   background: rgb(197, 17, 17) !important;
 }
+div div div div div div div div button{
+  padding: 20px !important;
+}
+div div div div div div div div:nth-child(1) button{
+  background: rgb(11, 127, 135) !important;
+}
+div div div div div div div div:nth-child(2) button{
+  background: rgb(53, 53, 221) !important;
+}
+.drawerAddUser .formDrawer label{
+  font-weight: bold;
+  font-size: 18px;
+}
+.formDrawer input:focus {
+  padding: 10px !important;
+  border-color: #ced4da;
+  outline: none;
+}
+.formDrawer .fieldInput {
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+}

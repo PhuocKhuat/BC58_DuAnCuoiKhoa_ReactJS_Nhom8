@@ -1,10 +1,25 @@
-import React, { useState } from 'react';
-import { PlusOutlined } from '@ant-design/icons';
-import { Button, Col, DatePicker, Drawer, Form, Input, Row, Select, Space } from 'antd';
-import './styleDrawerAddUser.css';
+import React, { useState } from "react";
+import { PlusOutlined } from "@ant-design/icons";
+import { Button, Drawer, Space } from "antd";
+import "./styleDrawerAddUser.css";
+import { Formik, Form, Field, useFormik } from "formik";
+import { addUserValidation } from "../../Validation/addUserValidation";
 
-const { Option } = Select;
 const DrawerAddUser = () => {
+  const initialValues = {
+    taiKhoan: "",
+    hoTen: "",
+    email: "",
+    soDt: "",
+    maLoaiNguoiDung: "",
+  };
+  const { handleChange, values, handleSubmit, errors } = useFormik({
+    initialValues: initialValues,
+    validationSchema: addUserValidation,
+    onSubmit: (values) => {
+      console.log("🚀 ~ DrawerAddUser ~ values:", values);
+    },
+  });
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
     setOpen(true);
@@ -13,7 +28,7 @@ const DrawerAddUser = () => {
     setOpen(false);
   };
   return (
-    <div className='drawerAddUser'>
+    <div className="drawerAddUser">
       <Button type="primary" onClick={showDrawer} icon={<PlusOutlined />}>
         Add User
       </Button>
@@ -31,140 +46,74 @@ const DrawerAddUser = () => {
           <Space>
             <Button onClick={onClose}>Cancel</Button>
             <Button onClick={onClose} type="primary">
-              Submit
+              Add
             </Button>
           </Space>
         }
       >
-        <Form layout="vertical" hideRequiredMark>
-          <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                name="name"
-                label="Name"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please enter user name',
-                  },
-                ]}
-              >
-                <Input placeholder="Please enter user name" />
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item
-                name="url"
-                label="Url"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please enter url',
-                  },
-                ]}
-              >
-                <Input
-                  style={{
-                    width: '100%',
-                  }}
-                  addonBefore="http://"
-                  addonAfter=".com"
-                  placeholder="Please enter url"
+        <Formik initialValues={initialValues} validationSchema={addUserValidation}>
+          <Form onSubmit={handleSubmit} className="grid grid-cols-12 formDrawer">
+            <div className="col-span-6 space-y-5 p-3">
+              <div className="flex flex-col space-y-3">
+                <label>Account</label>
+                <Field
+                  name="taiKhoan"
+                  type="text"
+                  className="fieldInput"
+                  value={values.taiKhoan}
+                  onChange={handleChange}
+                  placeholder="Please enter the user's account"
                 />
-              </Form.Item>
-            </Col>
-          </Row>
-          <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                name="owner"
-                label="Owner"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please select an owner',
-                  },
-                ]}
-              >
-                <Select placeholder="Please select an owner">
-                  <Option value="xiao">Xiaoxiao Fu</Option>
-                  <Option value="mao">Maomao Zhou</Option>
-                </Select>
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item
-                name="type"
-                label="Type"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please choose the type',
-                  },
-                ]}
-              >
-                <Select placeholder="Please choose the type">
-                  <Option value="private">Private</Option>
-                  <Option value="public">Public</Option>
-                </Select>
-              </Form.Item>
-            </Col>
-          </Row>
-          <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                name="approver"
-                label="Approver"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please choose the approver',
-                  },
-                ]}
-              >
-                <Select placeholder="Please choose the approver">
-                  <Option value="jack">Jack Ma</Option>
-                  <Option value="tom">Tom Liu</Option>
-                </Select>
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item
-                name="dateTime"
-                label="DateTime"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please choose the dateTime',
-                  },
-                ]}
-              >
-                <DatePicker.RangePicker
-                  style={{
-                    width: '100%',
-                  }}
-                  getPopupContainer={(trigger) => trigger.parentElement}
+              </div>
+              <div className="flex flex-col space-y-3">
+                <label>Full Name</label>
+                <Field
+                  name="hoTen"
+                  type="text"
+                  className="fieldInput"
+                  value={values.hoTen}
+                  onChange={handleChange}
+                  placeholder="Please enter the user's full name"
                 />
-              </Form.Item>
-            </Col>
-          </Row>
-          <Row gutter={16}>
-            <Col span={24}>
-              <Form.Item
-                name="description"
-                label="Description"
-                rules={[
-                  {
-                    required: true,
-                    message: 'please enter url description',
-                  },
-                ]}
-              >
-                <Input.TextArea rows={4} placeholder="please enter url description" />
-              </Form.Item>
-            </Col>
-          </Row>
-        </Form>
+              </div>
+              <div className="flex flex-col space-y-3">
+                <label>Email</label>
+                <Field
+                  name="email"
+                  type="text"
+                  className="fieldInput"
+                  value={values.email}
+                  onChange={handleChange}
+                  placeholder="Please enter the user's email"
+                />
+              </div>
+            </div>
+            <div className="col-span-6 space-y-5 p-3">
+            <div className="flex flex-col space-y-3">
+              <label>Phone Number</label>
+              <Field
+                name="soDt"
+                type="text"
+                className="fieldInput"
+                value={values.soDt}
+                onChange={handleChange}
+                placeholder="Please enter the user's phone number"
+              />
+            </div>
+            <div className="flex flex-col space-y-3">
+              <label>User type code</label>
+              <Field
+                name="maLoaiNguoiDung"
+                type="text"
+                className="fieldInput"
+                value={values.maLoaiNguoiDung}
+                onChange={handleChange}
+                placeholder="Please enter the user's type code"
+              />
+            </div>
+            </div>
+          </Form>
+        </Formik>
       </Drawer>
     </div>
   );
