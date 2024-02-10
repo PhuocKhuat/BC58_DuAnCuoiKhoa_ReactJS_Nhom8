@@ -13,7 +13,13 @@ export const fetchAdminUser = createAsyncThunk("fetchAdminUser", async ()=>{
 const adminUserSliceThunk = createSlice({
   name: "adminUserSliceThunk",
   initialState,
-  reducers: {},
+  reducers: {
+    setDeleteUser : (state, action)=>{
+      let cloneUserList = [...state.userList];
+      let indexUser = cloneUserList.filter(user => user.taiKhoan !== action.payload);
+      state.userList = indexUser;
+    },
+  },
   extraReducers: (buider)=>{
     buider.addCase(fetchAdminUser.fulfilled, (state, action)=>{
       state.userList = action.payload;
@@ -21,6 +27,6 @@ const adminUserSliceThunk = createSlice({
   }
 });
 
-export const {} = adminUserSliceThunk.actions
+export const { setDeleteUser} = adminUserSliceThunk.actions
 
 export default adminUserSliceThunk.reducer

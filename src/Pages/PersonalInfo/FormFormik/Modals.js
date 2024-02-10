@@ -6,8 +6,10 @@ import { useDispatch } from "react-redux";
 import { setUpdateForm } from "../../../Redux/personalSlice";
 import { updateValidate } from "./updateValidate";
 
-const Modals = () => {
-  const initialValues = {
+const saveForm = ()=>{
+ const storeValues = localStorage.getItem("FORM_USER");
+ if(!storeValues){
+  return{
     hoTen: "",
     matKhau: "",
     email: "",
@@ -16,6 +18,11 @@ const Modals = () => {
     maNhom: "GP09",
     maLoaiNguoiDung: "HV",
   };
+ }
+ return JSON.parse(storeValues);
+}
+const Modals = () => {
+  const initialValues = saveForm();
   const { handleChange, values, handleSubmit, errors } = useFormik({
     initialValues: initialValues,
     validationSchema: updateValidate,
@@ -23,6 +30,9 @@ const Modals = () => {
       console.log("values", values);
     },
   });
+  React.useEffect(()=>{
+    localStorage.setItem("FORM_USER", JSON.stringify(values));
+  }, [values])
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
   const handleUpdate = (infoUsers) => {
@@ -33,7 +43,6 @@ const Modals = () => {
         console.log(res);
         dispatch(setUpdateForm(res.data));
         setIsModalOpen(false);
-        // window.location.reload();
       })
       .catch((err) => {
         console.log(err);

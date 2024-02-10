@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Space, Table } from "antd";
 import { DeleteOutlined, EditOutlined} from "@ant-design/icons";
 import './styleAdminUserPage.css';
-import { fetchAdminUser } from "../../Redux/adminUserSliceThunk";
+import { fetchAdminUser, setDeleteUser } from "../../Redux/adminUserSliceThunk";
 import { https } from "../../Services/api";
 
 export default function AdminUserPage() {
@@ -314,7 +314,7 @@ export default function AdminUserPage() {
       dataIndex: "soDt",
       key: "soDt",
       defaultSortOrder: "descend",
-      sorter: (a, b) => a.soDt - b.soDt,
+      sorter: (a, b) => a.soDt - b.soDt,  
     },
     {
         title: 'Action',
@@ -323,22 +323,22 @@ export default function AdminUserPage() {
           <Space size="middle" className="cursor-pointer">
             <EditOutlined className="text-yellow-500"/>
             <DeleteOutlined className="text-red-600" onClick={()=>{
-              handleDelete(record.taiKhoan)
+              dispatch(setDeleteUser(record.taiKhoan));
             }}/>
           </Space>
         ),
       },
   ];
   const onChange = (pagination, filters, sorter, extra) => {};
-  const handleDelete = async(taiKhoan)=>{
-    console.log("taiKhoan", taiKhoan);
-    try {
-        await https.delete(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`)
-        dispatch(fetchAdminUser());
-    } catch (error) {
-        console.log("🚀 ~ handleDelete ~ error:", error)
-    }
-  }
+  // const handleDelete = async(taiKhoan)=>{
+  //   console.log("taiKhoan", taiKhoan);
+  //   try {
+  //       await https.delete(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`)
+  //       dispatch(fetchAdminUser());
+  //   } catch (error) {
+  //       console.log("🚀 ~ handleDelete ~ error:", error)
+  //   }
+  // }
   return (
     <Table
       columns={columns}

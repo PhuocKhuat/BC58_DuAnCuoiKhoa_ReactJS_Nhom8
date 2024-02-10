@@ -13,6 +13,15 @@ import {
   BarChartOutlined,
   FileProtectOutlined,
 } from "@ant-design/icons";
+// import IndividualInfo from "../../ObjectClass/individualInfo";
+
+// export const saveInforUser = () => {
+//   const storeInfoUser = localStorage.getItem("UPDATE_USER");
+//   if (storeInfoUser !== null) {
+//     let info = JSON.parse(storeInfoUser);
+//     return new IndividualInfo(info.hoTen, info.matKhau, info.email, info.soDT, info.taiKhoan, info.maNhom, info.maLoaiNguoiDung);
+//   }
+// };
 
 export default function PersonalInfo() {
   const { infoUser } = useSelector((state) => state.personalSlice);

@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import individualInfo from "../ObjectClass/individualInfo";
+import IndividualInfo from "../ObjectClass/individualInfo";
 import Swal from "sweetalert2";
 import { message } from "antd";
+// import { saveInforUser } from "../Pages/PersonalInfo/PersonalInfo";
 
 const initialState = {
-  infoUser: new individualInfo(),
+  infoUser: new IndividualInfo(),
   coursesList: localStorage.getItem("courseItem")!== null ? JSON.parse(localStorage.getItem("courseItem")) : [],
 };
 
@@ -59,10 +60,10 @@ const personalSlice = createSlice({
     },
     setUpdateForm: (state, action)=>{
       state.infoUser = action.payload;
+      // localStorage.setItem("UPDATE_USER", JSON.stringify(state.infoUser));
     },
   },
 });
-
 export const { setInfoUser, setAddCourse, setDeleteCourse, setSearchForm, setUpdateForm } =
   personalSlice.actions;
 
