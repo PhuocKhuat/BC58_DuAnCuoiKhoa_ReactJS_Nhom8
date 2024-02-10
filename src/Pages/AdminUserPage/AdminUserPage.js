@@ -344,7 +344,7 @@ export default function AdminUserPage() {
       columns={columns}
       dataSource={userList}
       onChange={onChange}
-      className="container mt-5 adminUserPage"
+      className="mt-2 adminUserPage"
     />
   );
 }
