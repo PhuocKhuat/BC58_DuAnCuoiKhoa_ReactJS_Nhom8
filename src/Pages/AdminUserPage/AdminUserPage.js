@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Space, Table } from "antd";
 import { DeleteOutlined, EditOutlined} from "@ant-design/icons";
 import './styleAdminUserPage.css';
-import { fetchAdminUser, setDeleteUser } from "../../Redux/adminUserSliceThunk";
-import { https } from "../../Services/api";
+import { fetchAdminUser, setDeleteUser, setEditUser } from "../../Redux/adminUserSliceThunk";
+import DrawerEditUser from "../../Drawer/DrawerAddUser/DrawerEditUser";
+// import { https } from "../../Services/api";
 
 export default function AdminUserPage() {
   const { userList } = useSelector((state) => state.adminUserSliceThunk);
@@ -317,11 +318,30 @@ export default function AdminUserPage() {
       sorter: (a, b) => a.soDt - b.soDt,  
     },
     {
+      title: "User type code",
+      dataIndex: "maLoaiNguoiDung",
+      key: "maLoaiNguoiDung",
+      defaultSortOrder: "descend",
+      filters: [
+        {
+          text: "HV",
+          value: "HV",
+        },
+        {
+          text: "GV",
+          value: "GV",
+        },
+      ],
+      onFilter: (value, record) => record.maLoaiNguoiDung.indexOf(value) === 0,
+      sorter: (a, b) => a.maLoaiNguoiDung.length - b.maLoaiNguoiDung.length,
+      sortDirections: ["descend"], 
+    },
+    {
         title: 'Action',
         key: 'action',
         render: (_, record) => (
           <Space size="middle" className="cursor-pointer">
-            <EditOutlined className="text-yellow-500"/>
+            <DrawerEditUser editUserInfo={record}/>
             <DeleteOutlined className="text-red-600" onClick={()=>{
               dispatch(setDeleteUser(record.taiKhoan));
             }}/>

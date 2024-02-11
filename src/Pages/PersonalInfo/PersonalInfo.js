@@ -77,7 +77,7 @@ export default function PersonalInfo() {
                   <div>
                     <p>
                       <strong>Phone number: </strong>
-                      <span>{infoUser.soDT}</span>
+                      <span>{infoUser?.soDT}</span>
                     </p>
                   </div>
                 </div>

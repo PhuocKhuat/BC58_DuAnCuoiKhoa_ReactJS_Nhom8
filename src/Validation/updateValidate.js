@@ -14,6 +14,6 @@ export const updateValidate = Yup.object({
     .required("You must fill in this section"),
   soDT: Yup.string()
     .min(9, "Your name must be at min 9 characters")
-    .max(10, "Your name must be at maximum 10 characters")
+    .max(18, "Your name must be at maximum 18 characters")
     .required("You must fill in this section"),
 });

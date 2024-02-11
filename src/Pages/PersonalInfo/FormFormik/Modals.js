@@ -16,9 +16,9 @@ const Modals = () => {
         matKhau: "",
         email: "",
         soDT: "",
-        taiKhoan: infoUser.taiKhoan,
-        maNhom: infoUser.maNhom,
-        maLoaiNguoiDung: "HV",
+        taiKhoan: "",
+        maNhom: "",
+        maLoaiNguoiDung: "",
       };
     }
     return JSON.parse(storeValues);
@@ -44,9 +44,6 @@ const Modals = () => {
       .put("/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung", infoUsers)
       .then((res) => {
         console.log(res);
-        values.maLoaiNguoiDung = initialValues.maLoaiNguoiDung;
-        values.maNhom = initialValues.maNhom;
-        values.taiKhoan = initialValues.taiKhoan;
         dispatch(setUpdateForm(res.data));
         setIsModalOpen(false);
       })
@@ -114,7 +111,7 @@ const Modals = () => {
               <label>Phone Number:</label>
               <Field
                 name="soDT"
-                type="string"
+                type="text"
                 placeholder="Edit your phone number"
                 value={values.soDT}
                 onChange={handleChange}

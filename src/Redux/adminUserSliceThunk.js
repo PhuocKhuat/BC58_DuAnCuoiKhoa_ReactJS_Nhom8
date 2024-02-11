@@ -4,6 +4,7 @@ import { message } from 'antd';
 
 const initialState = {
   userList :  [],
+  editUser: null,
 }
 
 // localStorage.getItem("DELETE_USER") === -1 ?
@@ -42,6 +43,6 @@ const adminUserSliceThunk = createSlice({
   }
 });
 
-export const { setDeleteUser, setAddUser} = adminUserSliceThunk.actions
+export const { setDeleteUser, setAddUser } = adminUserSliceThunk.actions
 
 export default adminUserSliceThunk.reducer
