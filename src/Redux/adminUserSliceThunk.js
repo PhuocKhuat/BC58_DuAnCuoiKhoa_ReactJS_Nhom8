@@ -29,6 +29,11 @@ const adminUserSliceThunk = createSlice({
       message.success("The user has been successfully deleted");
       // userLocal(state.userList.map(user => user));
     },
+    setAddUser: (state, action)=>{
+      let cloneAddUser = [...state.userList];
+      cloneAddUser.push(action.payload)
+      state.userList = cloneAddUser;
+    },
   },
   extraReducers: (buider)=>{
     buider.addCase(fetchAdminUser.fulfilled, (state, action)=>{
@@ -37,6 +42,6 @@ const adminUserSliceThunk = createSlice({
   }
 });
 
-export const { setDeleteUser} = adminUserSliceThunk.actions
+export const { setDeleteUser, setAddUser} = adminUserSliceThunk.actions
 
 export default adminUserSliceThunk.reducer

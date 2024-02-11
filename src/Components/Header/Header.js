@@ -50,7 +50,10 @@ export default function Header() {
       return (
         <>
           <div>
-            <NavLink to="/personalInfo" className="userInfo">
+            <NavLink onClick={()=>{
+              navigate("/personalInfo");
+              window.location.reload();
+            }} className="userInfo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

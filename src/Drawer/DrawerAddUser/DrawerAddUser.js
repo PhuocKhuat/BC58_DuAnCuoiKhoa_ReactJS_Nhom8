@@ -4,14 +4,19 @@ import { Button, Drawer, Space } from "antd";
 import "./styleDrawerAddUser.css";
 import { Formik, Form, Field, useFormik } from "formik";
 import { addUserValidation } from "../../Validation/addUserValidation";
+import { https } from "../../Services/api";
+import { useDispatch } from "react-redux";
+import { setAddUser } from "../../Redux/adminUserSliceThunk";
 
 const DrawerAddUser = () => {
   const initialValues = {
     taiKhoan: "",
+    matKhau: "",
     hoTen: "",
-    email: "",
     soDt: "",
     maLoaiNguoiDung: "",
+    maNhom: "",
+    email: "",
   };
   const { handleChange, values, handleSubmit, errors } = useFormik({
     initialValues: initialValues,
@@ -21,11 +26,23 @@ const DrawerAddUser = () => {
     },
   });
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
   const showDrawer = () => {
     setOpen(true);
   };
   const onClose = () => {
     setOpen(false);
+  };
+  const handleAdduser = (infoUser) => {
+    https
+      .post("/api/QuanLyNguoiDung/ThemNguoiDung", infoUser)
+      .then((res) => {
+        console.log(res);
+        dispatch(setAddUser(infoUser));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div className="drawerAddUser">
@@ -45,14 +62,25 @@ const DrawerAddUser = () => {
         extra={
           <Space>
             <Button onClick={onClose}>Cancel</Button>
-            <Button onClick={onClose} type="primary">
+            <Button
+              onClick={() => {
+                handleAdduser(values);
+              }}
+              type="primary"
+            >
               Add
             </Button>
           </Space>
         }
       >
-        <Formik initialValues={initialValues} validationSchema={addUserValidation}>
-          <Form onSubmit={handleSubmit} className="grid grid-cols-12 formDrawer">
+        <Formik
+          initialValues={initialValues}
+          validationSchema={addUserValidation}
+        >
+          <Form
+            onSubmit={handleSubmit}
+            className="grid grid-cols-12 formDrawer"
+          >
             <div className="col-span-6 space-y-5 p-3">
               <div className="flex flex-col space-y-3">
                 <label>Account</label>
@@ -64,6 +92,23 @@ const DrawerAddUser = () => {
                   onChange={handleChange}
                   placeholder="Please enter the user's account"
                 />
+                {errors.taiKhoan && (
+                  <p className="text-red-500">{errors.taiKhoan}</p>
+                )}
+              </div>
+              <div className="flex flex-col space-y-3">
+                <label>Password</label>
+                <Field
+                  name="matKhau"
+                  type="text"
+                  className="fieldInput"
+                  value={values.matKhau}
+                  onChange={handleChange}
+                  placeholder="Please enter the user's password"
+                />
+                {errors.matKhau && (
+                  <p className="text-red-500">{errors.matKhau}</p>
+                )}
               </div>
               <div className="flex flex-col space-y-3">
                 <label>Full Name</label>
@@ -75,6 +120,49 @@ const DrawerAddUser = () => {
                   onChange={handleChange}
                   placeholder="Please enter the user's full name"
                 />
+                {errors.hoTen && <p className="text-red-500">{errors.hoTen}</p>}
+              </div>
+              <div className="flex flex-col space-y-3">
+                <label>Phone Number</label>
+                <Field
+                  name="soDt"
+                  type="text"
+                  className="fieldInput"
+                  value={values.soDt}
+                  onChange={handleChange}
+                  placeholder="Please enter the user's phone number"
+                />
+                {errors.soDt && <p className="text-red-500">{errors.soDt}</p>}
+              </div>
+            </div>
+            <div className="col-span-6 space-y-5 p-3">
+              <div className="flex flex-col space-y-3">
+                <label>User type code</label>
+                <Field
+                  name="maLoaiNguoiDung"
+                  type="text"
+                  className="fieldInput"
+                  value={values.maLoaiNguoiDung}
+                  onChange={handleChange}
+                  placeholder="Please enter the user's type code"
+                />
+                {errors.maLoaiNguoiDung && (
+                  <p className="text-red-500">{errors.maLoaiNguoiDung}</p>
+                )}
+              </div>
+              <div className="flex flex-col space-y-3">
+                <label>Group Code</label>
+                <Field
+                  name="maNhom"
+                  type="text"
+                  className="fieldInput"
+                  value={values.maNhom}
+                  onChange={handleChange}
+                  placeholder="Please enter the user's group code"
+                />
+                {errors.maNhom && (
+                  <p className="text-red-500">{errors.maNhom}</p>
+                )}
               </div>
               <div className="flex flex-col space-y-3">
                 <label>Email</label>
@@ -86,31 +174,8 @@ const DrawerAddUser = () => {
                   onChange={handleChange}
                   placeholder="Please enter the user's email"
                 />
+                {errors.email && <p className="text-red-500">{errors.email}</p>}
               </div>
-            </div>
-            <div className="col-span-6 space-y-5 p-3">
-            <div className="flex flex-col space-y-3">
-              <label>Phone Number</label>
-              <Field
-                name="soDt"
-                type="text"
-                className="fieldInput"
-                value={values.soDt}
-                onChange={handleChange}
-                placeholder="Please enter the user's phone number"
-              />
-            </div>
-            <div className="flex flex-col space-y-3">
-              <label>User type code</label>
-              <Field
-                name="maLoaiNguoiDung"
-                type="text"
-                className="fieldInput"
-                value={values.maLoaiNguoiDung}
-                onChange={handleChange}
-                placeholder="Please enter the user's type code"
-              />
-            </div>
             </div>
           </Form>
         </Formik>

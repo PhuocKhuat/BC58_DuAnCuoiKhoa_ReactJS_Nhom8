@@ -33,6 +33,7 @@ export default function PersonalInfo() {
       .then((res) => {
         console.log(res.data);
         dispatch(setInfoUser(res.data));
+        
       })
       .catch((err) => {
         console.log(err);

@@ -2,26 +2,27 @@ import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import { Field, Form, Formik, useFormik } from "formik";
 import { https } from "../../../Services/api";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUpdateForm } from "../../../Redux/personalSlice";
 import { updateValidate } from "../../../Validation/updateValidate";
 
-const saveForm = ()=>{
- const storeValues = localStorage.getItem("FORM_USER");
- if(!storeValues){
-  return{
-    hoTen: "",
-    matKhau: "",
-    email: "",
-    soDT: "",
-    taiKhoan: "",
-    maNhom: "",
-    maLoaiNguoiDung: "",
-  };
- }
- return JSON.parse(storeValues);
-}
+
 const Modals = () => {
+  const saveForm = () => {
+    const storeValues = localStorage.getItem("FORM_USER");
+    if (!storeValues) {
+      return {
+        hoTen: "",
+        matKhau: "",
+        email: "",
+        soDT: "",
+        taiKhoan: infoUser.taiKhoan,
+        maNhom: infoUser.maNhom,
+        maLoaiNguoiDung: "HV",
+      };
+    }
+    return JSON.parse(storeValues);
+  };
   const initialValues = saveForm();
   const { handleChange, values, handleSubmit, errors } = useFormik({
     initialValues: initialValues,
@@ -30,17 +31,22 @@ const Modals = () => {
       console.log("values", values);
     },
   });
-  React.useEffect(()=>{
+  React.useEffect(() => {
     localStorage.setItem("FORM_USER", JSON.stringify(values));
-  }, [values])
+  }, [values]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { infoUser } = useSelector(state => state.personalSlice);
+  console.log("🚀 ~ Modals ~ infoUser:", infoUser)
   const dispatch = useDispatch();
   const handleUpdate = (infoUsers) => {
-    console.log("🚀 ~ handleUpdate ~ infoUsers:", infoUsers);
+    // console.log("🚀 ~ handleUpdate ~ infoUsers:", infoUsers);
     https
       .put("/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung", infoUsers)
       .then((res) => {
         console.log(res);
+        values.maLoaiNguoiDung = initialValues.maLoaiNguoiDung;
+        values.maNhom = initialValues.maNhom;
+        values.taiKhoan = initialValues.taiKhoan;
         dispatch(setUpdateForm(res.data));
         setIsModalOpen(false);
       })
@@ -57,13 +63,13 @@ const Modals = () => {
   const handleOk = () => {
     setIsModalOpen(false);
   };
-  
+
   return (
     <div className="modals">
       <Button type="primary" className="btnModals" onClick={showModal}>
         <p>Personal Infomation</p>
       </Button>
-      <Modal 
+      <Modal
         title="Edit personal information"
         open={isModalOpen}
         onOk={handleOk}
@@ -115,20 +121,24 @@ const Modals = () => {
               />
               {errors.soDT && <p>{errors.soDT}</p>}
             </div>
-            {(errors.hoTen || errors.matKhau || errors.email || errors.soDT) ? <button
-              className="btnUpdate cursor-not-allowed font-bold"
-              disabled
-            >
-              Update
-            </button> : <button
-              type="submit"
-              onClick={() => {
-                handleUpdate(values);
-              }}
-              className="btnUpdate"
-            >
-              Update
-            </button>}
+            {errors.hoTen || errors.matKhau || errors.email || errors.soDT ? (
+              <button
+                className="btnUpdate cursor-not-allowed font-bold"
+                disabled
+              >
+                Update
+              </button>
+            ) : (
+              <button
+                type="submit"
+                onClick={() => {
+                  handleUpdate(values);
+                }}
+                className="btnUpdate"
+              >
+                Update
+              </button>
+            )}
           </Form>
         </Formik>
       </Modal>
