@@ -32,7 +32,14 @@ const adminUserSliceThunk = createSlice({
     },
     setAddUser: (state, action)=>{
       let cloneAddUser = [...state.userList];
-      cloneAddUser.push(action.payload)
+      let indexUserByAccount = cloneAddUser.findIndex(user => user.taiKhoan === action.payload.taiKhoan);
+      if(indexUserByAccount === -1){
+        cloneAddUser.push(action.payload);
+        message.success("Added user successfully");
+      }
+      else{
+        message.error("Account is already in use");
+      }
       state.userList = cloneAddUser;
     },
   },

@@ -49,3 +49,6 @@ div div div div div div div div:nth-child(2) button{
   margin-bottom: 10px;
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
 }
+.btnNotAllowed{
+  @apply cursor-not-allowed text-white font-bold uppercase text-xs rounded-3xl
+}

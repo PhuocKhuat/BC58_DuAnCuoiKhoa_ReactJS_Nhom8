@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Space, Table } from "antd";
-import { DeleteOutlined, EditOutlined} from "@ant-design/icons";
+import { DeleteOutlined } from "@ant-design/icons";
 import './styleAdminUserPage.css';
-import { fetchAdminUser, setDeleteUser, setEditUser } from "../../Redux/adminUserSliceThunk";
+import { fetchAdminUser, setDeleteUser } from "../../Redux/adminUserSliceThunk";
 import DrawerEditUser from "../../Drawer/DrawerAddUser/DrawerEditUser";
 // import { https } from "../../Services/api";
 

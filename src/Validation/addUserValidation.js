@@ -8,8 +8,7 @@ export const addUserValidation = Yup.object({
     .min(8, "Your name must be at least 8 characters")
     .required("You must fill in this section"),
   hoTen: Yup.string()
-    .min(3, "Your full name must be at least 3 characters")
-    .max(14, "Your full name must be at maximum 14 characters")
+    .min(4, "Your full name must be at least 4 characters")
     .required("You must fill in this section"),
   soDt: Yup.string()
     .min(9, "Your phone number must be at min 9 characters")

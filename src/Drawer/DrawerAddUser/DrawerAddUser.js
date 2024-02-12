@@ -6,18 +6,27 @@ import { Formik, Form, Field, useFormik } from "formik";
 import { addUserValidation } from "../../Validation/addUserValidation";
 import { https } from "../../Services/api";
 import { useDispatch } from "react-redux";
-import { setAddUser } from "../../Redux/adminUserSliceThunk";
+import { fetchAdminUser } from "../../Redux/adminUserSliceThunk";
 
 const DrawerAddUser = () => {
-  const initialValues = {
-    taiKhoan: "",
-    matKhau: "",
-    hoTen: "",
-    soDt: "",
-    maLoaiNguoiDung: "",
-    maNhom: "",
-    email: "",
-  };
+  const [open, setOpen] = useState(false);
+  const saveFormAddUser = ()=>{
+    const storeAddUser = localStorage.getItem("FORM_ADD_USER");
+    // const storeErrorAddUser = localStorage.getItem("FORM_ERROR_ADD_USER");
+    if(storeAddUser){
+    return JSON.parse(storeAddUser);
+    }
+    return {
+      taiKhoan: "",
+      matKhau: "",
+      hoTen: "",
+      soDt: "",
+      maLoaiNguoiDung: "",
+      maNhom: "",
+      email: "",
+    };
+  }
+  const initialValues = saveFormAddUser();
   const { handleChange, values, handleSubmit, errors } = useFormik({
     initialValues: initialValues,
     validationSchema: addUserValidation,
@@ -25,7 +34,10 @@ const DrawerAddUser = () => {
       console.log("🚀 ~ DrawerAddUser ~ values:", values);
     },
   });
-  const [open, setOpen] = useState(false);
+  React.useEffect(()=>{
+    localStorage.setItem("FORM_ADD_USER", JSON.stringify(values))
+    // localStorage.setItem("FORM_ERROR_ADD_USER", JSON.stringify(errors))
+  }, [values, errors]);
   const dispatch = useDispatch();
   const showDrawer = () => {
     setOpen(true);
@@ -33,12 +45,12 @@ const DrawerAddUser = () => {
   const onClose = () => {
     setOpen(false);
   };
-  const handleAdduser = (infoUser) => {
+  const handleAddUser = (infoUser) => {
     https
       .post("/api/QuanLyNguoiDung/ThemNguoiDung", infoUser)
       .then((res) => {
         console.log(res);
-        dispatch(setAddUser(infoUser));
+        dispatch(fetchAdminUser());
       })
       .catch((err) => {
         console.log(err);
@@ -62,14 +74,20 @@ const DrawerAddUser = () => {
         extra={
           <Space>
             <Button onClick={onClose}>Cancel</Button>
-            <Button
+            {((errors.taiKhoan || errors.matKhau || errors.hoTen || errors.soDt || errors.maLoaiNguoiDung || errors.maNhom || errors.email) && (values.taiKhoan === ""|| values.matKhau === ""|| values.hoTen === ""|| values.soDt === ""|| values.maLoaiNguoiDung === ""|| values.maNhom === ""|| values.email)) ? <Button
+              disabled
+              className="btnNotAllowed"
+              type="primary"
+            >
+              Add
+            </Button> : <Button
               onClick={() => {
-                handleAdduser(values);
+                handleAddUser(values);
               }}
               type="primary"
             >
               Add
-            </Button>
+            </Button>}
           </Space>
         }
       >

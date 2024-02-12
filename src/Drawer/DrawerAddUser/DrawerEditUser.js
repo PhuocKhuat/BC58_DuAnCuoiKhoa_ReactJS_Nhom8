@@ -6,7 +6,7 @@ import { Formik, Form, Field, useFormik } from "formik";
 import { addUserValidation } from "../../Validation/addUserValidation";
 import { https } from "../../Services/api";
 import { useDispatch, useSelector } from "react-redux";
-import { setAddUser } from "../../Redux/adminUserSliceThunk";
+import { fetchAdminUser } from "../../Redux/adminUserSliceThunk";
 
 const DrawerEditUser = ({ editUserInfo }) => {
   console.log("🚀 ~ DrawerEditUser ~ editUserInfo:", editUserInfo);
@@ -42,6 +42,7 @@ const DrawerEditUser = ({ editUserInfo }) => {
       .put("/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung", infoUser)
       .then((res) => {
         console.log(res);
+        dispatch(fetchAdminUser());
       })
       .catch((err) => {
         console.log(err);
@@ -53,6 +54,8 @@ const DrawerEditUser = ({ editUserInfo }) => {
     values.email = editUserInfo.email;
     values.soDt = editUserInfo.soDt;
     values.maLoaiNguoiDung = editUserInfo.maLoaiNguoiDung;
+    values.matKhau = editUserInfo.matKhau;
+    values.maNhom = editUserInfo.maNhom;
     showDrawer();
   };
   return (
@@ -71,13 +74,21 @@ const DrawerEditUser = ({ editUserInfo }) => {
         extra={
           <Space>
             <Button onClick={onClose}>Cancel</Button>
-            <Button
-              onClick={() => {
-                handleUpdateUser(values);
-              }}
+            {errors.taiKhoan || errors.matKhau || errors.hoTen || errors.soDt || errors.maLoaiNguoiDung || errors.maNhom || errors.email ? <Button
+              disabled
+              className="btnNotAllowed"
             >
               Update
-            </Button>
+            </Button> : 
+            <Button
+            onClick={() => {
+              handleUpdateUser(values);
+            }}
+          >
+            Update
+          </Button>
+            } 
+            
           </Space>
         }
       >
@@ -92,14 +103,22 @@ const DrawerEditUser = ({ editUserInfo }) => {
             <div className="col-span-6 space-y-5 p-3">
               <div className="flex flex-col space-y-3">
                 <label>Account</label>
-                <Field
-                  name="taiKhoan"
+                {handleEditUser ? 
+                  <Field
                   type="text"
-                  className="fieldInput"
+                  className="fieldInput bg-gray-300 cursor-not-allowed"
                   value={values.taiKhoan}
-                  onChange={handleChange}
-                  placeholder="Please enter the user's account"
-                />
+                  disabled
+                /> : <Field
+                name="taiKhoan"
+                type="text"
+                className="fieldInput"
+                value={values.taiKhoan}
+                onChange={handleChange}
+                placeholder="Please enter the user's account"
+              />
+                }
+                
                 {errors.taiKhoan && (
                   <p className="text-red-500">{errors.taiKhoan}</p>
                 )}

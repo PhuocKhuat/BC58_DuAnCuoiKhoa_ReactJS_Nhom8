@@ -3,7 +3,6 @@ import * as Yup from "yup";
 export const updateValidate = Yup.object({
   hoTen: Yup.string()
     .min(3, "Your name must be at least 3 characters")
-    .max(14, "Your name must be at maximum 14 characters")
     .required("You must fill in this section"),
   matKhau: Yup.string()
     .min(8, "Your name must be at least 8 characters")
