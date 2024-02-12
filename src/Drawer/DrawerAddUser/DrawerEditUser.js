@@ -19,7 +19,6 @@ const DrawerEditUser = ({ editUserInfo }) => {
     maNhom: "",
     email: "",
   };
-  //   const {} = useSelector(state => state.Slice)
   const { handleChange, values, handleSubmit, errors } = useFormik({
     initialValues: initialValues,
     validationSchema: addUserValidation,
@@ -28,8 +27,6 @@ const DrawerEditUser = ({ editUserInfo }) => {
     },
   });
   const [open, setOpen] = useState(false);
-  const { editUser } = useSelector((state) => state.adminUserSliceThunk);
-  console.log("🚀 ~ DrawerEditUser ~ editUser:", editUser);
   const dispatch = useDispatch();
   const showDrawer = () => {
     setOpen(true);

@@ -16,6 +16,7 @@ import SearchPage from "./Pages/SearchPage/SearchPage";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import AdminUserPage from "./Pages/AdminUserPage/AdminUserPage";
 import AdminLayout from "./Layouts/AdminLayout/AdminLayout";
+import SecureGate from "./Layouts/SecureGate";
 
 function App() {
   return (
@@ -45,7 +46,11 @@ function App() {
           />
           <Route path="/searchcourse" element={<SearchPage />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="/admin" element={<AdminLayout />}>
+          <Route path="/admin" element={
+            <SecureGate>
+              <AdminLayout />
+            </SecureGate>
+          }>
             <Route path="manage" element={<AdminUserPage />} />
           </Route>
         </Routes>

@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Space, Table } from "antd";
+import { Space, Table, message } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import './styleAdminUserPage.css';
-import { fetchAdminUser, setDeleteUser } from "../../Redux/adminUserSliceThunk";
+import { fetchAdminUser } from "../../Redux/adminUserSliceThunk";
 import DrawerEditUser from "../../Drawer/DrawerAddUser/DrawerEditUser";
+import { https } from "../../Services/api";
 // import { https } from "../../Services/api";
 
 export default function AdminUserPage() {
@@ -336,6 +337,16 @@ export default function AdminUserPage() {
       sorter: (a, b) => a.maLoaiNguoiDung.length - b.maLoaiNguoiDung.length,
       sortDirections: ["descend"], 
     },
+    // {
+    //   title: "Password",
+    //   dataIndex: "matKhau",
+    //   key: "matKhau", 
+    // },
+    // {
+    //   title: "Group Code",
+    //   dataIndex: "maNhom",
+    //   key: "maNhom",
+    // },
     {
         title: 'Action',
         key: 'action',
@@ -343,22 +354,25 @@ export default function AdminUserPage() {
           <Space size="middle" className="cursor-pointer">
             <DrawerEditUser editUserInfo={record}/>
             <DeleteOutlined className="text-red-600" onClick={()=>{
-              dispatch(setDeleteUser(record.taiKhoan));
+              // dispatch(setDeleteUser(record.taiKhoan));
+              handleDeleteUser(record.taiKhoan);
             }}/>
           </Space>
         ),
       },
   ];
   const onChange = (pagination, filters, sorter, extra) => {};
-  // const handleDelete = async(taiKhoan)=>{
-  //   console.log("taiKhoan", taiKhoan);
-  //   try {
-  //       await https.delete(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`)
-  //       dispatch(fetchAdminUser());
-  //   } catch (error) {
-  //       console.log("🚀 ~ handleDelete ~ error:", error)
-  //   }
-  // }
+  const handleDeleteUser = async(taiKhoan)=>{
+    console.log("taiKhoan", taiKhoan);
+    try {
+        await https.delete(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`)
+        dispatch(fetchAdminUser());
+        message.success("The user has been successfully deleted");
+    } catch (error) {
+        console.log("🚀 ~ handleDelete ~ error:", error)
+        message.error(error.response.data);
+    }
+  }
   return (
     <Table
       columns={columns}

@@ -3,7 +3,10 @@ import * as Yup from "yup";
 export const addUserValidation = Yup.object({
   taiKhoan: Yup.string()
     .min(3, "Your account must be at least 3 characters")
-    .required("You must fill in this section"),
+    .required("You must fill in this section")
+    // .test("isDuplicate", "Your account name is already taken", (value)=>{
+    // })
+    ,
   matKhau: Yup.string()
     .min(8, "Your name must be at least 8 characters")
     .required("You must fill in this section"),

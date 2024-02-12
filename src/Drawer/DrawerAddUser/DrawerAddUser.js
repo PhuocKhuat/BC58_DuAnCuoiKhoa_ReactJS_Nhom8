@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
-import { Button, Drawer, Space } from "antd";
+import { Button, Drawer, Space, message } from "antd";
 import "./styleDrawerAddUser.css";
 import { Formik, Form, Field, useFormik } from "formik";
 import { addUserValidation } from "../../Validation/addUserValidation";
@@ -26,18 +26,28 @@ const DrawerAddUser = () => {
       email: "",
     };
   }
+  const saveFormErrorAddUser = ()=>{
+    const storeErrorAddUser = localStorage.getItem("FORM_ERROR_ADD_USER");
+    if(storeErrorAddUser){
+      return JSON.parse(localStorage.getItem("FORM_ERROR_ADD_USER"));
+    }
+  }
   const initialValues = saveFormAddUser();
+  const initialErrors = saveFormErrorAddUser();
   const { handleChange, values, handleSubmit, errors } = useFormik({
     initialValues: initialValues,
     validationSchema: addUserValidation,
+    initialErrors: initialErrors,
     onSubmit: (values) => {
       console.log("🚀 ~ DrawerAddUser ~ values:", values);
     },
   });
   React.useEffect(()=>{
     localStorage.setItem("FORM_ADD_USER", JSON.stringify(values))
-    // localStorage.setItem("FORM_ERROR_ADD_USER", JSON.stringify(errors))
-  }, [values, errors]);
+  }, [values]);
+  React.useEffect(()=>{
+    localStorage.setItem("FORM_ERROR_ADD_USER", JSON.stringify(errors))
+  }, [errors]);
   const dispatch = useDispatch();
   const showDrawer = () => {
     setOpen(true);
@@ -50,10 +60,12 @@ const DrawerAddUser = () => {
       .post("/api/QuanLyNguoiDung/ThemNguoiDung", infoUser)
       .then((res) => {
         console.log(res);
+        message.success("Add user successfully");
         dispatch(fetchAdminUser());
       })
       .catch((err) => {
         console.log(err);
+        message.error(err.response.data);
       });
   };
   return (
@@ -94,6 +106,7 @@ const DrawerAddUser = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={addUserValidation}
+          initialErrors={initialErrors}
         >
           <Form
             onSubmit={handleSubmit}

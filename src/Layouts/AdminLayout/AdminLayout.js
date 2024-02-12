@@ -1,9 +1,9 @@
 import React from "react";
 import { UserOutlined, WalletOutlined } from "@ant-design/icons";
-import { Button, Layout, Menu, theme } from "antd";
+import { Layout, Menu, theme } from "antd";
 import { Outlet } from "react-router-dom";
 import Search from "antd/es/input/Search";
-import './styleAdminLayout.css';
+import "./styleAdminLayout.css";
 import DrawerAddUser from "../../Drawer/DrawerAddUser/DrawerAddUser";
 
 const { Header, Content, Sider } = Layout;
@@ -12,7 +12,10 @@ const AdminLayout = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-  const onSearch = (value, _e, info) => console.log(info?.source, value);
+  const onSearch = (value, _e, info) => {
+    return console.log("value", value);
+  };
+  // info?.source
   return (
     <Layout className="adminLayout">
       <Sider
@@ -48,8 +51,8 @@ const AdminLayout = () => {
             height: "100px",
           }}
         >
-          <div className="flex gap-3 mt-4 mx-auto" style={{width: "97.5%"}}>
-            <DrawerAddUser/>
+          <div className="flex gap-3 mt-4 mx-auto" style={{ width: "97.5%" }}>
+            <DrawerAddUser />
             <Search
               className="items-center flex"
               placeholder="search user"

@@ -1,18 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { https } from '../Services/api';
-import { message } from 'antd';
 
 const initialState = {
   userList :  [],
-  editUser: null,
 }
-
-// localStorage.getItem("DELETE_USER") === -1 ?
-// : JSON.parse(localStorage.getItem("DELETE_USER"))
-
-// const userLocal = (user)=>{
-//   localStorage.setItem("DELETE_USER", JSON.stringify(user));
-// }
 
 export const fetchAdminUser = createAsyncThunk("fetchAdminUser", async ()=>{
   let res = await https.get("/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01");
@@ -22,27 +13,7 @@ export const fetchAdminUser = createAsyncThunk("fetchAdminUser", async ()=>{
 const adminUserSliceThunk = createSlice({
   name: "adminUserSliceThunk",
   initialState,
-  reducers: {
-    setDeleteUser : (state, action)=>{
-      let cloneUserList = [...state.userList];
-      let indexUser = cloneUserList.filter(user => user.taiKhoan !== action.payload);
-      state.userList = indexUser;
-      message.success("The user has been successfully deleted");
-      // userLocal(state.userList.map(user => user));
-    },
-    setAddUser: (state, action)=>{
-      let cloneAddUser = [...state.userList];
-      let indexUserByAccount = cloneAddUser.findIndex(user => user.taiKhoan === action.payload.taiKhoan);
-      if(indexUserByAccount === -1){
-        cloneAddUser.push(action.payload);
-        message.success("Added user successfully");
-      }
-      else{
-        message.error("Account is already in use");
-      }
-      state.userList = cloneAddUser;
-    },
-  },
+  reducers: {},
   extraReducers: (buider)=>{
     buider.addCase(fetchAdminUser.fulfilled, (state, action)=>{
       state.userList = action.payload;
