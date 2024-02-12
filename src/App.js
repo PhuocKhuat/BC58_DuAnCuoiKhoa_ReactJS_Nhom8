@@ -17,6 +17,7 @@ import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import AdminUserPage from "./Pages/AdminUserPage/AdminUserPage";
 import AdminLayout from "./Layouts/AdminLayout/AdminLayout";
 import SecureGate from "./Layouts/SecureGate";
+import AdminCoursePage from "./Pages/AdminCoursePage/AdminCoursePage";
 
 function App() {
   return (
@@ -51,7 +52,8 @@ function App() {
               <AdminLayout />
             </SecureGate>
           }>
-            <Route path="manage" element={<AdminUserPage />} />
+            <Route path="users" element={<AdminUserPage />} />
+            <Route path="courses" element={<AdminCoursePage/>} />
           </Route>
         </Routes>
         <Footer />

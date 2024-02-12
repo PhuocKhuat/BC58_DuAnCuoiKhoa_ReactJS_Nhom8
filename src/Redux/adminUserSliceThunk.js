@@ -5,15 +5,20 @@ const initialState = {
   userList :  [],
 }
 
-export const fetchAdminUser = createAsyncThunk("fetchAdminUser", async ()=>{
+export const fetchAdminUser = createAsyncThunk("fetchAdminUser", async (value="")=>{
+  if(value.trim() !== ""){
+    let res = await https.get(`/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01&tuKhoa=${value}`);
+    return res.data;
+  }
   let res = await https.get("/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01");
-  return res.data;
+    return res.data;
 })
 
 const adminUserSliceThunk = createSlice({
   name: "adminUserSliceThunk",
   initialState,
-  reducers: {},
+  reducers: {
+  },
   extraReducers: (buider)=>{
     buider.addCase(fetchAdminUser.fulfilled, (state, action)=>{
       state.userList = action.payload;

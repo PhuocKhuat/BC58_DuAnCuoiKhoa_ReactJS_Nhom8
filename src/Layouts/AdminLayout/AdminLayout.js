@@ -1,18 +1,24 @@
 import React from "react";
 import { UserOutlined, WalletOutlined } from "@ant-design/icons";
 import { Layout, Menu, theme } from "antd";
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import Search from "antd/es/input/Search";
 import "./styleAdminLayout.css";
 import DrawerAddUser from "../../Drawer/DrawerAddUser/DrawerAddUser";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAdminUser, setValid } from "../../Redux/adminUserSliceThunk";
 
 const { Header, Content, Sider } = Layout;
 
 const AdminLayout = () => {
+  const { valid } = useSelector(state => state.adminUserSliceThunk);
+  // console.log("🚀 ~ AdminLayout ~ valid:", valid);
+  const dispatch = useDispatch();
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-  const onSearch = (value, _e, info) => {
+  const onSearch = (value) => {
+    dispatch(fetchAdminUser(value));
     return console.log("value", value);
   };
   // info?.source
@@ -36,10 +42,10 @@ const AdminLayout = () => {
           style={{ marginTop: "85px" }}
         >
           <Menu.Item key="1" icon={<UserOutlined />}>
-            User Management
+            <NavLink to="users" >User Management</NavLink>
           </Menu.Item>
           <Menu.Item key="2" icon={<WalletOutlined />}>
-            Course Management
+            <NavLink to="courses" >Course Management</NavLink>
           </Menu.Item>
         </Menu>
       </Sider>
