@@ -3,10 +3,10 @@ import { PlusOutlined } from "@ant-design/icons";
 import { Button, Drawer, Space, message } from "antd";
 import "./styleDrawerAddUser.css";
 import { Formik, Form, Field, useFormik } from "formik";
-import { addUserValidation } from "../../Validation/addUserValidation";
-import { https } from "../../Services/api";
+import { addUserValidation } from "../../../Validation/addUserValidation";
+import { https } from "../../../Services/api";
 import { useDispatch } from "react-redux";
-import { fetchAdminUser } from "../../Redux/adminUserSliceThunk";
+import { fetchAdminUser } from "../../../Redux/adminUserSliceThunk";
 
 const DrawerAddUser = () => {
   const [open, setOpen] = useState(false);
