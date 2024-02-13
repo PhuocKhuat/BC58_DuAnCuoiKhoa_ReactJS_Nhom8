@@ -8,3 +8,9 @@
   background: #fff;
   border-top: 1px solid #e9e9e9;
 }
+.formDrawer .fieldInputDate{
+  padding: 8px 112px 8px 10px !important;
+}
+.formDrawer .fieldInputDate:focus {
+  padding: 8px 112px 8px 10px !important;
+}

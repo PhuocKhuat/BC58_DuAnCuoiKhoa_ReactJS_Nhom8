@@ -490,7 +490,7 @@ const AdminCoursePage = () => {
     key: "action",
     render: (_, record)=>(
       <Space>
-        <DrawerEditCourse/>
+        <DrawerEditCourse editCourse={record}/>
         <DeleteOutlined className="text-red-600" onClick={()=>{
           handleDeleteCourse(record.maKhoaHoc)
         }}/>
