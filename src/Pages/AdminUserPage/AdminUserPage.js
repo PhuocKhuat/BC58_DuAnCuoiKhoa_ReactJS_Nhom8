@@ -2,10 +2,12 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Space, Table, message } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
-import './styleAdminUserPage.css';
+import "./styleAdminUserPage.css";
 import { fetchAdminUser } from "../../Redux/adminUserSliceThunk";
 import DrawerEditUser from "../../Drawer/DrawerEditUser/DrawerEditUser";
 import { https } from "../../Services/api";
+import Search from "antd/es/input/Search";
+import DrawerAddUser from "../../Drawer/DrawerAddUser/DrawerAddUser/DrawerAddUser";
 // import { https } from "../../Services/api";
 
 export default function AdminUserPage() {
@@ -348,7 +350,7 @@ export default function AdminUserPage() {
       dataIndex: "soDt",
       key: "soDt",
       defaultSortOrder: "descend",
-      sorter: (a, b) => a.soDt - b.soDt,  
+      sorter: (a, b) => a.soDt - b.soDt,
     },
     {
       title: "User type code",
@@ -367,12 +369,12 @@ export default function AdminUserPage() {
       ],
       onFilter: (value, record) => record.maLoaiNguoiDung.indexOf(value) === 0,
       sorter: (a, b) => a.maLoaiNguoiDung.length - b.maLoaiNguoiDung.length,
-      sortDirections: ["descend"], 
+      sortDirections: ["descend"],
     },
     // {
     //   title: "Password",
     //   dataIndex: "matKhau",
-    //   key: "matKhau", 
+    //   key: "matKhau",
     // },
     // {
     //   title: "Group Code",
@@ -380,37 +382,57 @@ export default function AdminUserPage() {
     //   key: "maNhom",
     // },
     {
-        title: 'Action',
-        key: 'action',
-        render: (_, record) => (
-          <Space size="middle" className="cursor-pointer">
-            <DrawerEditUser editUserInfo={record}/>
-            <DeleteOutlined className="text-red-600" onClick={()=>{
+      title: "Action",
+      key: "action",
+      render: (_, record) => (
+        <Space size="middle" className="cursor-pointer">
+          <DrawerEditUser editUserInfo={record} />
+          <DeleteOutlined
+            className="text-red-600"
+            onClick={() => {
               // dispatch(setDeleteUser(record.taiKhoan));
               handleDeleteUser(record.taiKhoan);
-            }}/>
-          </Space>
-        ),
-      },
+            }}
+          />
+        </Space>
+      ),
+    },
   ];
   const onChange = (pagination, filters, sorter, extra) => {};
-  const handleDeleteUser = async(taiKhoan)=>{
+  const handleDeleteUser = async (taiKhoan) => {
     console.log("taiKhoan", taiKhoan);
     try {
-        await https.delete(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`)
-        dispatch(fetchAdminUser());
-        message.success("The user has been successfully deleted");
+      await https.delete(
+        `/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`
+      );
+      dispatch(fetchAdminUser());
+      message.success("The user has been successfully deleted");
     } catch (error) {
-        console.log("🚀 ~ handleDelete ~ error:", error)
-        message.error(error.response.data);
+      console.log("🚀 ~ handleDelete ~ error:", error);
+      message.error(error.response.data);
     }
-  }
+  };
+  const onSearch = (value) => {
+    dispatch(fetchAdminUser(value));
+    return console.log("value", value);
+  };
   return (
-    <Table
-      columns={columns}
-      dataSource={userList}
-      onChange={onChange}
-      className="mt-2 adminUserPage"
-    />
+    <>
+      <div className="flex gap-3 mb-4 mx-auto" style={{ width: "97.5%" }}>
+        <DrawerAddUser />
+        <Search
+          className="items-center flex"
+          placeholder="Search user..."
+          onSearch={onSearch}
+          enterButton
+        />
+      </div>
+      <Table
+        columns={columns}
+        dataSource={userList}
+        onChange={onChange}
+        className="mt-2 adminUserPage"
+      />
+    </>
   );
 }

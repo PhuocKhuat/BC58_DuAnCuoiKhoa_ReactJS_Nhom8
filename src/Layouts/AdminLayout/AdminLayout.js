@@ -2,25 +2,16 @@ import React from "react";
 import { UserOutlined, WalletOutlined } from "@ant-design/icons";
 import { Layout, Menu, theme } from "antd";
 import { NavLink, Outlet } from "react-router-dom";
-import Search from "antd/es/input/Search";
 import "./styleAdminLayout.css";
-import DrawerAddUser from "../../Drawer/DrawerAddUser/DrawerAddUser/DrawerAddUser";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchAdminUser, setValid } from "../../Redux/adminUserSliceThunk";
 
 const { Header, Content, Sider } = Layout;
 
 const AdminLayout = () => {
-  const { valid } = useSelector(state => state.adminUserSliceThunk);
+  // const { valid } = useSelector(state => state.adminUserSliceThunk);
   // console.log("🚀 ~ AdminLayout ~ valid:", valid);
-  const dispatch = useDispatch();
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-  const onSearch = (value) => {
-    dispatch(fetchAdminUser(value));
-    return console.log("value", value);
-  };
   // info?.source
   return (
     <Layout className="adminLayout">
@@ -57,15 +48,7 @@ const AdminLayout = () => {
             height: "100px",
           }}
         >
-          <div className="flex gap-3 mt-4 mx-auto" style={{ width: "97.5%" }}>
-            <DrawerAddUser />
-            <Search
-              className="items-center flex"
-              placeholder="search user"
-              onSearch={onSearch}
-              enterButton
-            />
-          </div>
+          
         </Header>
         <Content
           style={{

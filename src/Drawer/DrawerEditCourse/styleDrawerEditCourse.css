@@ -14,3 +14,6 @@
 .formDrawer .fieldInputDate:focus {
   padding: 8px 112px 8px 10px !important;
 }
+.formDrawer .btnNotAllowed{
+  @apply cursor-not-allowed text-white font-bold uppercase text-xs rounded-3xl
+}

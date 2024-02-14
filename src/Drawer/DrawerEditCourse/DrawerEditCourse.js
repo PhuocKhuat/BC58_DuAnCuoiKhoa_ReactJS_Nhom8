@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import { EditOutlined } from "@ant-design/icons";
 import "./styleDrawerEditCourse.css";
 
-import { Button, Drawer, Space } from "antd";
+import { Button, Drawer, Space, message } from "antd";
 import { Field, Form, Formik, useFormik } from "formik";
 import { courseValidation } from "../../Validation/courseValidation";
 import ReactDatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css"
+import "react-datepicker/dist/react-datepicker.css";
+import { https } from "../../Services/api";
+import { useDispatch } from "react-redux";
+import { fetchCoursesList } from "../../Redux/personalSliceThunk";
+import moment from "moment";
 
 const DrawerEditCourse = ({ editCourse }) => {
   // console.log("🚀 ~ DrawerEditCourse ~ editCourse:", editCourse)
@@ -21,20 +25,32 @@ const DrawerEditCourse = ({ editCourse }) => {
     hinhAnh: "",
     maNhom: "",
     ngayTao: "",
-    danhMucKhoaHoc: {
-      maDanhMucKhoahoc: "",
-    },
-    nguoiTao: {
-      taiKhoan: "",
-    },
+    maDanhMucKhoaHoc: "",
+    taiKhoanNguoiTao: "",
   };
+  const dispatch = useDispatch();
   const { handleChange, values, handleSubmit, errors } = useFormik({
     initialValues: initialValues,
     validationSchema: courseValidation,
     onSubmit: (values) => {
       console.log("values", values);
+      // console.log("🚀 ~ handleEditCourse ~ values.ngayTao:", moment(values.ngayTao).format('DD/MM/YYYY'));
     },
   });
+  const handleUpdateCourse = (course) => {
+    console.log("🚀 ~ handleUpdateCourse ~ course:", course)
+    https
+      .put("/api/QuanLyKhoaHoc/CapNhatKhoaHoc", course)
+      .then(function (res) {
+        console.log(res);
+        dispatch(fetchCoursesList());
+        setOpen(false);
+      })
+      .catch(function (err) {
+        console.log(err);
+        message.error(err.response.data)
+      });
+  }
   const showDrawer = () => {
     setOpen(true);
   };
@@ -49,16 +65,19 @@ const DrawerEditCourse = ({ editCourse }) => {
     values.hinhAnh = editCourse.hinhAnh;
     values.maNhom = editCourse.maNhom;
     values.ngayTao = editCourse.ngayTao;
-    values.danhMucKhoaHoc.maDanhMucKhoahoc =
+    values.maDanhMucKhoaHoc =
       editCourse.danhMucKhoaHoc.maDanhMucKhoahoc;
-    values.nguoiTao.taiKhoan = editCourse.nguoiTao.taiKhoan;
+    values.taiKhoanNguoiTao = editCourse.nguoiTao.taiKhoan;
     values.moTa = editCourse.moTa;
     showDrawer();
   };
-  const handleDatePicker = (date)=>{
-    handleChange({ target: { name: 'ngayTao', value: date } })
-    return setStartDate(date)
-  }
+  const handleDatePicker = (date) => {
+    handleChange({ target: { name: "ngayTao", value: moment(date).format('DD/MM/YYYY')} });
+    // console.log("🚀 ~ handleEditCourse ~ values.ngayTao:", moment(values.ngayTao).format('DD/MM/YYYY'));
+    // values.ngayTao = moment(values.ngayTao).format('DD/MM/YYYY');
+    // console.log("🚀 ~ handleEditCourse ~ abc:", abc)
+    return setStartDate(date);
+  };
   return (
     <>
       <EditOutlined onClick={handleEditCourse} className="text-yellow-500" />
@@ -75,11 +94,23 @@ const DrawerEditCourse = ({ editCourse }) => {
         extra={
           <Space>
             <Button onClick={onClose}>Cancel</Button>
-            {errors.maKhoaHoc || errors.biDanh || errors.tenKhoaHoc || errors.luotXem || errors.moTa || errors.hinhAnh || errors.ngayTao  ? <Button disabled type="primary">
-              Update
-            </Button> : <Button onClick={onClose} type="primary">
-              Update
-            </Button>}       
+            {errors.maKhoaHoc ||
+            errors.biDanh ||
+            errors.tenKhoaHoc ||
+            errors.luotXem ||
+            errors.moTa ||
+            errors.hinhAnh ||
+            errors.ngayTao ? (
+              <Button disabled type="primary" className="btnNotAllowed">
+                Update
+              </Button>
+            ) : (
+              <Button onClick={()=>{
+                handleUpdateCourse(values)
+              }} type="primary">
+                Update
+              </Button>
+            )}
           </Space>
         }
       >
@@ -155,6 +186,7 @@ const DrawerEditCourse = ({ editCourse }) => {
                     selected={startDate}
                     value={values.ngayTao}
                     onChange={handleDatePicker}
+                    dateFormat="dd/MM/yyyy"
                   />
                   {errors.ngayTao && (
                     <p className="text-red-500">{errors.ngayTao}</p>
@@ -204,31 +236,28 @@ const DrawerEditCourse = ({ editCourse }) => {
                 <div className="flex flex-col space-y-3">
                   <label>Course catalog</label>
                   <Field
-                    name="danhMucKhoaHoc.maDanhMucKhoahoc"
+                    name="maDanhMucKhoaHoc"
                     className="fieldInput h-9"
                     as="select"
-                    value={values.danhMucKhoaHoc.maDanhMucKhoahoc}
+                    value={values.maDanhMucKhoaHoc}
                     onChange={handleChange}
                     placeholder="Please enter the course code"
                   >
-                    <option>Back End</option>
+                    <option>BackEnd</option>
                     <option>Design</option>
-                    <option>Mobile</option>
-                    <option>Front End</option>
+                    <option>DiDong</option>
+                    <option>FrontEnd</option>
                     <option>FullStack</option>
-                    <option>Thinking</option>
+                    <option>TuDuy</option>
                   </Field>
-                  {/* {errors.matKhau && (
-                  <p className="text-red-500">{errors.matKhau}</p>
-                )} */}
                 </div>
                 <div className="flex flex-col space-y-3">
                   <label>Creator</label>
                   <Field
-                    name="nguoiTao.taiKhoan"
+                    name="taiKhoanNguoiTao"
                     className="fieldInput h-9"
                     as="select"
-                    value={values.nguoiTao.taiKhoan}
+                    value={values.taiKhoanNguoiTao}
                     onChange={handleChange}
                     placeholder="Please enter the course code"
                   >
@@ -242,9 +271,6 @@ const DrawerEditCourse = ({ editCourse }) => {
                     <option>admin0003</option>
                     <option>admin_test</option>
                   </Field>
-                  {/* {errors.matKhau && (
-                  <p className="text-red-500">{errors.matKhau}</p>
-                )} */}
                 </div>
               </div>
             </div>
