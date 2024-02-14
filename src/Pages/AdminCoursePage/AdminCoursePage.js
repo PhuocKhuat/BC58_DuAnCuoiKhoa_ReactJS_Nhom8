@@ -510,6 +510,7 @@ const AdminCoursePage = () => {
   };
   const onSearch = (value) => {
     console.log("🚀 ~ onSearch ~ value:", value);
+    dispatch(fetchCoursesList(value));
   };
   return (
     <>

@@ -38,7 +38,7 @@ const DrawerEditCourse = ({ editCourse }) => {
     },
   });
   const handleUpdateCourse = (course) => {
-    console.log("🚀 ~ handleUpdateCourse ~ course:", course)
+    console.log("🚀 ~ handleUpdateCourse ~ course:", course);
     https
       .put("/api/QuanLyKhoaHoc/CapNhatKhoaHoc", course)
       .then(function (res) {
@@ -48,9 +48,9 @@ const DrawerEditCourse = ({ editCourse }) => {
       })
       .catch(function (err) {
         console.log(err);
-        message.error(err.response.data)
+        message.error(err.response.data);
       });
-  }
+  };
   const showDrawer = () => {
     setOpen(true);
   };
@@ -65,19 +65,19 @@ const DrawerEditCourse = ({ editCourse }) => {
     values.hinhAnh = editCourse.hinhAnh;
     values.maNhom = editCourse.maNhom;
     values.ngayTao = editCourse.ngayTao;
-    values.maDanhMucKhoaHoc =
-      editCourse.danhMucKhoaHoc.maDanhMucKhoahoc;
+    values.maDanhMucKhoaHoc = editCourse.danhMucKhoaHoc.maDanhMucKhoahoc;
     values.taiKhoanNguoiTao = editCourse.nguoiTao.taiKhoan;
     values.moTa = editCourse.moTa;
     showDrawer();
   };
   const handleDatePicker = (date) => {
-    handleChange({ target: { name: "ngayTao", value: moment(date).format('DD/MM/YYYY')} });
+     handleChange({ target: { name: "ngayTao", value: moment(date).format('DD/MM/YYYY')} });
+    // console.log("🚀 ~ handleDatePicker ~ date:", date.toString());
     // console.log("🚀 ~ handleEditCourse ~ values.ngayTao:", moment(values.ngayTao).format('DD/MM/YYYY'));
     // values.ngayTao = moment(values.ngayTao).format('DD/MM/YYYY');
-    // console.log("🚀 ~ handleEditCourse ~ abc:", abc)
     return setStartDate(date);
   };
+  
   return (
     <>
       <EditOutlined onClick={handleEditCourse} className="text-yellow-500" />
@@ -105,9 +105,12 @@ const DrawerEditCourse = ({ editCourse }) => {
                 Update
               </Button>
             ) : (
-              <Button onClick={()=>{
-                handleUpdateCourse(values)
-              }} type="primary">
+              <Button
+                onClick={() => {
+                  handleUpdateCourse(values);
+                }}
+                type="primary"
+              >
                 Update
               </Button>
             )}

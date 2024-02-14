@@ -1,19 +1,94 @@
-import React, { useState } from 'react';
-import { PlusOutlined } from '@ant-design/icons';
-import { Button, Col, DatePicker, Drawer, Form, Input, Row, Select, Space } from 'antd';
-import './styleDrawerAddCourse.css';
+import React, { useState } from "react";
+import { PlusOutlined } from "@ant-design/icons";
+import { Button, Drawer, Form, Space, message } from "antd";
+import "./styleDrawerAddCourse.css";
+import { Field, Formik, useFormik } from "formik";
+import ReactDatePicker from "react-datepicker";
+import moment from "moment";
+import { courseValidation } from "../../Validation/courseValidation";
+import { https } from "../../Services/api";
+import { useDispatch } from "react-redux";
+import { fetchCoursesList } from "../../Redux/personalSliceThunk";
 
-const { Option } = Select;
+const saveFormAddCourse = () => {
+  const storeAddCourse = localStorage.getItem("FORM_ADD_COURSE");
+  if (storeAddCourse) {
+    return JSON.parse(storeAddCourse);
+  }
+  return {
+    maKhoaHoc: "",
+    biDanh: "",
+    tenKhoaHoc: "",
+    luotXem: 0,
+    danhGia: 0,
+    moTa: "",
+    hinhAnh: "",
+    maNhom: "",
+    ngayTao: "",
+    maDanhMucKhoaHoc: "",
+    taiKhoanNguoiTao: "",
+  };
+};
+
+const saveErrorAddCourse = () => {
+  const storeErrorAddCourse = localStorage.getItem("ERROR_ADD_COURSE");
+  if (storeErrorAddCourse) {
+    return JSON.parse(storeErrorAddCourse);
+  }
+};
+
 const DrawerAddCourse = () => {
   const [open, setOpen] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
+  const initialValues = saveFormAddCourse();
+  const initialErrors = saveErrorAddCourse();
+  const { handleChange, values, handleSubmit, errors } = useFormik({
+    initialValues: initialValues,
+    validationSchema: courseValidation,
+    initialErrors: initialErrors,
+    onSubmit: (values) => {
+      console.log("values", values);
+      // console.log("🚀 ~ handleEditCourse ~ values.ngayTao:", moment(values.ngayTao).format('DD/MM/YYYY'));
+    },
+  });
+  const dispatch = useDispatch();
+  const handleAddCourse = (course) => {
+    https
+      .post("/api/QuanLyKhoaHoc/ThemKhoaHoc", course)
+      .then((res) => {
+        console.log(res);
+        message.success("Add course successfully");
+        dispatch(fetchCoursesList());
+        setOpen(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        message.error(err.response.data);
+      });
+  };
+  React.useEffect(() => {
+    localStorage.setItem("FORM_ADD_COURSE", JSON.stringify(values));
+  }, [values]);
+  React.useEffect(() => {
+    localStorage.setItem("ERROR_ADD_COURSE", JSON.stringify(errors));
+  }, [errors]);
   const showDrawer = () => {
     setOpen(true);
   };
   const onClose = () => {
     setOpen(false);
   };
+  const handleDatePicker = (date) => {
+    handleChange({
+      target: { name: "ngayTao", value: moment(date).format("DD/MM/YYYY") },
+    });
+    // console.log("🚀 ~ handleDatePicker ~ date:", date.toString());
+    // console.log("🚀 ~ handleEditCourse ~ values.ngayTao:", moment(values.ngayTao).format('DD/MM/YYYY'));
+    // values.ngayTao = moment(values.ngayTao).format('DD/MM/YYYY');
+    return setStartDate(date);
+  };
   return (
-    <div className='drawerAddCourse'>
+    <div className="drawerAddCourse">
       <Button type="primary" onClick={showDrawer} icon={<PlusOutlined />}>
         Add Course
       </Button>
@@ -30,141 +105,214 @@ const DrawerAddCourse = () => {
         extra={
           <Space>
             <Button onClick={onClose}>Cancel</Button>
-            <Button onClick={onClose} type="primary">
-              Submit
-            </Button>
+            {errors.maKhoaHoc ||
+            errors.biDanh ||
+            errors.tenKhoaHoc ||
+            errors.luotXem ||
+            errors.moTa ||
+            errors.danhGia ||
+            errors.hinhAnh ||
+            errors.maNhom ||
+            errors.ngayTao ||
+            errors.maDanhMucKhoaHoc ||
+            errors.taiKhoanNguoiTao ? (
+              <Button disabled type="primary" className="btnNotAllowed">
+                Add
+              </Button>
+            ) : (
+              <Button type="primary" onClick={()=>{
+                handleAddCourse(values)
+              }}>
+                Add
+              </Button>
+            )}
           </Space>
         }
       >
-        <Form layout="vertical" hideRequiredMark>
-          <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                name="name"
-                label="Name"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please enter user name',
-                  },
-                ]}
-              >
-                <Input placeholder="Please enter user name" />
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item
-                name="url"
-                label="Url"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please enter url',
-                  },
-                ]}
-              >
-                <Input
-                  style={{
-                    width: '100%',
-                  }}
-                  addonBefore="http://"
-                  addonAfter=".com"
-                  placeholder="Please enter url"
-                />
-              </Form.Item>
-            </Col>
-          </Row>
-          <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                name="owner"
-                label="Owner"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please select an owner',
-                  },
-                ]}
-              >
-                <Select placeholder="Please select an owner">
-                  <Option value="xiao">Xiaoxiao Fu</Option>
-                  <Option value="mao">Maomao Zhou</Option>
-                </Select>
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item
-                name="type"
-                label="Type"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please choose the type',
-                  },
-                ]}
-              >
-                <Select placeholder="Please choose the type">
-                  <Option value="private">Private</Option>
-                  <Option value="public">Public</Option>
-                </Select>
-              </Form.Item>
-            </Col>
-          </Row>
-          <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                name="approver"
-                label="Approver"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please choose the approver',
-                  },
-                ]}
-              >
-                <Select placeholder="Please choose the approver">
-                  <Option value="jack">Jack Ma</Option>
-                  <Option value="tom">Tom Liu</Option>
-                </Select>
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item
-                name="dateTime"
-                label="DateTime"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please choose the dateTime',
-                  },
-                ]}
-              >
-                <DatePicker.RangePicker
-                  style={{
-                    width: '100%',
-                  }}
-                  getPopupContainer={(trigger) => trigger.parentElement}
-                />
-              </Form.Item>
-            </Col>
-          </Row>
-          <Row gutter={16}>
-            <Col span={24}>
-              <Form.Item
-                name="description"
-                label="Description"
-                rules={[
-                  {
-                    required: true,
-                    message: 'please enter url description',
-                  },
-                ]}
-              >
-                <Input.TextArea rows={4} placeholder="please enter url description" />
-              </Form.Item>
-            </Col>
-          </Row>
-        </Form>
+        <Formik
+          initialValues={initialValues}
+          initialErrors={initialErrors}
+          validationSchema={courseValidation}
+        >
+          <Form className="formDrawer" onClick={handleSubmit}>
+            <div className="grid grid-cols-12">
+              <div className="col-span-6 space-y-5 p-3">
+                <div className="flex flex-col space-y-3">
+                  <label>Course Code</label>
+                  <Field
+                    name="maKhoaHoc"
+                    type="text"
+                    className="fieldInput"
+                    value={values.maKhoaHoc}
+                    onChange={handleChange}
+                    placeholder="Please enter the code course"
+                  />
+                  {errors.maKhoaHoc && (
+                    <p className="text-red-500">{errors.maKhoaHoc}</p>
+                  )}
+                </div>
+                <div className="flex flex-col space-y-3">
+                  <label>Aliases</label>
+                  <Field
+                    name="biDanh"
+                    type="text"
+                    className="fieldInput"
+                    value={values.biDanh}
+                    onChange={handleChange}
+                    placeholder="Please enter the aliases course"
+                  />
+                  {errors.biDanh && (
+                    <p className="text-red-500">{errors.biDanh}</p>
+                  )}
+                </div>
+                <div className="flex flex-col space-y-3">
+                  <label>Course Name</label>
+                  <Field
+                    name="tenKhoaHoc"
+                    type="text"
+                    className="fieldInput"
+                    value={values.tenKhoaHoc}
+                    onChange={handleChange}
+                    placeholder="Please enter the course name"
+                  />
+                  {errors.tenKhoaHoc && (
+                    <p className="text-red-500">{errors.tenKhoaHoc}</p>
+                  )}
+                </div>
+                <div className="flex flex-col space-y-3">
+                  <label>Views</label>
+                  <Field
+                    name="luotXem"
+                    type="text"
+                    className="fieldInput"
+                    value={values.luotXem}
+                    onChange={handleChange}
+                    placeholder="Please enter views"
+                  />
+                  {errors.luotXem && (
+                    <p className="text-red-500">{errors.luotXem}</p>
+                  )}
+                </div>
+                <div className="flex flex-col space-y-3">
+                  <label>Select date</label>
+                  <ReactDatePicker
+                    className="fieldInput fieldInputDate"
+                    selected={startDate}
+                    value={values.ngayTao}
+                    onChange={handleDatePicker}
+                    dateFormat="dd/MM/yyyy"
+                  />
+                  {errors.ngayTao && (
+                    <p className="text-red-500">{errors.ngayTao}</p>
+                  )}
+                </div>
+              </div>
+              <div className="col-span-6 space-y-5 p-3">
+                <div className="flex flex-col space-y-3">
+                  <label>Evaluate</label>
+                  <Field
+                    name="danhGia"
+                    type="text"
+                    className="fieldInput"
+                    value={values.danhGia}
+                    onChange={handleChange}
+                    placeholder="Please enter the image course"
+                  />
+                  {errors.danhGia && (
+                    <p className="text-red-500">{errors.danhGia}</p>
+                  )}
+                </div>
+                <div className="flex flex-col space-y-3">
+                  <label>Image</label>
+                  <Field
+                    name="hinhAnh"
+                    type="text"
+                    className="fieldInput"
+                    value={values.hinhAnh}
+                    onChange={handleChange}
+                    placeholder="Please enter the image course"
+                  />
+                  {errors.hinhAnh && (
+                    <p className="text-red-500">{errors.hinhAnh}</p>
+                  )}
+                </div>
+                <div className="flex flex-col space-y-3">
+                  <label>Group code</label>
+                  <Field
+                    name="maNhom"
+                    as="select"
+                    className="fieldInput h-9"
+                    value={values.maNhom}
+                    onChange={handleChange}
+                    placeholder="Please enter the course code"
+                  >
+                    <option>GP01</option>
+                    <option>GP02</option>
+                    <option>GP03</option>
+                    <option>GP04</option>
+                    <option>GP05</option>
+                    <option>GP06</option>
+                    <option>GP07</option>
+                    <option>GP08</option>
+                    <option>GP09</option>
+                    <option>GP10</option>
+                  </Field>
+                </div>
+                <div className="flex flex-col space-y-3">
+                  <label>Course catalog</label>
+                  <Field
+                    name="maDanhMucKhoaHoc"
+                    className="fieldInput h-9"
+                    as="select"
+                    value={values.maDanhMucKhoaHoc}
+                    onChange={handleChange}
+                    placeholder="Please enter the course code"
+                  >
+                    <option>BackEnd</option>
+                    <option>Design</option>
+                    <option>DiDong</option>
+                    <option>FrontEnd</option>
+                    <option>FullStack</option>
+                    <option>TuDuy</option>
+                  </Field>
+                </div>
+                <div className="flex flex-col space-y-3">
+                  <label>Creator</label>
+                  <Field
+                    name="taiKhoanNguoiTao"
+                    className="fieldInput h-9"
+                    as="select"
+                    value={values.taiKhoanNguoiTao}
+                    onChange={handleChange}
+                    placeholder="Please enter the course code"
+                  >
+                    <option>DuyAdmin22</option>
+                    <option>Huy Nguyen</option>
+                    <option>testadm</option>
+                    <option>tame</option>
+                    <option>admin0001</option>
+                    <option>adminttt</option>
+                    <option>nguyendp</option>
+                    <option>admin0003</option>
+                    <option>admin_test</option>
+                  </Field>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col space-y-3 p-3 h-full">
+              <label>Description</label>
+              <Field
+                name="moTa"
+                as="textarea"
+                className="fieldInput form-textarea"
+                value={values.moTa}
+                onChange={handleChange}
+                placeholder="Please enter the description course"
+              />
+              {errors.moTa && <p className="text-red-500">{errors.moTa}</p>}
+            </div>
+          </Form>
+        </Formik>
       </Drawer>
     </div>
   );

@@ -43,6 +43,12 @@ div div div div div div div div:nth-child(2) button{
   border-color: #ced4da;
   outline: none;
 }
+.formDrawer select:focus{
+  outline: none;
+}
+.formDrawer textarea:focus{
+  outline: none;
+}
 .formDrawer .fieldInput {
   padding: 8px;
   border-radius: 4px;

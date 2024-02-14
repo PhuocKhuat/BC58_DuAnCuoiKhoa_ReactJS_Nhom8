@@ -8,30 +8,30 @@ import { https } from "../../../Services/api";
 import { useDispatch } from "react-redux";
 import { fetchAdminUser } from "../../../Redux/adminUserSliceThunk";
 
+const saveFormAddUser = ()=>{
+  const storeAddUser = localStorage.getItem("FORM_ADD_USER");
+  if(storeAddUser){
+  return JSON.parse(storeAddUser);
+  }
+  return {
+    taiKhoan: "",
+    matKhau: "",
+    hoTen: "",
+    soDt: "",
+    maLoaiNguoiDung: "",
+    maNhom: "",
+    email: "",
+  };
+}
+const saveFormErrorAddUser = ()=>{
+  const storeErrorAddUser = localStorage.getItem("FORM_ERROR_ADD_USER");
+  if(storeErrorAddUser){
+    return JSON.parse(storeErrorAddUser);
+  }
+}
+
 const DrawerAddUser = () => {
   const [open, setOpen] = useState(false);
-  const saveFormAddUser = ()=>{
-    const storeAddUser = localStorage.getItem("FORM_ADD_USER");
-    // const storeErrorAddUser = localStorage.getItem("FORM_ERROR_ADD_USER");
-    if(storeAddUser){
-    return JSON.parse(storeAddUser);
-    }
-    return {
-      taiKhoan: "",
-      matKhau: "",
-      hoTen: "",
-      soDt: "",
-      maLoaiNguoiDung: "",
-      maNhom: "",
-      email: "",
-    };
-  }
-  const saveFormErrorAddUser = ()=>{
-    const storeErrorAddUser = localStorage.getItem("FORM_ERROR_ADD_USER");
-    if(storeErrorAddUser){
-      return JSON.parse(localStorage.getItem("FORM_ERROR_ADD_USER"));
-    }
-  }
   const initialValues = saveFormAddUser();
   const initialErrors = saveFormErrorAddUser();
   const { handleChange, values, handleSubmit, errors } = useFormik({
