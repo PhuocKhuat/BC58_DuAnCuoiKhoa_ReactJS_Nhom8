@@ -1,86 +1,119 @@
 import React, { useState } from "react";
-import { EditOutlined } from "@ant-design/icons";
-import "./styleDrawerEditCourse.css";
-
-import { Button, Drawer, Space, message } from "antd";
-import { Field, Form, Formik, useFormik } from "formik";
-import { courseValidation } from "../../Validation/courseValidation";
+import { PlusOutlined } from "@ant-design/icons";
+import { Button, Drawer, Form, Space, message } from "antd";
+import "./styleDrawerAddCourse.css";
+import { Field, Formik, useFormik } from "formik";
 import ReactDatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment";
+import { courseValidation } from "../../Validation/courseValidation";
 import { https } from "../../Services/api";
 import { useDispatch } from "react-redux";
 import { fetchCoursesList } from "../../Redux/personalSliceThunk";
-import moment from "moment";
 
-const DrawerEditCourse = ({ editCourse }) => {
-  // console.log("🚀 ~ DrawerEditCourse ~ editCourse:", editCourse)
-  const [open, setOpen] = useState(false);
-  const [startDate, setStartDate] = useState(new Date());
-  const initialValues = {
+const saveFormAddCourse = () => {
+  const storeAddCourse = localStorage.getItem("FORM_ADD_COURSE");
+  if (storeAddCourse) {
+    return JSON.parse(storeAddCourse);
+  }
+  return {
     maKhoaHoc: "",
     biDanh: "",
     tenKhoaHoc: "",
     luotXem: 0,
+    danhGia: 0,
     moTa: "",
-    hinhAnh: "",
+    hinhAnh: [],
     maNhom: "",
     ngayTao: "",
     maDanhMucKhoaHoc: "",
     taiKhoanNguoiTao: "",
   };
+};
+
+const saveErrorAddCourse = () => {
+  const storeErrorAddCourse = localStorage.getItem("ERROR_ADD_COURSE");
+  if (storeErrorAddCourse) {
+    return JSON.parse(storeErrorAddCourse);
+  }
+};
+
+const DrawerAddCourse = () => {
+  const [open, setOpen] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
+  const [thumb, setThumb] = useState("/logo512.png");
+  const initialValues = saveFormAddCourse();
+  const initialErrors = saveErrorAddCourse();
+  
+  // const { field, meta, helper } = useField("file");
   const dispatch = useDispatch();
-  const { handleChange, values, handleSubmit, errors } = useFormik({
-    initialValues: initialValues,
-    validationSchema: courseValidation,
-    onSubmit: (values) => {
-      console.log("values", values);
-      // console.log("🚀 ~ handleEditCourse ~ values.ngayTao:", moment(values.ngayTao).format('DD/MM/YYYY'));
-    },
-  });
-  const handleUpdateCourse = (course) => {
-    console.log("🚀 ~ handleUpdateCourse ~ course:", course);
+  const handleAddCourse = (course) => {
     https
-      .put("/api/QuanLyKhoaHoc/CapNhatKhoaHoc", course)
-      .then(function (res) {
+      .post("/api/QuanLyKhoaHoc/ThemKhoaHoc", course)
+      .then((res) => {
         console.log(res);
+        message.success("Add course successfully");
+        handleAddImage();
         dispatch(fetchCoursesList());
         setOpen(false);
       })
-      .catch(function (err) {
+      .catch((err) => {
         console.log(err);
         message.error(err.response.data);
       });
   };
+  const handleAddImage = async (values) => {
+    // console.log("🚀 ~ handleAddImage ~ values:", values)
+    let formData = new FormData();
+        for (let key in values) {
+            if (key !== 'hinhAnh') {
+                formData.append(key, values[key]);
+            } else {
+                formData.append('hinhAnh', values.hinhAnh, values.hinhAnh.name)
+            }
+            // console.log(formData.get('hinhAnh'))
+        }
+    try {
+      await https.post("/api/QuanLyKhoaHoc/ThemKhoaHocUploadHinh", formData);
+      message.success("Add image successfully");
+      dispatch(fetchCoursesList());
+    } catch (error) {
+      console.log("🚀 ~ handleAddImage ~ error:", error)
+      message.error("Add image failed");
+    }
+  };
+  const { handleChange, values, handleSubmit, errors, setFieldValue } =
+    useFormik({
+      initialValues: initialValues,
+      validationSchema: courseValidation,
+      initialErrors: initialErrors,
+      onSubmit: handleAddImage,
+    });
+  React.useEffect(() => {
+    localStorage.setItem("FORM_ADD_COURSE", JSON.stringify(values));
+  }, [values]);
+  React.useEffect(() => {
+    localStorage.setItem("ERROR_ADD_COURSE", JSON.stringify(errors));
+  }, [errors]);
   const showDrawer = () => {
     setOpen(true);
   };
   const onClose = () => {
     setOpen(false);
   };
-  const handleEditCourse = () => {
-    values.maKhoaHoc = editCourse.maKhoaHoc;
-    values.biDanh = editCourse.biDanh;
-    values.tenKhoaHoc = editCourse.tenKhoaHoc;
-    values.luotXem = editCourse.luotXem;
-    values.hinhAnh = editCourse.hinhAnh;
-    values.maNhom = editCourse.maNhom;
-    values.ngayTao = editCourse.ngayTao;
-    values.maDanhMucKhoaHoc = editCourse.danhMucKhoaHoc.maDanhMucKhoahoc;
-    values.taiKhoanNguoiTao = editCourse.nguoiTao.taiKhoan;
-    values.moTa = editCourse.moTa;
-    showDrawer();
-  };
   const handleDatePicker = (date) => {
-     handleChange({ target: { name: "ngayTao", value: moment(date).format('DD/MM/YYYY')} });
+    handleChange({
+      target: { name: "ngayTao", value: moment(date).format("DD/MM/YYYY") },
+    });
     // console.log("🚀 ~ handleDatePicker ~ date:", date.toString());
     // console.log("🚀 ~ handleEditCourse ~ values.ngayTao:", moment(values.ngayTao).format('DD/MM/YYYY'));
     // values.ngayTao = moment(values.ngayTao).format('DD/MM/YYYY');
     return setStartDate(date);
   };
-  
   return (
-    <>
-      <EditOutlined onClick={handleEditCourse} className="text-yellow-500" />
+    <div className="drawerAddCourse">
+      <Button type="primary" onClick={showDrawer} icon={<PlusOutlined />}>
+        Add Course
+      </Button>
       <Drawer
         title="Create a new account"
         width={720}
@@ -99,31 +132,33 @@ const DrawerEditCourse = ({ editCourse }) => {
             errors.tenKhoaHoc ||
             errors.luotXem ||
             errors.moTa ||
-            errors.hinhAnh ||
-            errors.ngayTao ? (
+            errors.danhGia ||
+            errors.maNhom ||
+            errors.ngayTao ||
+            errors.maDanhMucKhoaHoc ||
+            errors.taiKhoanNguoiTao ? (
               <Button disabled type="primary" className="btnNotAllowed">
-                Update
+                Add
               </Button>
             ) : (
               <Button
-                onClick={() => {
-                  handleUpdateCourse(values);
-                }}
                 type="primary"
+                onClick={() => {
+                  handleAddCourse(values);
+                }}
               >
-                Update
+                Add
               </Button>
             )}
           </Space>
         }
       >
-        <Formik>
-          <Form
-            className="formDrawer"
-            onClick={handleSubmit}
-            initialValues={initialValues}
-            validationSchema={courseValidation}
-          >
+        <Formik
+          initialValues={initialValues}
+          initialErrors={initialErrors}
+          validationSchema={courseValidation}
+        >
+          <Form className="formDrawer" onClick={handleSubmit}>
             <div className="grid grid-cols-12">
               <div className="col-span-6 space-y-5 p-3">
                 <div className="flex flex-col space-y-3">
@@ -198,18 +233,47 @@ const DrawerEditCourse = ({ editCourse }) => {
               </div>
               <div className="col-span-6 space-y-5 p-3">
                 <div className="flex flex-col space-y-3">
-                  <label>Image</label>
+                  <label>Evaluate</label>
                   <Field
-                    name="hinhAnh"
+                    name="danhGia"
                     type="text"
                     className="fieldInput"
-                    value={values.hinhAnh}
+                    value={values.danhGia}
                     onChange={handleChange}
                     placeholder="Please enter the image course"
                   />
-                  {errors.hinhAnh && (
-                    <p className="text-red-500">{errors.hinhAnh}</p>
+                  {errors.danhGia && (
+                    <p className="text-red-500">{errors.danhGia}</p>
                   )}
+                </div>
+                <div className="flex flex-col space-y-3">
+                  <label>Image</label>
+                  <div className="flex items-center gap-2">
+                    <img
+                      alt="hinhAnhKhoaHoc"
+                      src={thumb}
+                      width={100}
+                      height={100}
+                    />
+                    <input
+                      name="hinhAnh"
+                      accept="image/png,image/jpg,image/jpeg"
+                      style={{ zIndex: 10 }}
+                      onClick={(e) => e.stopPropagation()}
+                      autoFocus
+                      type="file"
+                      className="fieldInput"
+                      onChange={(e) => {
+                        let file = e.target.files[0];
+                        let reader = new FileReader();
+                        reader?.readAsDataURL(file);
+                        reader.onload = (e) => {
+                          setThumb(e.target.result);
+                        };
+                        setFieldValue("hinhAnh", file);
+                      }}
+                    />
+                  </div>
                 </div>
                 <div className="flex flex-col space-y-3">
                   <label>Group code</label>
@@ -232,9 +296,6 @@ const DrawerEditCourse = ({ editCourse }) => {
                     <option>GP09</option>
                     <option>GP10</option>
                   </Field>
-                  {/* {errors.matKhau && (
-                  <p className="text-red-500">{errors.matKhau}</p>
-                )} */}
                 </div>
                 <div className="flex flex-col space-y-3">
                   <label>Course catalog</label>
@@ -267,6 +328,7 @@ const DrawerEditCourse = ({ editCourse }) => {
                     <option>DuyAdmin22</option>
                     <option>Huy Nguyen</option>
                     <option>testadm</option>
+                    <option>tame</option>
                     <option>admin0001</option>
                     <option>adminttt</option>
                     <option>nguyendp</option>
@@ -291,7 +353,7 @@ const DrawerEditCourse = ({ editCourse }) => {
           </Form>
         </Formik>
       </Drawer>
-    </>
+    </div>
   );
 };
-export default DrawerEditCourse;
+export default DrawerAddCourse;

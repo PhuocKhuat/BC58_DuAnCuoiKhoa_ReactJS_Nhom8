@@ -221,7 +221,7 @@ export default function Header() {
                 </ul>
               </li>
               <li>
-                <span className="catalogHeader">Course</span>
+                <NavLink className="catalogHeader" to="/course">Course</NavLink>
               </li>
               <li>
                 <span className="catalogHeader">Information</span>

@@ -18,6 +18,7 @@ import AdminUserPage from "./Pages/AdminUserPage/AdminUserPage";
 import AdminLayout from "./Layouts/AdminLayout/AdminLayout";
 import SecureGate from "./Layouts/SecureGate";
 import AdminCoursePage from "./Pages/AdminCoursePage/AdminCoursePage";
+import Course from "./Pages/Course/Course";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/account" element={<FormLogin />} />
             <Route path="/signup" element={<FormSignup />} />
           </Route>
+          <Route path="/course" element={<Course/>} />
           <Route
             path="/personalinfo"
             element={

@@ -1,0 +1,18 @@
+.course .bgCourseList:nth-child(1){
+    background: #1778ff;
+}
+.course .bgCourseList:nth-child(2){
+    background: #ff4560;
+}
+.course .bgCourseList:nth-child(3){
+    background: #feb424;
+}
+.course .bgCourseList:nth-child(4){
+    background: #00e396;
+}
+.course .bgCourseList:nth-child(5){
+    background: #785ed0;
+}
+.course .bgCourseList:nth-child(6){
+    background: #dc3ff8;
+}
