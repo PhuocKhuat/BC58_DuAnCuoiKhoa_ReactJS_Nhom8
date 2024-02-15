@@ -1,18 +1,71 @@
-.course .bgCourseList:nth-child(1){
-    background: #1778ff;
+.course .bgCourseList:nth-child(1) {
+  background: #1778ff;
 }
-.course .bgCourseList:nth-child(2){
-    background: #ff4560;
+.course .bgCourseList:nth-child(2) {
+  background: #ff4560;
 }
-.course .bgCourseList:nth-child(3){
-    background: #feb424;
+.course .bgCourseList:nth-child(3) {
+  background: #feb424;
 }
-.course .bgCourseList:nth-child(4){
-    background: #00e396;
+.course .bgCourseList:nth-child(4) {
+  background: #00e396;
 }
-.course .bgCourseList:nth-child(5){
-    background: #785ed0;
+.course .bgCourseList:nth-child(5) {
+  background: #785ed0;
 }
-.course .bgCourseList:nth-child(6){
-    background: #dc3ff8;
+.course .bgCourseList:nth-child(6) {
+  background: #dc3ff8;
+}
+.course .frameCourse {
+  width: 32%;
+}
+.course .frameCourse {
+  position: relative;
+  overflow: hidden;
+}
+.course .frameCourse::before {
+  content: "";
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  display: block;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+  transform: skewX(-25deg);
+  transition: all 0.75s;
+}
+.course .paginationCourseOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: all 0.75s;
+  opacity: 0;
+}
+.course .paginationCourseOverlay:hover {
+  opacity: 1;
+}
+.course .frameCourse:hover:before {
+  left: 100%;
+}
+.course .titlePaginationCourse{
+    transition: all 0.3s;
+    border: 3px solid rgb(243, 243, 168);
+}
+.course .titlePaginationCourse:hover{
+    background: #e2e8f0;
+    border: 3px solid rgb(222, 218, 218);
+}
+
+@media screen and (max-width: 1285px) {
+  .course .frameCourse {
+    width: 32%;
+  }
 }
