@@ -18,7 +18,7 @@ import AdminUserPage from "./Pages/AdminUserPage/AdminUserPage";
 import AdminLayout from "./Layouts/AdminLayout/AdminLayout";
 import SecureGate from "./Layouts/SecureGate";
 import AdminCoursePage from "./Pages/AdminCoursePage/AdminCoursePage";
-import Course from "./Pages/Course/Course";
+import Course from "./Pages/Course/Course/Course";
 
 function App() {
   return (
