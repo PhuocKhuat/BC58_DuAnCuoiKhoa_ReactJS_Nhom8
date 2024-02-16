@@ -55,15 +55,19 @@
 .course .frameCourse:hover:before {
   left: 100%;
 }
-.course .titlePaginationCourse{
-    transition: all 0.3s;
-    border: 3px solid rgb(243, 243, 168);
+.course .titlePaginationCourse {
+  transition: all 0.3s;
+  border: 3px solid rgb(243, 243, 168);
 }
-.course .titlePaginationCourse:hover{
-    background: #e2e8f0;
-    border: 3px solid rgb(222, 218, 218);
+.course .titlePaginationCourse:hover {
+  background: #e2e8f0;
+  border: 3px solid rgb(222, 218, 218);
 }
-
+.course .frameCourse .btnLearnMore {
+  bottom: 42px;
+  position: absolute;
+  left: 255px;
+}
 @media screen and (max-width: 1285px) {
   .course .frameCourse {
     width: 32%;

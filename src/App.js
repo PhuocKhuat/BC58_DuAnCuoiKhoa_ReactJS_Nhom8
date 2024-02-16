@@ -19,6 +19,7 @@ import AdminLayout from "./Layouts/AdminLayout/AdminLayout";
 import SecureGate from "./Layouts/SecureGate";
 import AdminCoursePage from "./Pages/AdminCoursePage/AdminCoursePage";
 import Course from "./Pages/Course/Course/Course";
+import Blog from "./Pages/Blog/Blog";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             path="/coursecatalog/:idMaDanhMuc"
             element={<CourseCatalog />}
           />
+          <Route path="/blog" element={<Blog/>}/>
           <Route path="/searchcourse" element={<SearchPage />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/admin" element={

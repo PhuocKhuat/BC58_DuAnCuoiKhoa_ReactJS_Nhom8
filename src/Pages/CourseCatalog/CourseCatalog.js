@@ -17,7 +17,7 @@ export default function CourseCatalog() {
   // );
   const { courseCatalogById } = useSelector(
     (state) => state.searchCatalogThunk
-  );  
+  );
   console.log("🚀 ~ CourseCatalog ~ courseCatalogById:", courseCatalogById);
   const { idMaDanhMuc } = useParams();
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ export default function CourseCatalog() {
     //   .catch((err) => {
     //     console.log(err);
     //   });
-    dispatch(fetchCourseCatalog(idMaDanhMuc))
+    dispatch(fetchCourseCatalog(idMaDanhMuc));
   }, []);
   const rednerCourseCatalog = () =>
     courseCatalogById.map((course, index) => (
@@ -50,29 +50,27 @@ export default function CourseCatalog() {
           <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
             {course.tenKhoaHoc}
           </h2>
-          <Tooltip title={course.moTa}>
-            <p className="leading-relaxed text-base">{course.moTa}</p>
-          </Tooltip>
-            <div className="flex gap-2 mt-2">
-              <div className="flex gap-1">
-                <span className="text-yellow-400">
-                  <FieldTimeOutlined />
-                </span>
-                <strong>144 hours</strong>
-              </div>
-              <div className="flex gap-1">
-                <span className="text-red-400">
-                  <ScheduleOutlined />
-                </span>
-                <strong>24 weeks</strong>
-              </div>
-              <div className="flex gap-1">
-                <span className="text-blue-400">
-                  <BarChartOutlined />
-                </span>
-                <strong>All</strong>
-              </div>
+          <p className="leading-relaxed text-base">{course.moTa}</p>
+          <div className="flex gap-2 mt-2">
+            <div className="flex gap-1">
+              <span className="text-yellow-400">
+                <FieldTimeOutlined />
+              </span>
+              <strong>144 hours</strong>
             </div>
+            <div className="flex gap-1">
+              <span className="text-red-400">
+                <ScheduleOutlined />
+              </span>
+              <strong>24 weeks</strong>
+            </div>
+            <div className="flex gap-1">
+              <span className="text-blue-400">
+                <BarChartOutlined />
+              </span>
+              <strong>All</strong>
+            </div>
+          </div>
           <p className="mt-3 text-indigo-500 inline-flex items-center btnLearnMores">
             Learn More
             <svg
@@ -94,7 +92,10 @@ export default function CourseCatalog() {
   const renderTitleCatalog = () =>
     courseCatalogById.map((title, index) =>
       index === 0 ? (
-        <strong className="titleCourseCatalog flex p-2 gap-2 rounded-2xl" key={index}>
+        <strong
+          className="titleCourseCatalog flex p-2 gap-2 rounded-2xl"
+          key={index}
+        >
           <span className="text-yellow-400">
             <LaptopOutlined />
           </span>

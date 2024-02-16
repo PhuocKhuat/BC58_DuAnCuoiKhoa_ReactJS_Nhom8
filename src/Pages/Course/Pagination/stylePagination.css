@@ -1,4 +1,5 @@
-.paginationPages {
+/* All button */
+.paginationPages { 
     display: flex;
     justify-content: center;
     padding-left: 0;
@@ -6,6 +7,7 @@
     border-radius: .25rem;
     margin-top: 70px;
 }
+/* Button border */
 .pageLinkPages {
     position: relative;
     display: block;
@@ -13,15 +15,16 @@
     margin-left: 5px;
     line-height: 1.25;
     color: #000;
-    background-color: #fff;
-    border: 2px solid red;
+    background: #b4cced;
+    border: 2px solid #227df9;
     border-radius: 5px
 }
+
 .page-item.active .pageLinkPages {
     z-index: 3;
     color: #fff;
-    background-color: var(--colorGlobal);
-    border-color: rgba(17,61,60,.5)
+    background: linear-gradient(to right, #227df9, #7462f9, #df3ef8);
+    border-color: #df3ef8;
 }
 
 .pageLinkPages:focus {
@@ -34,6 +37,6 @@
     z-index: 2;
     color: #fff;
     text-decoration: none;
-    background-color: var(--colorGlobal);
-    border-color: #dee2e6
+    background: linear-gradient(to right, #227df9, #7462f9, #df3ef8) !important;
+    border-color: #df3ef8;
 }
