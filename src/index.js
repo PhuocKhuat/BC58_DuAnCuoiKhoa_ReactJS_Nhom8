@@ -17,6 +17,7 @@ import courseCatalogSlice from './Redux/courseCatalogSlice';
 import searchCatalogThunk from './Redux/searchCatalogThunk';
 import adminUserSliceThunk from './Redux/adminUserSliceThunk';
 import courseSlice from './Redux/courseSlice';
+import userRegistrationSlice from './Redux/userRegistrationSlice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export const store = configureStore({reducer:{
@@ -30,6 +31,7 @@ export const store = configureStore({reducer:{
   searchCatalogThunk,
   adminUserSliceThunk,
   courseSlice,
+  userRegistrationSlice,
 }})
 root.render(
   <Provider store={store}>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Space, Table, message } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCoursesList } from "../../Redux/personalSliceThunk";
@@ -8,8 +8,10 @@ import DrawerEditCourse from "../../Drawer/DrawerEditCourse/DrawerEditCourse";
 import { https } from "../../Services/api";
 import Search from "antd/es/input/Search";
 import DrawerAddCourse from "../../Drawer/DrawerAddCourse/DrawerAddCourse";
+import DrawerUserRegistration from "../../Drawer/DrawerUserRegistration/DrawerUserRegistration";
 
 const AdminCoursePage = () => {
+  
   const { coursesList } = useSelector((state) => state.personalSliceThunk);
   const dispatch = useDispatch();
   //  console.log("🚀 ~ AdminCoursePage ~ userList:", coursesList)
@@ -494,6 +496,7 @@ const AdminCoursePage = () => {
       key: "action",
       render: (_, record) => (
         <Space>
+          <DrawerUserRegistration maKhoaHoc={record.maKhoaHoc}/>
           <DrawerEditCourse editCourse={record} />
           <DeleteOutlined
             className="text-red-600"
