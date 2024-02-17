@@ -10,7 +10,7 @@ export const courseValidation = Yup.object({
     .min(6, "Your aliases must be at least 6 characters")
     .required("You must fill in this section"),
     tenKhoaHoc: Yup.string()
-    .min(11, "Your course name must be at least 11 characters")
+    .min(6, "Your course name must be at least 6 characters")
     .required("You must fill in this section"),
     luotXem: Yup.number()
     .required("You must fill in this section"),
