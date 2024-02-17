@@ -48,6 +48,7 @@
 }
 .blog .bgFrame{
     background: #1c1f26;
+    border-radius: 15px;
 }
 .blog .imgBlog{
     padding: 10px;
@@ -55,8 +56,8 @@
 }
 .blog .bottomFrame{
     position: relative;
-    bottom: 150px;
+    bottom: 210px;
 }
 .blog .frame{
-    height: 1110px;
+    height: 1050px;
 }

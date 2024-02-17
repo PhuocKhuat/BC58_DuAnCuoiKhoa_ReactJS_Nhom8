@@ -79,7 +79,7 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-            <div className="address">
+            <div className="address ms-4">
               <h2 className="text-base font-bold text-gray-500">
                 Ho Chi Minh City
               </h2>
@@ -117,7 +117,7 @@ const Footer = () => {
                 <span>Mobile programming</span>
               </p>
             </div>
-            <div className="w-1/6 space-x-2">
+            <div className="w-1/5 space-x-2">
               <strong className="text-xs">GET SOCIAL </strong>
               <span className="">
                 <FacebookOutlined style={{background: "#0866ff", fontSize: "30px"}}/>

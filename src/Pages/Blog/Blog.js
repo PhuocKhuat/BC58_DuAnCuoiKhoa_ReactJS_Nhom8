@@ -9,7 +9,7 @@ export default function Blog() {
         <div className="grid grid-col-12 frame">
           <div className="col-span-12">
             <div className="lg:w-full flex flex-wrap">
-              <div className="lg:w-1/3 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0 bg-black pt-3 px-3 pb-4">
+              <div className="lg:w-1/3 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0 bg-black pt-3 px-3 pb-4 z-50">
                 <div className="flex mb-4">
                   <p className="flex-grow py-2 text-lg px-1 uppercase blogBorder">
                     Description
@@ -270,14 +270,13 @@ export default function Blog() {
                 <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bgFrame">
                   <div className="px-6 pt-6">
                     <h1 className="title-font text-lg font-bold text-white">
-                      Tips to "beat" the automatic CV filtering system - Submit
-                      your CV now
+                    Which API is suitable for new Developers?
                     </h1>
                   </div>
                   <img
                     className="lg:h-56 md:h-36 w-full object-cover object-center p-2 imgBlog"
-                    src="/img/ATS.jpg"
-                    alt="img ATS"
+                    src="/img/APINewDeveloper.jpg"
+                    alt="img API New Developer"
                   />
                   <div className="p-6">
                     <div className="text-gray-700">
@@ -312,8 +311,7 @@ export default function Blog() {
                       </span>
                     </div>
                     <p className="leading-relaxed mb-3 text-gray-400">
-                      When participating in interviews, many programmers often
-                      focus on how to impress the ...
+                    API, or Application Programming Interface, is an intermediary between different applications and libraries. They provide a way to connect and...
                     </p>
                     <div className="flex items-center flex-wrap ">
                       <p className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
@@ -339,13 +337,12 @@ export default function Blog() {
                 <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bgFrame">
                   <div className="px-6 pt-6">
                     <h1 className="title-font text-lg font-bold text-white">
-                      Tips to "beat" the automatic CV filtering system - Submit
-                      your CV now
+                    C and C++ – Things you may not know
                     </h1>
                   </div>
                   <img
                     className="lg:h-56 md:h-36 w-full object-cover object-center p-2 imgBlog"
-                    src="/img/ATS.jpg"
+                    src="/img/cAndC++.jpg"
                     alt="img ATS"
                   />
                   <div className="p-6">
@@ -381,8 +378,7 @@ export default function Blog() {
                       </span>
                     </div>
                     <p className="leading-relaxed mb-3 text-gray-400">
-                      When participating in interviews, many programmers often
-                      focus on how to impress the ...
+                    When starting to learn programming, there is often a risk of confusion between the two programming languages C and C++...
                     </p>
                     <div className="flex items-center flex-wrap ">
                       <p className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
