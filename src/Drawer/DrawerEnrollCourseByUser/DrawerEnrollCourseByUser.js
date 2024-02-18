@@ -38,7 +38,7 @@ const DrawerEnrollCourseByUser = () => {
                 <h3 className="text-lg font-bold text-black">Course is awaiting confirmation</h3>
             </div>
             <div>
-
+              
             </div>
             <div className="mb-3">
                 <h3 className="text-lg font-bold text-black">The course has been registered</h3>

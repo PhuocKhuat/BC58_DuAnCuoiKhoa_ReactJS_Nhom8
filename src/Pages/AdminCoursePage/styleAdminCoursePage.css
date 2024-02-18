@@ -1,7 +1,15 @@
-main div div div div div div div table thead tr th:nth-child(6){
-    width: 5px !important;
+main div div div div div div div table thead tr th:nth-child(6) {
+  width: 5px !important;
 }
-.formDrawer label{
-    font-weight: bold;
-    color: #3085d6;
+.formDrawer label {
+  font-weight: bold;
+  color: #3085d6;
+}
+.formDrawerCoursePage .inputCourse {
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 67vw;
+  height: 32px;
+  font-size: 16px;
 }

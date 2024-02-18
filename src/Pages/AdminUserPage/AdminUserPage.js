@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Space, Table, message } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
@@ -8,14 +8,31 @@ import DrawerEditUser from "../../Drawer/DrawerEditUser/DrawerEditUser";
 import { https } from "../../Services/api";
 import Search from "antd/es/input/Search";
 import DrawerAddUser from "../../Drawer/DrawerAddUser/DrawerAddUser/DrawerAddUser";
-import DrawerEnrollCourseByUser from '../../Drawer/DrawerEnrollCourseByUser/DrawerEnrollCourseByUser';
+import DrawerEnrollCourseByUser from "../../Drawer/DrawerEnrollCourseByUser/DrawerEnrollCourseByUser";
+import { Field, Form, Formik, useFormik } from "formik";
 
 export default function AdminUserPage() {
   const { userList } = useSelector((state) => state.adminUserSliceThunk);
+  const searchUser = useRef(null);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchAdminUser());
-  }, []);
+  const { values, handleChange, handleSubmit } = useFormik({
+    initialValues: { tuKhoa: "" },
+    onSubmit: (values) => {
+      // console.log("🚀 ~ DrawerAddUser ~ values:", values);
+    },
+  });
+  useEffect(()=>{
+    if(values.tuKhoa !== ""){
+      if(searchUser.current){
+        clearTimeout(searchUser.current);
+      }
+      searchUser.current = setTimeout(()=>{
+        dispatch(fetchAdminUser(values.tuKhoa));
+      }, 500)
+    } else{
+      dispatch(fetchAdminUser());
+    }
+  },[values.tuKhoa]);
   const columns = [
     {
       title: "Account",
@@ -386,7 +403,7 @@ export default function AdminUserPage() {
       key: "action",
       render: (_, record) => (
         <Space size="middle" className="cursor-pointer">
-          <DrawerEnrollCourseByUser/>
+          <DrawerEnrollCourseByUser />
           <DrawerEditUser editUserInfo={record} />
           <DeleteOutlined
             className="text-red-600"
@@ -413,20 +430,22 @@ export default function AdminUserPage() {
       message.error(error.response.data);
     }
   };
-  const onSearch = (value) => {
-    dispatch(fetchAdminUser(value));
-    return console.log("value", value);
-  };
   return (
     <>
-      <div className="flex gap-3 mb-4 mx-auto" style={{ width: "97.5%" }}>
+      <div className="flex gap-3 mb-4 mx-auto formDrawerUserPage" style={{ width: "97.5%" }}>
         <DrawerAddUser />
-        <Search
-          className="items-center flex"
-          placeholder="Search user..."
-          onSearch={onSearch}
-          enterButton
-        />
+        <Formik onSubmit={handleSubmit}>
+          <Form>
+            <Field
+              name="tuKhoa"
+              type="text"
+              className="inputUser"
+              value={values.tuKhoa}
+              onChange={handleChange}
+              placeholder="Search user..."
+            />
+          </Form>
+        </Formik>
       </div>
       <Table
         columns={columns}

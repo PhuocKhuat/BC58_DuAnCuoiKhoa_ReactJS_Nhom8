@@ -1,7 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { https } from "../Services/api";
-import { fetchThongTinTaiKhoan } from "./personalSlice";
-import { store } from "..";
 
 const initialState = {
   userNotRegistration: [],

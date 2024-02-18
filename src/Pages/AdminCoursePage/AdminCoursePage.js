@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Space, Table, message } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCoursesList } from "../../Redux/personalSliceThunk";
@@ -6,18 +6,34 @@ import "./styleAdminCoursePage.css";
 import { DeleteOutlined } from "@ant-design/icons";
 import DrawerEditCourse from "../../Drawer/DrawerEditCourse/DrawerEditCourse";
 import { https } from "../../Services/api";
-import Search from "antd/es/input/Search";
 import DrawerAddCourse from "../../Drawer/DrawerAddCourse/DrawerAddCourse";
 import DrawerUserRegistration from "../../Drawer/DrawerUserRegistration/DrawerUserRegistration";
+import { Field, Form, Formik, useFormik } from "formik";
 
 const AdminCoursePage = () => {
-  
   const { coursesList } = useSelector((state) => state.personalSliceThunk);
+  //  console.log("🚀 ~ AdminCoursePage ~ userList:", coursesList);
+  const searchCourse = useRef(null);
   const dispatch = useDispatch();
-  //  console.log("🚀 ~ AdminCoursePage ~ userList:", coursesList)
+  const initialValues = { tuKhoa: "" }
+  const { values, handleChange, handleSubmit } = useFormik({
+    initialValues: initialValues,
+    onSubmit: (values) => {
+      // console.log("🚀 ~ DrawerAddUser ~ values:", values);
+    },
+  });
   useEffect(() => {
-    dispatch(fetchCoursesList());
-  }, []);
+    if (values.tuKhoa !== "") {
+      if (searchCourse.current) {
+        clearTimeout(searchCourse.current);
+      }
+      searchCourse.current = setTimeout(() => {
+        dispatch(fetchCoursesList(values.tuKhoa));
+      }, 500)
+    } else {
+      dispatch(fetchCoursesList());
+    }
+  }, [values.tuKhoa]);
   const handleDeleteCourse = async (maKhoaHoc) => {
     try {
       await https.delete(
@@ -496,7 +512,7 @@ const AdminCoursePage = () => {
       key: "action",
       render: (_, record) => (
         <Space>
-          <DrawerUserRegistration maKhoaHoc={record.maKhoaHoc}/>
+          <DrawerUserRegistration maKhoaHoc={record.maKhoaHoc} />
           <DrawerEditCourse editCourse={record} />
           <DeleteOutlined
             className="text-red-600"
@@ -511,20 +527,26 @@ const AdminCoursePage = () => {
   const onChange = (pagination, filters, sorter, extra) => {
     console.log("params", pagination, filters, sorter, extra);
   };
-  const onSearch = (value) => {
-    console.log("🚀 ~ onSearch ~ value:", value);
-    dispatch(fetchCoursesList(value));
-  };
+
   return (
     <>
-      <div className="flex gap-3 mb-4 mx-auto" style={{ width: "97.5%" }}>
-        <DrawerAddCourse/>
-        <Search
-          className="items-center flex"
-          placeholder="Search course..."
-          onSearch={onSearch}
-          enterButton
-        />
+      <div
+        className="flex items-center gap-3 mb-4 mx-auto formDrawerCoursePage"
+        style={{ width: "97.5%" }}
+      >
+        <DrawerAddCourse />
+        <Formik initialValues={initialValues}>
+          <Form onSubmit={handleSubmit}>
+            <Field
+              name="tuKhoa"
+              type="text"
+              className="inputCourse"
+              value={values.tuKhoa}
+              onChange={handleChange}
+              placeholder="Search course..."
+            />
+          </Form>
+        </Formik>
       </div>
       <Table columns={columns} dataSource={coursesList} onChange={onChange} />
     </>
