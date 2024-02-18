@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { https } from "../../Services/api";
 import { useDispatch, useSelector } from "react-redux";
 import { setDetail } from "../../Redux/detailSlice";
 import { UserOutlined, CheckOutlined } from "@ant-design/icons";
 import "./styleDetail.css";
 import Swal from "sweetalert2";
-import { setAddCourse } from "../../Redux/personalSlice";
+import { fetchThongTinTaiKhoan, setAddCourse } from "../../Redux/personalSlice";
 
 export default function DetailPage() {
   const { idKhoaHoc } = useParams();
@@ -14,7 +14,6 @@ export default function DetailPage() {
   const { detail } = useSelector((state) => state.detailSlice);
   // console.log("🚀 ~ DetailPage ~ detail:", detail)
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   useEffect(() => {
     https
       .get(`/api/QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=${idKhoaHoc}`)
@@ -36,6 +35,7 @@ export default function DetailPage() {
       };
       try {
         await https.post("/api/QuanLyKhoaHoc/DangKyKhoaHoc", objectRegisterCourse);
+        dispatch(fetchThongTinTaiKhoan());
         Swal.fire({
           title: "Sign up success.",
           text: "If you want, go to your personal information page to check",
@@ -206,15 +206,16 @@ export default function DetailPage() {
                   if (localStorage.getItem("USER_INFO")) {
                     handleRegisterCourse(idKhoaHoc);
                     dispatch(setAddCourse(detail));
-                  }
-                  Swal.fire({
+                  } else{
+                    Swal.fire({
                     icon: "error",
-                    title: "Registered for this course!",
-                    text: "An error occurred. Please return to the home page or try again",
+                    title: "You are not logged in",
+                    text: "Please visit the login page",
                     timer: 1500,
                     showConfirmButton: false,
                   });
-                  navigate("/login");
+                  }
+                  
                 }}
               >
                 Register the course

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import { Field, Form, Formik, useFormik } from "formik";
 import { https } from "../../../Services/api";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setUpdateForm } from "../../../Redux/personalSlice";
 import { updateValidate } from "../../../Validation/updateValidate";
 
-
-const Modals = () => {
+const Modals = ({infoUser}) => {
+  console.log("🚀 ~ Modals ~ infoUser:", infoUser)
   const saveForm = () => {
     const storeValues = localStorage.getItem("FORM_USER");
     if (!storeValues) {
@@ -34,12 +34,13 @@ const Modals = () => {
   React.useEffect(() => {
     localStorage.setItem("FORM_USER", JSON.stringify(values));
   }, [values]);
+  React.useEffect(() => {
+    localStorage.setItem("FORM_USER_UPDATE_ERROR", JSON.stringify(errors));
+  }, [errors]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { infoUser } = useSelector(state => state.personalSlice);
-  console.log("🚀 ~ Modals ~ infoUser:", infoUser)
   const dispatch = useDispatch();
   const handleUpdate = (infoUsers) => {
-    // console.log("🚀 ~ handleUpdate ~ infoUsers:", infoUsers);
+    console.log("🚀 ~ handleUpdate ~ infoUsers:", infoUsers);
     https
       .put("/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung", infoUsers)
       .then((res) => {
@@ -63,7 +64,16 @@ const Modals = () => {
 
   return (
     <div className="modals">
-      <Button type="primary" className="btnModals" onClick={showModal}>
+      <Button type="primary" className="btnModals" onClick={()=>{
+        values.hoTen = infoUser.hoTen;
+        values.matKhau = infoUser.matKhau;
+        values.email = infoUser.email;
+        values.soDT = infoUser.soDT;
+        values.taiKhoan = infoUser.taiKhoan;
+        values.maNhom = infoUser.maNhom;
+        values.maLoaiNguoiDung = infoUser.maLoaiNguoiDung;
+        showModal();
+      }}>
         <p>Personal Infomation</p>
       </Button>
       <Modal
@@ -72,7 +82,7 @@ const Modals = () => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <Formik initialValues={initialValues} validationSchema={updateValidate}>
+        <Formik initialValues={initialValues}  validationSchema={updateValidate}>
           <Form className="modalForm" onSubmit={handleSubmit}>
             <div className="flex flex-col">
               <label>Full Name:</label>

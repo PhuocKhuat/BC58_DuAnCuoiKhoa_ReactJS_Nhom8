@@ -8,7 +8,7 @@ import DrawerEditUser from "../../Drawer/DrawerEditUser/DrawerEditUser";
 import { https } from "../../Services/api";
 import Search from "antd/es/input/Search";
 import DrawerAddUser from "../../Drawer/DrawerAddUser/DrawerAddUser/DrawerAddUser";
-// import { https } from "../../Services/api";
+import DrawerEnrollCourseByUser from '../../Drawer/DrawerEnrollCourseByUser/DrawerEnrollCourseByUser';
 
 export default function AdminUserPage() {
   const { userList } = useSelector((state) => state.adminUserSliceThunk);
@@ -386,6 +386,7 @@ export default function AdminUserPage() {
       key: "action",
       render: (_, record) => (
         <Space size="middle" className="cursor-pointer">
+          <DrawerEnrollCourseByUser/>
           <DrawerEditUser editUserInfo={record} />
           <DeleteOutlined
             className="text-red-600"

@@ -32,12 +32,10 @@ const saveFormErrorAddUser = ()=>{
 
 const DrawerAddUser = () => {
   const [open, setOpen] = useState(false);
-  const initialValues = saveFormAddUser();
-  const initialErrors = saveFormErrorAddUser();
   const { handleChange, values, handleSubmit, errors } = useFormik({
-    initialValues: initialValues,
+    initialValues: saveFormAddUser(),
     validationSchema: addUserValidation,
-    initialErrors: initialErrors,
+    initialErrors: saveFormErrorAddUser(),
     onSubmit: (values) => {
       console.log("🚀 ~ DrawerAddUser ~ values:", values);
     },
@@ -104,9 +102,9 @@ const DrawerAddUser = () => {
         }
       >
         <Formik
-          initialValues={initialValues}
+          initialValues={saveFormAddUser()}
           validationSchema={addUserValidation}
-          initialErrors={initialErrors}
+          initialErrors={saveFormErrorAddUser()}
         >
           <Form
             onSubmit={handleSubmit}

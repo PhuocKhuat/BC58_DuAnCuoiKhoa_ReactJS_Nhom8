@@ -212,3 +212,13 @@ else if(maDanhMuc.trim() !== ""){
 // const userLocal = (user)=>{
 //   localStorage.setItem("DELETE_USER", JSON.stringify(user));
 // }
+
+// import IndividualInfo from "../../ObjectClass/individualInfo";
+
+// export const saveInforUser = () => {
+//   const storeInfoUser = localStorage.getItem("UPDATE_USER");
+//   if (storeInfoUser !== null) {
+//     let info = JSON.parse(storeInfoUser);
+//     return new IndividualInfo(info.hoTen, info.matKhau, info.email, info.soDT, info.taiKhoan, info.maNhom, info.maLoaiNguoiDung);
+//   }
+// };

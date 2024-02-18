@@ -3,7 +3,7 @@ import Modals from "./FormFormik/Modals";
 import "./stylePersonalInfo.css";
 import { https } from "../../Services/api";
 import { useDispatch, useSelector } from "react-redux";
-import { setInfoUser } from "../../Redux/personalSlice";
+// import { setInfoUser } from "../../Redux/personalSlice";
 import { Progress } from "antd";
 import {
   FieldTimeOutlined,
@@ -13,31 +13,14 @@ import {
   BarChartOutlined,
   FileProtectOutlined,
 } from "@ant-design/icons";
-// import IndividualInfo from "../../ObjectClass/individualInfo";
-
-// export const saveInforUser = () => {
-//   const storeInfoUser = localStorage.getItem("UPDATE_USER");
-//   if (storeInfoUser !== null) {
-//     let info = JSON.parse(storeInfoUser);
-//     return new IndividualInfo(info.hoTen, info.matKhau, info.email, info.soDT, info.taiKhoan, info.maNhom, info.maLoaiNguoiDung);
-//   }
-// };
+import { fetchThongTinTaiKhoan } from "../../Redux/personalSlice";
 
 export default function PersonalInfo() {
   const { infoUser } = useSelector((state) => state.personalSlice);
   // console.log("🚀 ~ PersonalInfo ~ infoUser:", infoUser);
   const dispatch = useDispatch();
   useEffect(() => {
-    https
-      .post("/api/QuanLyNguoiDung/ThongTinTaiKhoan")
-      .then((res) => {
-        console.log(res.data);
-        dispatch(setInfoUser(res.data));
-        
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(fetchThongTinTaiKhoan());
   }, []);
   return (
     <div className="text-gray-600 body-font personalInfo">
@@ -58,7 +41,7 @@ export default function PersonalInfo() {
                 </h2>
                 <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4" />
                 <p className="text-base mb-2">Front End programmer</p>
-                <Modals />
+                <Modals infoUser={infoUser} />
               </div>
             </div>
             <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 sm:text-left">

@@ -40,12 +40,10 @@ const saveErrorAddCourse = () => {
 const DrawerAddCourse = () => {
   const [open, setOpen] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
-  const initialValues = saveFormAddCourse();
-  const initialErrors = saveErrorAddCourse();
   const { handleChange, values, handleSubmit, errors } = useFormik({
-    initialValues: initialValues,
+    initialValues: saveFormAddCourse(),
     validationSchema: courseValidation,
-    initialErrors: initialErrors,
+    initialErrors: saveErrorAddCourse(),
     onSubmit: (values) => {
       console.log("values", values);
       // console.log("🚀 ~ handleEditCourse ~ values.ngayTao:", moment(values.ngayTao).format('DD/MM/YYYY'));
@@ -130,8 +128,8 @@ const DrawerAddCourse = () => {
         }
       >
         <Formik
-          initialValues={initialValues}
-          initialErrors={initialErrors}
+          initialValues={saveFormAddCourse()}
+          initialErrors={saveErrorAddCourse()}
           validationSchema={courseValidation}
         >
           <Form className="formDrawer" onClick={handleSubmit}>

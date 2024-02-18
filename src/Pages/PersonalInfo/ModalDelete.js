@@ -1,27 +1,40 @@
 import React, { useEffect } from "react";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
-import { setDeleteCourse, setInfoUser } from "../../Redux/personalSlice";
-import { handleHuyGhiDanh } from "../../Redux/userRegistrationSlice";
+import {
+  fetchThongTinTaiKhoan,
+  setDeleteCourse,
+} from "../../Redux/personalSlice";
 import { https } from "../../Services/api";
+import Swal from "sweetalert2";
 
 export default function ModalDelete({ course }) {
   // console.log("🚀 ~ ModalDelete ~ course:", course.maKhoaHoc)
-  useEffect(() => {
-    fetchChiTietKhoaHoc();
-  }, []);
-  const fetchChiTietKhoaHoc = ()=>{
-    https
-      .post("/api/QuanLyNguoiDung/ThongTinTaiKhoan")
-      .then((res) => {
-        console.log(res.data);
-        dispatch(setInfoUser(res.data));
-        
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+
+  const handleHuyGhiDanh = async (maKhoaHoc) => {
+    const checkLogin = localStorage.getItem("USER_INFO");
+    if (checkLogin) {
+      const objectLogin = JSON.parse(checkLogin);
+      const cancelCourse = {
+        maKhoaHoc: maKhoaHoc,
+        taiKhoan: objectLogin.taiKhoan,
+      };
+      try {
+        await https.post("/api/QuanLyKhoaHoc/HuyGhiDanh", cancelCourse);
+        dispatch(fetchThongTinTaiKhoan());
+        Swal.fire({
+          title: "Deleted successfully.",
+          text: "If you want, please register new course ",
+          icon: "success",
+          timer: 2000,
+          showConfirmButton: false,
+        });
+      } catch (error) {
+        console.log("🚀 ~ handleHuyGhiDanh ~ error:", error)
+      }
+    }
+  };
+
   const dispatch = useDispatch();
   return (
     <div
@@ -52,9 +65,8 @@ export default function ModalDelete({ course }) {
               className="btn btn-primary btnDeleteCourse"
               data-bs-dismiss="modal"
               onClick={() => {
-                dispatch(handleHuyGhiDanh(course.maKhoaHoc));
+                handleHuyGhiDanh(course.maKhoaHoc);
                 dispatch(setDeleteCourse(course.maKhoaHoc));
-                fetchChiTietKhoaHoc();
               }}
             >
               Yes, delete it !
