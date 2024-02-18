@@ -1,19 +1,21 @@
 import React, { useEffect } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { https } from "../../Services/api";
 import { useDispatch, useSelector } from "react-redux";
 import { setDetail } from "../../Redux/detailSlice";
 import { UserOutlined, CheckOutlined } from "@ant-design/icons";
 import "./styleDetail.css";
+import Swal from "sweetalert2";
 import { setAddCourse } from "../../Redux/personalSlice";
 
 export default function DetailPage() {
   const { idKhoaHoc } = useParams();
-  const dispatch = useDispatch();
+  // console.log("🚀 ~ DetailPage ~ idKhoaHoc:", idKhoaHoc)
   const { detail } = useSelector((state) => state.detailSlice);
   // console.log("🚀 ~ DetailPage ~ detail:", detail)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
-    window.scrollTo(0,0);
     https
       .get(`/api/QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=${idKhoaHoc}`)
       .then((res) => {
@@ -24,7 +26,28 @@ export default function DetailPage() {
         console.log(err);
       });
   }, []);
-  // console.log("🚀 ~ DetailPage ~ idKhoaHoc:", idKhoaHoc)
+  const handleRegisterCourse = async (maKhoaHoc) => {
+    const checkLogin = localStorage.getItem("USER_INFO");
+    if (checkLogin) {
+      const logged = JSON.parse(checkLogin);
+      const objectRegisterCourse = {
+        maKhoaHoc: maKhoaHoc,
+        taiKhoan: logged.taiKhoan,
+      };
+      try {
+        await https.post("/api/QuanLyKhoaHoc/DangKyKhoaHoc", objectRegisterCourse);
+        Swal.fire({
+          title: "Sign up success.",
+          text: "If you want, go to your personal information page to check",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      } catch (error) {
+        console.log("🚀 ~ handleRegisterCourse ~ error:", error);
+      }
+    }
+  };
   return (
     <section className="text-gray-600 body-font detail">
       <div className="containerDetail">
@@ -40,21 +63,7 @@ export default function DetailPage() {
                   <br />
                   <br />
                   <p>
-                    Đừng để những ước mơ, đam mê, mong muốn xây dựng sự nghiệp
-                    của riêng mình rơi vào tay người khác qua những câu hỏi của
-                    người này hay nhóm kia: CÓ NÊN HỌC LẬP TRÌNH KHÔNG? Lập
-                    trình là một xu hướng tất yếu, hãy bắt đầu ngay bây giờ, bạn
-                    có thể thay đổi nghề nghiệp, tăng thu nhập bằng cách làm
-                    freelancer hoặc ít nhất nó sẽ là kỹ năng rất cần thiết cho
-                    công việc của bạn sau này. lần tới. sắp tới. Khi mới học lập
-                    trình, bạn sẽ rất mất phương hướng, thiếu định hướng và đôi
-                    khi nản lòng vì không nhận được sự hỗ trợ kịp thời. Thời
-                    gian và sức trẻ của bạn rất quý giá, bạn cần một lộ trình
-                    thực tế, bài bản để nhanh chóng thay đổi nghề nghiệp của
-                    mình. E-Learning hiểu rõ điều này và đã có hơn 9.500+ người
-                    đăng ký học và có việc làm thông qua chương trình đào tạo
-                    Bootcamp Lập trình Front-End chuyên nghiệp từ Zero tại
-                    E-Learning.
+                    Đừng để những ước mơ, đam mê, mong muốn xây dựng sự nghiệp của riêng mình rơi vào tay người khác qua những câu hỏi của người này hay nhóm kia: CÓ NÊN HỌC LẬP TRÌNH KHÔNG? Lập trình là một xu hướng tất yếu, hãy bắt đầu ngay bây giờ, bạn có thể thay đổi nghề nghiệp, tăng thu nhập bằng cách làm freelancer hoặc ít nhất nó sẽ là kỹ năng rất cần thiết cho công việc của bạn sau này. lần tới. sắp tới. Khi mới học lập trình, bạn sẽ rất mất phương hướng, thiếu định hướng và đôi khi nản lòng vì không nhận được sự hỗ trợ kịp thời. Thời gian và sức trẻ của bạn rất quý giá, bạn cần một lộ trình thực tế, bài bản để nhanh chóng thay đổi nghề nghiệp của mình. E-Learning hiểu rõ điều này và đã có hơn 9.500+ người đăng ký học và có việc làm thông qua chương trình đào tạo Bootcamp Lập trình Front-End chuyên nghiệp từ Zero tại E-Learning.
                   </p>
                 </p>
                 <div className="mt-3 inline-flex items-center participateDetail">
@@ -69,35 +78,31 @@ export default function DetailPage() {
                           <li className="space-x-1">
                             <CheckOutlined />
                             <span className="text-black">
-                              New to programming, lacking direction and learning
-                              path
+                              New to programming, lacking direction and learning path.
                             </span>
                           </li>
                           <li className="space-x-1">
                             <CheckOutlined />
                             <span className="text-black">
-                              Quit the industry to learn programming and change
-                              careers
+                              Quit the industry to learn programming and change careers.
                             </span>
                           </li>
                           <li className="space-x-1">
                             <CheckOutlined />
                             <span className="text-black">
-                              Completion of high school program (12/12)
+                              Completion of high school program (12/12).
                             </span>
                           </li>
                           <li className="space-x-1">
                             <CheckOutlined />
                             <span className="text-black">
-                              Weak programming thinking, lost roots and want to
-                              learn to get a job
+                              Weak programming thinking, lost roots and want to learn to get a job.
                             </span>
                           </li>
                           <li className="space-x-1">
                             <CheckOutlined />
                             <span className="text-black">
-                              Weak programming thinking, lost roots and want to
-                              learn to get a job
+                              Weak programming thinking, lost roots and want to learn to get a job
                             </span>
                           </li>
                           <li className="space-x-1">
@@ -119,20 +124,19 @@ export default function DetailPage() {
                           <li className="space-x-1">
                             <CheckOutlined />
                             <span className="text-black">
-                              Applicable to all companies recruiting Front-End
-                              Dev for Fresher or Junior positions
+                              Applicable to all companies recruiting Front-End Dev for Fresher or Junior positions.
                             </span>
                           </li>
                           <li className="space-x-1">
                             <CheckOutlined />
                             <span className="text-black">
-                              Outsourcing companies - software outsourcing
+                              Outsourcing companies - software outsourcing.
                             </span>
                           </li>
                           <li className="space-x-1">
                             <CheckOutlined />
                             <span className="text-black">
-                              Start-up company - startup
+                              Start-up company - startup.
                             </span>
                           </li>
                           <li className="space-x-1">
@@ -145,15 +149,13 @@ export default function DetailPage() {
                             <CheckOutlined />
                             <span className="text-black">
                               You can apply immediately to Fresher and Junior
-                              with a starting salary from 7 million to 15
-                              million
+                              with a starting salary from 7 million to 15 million
                             </span>
                           </li>
                           <li className="space-x-1">
                             <CheckOutlined />
                             <span className="text-black">
-                              Get freelance work building user interfaces for
-                              websites
+                              Get freelance work building user interfaces for websites
                             </span>
                           </li>
                         </ul>
@@ -198,9 +200,23 @@ export default function DetailPage() {
                   <span>1.200</span>
                 </p>
               </div>
-              <NavLink className="btnRegisterCourse rounded py-2 px-14 flex justify-center text-white uppercase font-bold" onClick={()=>{
-                 dispatch(setAddCourse(detail));
-              }}>
+              <NavLink
+                className="btnRegisterCourse rounded py-2 px-14 flex justify-center text-white uppercase font-bold"
+                onClick={() => {
+                  if (localStorage.getItem("USER_INFO")) {
+                    handleRegisterCourse(idKhoaHoc);
+                    dispatch(setAddCourse(detail));
+                  }
+                  Swal.fire({
+                    icon: "error",
+                    title: "Registered for this course!",
+                    text: "An error occurred. Please return to the home page or try again",
+                    timer: 1500,
+                    showConfirmButton: false,
+                  });
+                  navigate("/login");
+                }}
+              >
                 Register the course
               </NavLink>
               <div className="infoDetail">
@@ -317,7 +333,7 @@ export default function DetailPage() {
             <h3>Learn according to the company's recruitment roadmap</h3>
           </div>
           <div className="grid grid-cols-4 gap-4">
-          <div className="bgChuongTrinh">
+            <div className="bgChuongTrinh">
               <div className="bgOverlay1"></div>
               <div className="mb-6">
                 <div>
@@ -361,7 +377,11 @@ export default function DetailPage() {
               <div className="bgOverlay3"></div>
               <div className="mb-6">
                 <div>
-                  <img alt="" src="/img/boostraps.png" className="imgChuongTrinh" />
+                  <img
+                    alt=""
+                    src="/img/boostraps.png"
+                    className="imgChuongTrinh"
+                  />
                 </div>
                 <div>
                   <h3>
@@ -381,7 +401,11 @@ export default function DetailPage() {
               <div className="bgOverlay4"></div>
               <div className="mb-6">
                 <div>
-                  <img alt="" src="/img/responsives.jpg" className="imgChuongTrinh" />
+                  <img
+                    alt=""
+                    src="/img/responsives.jpg"
+                    className="imgChuongTrinh"
+                  />
                 </div>
                 <div>
                   <h3>
@@ -461,7 +485,11 @@ export default function DetailPage() {
               <div className="bgOverlay8"></div>
               <div className="mb-6">
                 <div>
-                  <img alt="" src="/img/reactJs.jpg" className="imgChuongTrinh" />
+                  <img
+                    alt=""
+                    src="/img/reactJs.jpg"
+                    className="imgChuongTrinh"
+                  />
                 </div>
                 <div>
                   <h3>

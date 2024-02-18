@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import IndividualInfo from "../ObjectClass/individualInfo";
-import Swal from "sweetalert2";
-import { message } from "antd";
 // import { saveInforUser } from "../Pages/PersonalInfo/PersonalInfo";
 
 const initialState = {
@@ -27,18 +25,7 @@ const personalSlice = createSlice({
       );
       if (indexCourse === -1) {
         cloneCoursesList.push(action.payload);
-        message.success(
-          "Sign up success. If you want, go to your personal information page to check"
-        );
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: "Registered for this course!",
-          text: "An error occurred. Please return to the home page or try again",
-          timer: 1500,
-          showConfirmButton: false,
-        });
-      }
+      } 
       state.coursesList = cloneCoursesList;
       saveLocalStorage(state.coursesList.map(course => course));
     },

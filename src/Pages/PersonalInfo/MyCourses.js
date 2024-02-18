@@ -13,17 +13,6 @@ import ModalDelete from "./ModalDelete";
 export default function MyCourses() {
   const { coursesList } = useSelector((state) => state.personalSlice);
   const dispatch = useDispatch();
-  // console.log("🚀 ~ MyCourses ~ coursesList:", coursesList);
-  // const handleHuyGhiDanh = async (maKhoaHoc) => {
-  //   try {
-  //     await https.delete(
-  //       `/api/QuanLyKhoaHoc/XoaKhoaHoc?MaKhoaHoc=${maKhoaHoc}`
-  //     );
-  //     dispatch(fetchCoursesList());
-  //   } catch (error) {
-  //     console.log("🚀 ~ handleHuyGhiDanh ~ error:", error);
-  //   }
-  // };
   const renderRegisterCourses = () =>
     coursesList.map((course, index) => (
       <div className="pt-4 mb-5" key={index}>
@@ -137,10 +126,6 @@ export default function MyCourses() {
               </span>
               <button
                 className="flex ml-auto text-white border-0 py-2 px-6 focus:outline-none rounded btnCancelCourse"
-                onClick={() => {
-                  
-                  // handleHuyGhiDanh(course.maKhoaHoc);
-                }}
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
               >

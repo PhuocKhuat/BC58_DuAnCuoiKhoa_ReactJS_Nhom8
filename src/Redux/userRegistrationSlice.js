@@ -28,6 +28,18 @@ export const fetchUserListConfirmed = createAsyncThunk("fetchUserListConfirmed",
     return res.data;
 })
 
+export const handleHuyGhiDanh = createAsyncThunk("handleHuyGhiDanh", async(maKhoaHoc)=>{
+  const checkLogin = localStorage.getItem("USER_INFO");
+  if(checkLogin){
+    const objectLogin = JSON.parse(checkLogin);
+    const cancelCourse = {
+      maKhoaHoc: maKhoaHoc,
+      taiKhoan: objectLogin.taiKhoan,
+    }
+    await https.post("/api/QuanLyKhoaHoc/HuyGhiDanh", cancelCourse)
+  }
+})
+
 const userRegistrationSlice = createSlice({
   name: "userRegistrationSlice",
   initialState,
