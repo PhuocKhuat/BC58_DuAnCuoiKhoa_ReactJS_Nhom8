@@ -3,7 +3,7 @@ import React from "react";
 import { DeleteOutlined } from "@ant-design/icons";
 import {  useSelector } from "react-redux";
 
-export default function TableUserConfirmed({maKhoaHoc, handleDeleteUserByCourse}) {
+export default function TableUserConfirmed({maKhoaHoc, handleCancelUserByCourse}) {
   const { userListConfirmed } = useSelector(
     (state) => state.userRegistrationSlice
   );
@@ -30,7 +30,7 @@ export default function TableUserConfirmed({maKhoaHoc, handleDeleteUserByCourse}
         <Space size="middle" className="cursor-pointer">
           <DeleteOutlined
             onClick={() => {
-              handleDeleteUserByCourse(maKhoaHoc, record.taiKhoan);
+              handleCancelUserByCourse(maKhoaHoc, record.taiKhoan);
             }}
             className="text-red-600"
           />

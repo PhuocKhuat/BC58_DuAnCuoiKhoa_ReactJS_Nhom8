@@ -5,6 +5,7 @@ const initialState = {
   courseListAwaitingApproval: [],
   courseListNotRegister: [],
   courseListRegistered: [],
+  filterCourse: "",
 };
 
 export const fetchCourseListAwaitingApproval = createAsyncThunk(
@@ -34,7 +35,11 @@ export const fetchCourseListRegistered = createAsyncThunk(
 const courseRegistrationSlice = createSlice({
   name: "courseRegistrationSlice",
   initialState,
-  reducers: {},
+  reducers: {
+    setFilterCourse: (state, action)=>{
+      state.filterCourse = action.payload;
+    },
+  },
   extraReducers: (builder)=>{
    builder.addCase(fetchCourseListAwaitingApproval.fulfilled, (state, action)=>{
      state.courseListAwaitingApproval = action.payload;
@@ -48,6 +53,6 @@ const courseRegistrationSlice = createSlice({
   }
 });
 
-export const {} = courseRegistrationSlice.actions;
+export const { setFilterCourse } = courseRegistrationSlice.actions;
 
 export default courseRegistrationSlice.reducer;

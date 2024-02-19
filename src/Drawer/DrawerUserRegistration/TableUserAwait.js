@@ -3,7 +3,7 @@ import React from "react";
 import { DeleteOutlined, CheckOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 
-export default function TableUserAwait({ maKhoaHoc, handleGhiDanhUserByCourse, handleDeleteUserByCourse }) {
+export default function TableUserAwait({ maKhoaHoc, handleRegisterUserByCourse, handleCancelUserByCourse }) {
   const { userListAwaitingApproval } = useSelector(
     (state) => state.userRegistrationSlice
   );
@@ -30,13 +30,13 @@ export default function TableUserAwait({ maKhoaHoc, handleGhiDanhUserByCourse, h
         <Space size="middle" className="cursor-pointer">
           <CheckOutlined
             onClick={() => {
-              handleGhiDanhUserByCourse(maKhoaHoc, record.taiKhoan);
+              handleRegisterUserByCourse(maKhoaHoc, record.taiKhoan);
             }}
             className="text-green-800"
           />
           <DeleteOutlined
             onClick={() => {
-              handleDeleteUserByCourse(maKhoaHoc, record.taiKhoan);
+              handleCancelUserByCourse(maKhoaHoc, record.taiKhoan);
             }}
             className="text-red-600"
           />

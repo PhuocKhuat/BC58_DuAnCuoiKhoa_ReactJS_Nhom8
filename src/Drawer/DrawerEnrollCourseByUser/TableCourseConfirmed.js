@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 export default function TableCourseConfirmed({taiKhoan, handleCancelRegisterCourseByUser}) {
     const { courseListRegistered } = useSelector(state => state.courseRegistrationSlice);
-    console.log("🚀 ~ TableCourseConfirmed ~ courseListRegistered:", courseListRegistered)
+    // console.log("🚀 ~ TableCourseConfirmed ~ courseListRegistered:", courseListRegistered)
     const columns = [
         {
           title: "Index",

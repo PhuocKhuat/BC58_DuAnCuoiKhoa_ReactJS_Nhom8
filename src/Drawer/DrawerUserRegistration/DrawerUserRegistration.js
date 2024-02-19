@@ -39,7 +39,7 @@ const DrawerUserRegistration = ({ maKhoaHoc }) => {
   const onClose = () => {
     setOpen(false);
   };
-  const handleGhiDanhUserByCourse = async (maKhoaHoc, taiKhoan) => {
+  const handleRegisterUserByCourse = async (maKhoaHoc, taiKhoan) => {
     const values = { maKhoaHoc: maKhoaHoc, taiKhoan: taiKhoan };
     try {
       await https.post("/api/QuanLyKhoaHoc/GhiDanhKhoaHoc", values);
@@ -49,13 +49,13 @@ const DrawerUserRegistration = ({ maKhoaHoc }) => {
       console.log("🚀 ~ handleGhiDanhCourse ~ error:", error);
     }
   };
-  const handleDeleteUserByCourse = async (maKhoaHoc, taiKhoan) => {
+  const handleCancelUserByCourse = async (maKhoaHoc, taiKhoan) => {
     const values = { maKhoaHoc: maKhoaHoc, taiKhoan: taiKhoan };
     try {
       await https.post("/api/QuanLyKhoaHoc/HuyGhiDanh", values);
       fetchAllUserList();
     } catch (error) {
-      console.log("🚀 ~ handleDeleteUserByCourse ~ error:", error);
+      console.log("🚀 ~ handleCancelUserByCourse ~ error:", error);
     }
   };
   return (
@@ -94,8 +94,8 @@ const DrawerUserRegistration = ({ maKhoaHoc }) => {
           </div>
           <div>
             <TableUserAwait maKhoaHoc={maKhoaHoc} 
-            handleGhiDanhUserByCourse={handleGhiDanhUserByCourse}
-            handleDeleteUserByCourse={handleDeleteUserByCourse}/>
+            handleRegisterUserByCourse={handleRegisterUserByCourse}
+            handleCancelUserByCourse={handleCancelUserByCourse}/>
           </div>
         </div>
         <div>
@@ -105,7 +105,7 @@ const DrawerUserRegistration = ({ maKhoaHoc }) => {
             </h3>
           </div>
           <div>
-            <TableUserConfirmed maKhoaHoc={maKhoaHoc} handleDeleteUserByCourse={handleDeleteUserByCourse}/>
+            <TableUserConfirmed maKhoaHoc={maKhoaHoc} handleCancelUserByCourse={handleCancelUserByCourse}/>
           </div>
         </div>
       </Drawer>
