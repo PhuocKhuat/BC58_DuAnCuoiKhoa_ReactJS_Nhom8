@@ -1,15 +1,12 @@
 import { Space, Table } from "antd";
 import React from "react";
 import { DeleteOutlined } from "@ant-design/icons";
-import { useDispatch, useSelector } from "react-redux";
-import { https } from "../../Services/api";
-import { fetchUserListAwaitingApproval, fetchUserListConfirmed, fetchUserNotRegistration } from "../../Redux/userRegistrationSlice";
+import {  useSelector } from "react-redux";
 
-export default function TableUserConfirmed({maKhoaHoc}) {
+export default function TableUserConfirmed({maKhoaHoc, handleDeleteUserByCourse}) {
   const { userListConfirmed } = useSelector(
     (state) => state.userRegistrationSlice
   );
-  const dispatch = useDispatch();
   const columns = [
     {
       title: "Index",
@@ -41,17 +38,7 @@ export default function TableUserConfirmed({maKhoaHoc}) {
       ),
     },
   ];
-  const handleDeleteUserByCourse = async (maKhoaHoc, taiKhoan) => {
-    const values = { maKhoaHoc: maKhoaHoc, taiKhoan: taiKhoan };
-    try {
-      await https.post("/api/QuanLyKhoaHoc/HuyGhiDanh", values);
-      dispatch(fetchUserNotRegistration(maKhoaHoc));
-      dispatch(fetchUserListAwaitingApproval(maKhoaHoc));
-      dispatch(fetchUserListConfirmed(maKhoaHoc));
-    } catch (error) {
-      console.log("🚀 ~ handleDeleteUserByCourse ~ error:", error);
-    }
-  };
+  
   const onChange = (pagination, filters, sorter, extra) => {
     console.log("params", pagination, filters, sorter, extra);
   };

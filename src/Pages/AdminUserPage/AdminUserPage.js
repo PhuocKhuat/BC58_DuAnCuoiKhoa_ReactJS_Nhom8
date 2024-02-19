@@ -6,7 +6,6 @@ import "./styleAdminUserPage.css";
 import { fetchAdminUser } from "../../Redux/adminUserSliceThunk";
 import DrawerEditUser from "../../Drawer/DrawerEditUser/DrawerEditUser";
 import { https } from "../../Services/api";
-import Search from "antd/es/input/Search";
 import DrawerAddUser from "../../Drawer/DrawerAddUser/DrawerAddUser/DrawerAddUser";
 import DrawerEnrollCourseByUser from "../../Drawer/DrawerEnrollCourseByUser/DrawerEnrollCourseByUser";
 import { Field, Form, Formik, useFormik } from "formik";
@@ -403,7 +402,7 @@ export default function AdminUserPage() {
       key: "action",
       render: (_, record) => (
         <Space size="middle" className="cursor-pointer">
-          <DrawerEnrollCourseByUser />
+          <DrawerEnrollCourseByUser taiKhoan={record.taiKhoan}/>
           <DrawerEditUser editUserInfo={record} />
           <DeleteOutlined
             className="text-red-600"
@@ -434,8 +433,8 @@ export default function AdminUserPage() {
     <>
       <div className="flex gap-3 mb-4 mx-auto formDrawerUserPage" style={{ width: "97.5%" }}>
         <DrawerAddUser />
-        <Formik onSubmit={handleSubmit}>
-          <Form>
+        <Formik>
+          <Form onSubmit={handleSubmit}>
             <Field
               name="tuKhoa"
               type="text"

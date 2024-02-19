@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { LoginOutlined} from "@ant-design/icons";
-import { Button, Drawer, Space } from "antd";
+import { Button, Drawer, Space, message } from "antd";
 import { useDispatch } from "react-redux";
 import {
   fetchUserListAwaitingApproval,
@@ -11,6 +11,7 @@ import './styleDrawerUserRegistration.css';
 import { useFormik } from "formik";
 import TableUserAwait from "./TableUserAwait";
 import TableUserConfirmed from "./TableUserConfirmed";
+import { https } from "../../Services/api";
 
 const DrawerUserRegistration = ({ maKhoaHoc }) => {
   const [course, setCourse] = useState({});
@@ -20,10 +21,13 @@ const DrawerUserRegistration = ({ maKhoaHoc }) => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchUserNotRegistration(course));
+    fetchAllUserList();
+  }, [course]);
+  const fetchAllUserList = ()=>{
     dispatch(fetchUserListAwaitingApproval(course));
     dispatch(fetchUserListConfirmed(course));
-  }, [course]);
+    dispatch(fetchUserNotRegistration(course));
+  }
   const formik = useFormik({
     initialValues: {
       hoTen: '',
@@ -35,7 +39,25 @@ const DrawerUserRegistration = ({ maKhoaHoc }) => {
   const onClose = () => {
     setOpen(false);
   };
-
+  const handleGhiDanhUserByCourse = async (maKhoaHoc, taiKhoan) => {
+    const values = { maKhoaHoc: maKhoaHoc, taiKhoan: taiKhoan };
+    try {
+      await https.post("/api/QuanLyKhoaHoc/GhiDanhKhoaHoc", values);
+      message.success("Sign up success");
+      fetchAllUserList();
+    } catch (error) {
+      console.log("🚀 ~ handleGhiDanhCourse ~ error:", error);
+    }
+  };
+  const handleDeleteUserByCourse = async (maKhoaHoc, taiKhoan) => {
+    const values = { maKhoaHoc: maKhoaHoc, taiKhoan: taiKhoan };
+    try {
+      await https.post("/api/QuanLyKhoaHoc/HuyGhiDanh", values);
+      fetchAllUserList();
+    } catch (error) {
+      console.log("🚀 ~ handleDeleteUserByCourse ~ error:", error);
+    }
+  };
   return (
     <div className="drawerUserRegistration">
       <LoginOutlined
@@ -71,7 +93,9 @@ const DrawerUserRegistration = ({ maKhoaHoc }) => {
             </h3>
           </div>
           <div>
-            <TableUserAwait maKhoaHoc={maKhoaHoc}/>
+            <TableUserAwait maKhoaHoc={maKhoaHoc} 
+            handleGhiDanhUserByCourse={handleGhiDanhUserByCourse}
+            handleDeleteUserByCourse={handleDeleteUserByCourse}/>
           </div>
         </div>
         <div>
@@ -81,7 +105,7 @@ const DrawerUserRegistration = ({ maKhoaHoc }) => {
             </h3>
           </div>
           <div>
-            <TableUserConfirmed maKhoaHoc={maKhoaHoc}/>
+            <TableUserConfirmed maKhoaHoc={maKhoaHoc} handleDeleteUserByCourse={handleDeleteUserByCourse}/>
           </div>
         </div>
       </Drawer>

@@ -1,19 +1,12 @@
-import { Space, Table, message } from "antd";
+import { Space, Table } from "antd";
 import React from "react";
 import { DeleteOutlined, CheckOutlined } from "@ant-design/icons";
-import { useDispatch, useSelector } from "react-redux";
-import { https } from "../../Services/api";
-import {
-  fetchUserListAwaitingApproval,
-  fetchUserListConfirmed,
-  fetchUserNotRegistration,
-} from "../../Redux/userRegistrationSlice";
+import { useSelector } from "react-redux";
 
-export default function TableUserAwait({ maKhoaHoc }) {
+export default function TableUserAwait({ maKhoaHoc, handleGhiDanhUserByCourse, handleDeleteUserByCourse }) {
   const { userListAwaitingApproval } = useSelector(
     (state) => state.userRegistrationSlice
   );
-  const dispatch = useDispatch();
   const columns = [
     {
       title: "Index",
@@ -53,29 +46,6 @@ export default function TableUserAwait({ maKhoaHoc }) {
   ];
   const onChange = (pagination, filters, sorter, extra) => {
     console.log("params", pagination, filters, sorter, extra);
-  };
-  const handleGhiDanhUserByCourse = async (maKhoaHoc, taiKhoan) => {
-    const values = { maKhoaHoc: maKhoaHoc, taiKhoan: taiKhoan };
-    try {
-      await https.post("/api/QuanLyKhoaHoc/GhiDanhKhoaHoc", values);
-      message.success("Sign up success");
-      dispatch(fetchUserNotRegistration(maKhoaHoc));
-      dispatch(fetchUserListAwaitingApproval(maKhoaHoc));
-      dispatch(fetchUserListConfirmed(maKhoaHoc));
-    } catch (error) {
-      console.log("🚀 ~ handleGhiDanhCourse ~ error:", error);
-    }
-  };
-  const handleDeleteUserByCourse = async (maKhoaHoc, taiKhoan) => {
-    const values = { maKhoaHoc: maKhoaHoc, taiKhoan: taiKhoan };
-    try {
-      await https.post("/api/QuanLyKhoaHoc/HuyGhiDanh", values);
-      dispatch(fetchUserNotRegistration(maKhoaHoc));
-      dispatch(fetchUserListAwaitingApproval(maKhoaHoc));
-      dispatch(fetchUserListConfirmed(maKhoaHoc));
-    } catch (error) {
-      console.log("🚀 ~ handleDeleteUserByCourse ~ error:", error);
-    }
   };
   return (
     <Table
