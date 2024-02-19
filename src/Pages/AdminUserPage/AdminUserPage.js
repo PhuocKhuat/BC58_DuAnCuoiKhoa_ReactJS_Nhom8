@@ -179,8 +179,6 @@ export default function AdminUserPage() {
           value: "z",
         },
       ],
-      // specify the condition of filtering result
-      // here is that finding the name started with `value`
       onFilter: (value, record) => record.taiKhoan.indexOf(value) === 0,
       sorter: (a, b) => a.taiKhoan.length - b.taiKhoan.length,
       sortDirections: ["descend"],
@@ -191,56 +189,146 @@ export default function AdminUserPage() {
       key: "hoTen",
       filters: [
         {
-          text: "Đỗ",
-          value: "Đỗ",
+          text: "1",
+          value: "1",
         },
         {
-          text: "hoang",
-          value: "hoang",
+          text: "2",
+          value: "2",
         },
         {
-          text: "Nguyen",
-          value: "Nguyen",
+          text: "3",
+          value: "3",
         },
         {
-          text: "New",
-          value: "New ",
+          text: "4",
+          value: "4",
         },
         {
-          text: "Phan",
-          value: "Phan",
+          text: "5",
+          value: "5",
         },
         {
-          text: "Phạm",
-          value: "Phạm",
+          text: "6",
+          value: "6",
         },
         {
-          text: "Phong",
-          value: "Phong",
+          text: "7",
+          value: "7",
         },
         {
-          text: "quang",
-          value: "quang",
+          text: "8",
+          value: "8",
         },
         {
-          text: "string",
-          value: "string",
+          text: "9",
+          value: "9",
         },
         {
-          text: "test",
-          value: "test",
+          text: "a",
+          value: "a",
         },
         {
-          text: "trần",
-          value: "trần",
+          text: "b",
+          value: "b",
         },
         {
-          text: "Tran",
-          value: "Tran",
+          text: "c",
+          value: "c",
+        },
+        {
+          text: "d",
+          value: "d",
+        },
+        {
+          text: "e",
+          value: "e",
+        },
+        {
+          text: "f",
+          value: "f",
+        },
+        {
+          text: "g",
+          value: "g",
+        },
+        {
+          text: "h",
+          value: "h",
+        },
+        {
+          text: "i",
+          value: "i",
+        },
+        {
+          text: "j",
+          value: "j",
+        },
+        {
+          text: "k",
+          value: "k",
+        },
+        {
+          text: "l",
+          value: "l",
+        },
+        {
+          text: "m",
+          value: "m",
+        },
+        {
+          text: "n",
+          value: "n",
+        },
+        {
+          text: "o",
+          value: "o",
+        },
+        {
+          text: "p",
+          value: "p",
+        },
+        {
+          text: "q",
+          value: "q",
+        },
+        {
+          text: "r",
+          value: "r",
+        },
+        {
+          text: "s",
+          value: "s",
+        },
+        {
+          text: "t",
+          value: "t",
+        },
+        {
+          text: "u",
+          value: "u",
+        },
+        {
+          text: "v",
+          value: "v",
+        },
+        {
+          text: "w",
+          value: "w",
+        },
+        {
+          text: "x",
+          value: "x",
+        },
+        {
+          text: "y",
+          value: "y",
+        },
+        {
+          text: "z",
+          value: "z",
         },
       ],
-      // specify the condition of filtering result
-      // here is that finding the name started with `value`
       onFilter: (value, record) => record.hoTen.indexOf(value) === 0,
       sorter: (a, b) => a.hoTen.length - b.hoTen.length,
       sortDirections: ["descend"],
@@ -253,6 +341,38 @@ export default function AdminUserPage() {
         {
           text: "1",
           value: "1",
+        },
+        {
+          text: "2",
+          value: "2",
+        },
+        {
+          text: "3",
+          value: "3",
+        },
+        {
+          text: "4",
+          value: "4",
+        },
+        {
+          text: "5",
+          value: "5",
+        },
+        {
+          text: "6",
+          value: "6",
+        },
+        {
+          text: "7",
+          value: "7",
+        },
+        {
+          text: "8",
+          value: "8",
+        },
+        {
+          text: "9",
+          value: "9",
         },
         {
           text: "a",

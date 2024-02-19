@@ -38,5 +38,7 @@ export default function TableCourseAwait({taiKhoan, handleRegisterCourseByUser, 
       ),
     },
   ];
-  return <Table columns={columns} dataSource={courseListAwaitingApproval}/>;
+  return <Table columns={columns} pagination={{
+    pageSize:2,
+}} dataSource={courseListAwaitingApproval}/>;
 }

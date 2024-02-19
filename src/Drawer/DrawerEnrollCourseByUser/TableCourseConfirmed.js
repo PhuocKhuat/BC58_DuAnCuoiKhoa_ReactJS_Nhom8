@@ -33,6 +33,8 @@ export default function TableCourseConfirmed({taiKhoan, handleCancelRegisterCour
         },
       ];
   return (
-    <Table columns={columns} dataSource={courseListRegistered}/>
+    <Table columns={columns} pagination={{
+      pageSize:2,
+  }} dataSource={courseListRegistered}/>
   )
 }

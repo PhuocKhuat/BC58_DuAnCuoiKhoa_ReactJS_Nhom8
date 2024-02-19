@@ -12,6 +12,7 @@ import { useFormik } from "formik";
 import TableUserAwait from "./TableUserAwait";
 import TableUserConfirmed from "./TableUserConfirmed";
 import { https } from "../../Services/api";
+import TableListOfUnregisteredUsers from "./TableListOfUnregisteredUsers";
 
 const DrawerUserRegistration = ({ maKhoaHoc }) => {
   const [course, setCourse] = useState({});
@@ -87,6 +88,14 @@ const DrawerUserRegistration = ({ maKhoaHoc }) => {
         }
       >
         <div>
+        <div className="mb-3">
+            <h3 className="text-lg font-bold text-black">
+              Unregistered user
+            </h3>
+          </div>
+          <div>
+            <TableListOfUnregisteredUsers maKhoaHoc={maKhoaHoc} handleRegisterUserByCourse={handleRegisterUserByCourse}/>
+          </div>
           <div className="mb-3">
             <h3 className="text-lg font-bold text-black">
               Students wait for confirmation

@@ -1,16 +1,11 @@
 import { Space, Table } from "antd";
 import React from "react";
-import { DeleteOutlined, CheckOutlined } from "@ant-design/icons";
+import { CheckOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 
-export default function TableUserAwait({
-  maKhoaHoc,
-  handleRegisterUserByCourse,
-  handleCancelUserByCourse,
-}) {
-  const { userListAwaitingApproval } = useSelector(
-    (state) => state.userRegistrationSlice
-  );
+export default function TableListOfUnregisteredUsers({maKhoaHoc, handleRegisterUserByCourse}) {
+    const { userNotRegistration } = useSelector(state => state.userRegistrationSlice);
+    // console.log("🚀 ~ TableListOfUnregisteredUsers ~ userNotRegistration:", userNotRegistration)
   const columns = [
     {
       title: "Index",
@@ -167,7 +162,7 @@ export default function TableUserAwait({
     },
     {
       title: "Student",
-      dataIndex: "hoTen",
+      dataIndex: "taiKhoan",
       filters: [
         {
           text: "1",
@@ -311,7 +306,7 @@ export default function TableUserAwait({
         },
       ],
       onFilter: (value, record) => record.taiKhoan.indexOf(value) === 0,
-      sorter: (a, b) => a.hoTen.length - b.hoTen.length,
+      sorter: (a, b) => a.taiKhoan.length - b.taiKhoan.length,
     },
     {
       title: "Action",
@@ -320,27 +315,13 @@ export default function TableUserAwait({
         <Space size="middle" className="cursor-pointer">
           <CheckOutlined
             onClick={() => {
-              handleRegisterUserByCourse(maKhoaHoc, record.taiKhoan);
+              handleRegisterUserByCourse(maKhoaHoc, record.taiKhoan)
             }}
             className="text-green-800"
-          />
-          <DeleteOutlined
-            onClick={() => {
-              handleCancelUserByCourse(maKhoaHoc, record.taiKhoan);
-            }}
-            className="text-red-600"
           />
         </Space>
       ),
     },
   ];
-  return (
-    <Table
-      columns={columns}
-      pagination={{
-        pageSize: 2,
-      }}
-      dataSource={userListAwaitingApproval}
-    />
-  );
+  return <Table columns={columns} pagination={{pageSize:2}} dataSource={userNotRegistration}/>;
 }
