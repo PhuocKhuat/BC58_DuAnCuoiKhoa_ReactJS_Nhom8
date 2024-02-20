@@ -1,0 +1,10 @@
+.coCreator{
+  background-image: url('../../../img/lightTech.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.coCreator .borderCoCreator{
+  border: 1px solid black;
+  border-radius: 5px;
+  background: white;
+}

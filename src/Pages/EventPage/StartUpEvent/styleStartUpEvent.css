@@ -1,0 +1,21 @@
+.startUpEvent .btnParticipate {
+  background: #41b294 !important;
+  border-radius: 5px;
+  padding: 15px 20px;
+  transition: all 0.3s;
+}
+.startUpEvent{
+  background-image: url('../../../img/bgTech2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.startUpEvent .btnParticipate:hover,
+.startUpEvent .btnLearnMore:hover {
+  transform: scale(0.9);
+}
+.startUpEvent .btnLearnMore {
+  background: #f6ba35 !important;
+  border-radius: 5px;
+  padding: 15px 20px;
+  transition: all 0.3s;
+}
