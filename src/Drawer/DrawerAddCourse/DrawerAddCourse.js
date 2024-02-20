@@ -102,7 +102,6 @@ const DrawerAddCourse = () => {
         }}
         extra={
           <Space>
-            <Button onClick={onClose}>Cancel</Button>
             {errors.maKhoaHoc ||
             errors.biDanh ||
             errors.tenKhoaHoc ||

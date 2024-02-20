@@ -83,7 +83,6 @@ const DrawerAddUser = () => {
         }}
         extra={
           <Space>
-            <Button onClick={onClose}>Cancel</Button>
             {((errors.taiKhoan || errors.matKhau || errors.hoTen || errors.soDt || errors.maLoaiNguoiDung || errors.maNhom || errors.email) && (values.taiKhoan === ""|| values.matKhau === ""|| values.hoTen === ""|| values.soDt === ""|| values.maLoaiNguoiDung === ""|| values.maNhom === ""|| values.email)) ? <Button
               disabled
               className="btnNotAllowed"

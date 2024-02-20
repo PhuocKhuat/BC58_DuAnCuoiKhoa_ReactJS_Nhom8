@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { EditOutlined } from "@ant-design/icons";
 import "./styleDrawerEditCourse.css";
 
@@ -13,74 +13,123 @@ import { fetchCoursesList } from "../../Redux/personalSliceThunk";
 import moment from "moment";
 
 const DrawerEditCourse = ({ editCourse }) => {
-  // console.log("🚀 ~ DrawerEditCourse ~ editCourse:", editCourse)
+  console.log("🚀 ~ DrawerEditCourse ~ editCourse:", editCourse);
   const [open, setOpen] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+  const [courseUpdate, setCourseUpdate] = useState({});
+  const updateCourse = (course) => {
+    course && setCourseUpdate(course);
+  };
+  const [thumb, setThumb] = useState(editCourse.hinhAnh);
   const initialValues = {
     maKhoaHoc: "",
     biDanh: "",
     tenKhoaHoc: "",
     luotXem: 0,
     moTa: "",
-    hinhAnh: "",
+    hinhAnh: {},
     maNhom: "",
     ngayTao: "",
     maDanhMucKhoaHoc: "",
     taiKhoanNguoiTao: "",
   };
-  const dispatch = useDispatch();
-  const { handleChange, values, handleSubmit, errors } = useFormik({
+  const handleUpdateImage = async (values) => {
+    console.log("🚀 ~ handleUpdateImage ~ values:", values)
+    if (values.hinhAnh.name) {
+      let formData = new FormData();
+      for (let key in values) {
+        if (key !== "hinhAnh") {
+          formData.append(key, values[key]);
+        } else {
+          formData.append("hinhAnh", values.hinhAnh, values.hinhAnh.name);
+        }
+        console.log(formData.get("moTa"));
+      }
+      try {
+        console.log(formData.get('hinhAnh'))
+        let result = await https.post('/api/QuanLyKhoaHoc/CapNhatKhoaHocUpload', formData);
+        if (result.request.status === 200) {
+        resetForm();    
+        dispatch(fetchCoursesList());
+        setOpen(false);
+        message.success("Update successfully");
+        }
+      } catch (error) {
+          console.log("🚀 ~ handleUpdateImage ~ error:", error);
+          message.error("Update failed");
+      }
+    }
+    else{
+      try {
+        let result = await https.put("/api/QuanLyKhoaHoc/CapNhatKhoaHoc", values)
+        if(result.request.status === 200){
+          setOpen(false);
+          dispatch(fetchCoursesList());
+        message.success("Update successfully");
+        }
+      } catch (error) {
+        message.error(error.response.data);
+      }
+    }
+  };
+  const {
+    handleChange,
+    values,
+    handleSubmit,
+    errors,
+    setValues,
+    setFieldValue,
+    resetForm,
+    handleBlur,
+  } = useFormik({
     initialValues: initialValues,
     validationSchema: courseValidation,
     onSubmit: (values) => {
-      console.log("values", values);
-      // console.log("🚀 ~ handleEditCourse ~ values.ngayTao:", moment(values.ngayTao).format('DD/MM/YYYY'));
+      console.log("🚀 ~ DrawerEditCourse ~ alues:", values)
     },
   });
-  const handleUpdateCourse = (course) => {
-    console.log("🚀 ~ handleUpdateCourse ~ course:", course);
-    https
-      .put("/api/QuanLyKhoaHoc/CapNhatKhoaHoc", course)
-      .then(function (res) {
-        console.log(res);
-        dispatch(fetchCoursesList());
-        setOpen(false);
-      })
-      .catch(function (err) {
-        console.log(err);
-        message.error(err.response.data);
-      });
-  };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    setThumb(courseUpdate.hinhAnh);
+    setValues({
+      maKhoaHoc: courseUpdate.maKhoaHoc,
+      biDanh: courseUpdate.biDanh,
+      tenKhoaHoc: courseUpdate.tenKhoaHoc,
+      luotXem: courseUpdate.luotXem,
+      hinhAnh: courseUpdate.hinhAnh,
+      maNhom: courseUpdate.maNhom,
+      ngayTao: courseUpdate.ngayTao,
+      maDanhMucKhoaHoc:
+        courseUpdate.danhMucKhoaHoc &&
+        courseUpdate.danhMucKhoaHoc.maDanhMucKhoahoc,
+      taiKhoanNguoiTao:
+        courseUpdate.taiKhoanNguoiTao && courseUpdate.nguoiTao.taiKhoan,
+      moTa: courseUpdate.moTa,
+    });
+  }, [courseUpdate]);
+  
   const showDrawer = () => {
     setOpen(true);
   };
   const onClose = () => {
     setOpen(false);
   };
-  const handleEditCourse = () => {
-    values.maKhoaHoc = editCourse.maKhoaHoc;
-    values.biDanh = editCourse.biDanh;
-    values.tenKhoaHoc = editCourse.tenKhoaHoc;
-    values.luotXem = editCourse.luotXem;
-    values.hinhAnh = editCourse.hinhAnh;
-    values.maNhom = editCourse.maNhom;
-    values.ngayTao = editCourse.ngayTao;
-    values.maDanhMucKhoaHoc = editCourse.danhMucKhoaHoc.maDanhMucKhoahoc;
-    values.taiKhoanNguoiTao = editCourse.nguoiTao.taiKhoan;
-    values.moTa = editCourse.moTa;
-    showDrawer();
-  };
   const handleDatePicker = (date) => {
-     handleChange({ target: { name: "ngayTao", value: moment(date).format('DD/MM/YYYY')} });
-    // console.log("🚀 ~ handleDatePicker ~ date:", date.toString());
-    // console.log("🚀 ~ handleEditCourse ~ values.ngayTao:", moment(values.ngayTao).format('DD/MM/YYYY'));
-    // values.ngayTao = moment(values.ngayTao).format('DD/MM/YYYY');
+    handleChange({
+      target: { name: "ngayTao", value: moment(date).format("DD/MM/YYYY") },
+    });
     return setStartDate(date);
   };
-  
+
   return (
     <>
-      <EditOutlined onClick={handleEditCourse} className="text-yellow-500" />
+      <EditOutlined
+        onClick={() => {
+          showDrawer();
+          updateCourse(editCourse);
+        }}
+        className="text-yellow-500"
+      />
       <Drawer
         title="Create a new account"
         width={720}
@@ -93,7 +142,6 @@ const DrawerEditCourse = ({ editCourse }) => {
         }}
         extra={
           <Space>
-            <Button onClick={onClose}>Cancel</Button>
             {errors.maKhoaHoc ||
             errors.biDanh ||
             errors.tenKhoaHoc ||
@@ -106,10 +154,12 @@ const DrawerEditCourse = ({ editCourse }) => {
               </Button>
             ) : (
               <Button
-                onClick={() => {
-                  handleUpdateCourse(values);
-                }}
                 type="primary"
+                onClick={
+                  ()=>{
+                    handleUpdateImage(values);
+                  }
+                }
               >
                 Update
               </Button>
@@ -120,7 +170,7 @@ const DrawerEditCourse = ({ editCourse }) => {
         <Formik>
           <Form
             className="formDrawer"
-            onClick={handleSubmit}
+            onSubmit={handleSubmit}
             initialValues={initialValues}
             validationSchema={courseValidation}
           >
@@ -129,6 +179,7 @@ const DrawerEditCourse = ({ editCourse }) => {
                 <div className="flex flex-col space-y-3">
                   <label>Course Code</label>
                   <Field
+                    onBlur={handleBlur}
                     name="maKhoaHoc"
                     type="text"
                     className="fieldInput"
@@ -157,6 +208,7 @@ const DrawerEditCourse = ({ editCourse }) => {
                 <div className="flex flex-col space-y-3">
                   <label>Course Name</label>
                   <Field
+                    onBlur={handleBlur}
                     name="tenKhoaHoc"
                     type="text"
                     className="fieldInput"
@@ -171,6 +223,7 @@ const DrawerEditCourse = ({ editCourse }) => {
                 <div className="flex flex-col space-y-3">
                   <label>Views</label>
                   <Field
+                    onBlur={handleBlur}
                     name="luotXem"
                     type="text"
                     className="fieldInput"
@@ -199,12 +252,28 @@ const DrawerEditCourse = ({ editCourse }) => {
               <div className="col-span-6 space-y-5 p-3">
                 <div className="flex flex-col space-y-3">
                   <label>Image</label>
-                  <Field
+                  <img
+                    alt="hinhAnhKhoaHoc"
+                    src={thumb}
+                    width={100}
+                    height={100}
+                  />
+                  <input
                     name="hinhAnh"
-                    type="text"
+                    type="file"
+                    accept="image/png,image/jpg,image/jpeg"
                     className="fieldInput"
-                    value={values.hinhAnh}
-                    onChange={handleChange}
+                    onClick={(e) => e.stopPropagation()}
+                    onChange={(e) => {
+                      let file = e.target.files[0];
+                      let reader = new FileReader();
+                      reader.readAsDataURL(file);
+                      reader.onload = (e) => {
+                        setThumb(e.target.result);
+                      };
+                      setFieldValue("hinhAnh", file);
+                    }}
+                    onBlur={handleBlur}
                     placeholder="Please enter the image course"
                   />
                   {errors.hinhAnh && (
@@ -214,6 +283,7 @@ const DrawerEditCourse = ({ editCourse }) => {
                 <div className="flex flex-col space-y-3">
                   <label>Group code</label>
                   <Field
+                    onBlur={handleBlur}
                     name="maNhom"
                     as="select"
                     className="fieldInput h-9"
@@ -232,13 +302,11 @@ const DrawerEditCourse = ({ editCourse }) => {
                     <option>GP09</option>
                     <option>GP10</option>
                   </Field>
-                  {/* {errors.matKhau && (
-                  <p className="text-red-500">{errors.matKhau}</p>
-                )} */}
                 </div>
                 <div className="flex flex-col space-y-3">
                   <label>Course catalog</label>
                   <Field
+                    onBlur={handleBlur}
                     name="maDanhMucKhoaHoc"
                     className="fieldInput h-9"
                     as="select"
@@ -257,6 +325,7 @@ const DrawerEditCourse = ({ editCourse }) => {
                 <div className="flex flex-col space-y-3">
                   <label>Creator</label>
                   <Field
+                    onBlur={handleBlur}
                     name="taiKhoanNguoiTao"
                     className="fieldInput h-9"
                     as="select"
@@ -279,6 +348,7 @@ const DrawerEditCourse = ({ editCourse }) => {
             <div className="flex flex-col space-y-3 p-3 h-full">
               <label>Description</label>
               <Field
+                onBlur={handleBlur}
                 name="moTa"
                 as="textarea"
                 className="fieldInput form-textarea"

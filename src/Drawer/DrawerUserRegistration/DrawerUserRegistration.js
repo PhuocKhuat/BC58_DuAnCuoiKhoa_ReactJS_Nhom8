@@ -78,14 +78,6 @@ const DrawerUserRegistration = ({ maKhoaHoc }) => {
             paddingBottom: 80,
           },
         }}
-        extra={
-          <Space>
-            <Button onClick={onClose}>Cancel</Button>
-            <Button onClick={onClose} type="primary">
-              Register
-            </Button>
-          </Space>
-        }
       >
         <div>
         <div className="mb-3">

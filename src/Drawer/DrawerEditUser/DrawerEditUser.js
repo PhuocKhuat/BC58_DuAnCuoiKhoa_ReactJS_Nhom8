@@ -70,7 +70,6 @@ const DrawerEditUser = ({ editUserInfo }) => {
         }}
         extra={
           <Space>
-            <Button onClick={onClose}>Cancel</Button>
             {errors.taiKhoan || errors.matKhau || errors.hoTen || errors.soDt || errors.maLoaiNguoiDung || errors.maNhom || errors.email ? <Button
               disabled
               className="btnNotAllowed"

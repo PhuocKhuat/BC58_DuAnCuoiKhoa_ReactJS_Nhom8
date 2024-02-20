@@ -2,10 +2,8 @@ import * as Yup from "yup";
 
 export const courseValidation = Yup.object({
     maKhoaHoc: Yup.string()
-    .min(4, "Your course code must be at least 4 characters")
+    .min(3, "Your course code must be at least 3 characters")
     .required("You must fill in this section"),
-    // .test("isDuplicate", "Your account name is already taken", (value)=>{
-    // })
     biDanh: Yup.string()
     .min(6, "Your aliases must be at least 6 characters")
     .required("You must fill in this section"),
@@ -17,7 +15,7 @@ export const courseValidation = Yup.object({
     danhGia: Yup.number()
     .required("You must fill in this section"),
     hinhAnh: Yup.string()
-    .min(30, "Your image must be at least 30 characters")
+    // .min(30, "Your image must be at least 30 characters")
     .required("You must fill in this section"),
     ngayTao: Yup.string()
     .min(8, "Your date must be at least 8 characters")
