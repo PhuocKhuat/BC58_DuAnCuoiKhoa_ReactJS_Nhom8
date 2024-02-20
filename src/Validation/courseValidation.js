@@ -14,9 +14,9 @@ export const courseValidation = Yup.object({
     .required("You must fill in this section"),
     danhGia: Yup.number()
     .required("You must fill in this section"),
-    hinhAnh: Yup.string()
+    // hinhAnh: Yup.string()
     // .min(30, "Your image must be at least 30 characters")
-    .required("You must fill in this section"),
+    // .required("You must fill in this section"),
     ngayTao: Yup.string()
     .min(8, "Your date must be at least 8 characters")
     .required("You must fill in this section"),

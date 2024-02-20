@@ -20,7 +20,7 @@ const DrawerEditCourse = ({ editCourse }) => {
   const updateCourse = (course) => {
     course && setCourseUpdate(course);
   };
-  const [thumb, setThumb] = useState(editCourse.hinhAnh);
+  const [thumb, setThumb] = useState(courseUpdate.hinhAnh);
   const initialValues = {
     maKhoaHoc: "",
     biDanh: "",
@@ -56,13 +56,14 @@ const DrawerEditCourse = ({ editCourse }) => {
         }
       } catch (error) {
           console.log("🚀 ~ handleUpdateImage ~ error:", error);
-          message.error("Update failed");
+          message.error(error.response.data);
       }
     }
     else{
       try {
         let result = await https.put("/api/QuanLyKhoaHoc/CapNhatKhoaHoc", values)
         if(result.request.status === 200){
+          resetForm();    
           setOpen(false);
           dispatch(fetchCoursesList());
         message.success("Update successfully");
@@ -261,9 +262,9 @@ const DrawerEditCourse = ({ editCourse }) => {
                   <input
                     name="hinhAnh"
                     type="file"
-                    accept="image/png,image/jpg,image/jpeg"
+                    accept="image/jpg,image/png,image/jpeg"
                     className="fieldInput"
-                    onClick={(e) => e.stopPropagation()}
+                    // onClick={(e) => e.stopPropagation()}
                     onChange={(e) => {
                       let file = e.target.files[0];
                       let reader = new FileReader();

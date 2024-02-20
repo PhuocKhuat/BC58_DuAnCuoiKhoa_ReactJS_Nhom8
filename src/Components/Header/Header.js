@@ -224,10 +224,10 @@ export default function Header() {
                 <NavLink className="catalogHeader" to="/course">Course</NavLink>
               </li>
               <li>
-                <span className="catalogHeader">Information</span>
+                <NavLink className="catalogHeader" to="/event">Event</NavLink>
               </li>
               <li>
-                <span className="catalogHeader">Event</span>
+                <span className="catalogHeader">Information</span>
               </li>
             </ul>
           </div>

@@ -20,6 +20,7 @@ import SecureGate from "./Layouts/SecureGate";
 import AdminCoursePage from "./Pages/AdminCoursePage/AdminCoursePage";
 import Course from "./Pages/Course/Course/Course";
 import Blog from "./Pages/Blog/Blog";
+import EventPage from "./Pages/EventPage/EventPage";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
             element={<CourseCatalog />}
           />
           <Route path="/blog" element={<Blog/>}/>
+          <Route path="/event" element={<EventPage/>}/>
           <Route path="/searchcourse" element={<SearchPage />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/admin" element={
