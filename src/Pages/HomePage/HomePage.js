@@ -5,6 +5,7 @@ import Statistics from "./Statistics/Statistics";
 import CoursesList from "./CoursesList/CoursesList";
 import Overview from "./Overview/Overview";
 import Feedback from "./Feedback/Feedback";
+import NewPost from "../NewPost/NewPost";
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Statistics/>
       <CoursesList/>
       <Feedback/>
+      <NewPost/>
     </div>
   );
 }

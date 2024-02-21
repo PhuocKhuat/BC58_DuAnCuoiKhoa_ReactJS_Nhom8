@@ -1,3 +1,8 @@
 .sponsors .titleSponsers{
     color: #dc3ff8;
 }
+.sponsors{
+    background-image: url("../../../img/bgTech3.jpg");
+    background-size: cover;
+    background-position: center;
+}

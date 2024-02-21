@@ -1,0 +1,11 @@
+.newPost{
+    background: #272634;
+}
+.newPost .titleNewPost{
+    font-size: 40px;
+    line-height: 50px;
+    color: hsl(221, 94%, 60%);
+}
+.newPost .bgPost{
+    border-radius: 5px;
+}

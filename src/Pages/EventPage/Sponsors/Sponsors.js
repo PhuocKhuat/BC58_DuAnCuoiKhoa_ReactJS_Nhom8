@@ -5,14 +5,14 @@ export default function Sponsors() {
   return (
     <div className="text-gray-600 body-font sponsors">
       <div className="px-5 py-24">
-        <div className="flex flex-col text-center w-full mb-20">
+        <div className="flex flex-col text-center w-full mb-10">
           <h2 className="text-xs text-purple-500 tracking-widest font-medium title-font mb-1">
             SPONSORS
           </h2>
-          <h1 className="titleSponsers uppercase sm:text-3xl text-2xl font-bold title-font mb-4 text-gray-900">
+          <h1 className="titleSponsers uppercase sm:text-3xl text-2xl font-bold title-font mb-3 text-gray-800">
             Potential and leading sponsors
           </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-white">
             Sponsors are important companions, contributing to the success of
             many activities, organizations and projects. Cooperating and
             building good relationships with donors is a key factor in ensuring
@@ -20,7 +20,7 @@ export default function Sponsors() {
           </p>
         </div>
         <div className="flex flex-wrap -m-4">
-          <div className="xl:w-1/4 md:w-1/2 p-4">
+          <div className="xl:w-1/4 md:w-1/2 p-3">
             <div className="bg-gray-100 p-6 rounded-lg">
               <img
                 className="h-40 rounded w-full object-cover object-center mb-6"
@@ -28,18 +28,19 @@ export default function Sponsors() {
                 alt="content"
               />
               <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                SUBTITLE
+                GOLD SPONSOR
               </h3>
-              <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                Chichen Itza
+              <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
+                Facebook
               </h2>
               <p className="leading-relaxed text-base">
-                Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-                hexagon disrupt edison bulbche.
+                Facebook is a social networking platform founded by Mark
+                Zuckerberg, Eduardo Saverin, Dustin Moskovitz and Chris Hughes
+                when they were ...
               </p>
             </div>
           </div>
-          <div className="xl:w-1/4 md:w-1/2 p-4">
+          <div className="xl:w-1/4 md:w-1/2 p-3">
             <div className="bg-gray-100 p-6 rounded-lg">
               <img
                 className="h-40 rounded w-full object-cover object-center mb-6"
@@ -47,18 +48,17 @@ export default function Sponsors() {
                 alt="content"
               />
               <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                SUBTITLE
+                GOLD SPONSOR
               </h3>
-              <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                Colosseum Roma
+              <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
+                Microsoft
               </h2>
               <p className="leading-relaxed text-base">
-                Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-                hexagon disrupt edison bulbche.
+              Microsoft is a multinational technology company headquartered in Redmond, Washington. The company was founded in 1975 by Bill Gates and ...
               </p>
             </div>
           </div>
-          <div className="xl:w-1/4 md:w-1/2 p-4">
+          <div className="xl:w-1/4 md:w-1/2 p-3">
             <div className="bg-gray-100 p-6 rounded-lg">
               <img
                 className="h-40 rounded w-full object-cover object-center mb-6"
@@ -66,18 +66,17 @@ export default function Sponsors() {
                 alt="content"
               />
               <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                SUBTITLE
+                GOLD SPONSOR
               </h3>
-              <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                Great Pyramid of Giza
+              <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
+                Google
               </h2>
               <p className="leading-relaxed text-base">
-                Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-                hexagon disrupt edison bulbche.
+              Google is an American multinational technology company specializing in Internet-related services and products.The company was ...
               </p>
             </div>
           </div>
-          <div className="xl:w-1/4 md:w-1/2 p-4">
+          <div className="xl:w-1/4 md:w-1/2 p-3">
             <div className="bg-gray-100 p-6 rounded-lg">
               <img
                 className="h-40 rounded w-full object-cover object-center mb-6"
@@ -85,18 +84,17 @@ export default function Sponsors() {
                 alt="content"
               />
               <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                SUBTITLE
+                GOLD SPONSOR
               </h3>
-              <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                San Francisco
+              <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
+                Amazon
               </h2>
               <p className="leading-relaxed text-base">
-                Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-                hexagon disrupt edison bulbche.
+              Amazon is an American multinational technology company focused on e-commerce, cloud computing, digital streaming, and artificial intelligence...
               </p>
             </div>
           </div>
-          <div className="xl:w-1/4 md:w-1/2 p-4">
+          <div className="xl:w-1/4 md:w-1/2 p-3">
             <div className="bg-gray-100 p-6 rounded-lg">
               <img
                 className="h-40 rounded w-full object-cover object-center mb-6"
@@ -104,18 +102,17 @@ export default function Sponsors() {
                 alt="content"
               />
               <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                SUBTITLE
+                GOLD SPONSOR
               </h3>
-              <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                San Francisco
+              <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
+                Adidas
               </h2>
               <p className="leading-relaxed text-base">
-                Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-                hexagon disrupt edison bulbche.
+              Adidas was founded in 1949 by Adolf Dassler in Herzogenaurach, Germany. Adidas initially specialized in the production of sports shoes, then...
               </p>
             </div>
           </div>
-          <div className="xl:w-1/4 md:w-1/2 p-4">
+          <div className="xl:w-1/4 md:w-1/2 p-3">
             <div className="bg-gray-100 p-6 rounded-lg">
               <img
                 className="h-40 rounded w-full object-cover object-center mb-6"
@@ -123,18 +120,17 @@ export default function Sponsors() {
                 alt="content"
               />
               <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                SUBTITLE
+                GOLD SPONSOR
               </h3>
-              <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                San Francisco
+              <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
+                Samsung
               </h2>
               <p className="leading-relaxed text-base">
-                Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-                hexagon disrupt edison bulbche.
+              Samsung is a Korean multinational corporation headquartered in Samsung City, Seoul. This is the largest corporation in Korea...
               </p>
             </div>
           </div>
-          <div className="xl:w-1/4 md:w-1/2 p-4">
+          <div className="xl:w-1/4 md:w-1/2 p-3">
             <div className="bg-gray-100 p-6 rounded-lg">
               <img
                 className="h-40 rounded w-full object-cover object-center mb-6"
@@ -142,18 +138,17 @@ export default function Sponsors() {
                 alt="content"
               />
               <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                SUBTITLE
+                GOLD SPONSOR
               </h3>
-              <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                San Francisco
+              <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
+                Youtube 
               </h2>
               <p className="leading-relaxed text-base">
-                Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-                hexagon disrupt edison bulbche.
+              YouTube sponsors are businesses or organizations that partner with YouTube to promote their brands, products or services on the YouTube platform...
               </p>
             </div>
           </div>
-          <div className="xl:w-1/4 md:w-1/2 p-4">
+          <div className="xl:w-1/4 md:w-1/2 p-3">
             <div className="bg-gray-100 p-6 rounded-lg">
               <img
                 className="h-40 rounded w-full object-cover object-center mb-6"
@@ -161,14 +156,13 @@ export default function Sponsors() {
                 alt="content"
               />
               <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                SUBTITLE
+                GOLD SPONSOR
               </h3>
-              <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                San Francisco
+              <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
+                Tiktok
               </h2>
               <p className="leading-relaxed text-base">
-                Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-                hexagon disrupt edison bulbche.
+              TikTok is a popular short video sharing social media platform that allows users to create and share short videos, often with background music...
               </p>
             </div>
           </div>
