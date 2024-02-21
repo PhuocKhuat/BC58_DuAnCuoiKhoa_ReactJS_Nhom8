@@ -2,6 +2,7 @@ import React from "react";
 import CountDownEvent from "./CountDownEvent/CountDownEvent";
 import StartUpEvent from "./StartUpEvent/StartUpEvent";
 import CoCreator from "./CoCreator/CoCreator";
+import Sponsors from "./Sponsors/Sponsors";
 
 export default function EventPage() {
   return (
@@ -9,6 +10,7 @@ export default function EventPage() {
       <CountDownEvent/>
       <StartUpEvent/>
       <CoCreator/>
+      <Sponsors/>
     </>
   );
 }
