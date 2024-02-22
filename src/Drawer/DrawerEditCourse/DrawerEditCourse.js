@@ -13,7 +13,7 @@ import { fetchCoursesList } from "../../Redux/personalSliceThunk";
 import moment from "moment";
 
 const DrawerEditCourse = ({ editCourse }) => {
-  console.log("🚀 ~ DrawerEditCourse ~ editCourse:", editCourse);
+  // console.log("🚀 ~ DrawerEditCourse ~ editCourse:", editCourse);
   const [open, setOpen] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [courseUpdate, setCourseUpdate] = useState({});

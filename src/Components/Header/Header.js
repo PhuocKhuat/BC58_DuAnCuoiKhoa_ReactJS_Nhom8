@@ -9,7 +9,6 @@ import { https } from "../../Services/api";
 import {
   setCatalog,
   setIsHovering,
-  // setSearchCourse,
 } from "../../Redux/headerSlice";
 
 export default function Header() {
@@ -24,9 +23,9 @@ export default function Header() {
   // console.log("🚀 ~ Header ~ taiKhoan:", user);
   const dispatch = useDispatch();
   useEffect(() => {
-    fetchCourseCatalog();
+    fetchCourseCatalogs();
   }, []);
-  const fetchCourseCatalog = async () => {
+  const fetchCourseCatalogs = async () => {
     try {
       let res = await https.get("/api/QuanLyKhoaHoc/LayDanhMucKhoaHoc");
       dispatch(setCatalog(res.data));
@@ -37,9 +36,7 @@ export default function Header() {
   const renderCatalog = () =>
     catalog.map((item, index) => (
       <li key={index}>
-        <NavLink to={`/coursecatalog/${item.maDanhMuc}`} onClick={()=>{
-          window.location.href(`/coursecatalog/${item.maDanhMuc}`)
-        }}
+        <NavLink to={`/coursecatalog/${item.maDanhMuc}`} 
         >
           {item.tenDanhMuc}
         </NavLink>
@@ -213,7 +210,7 @@ export default function Header() {
                   />
                 </svg>
                 <ul
-                  className={`absolute top-6 z-50 space-y-4 catalogUl p-3 ${
+                  className={`absolute top-10 z-50 space-y-4 catalogUl p-3 ${
                     isHovering ? "" : "hidden"
                   }`}
                 >

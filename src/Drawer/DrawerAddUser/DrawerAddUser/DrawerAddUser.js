@@ -59,6 +59,7 @@ const DrawerAddUser = () => {
       .then((res) => {
         console.log(res);
         message.success("Add user successfully");
+        onClose();
         dispatch(fetchAdminUser());
       })
       .catch((err) => {
@@ -168,12 +169,15 @@ const DrawerAddUser = () => {
                 <label>User type code</label>
                 <Field
                   name="maLoaiNguoiDung"
-                  type="text"
+                  as="select"
                   className="fieldInput"
                   value={values.maLoaiNguoiDung}
                   onChange={handleChange}
                   placeholder="Please enter the user's type code"
-                />
+                >
+                  <option>GV</option>
+                  <option>HV</option>
+                </Field>
                 {errors.maLoaiNguoiDung && (
                   <p className="text-red-500">{errors.maLoaiNguoiDung}</p>
                 )}
@@ -182,12 +186,23 @@ const DrawerAddUser = () => {
                 <label>Group Code</label>
                 <Field
                   name="maNhom"
-                  type="text"
+                  as="select"
                   className="fieldInput"
                   value={values.maNhom}
                   onChange={handleChange}
                   placeholder="Please enter the user's group code"
-                />
+                >
+                  <option>GP01</option>
+                  <option>GP02</option>
+                  <option>GP03</option>
+                  <option>GP04</option>
+                  <option>GP05</option>
+                  <option>GP06</option>
+                  <option>GP07</option>
+                  <option>GP08</option>
+                  <option>GP09</option>
+                  <option>GP10</option>
+                </Field>
                 {errors.maNhom && (
                   <p className="text-red-500">{errors.maNhom}</p>
                 )}

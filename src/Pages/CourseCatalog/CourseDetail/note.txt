@@ -1,0 +1,15 @@
+// courseCatalogById.map((title, index) =>
+    //   index === 0 ? (
+    //     <strong
+    //       className="titleCourseCatalog flex p-2 gap-2 rounded-2xl"
+    //       key={index}
+    //     >
+    //       <span className="text-yellow-400">
+    //         <LaptopOutlined />
+    //       </span>
+    //       <h3>{title.danhMucKhoaHoc.maDanhMucKhoahoc}</h3>
+    //     </strong>
+    //   ) : (
+    //     ""
+    //   )
+    // );

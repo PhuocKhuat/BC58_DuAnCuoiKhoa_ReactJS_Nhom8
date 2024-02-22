@@ -11,30 +11,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCourseCatalog } from "../../../Redux/searchCatalogThunk";
 
 export default function CourseDetail() {
-  // const { courseCatalogById } = useSelector(
-  //   (state) => state.courseCatalogSlice
-  // );
   const { courseCatalogById } = useSelector(
     (state) => state.searchCatalogThunk
   );
-  console.log("🚀 ~ CourseCatalog ~ courseCatalogById:", courseCatalogById);
+  // console.log("🚀 ~ CourseCatalog ~ courseCatalogById:", courseCatalogById);
+  const { catalog } = useSelector((state) => state.headerSlice);
+  console.log("🚀 ~ CourseDetail ~ catalog:", catalog);
   const { idMaDanhMuc } = useParams();
-  const dispatch = useDispatch();
   // console.log("🚀 ~ CourseCatalog ~ idMaDanhMuc:", idMaDanhMuc)
+  const dispatch = useDispatch();
   useEffect(() => {
-    // https
-    //   .get(
-    //     `/api/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${idMaDanhMuc}&MaNhom=GP09`
-    //   )
-    //   .then((res) => {
-    //     console.log(res);
-    //     dispatch(setCourseCatalogById(res.data));
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    dispatch(fetchCourseCatalog(idMaDanhMuc));
-  }, []);
+    dispatch(fetchCourseCatalog(idMaDanhMuc))
+}, [idMaDanhMuc])
+  const NameCategory = catalog.find((item) => {
+    return item.maDanhMuc === idMaDanhMuc ? item : ""
+  });
   const rednerCourseCatalog = () =>
     courseCatalogById.map((course, index) => (
       <NavLink
@@ -89,21 +80,14 @@ export default function CourseDetail() {
       </NavLink>
     ));
   const renderTitleCatalog = () =>
-    courseCatalogById.map((title, index) =>
-      index === 0 ? (
-        <strong
+    <strong
           className="titleCourseCatalog flex p-2 gap-2 rounded-2xl"
-          key={index}
         >
           <span className="text-yellow-400">
             <LaptopOutlined />
           </span>
-          <h3>{title.danhMucKhoaHoc.maDanhMucKhoahoc}</h3>
+          <h3>{NameCategory ? NameCategory.maDanhMuc : ""}</h3>
         </strong>
-      ) : (
-        ""
-      )
-    );
   return (
     <div className="text-gray-600 body-font courseCatalog mb-4">
       <div className="container py-10">
