@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
 import headerSlice from './Redux/headerSlice';
 import { Provider } from 'react-redux';
-// import homeSlice from './Redux/homeSlice';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import detailSlice from './Redux/detailSlice';
@@ -19,11 +18,11 @@ import adminUserSliceThunk from './Redux/adminUserSliceThunk';
 import courseSlice from './Redux/courseSlice';
 import userRegistrationSlice from './Redux/userRegistrationSlice';
 import courseRegistrationSlice from './Redux/courseRegistrationSlice';
+import countDownEventSlice from './Redux/countDownEventSlice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export const store = configureStore({reducer:{
   headerSlice,
-  // homeSlice,
   detailSlice,
   personalSlice,
   personalSliceThunk,
@@ -34,6 +33,7 @@ export const store = configureStore({reducer:{
   courseSlice,
   userRegistrationSlice,
   courseRegistrationSlice,
+  countDownEventSlice,
 }})
 root.render(
   <Provider store={store}>
