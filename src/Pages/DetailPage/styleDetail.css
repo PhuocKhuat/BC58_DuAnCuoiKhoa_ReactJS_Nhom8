@@ -172,7 +172,43 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(209.21deg, rgb(147,180,251) 13.57%,  rgb(91,74,238) 98.38%);
+    background: linear-gradient(209.21deg, rgb(147,180,251) 13.57%, rgb(91,74,238) 98.38%);
+}
+.detail .bgOverlay9{
+    position: absolute;
+    transition: height 0.5s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(209.21deg, rgb(81,57,185) 13.57%, rgb(82,201,243) 98.38%);
+}
+.detail .bgOverlay10{
+    position: absolute;
+    transition: height 0.5s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(209.21deg, rgb(119,183,223) 13.57%, rgb(110,108,202) 98.38%);
+}
+.detail .bgOverlay11{
+    position: absolute;
+    transition: height 0.5s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(209.21deg, rgb(225,164,113) 13.57%, rgb(52,114,233) 98.38%);
+}
+.detail .bgOverlay12{
+    position: absolute;
+    transition: height 0.5s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(209.21deg, rgb(197,164,221) 13.57%, rgb(91,167,235) 98.38%);
 }
 .detail .bgChuongTrinh h3, .detail .bgChuongTrinh span{
    position: relative;

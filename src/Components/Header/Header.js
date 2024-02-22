@@ -213,7 +213,7 @@ export default function Header() {
                   />
                 </svg>
                 <ul
-                  className={`absolute top-12 z-50  space-y-4 catalogUl p-3 ${
+                  className={`absolute top-6 z-50 space-y-4 catalogUl p-3 ${
                     isHovering ? "" : "hidden"
                   }`}
                 >

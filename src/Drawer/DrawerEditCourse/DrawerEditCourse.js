@@ -34,7 +34,7 @@ const DrawerEditCourse = ({ editCourse }) => {
     taiKhoanNguoiTao: "",
   };
   const handleUpdateImage = async (values) => {
-    console.log("🚀 ~ handleUpdateImage ~ values:", values)
+    console.log("🚀 ~ handleUpdateImage ~ values:", values);
     if (values.hinhAnh.name) {
       let formData = new FormData();
       for (let key in values) {
@@ -46,27 +46,41 @@ const DrawerEditCourse = ({ editCourse }) => {
         console.log(formData.get("moTa"));
       }
       try {
-        console.log(formData.get('hinhAnh'))
-        let result = await https.post('/api/QuanLyKhoaHoc/CapNhatKhoaHocUpload', formData);
+        console.log(formData.get("hinhAnh"));
+        let result = await https.post(
+          "/api/QuanLyKhoaHoc/CapNhatKhoaHocUpload",
+          formData,
+          {
+            onUpLoadProgress: (progressEvent) => {
+              console.log(
+                "Update abc",
+                Math.round(progressEvent.loaded / progressEvent.total* 100) +
+                  "%"
+              );
+            },
+          }
+        );
         if (result.request.status === 200) {
-        resetForm();    
-        dispatch(fetchCoursesList());
-        setOpen(false);
-        message.success("Update successfully");
+          resetForm();
+          dispatch(fetchCoursesList());
+          setOpen(false);
+          message.success("Update successfully");
         }
       } catch (error) {
-          console.log("🚀 ~ handleUpdateImage ~ error:", error);
-          message.error(error.response.data);
+        console.log("🚀 ~ handleUpdateImage ~ error:", error);
+        message.error(error.response.data);
       }
-    }
-    else{
+    } else {
       try {
-        let result = await https.put("/api/QuanLyKhoaHoc/CapNhatKhoaHoc", values)
-        if(result.request.status === 200){
-          resetForm();    
+        let result = await https.put(
+          "/api/QuanLyKhoaHoc/CapNhatKhoaHoc",
+          values
+        );
+        if (result.request.status === 200) {
+          resetForm();
           setOpen(false);
           dispatch(fetchCoursesList());
-        message.success("Update successfully");
+          message.success("Update successfully");
         }
       } catch (error) {
         message.error(error.response.data);
@@ -86,7 +100,7 @@ const DrawerEditCourse = ({ editCourse }) => {
     initialValues: initialValues,
     validationSchema: courseValidation,
     onSubmit: (values) => {
-      console.log("🚀 ~ DrawerEditCourse ~ alues:", values)
+      console.log("🚀 ~ DrawerEditCourse ~ alues:", values);
     },
   });
   const dispatch = useDispatch();
@@ -108,7 +122,7 @@ const DrawerEditCourse = ({ editCourse }) => {
       moTa: courseUpdate.moTa,
     });
   }, [courseUpdate]);
-  
+
   const showDrawer = () => {
     setOpen(true);
   };
@@ -156,11 +170,9 @@ const DrawerEditCourse = ({ editCourse }) => {
             ) : (
               <Button
                 type="primary"
-                onClick={
-                  ()=>{
-                    handleUpdateImage(values);
-                  }
-                }
+                onClick={() => {
+                  handleUpdateImage(values);
+                }}
               >
                 Update
               </Button>
@@ -264,9 +276,10 @@ const DrawerEditCourse = ({ editCourse }) => {
                     type="file"
                     accept="image/jpg,image/png,image/jpeg"
                     className="fieldInput"
-                    // onClick={(e) => e.stopPropagation()}
+                    onClick={(e) => e.stopPropagation()}
                     onChange={(e) => {
                       let file = e.target.files[0];
+                      console.log("🚀 ~ DrawerEditCourse ~ file:", file);
                       let reader = new FileReader();
                       reader.readAsDataURL(file);
                       reader.onload = (e) => {
