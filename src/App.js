@@ -21,6 +21,7 @@ import AdminCoursePage from "./Pages/AdminCoursePage/AdminCoursePage";
 import Course from "./Pages/Course/Course/Course";
 import Blog from "./Pages/Blog/Blog";
 import EventPage from "./Pages/EventPage/EventPage";
+import BackToTop from "./Components/BackToTop/BackToTop";
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
             <Route path="courses" element={<AdminCoursePage/>} />
           </Route>
         </Routes>
+        <BackToTop/>
         <Footer />
       </BrowserRouter>
     </>

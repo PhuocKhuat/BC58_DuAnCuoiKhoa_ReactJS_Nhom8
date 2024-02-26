@@ -1,0 +1,34 @@
+.targetParticipate .titleTarget {
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+.targetParticipate .imgTarget {
+  width: 50vw !important;
+}
+.targetParticipate {
+  background: #3f3651;
+}
+.targetParticipate .frameContainerLogo {
+  transition: all 0.3s;
+}
+.targetParticipate .frameContainerLogo:hover .hoverLogo {
+  background: #6366f1;
+  color: #b9cbe8;
+}
+.targetParticipate .btnInbox {
+  background: white !important;
+  color: black !important;
+  border: 3px solid #6366f1 !important;
+}
+.targetParticipate .btnRegister{
+    background-image: linear-gradient(to left, #227df9 0%, #7462f9 25%, #df3ef8 50%, #7462f9 75%, #227df9 100%);
+    transition: all 0.5s ease;
+    transition-timing-function: ease, ease;
+}
+.targetParticipate .btnInbox:hover {
+    color: white !important;
+    border: none !important;
+    position: relative !important;
+    transition: all 0.5s ease !important;
+    background-image: linear-gradient(90deg, #2d7af9 30%, #a752f8 80%) !important;
+}

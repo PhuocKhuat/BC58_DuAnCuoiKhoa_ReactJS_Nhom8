@@ -1,0 +1,11 @@
+.participateObject{
+    background: #343754;
+}
+.participateObject .titleParticipate{
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+.participateObject .bgParticipate{
+    background: linear-gradient(to right, #227df952, #e0dcff, #df3ef817);
+    padding: 25px;
+}
