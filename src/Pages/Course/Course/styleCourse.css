@@ -16,14 +16,17 @@
 .course .bgCourseList:nth-child(6) {
   background: #dc3ff8;
 }
-.course .frameCourse {
-  width: 32%;
+.courseOfPage{
+  background: white;
 }
-.course .frameCourse {
+.courseOfPage .frameCourse {
   position: relative;
   overflow: hidden;
 }
-.course .frameCourse::before {
+.courseOfPage .frameCourse:hover{
+  background: #f0f4fa;
+}
+.courseOfPage .frameCourse::before {
   content: "";
   width: 50%;
   height: 100%;
@@ -34,7 +37,7 @@
   background: linear-gradient(
     to right,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.6) 100%
+    rgba(236, 221, 221, 0.6) 100%
   );
   transform: skewX(-25deg);
   transition: all 0.75s;
@@ -52,7 +55,7 @@
 .course .paginationCourseOverlay:hover {
   opacity: 1;
 }
-.course .frameCourse:hover:before {
+.courseOfPage .frameCourse:hover:before {
   left: 100%;
 }
 .course .titlePaginationCourse {
@@ -63,13 +66,129 @@
   background: #e2e8f0;
   border: 3px solid rgb(222, 218, 218);
 }
-.course .frameCourse .btnLearnMore {
+.courseOfPage .frameCourse .btnLearnMore {
   bottom: 42px;
   position: absolute;
   left: 255px;
 }
-@media screen and (max-width: 1285px) {
-  .course .frameCourse {
-    width: 32%;
+.courseOfPage .courseOfPageHeader{
+  display: flex;
+}
+.courseOfPage .moTaCourseOfPage{
+  width: 290px;
+}
+.courseOfPage .footerCourseOfPage{
+  display: flex;
+}
+@media screen and (max-width: 1286px) {
+  .courseOfPage .imgCourseOfPage{
+    position: relative;
+    left: 3px;
   }
+.courseOfPage .moTaCourseOfPage{
+    width: 15vw;
+  }
+  .titleCourseOfPage{
+    width: 10vw;    
+  }
+  .courseOfPage .frameCourse .btnLearnMore{
+    position: absolute;
+    bottom: 25px;
+    left: 223px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .courseOfPage .imgCourseOfPage {
+    left: -9px;
+  }
+  .titleCourseOfPage{
+    width: 100px;    
+  }
+  .courseOfPage .moTaCourseOfPage {
+    width: 23vw;
+  }
+  .courseOfPage .frameCourse .btnLearnMore {
+    position: absolute;
+    bottom: 42px;
+    left: 22vw;
+}
+.courseOfPage .footerCourseOfPage{
+  display: block;
+}
+}
+@media screen and (max-width: 768px) {
+  .courseOfPage .frameCourse .btnLearnMore {
+    bottom: 40px;
+    left: 56vw;
+}
+.courseOfPage .imgCourseOfPage {
+  left: 0px;
+}
+.courseOfPage .footerCourseOfPage{
+  display: flex;
+}
+}
+@media screen and (max-width: 640px) {
+  .courseOfPage .frameCourse .btnLearnMore {
+    left: 51vw;
+  }
+  .courseOfPage .moTaCourseOfPage {
+    width: 53vw;
+}
+}
+@media screen and (max-width: 540px) {
+  .imgCourseOfPage {
+    left: 1vw !important;
+}
+.courseOfPage .courseOfPageHeader{
+    display: block;
+}
+.courseOfPage .imgCourseOfPage {
+    width: 47vw;
+}
+.titleCourseOfPage{
+    width: 50vw;
+}
+.courseOfPage .frameCourse .btnLearnMore {
+  left: 46vw;
+}
+.courseOfPage .moTaCourseOfPage {
+  width: 48vw;
+}
+}
+@media screen and (max-width: 500px) {
+  .courseOfPage .imgCourseOfPage {
+    position: relative;
+    left: -9px !important;
+}
+.courseOfPage .frameCourse .btnLearnMore {
+  left: 41vw;
+}
+.courseOfPage .footerCourseOfPage{
+  display: block;
+}
+}
+@media screen and (max-width: 450px) {
+  .courseOfPage .frameCourse .btnLearnMore {
+    bottom: 49px;
+  }
+}
+@media screen and (max-width: 430px) {
+  .courseOfPage .frameCourse .btnLearnMore {
+    left: 58%;
+  }
+}
+@media screen and (max-width: 359px) {
+  .titleCourseOfPage {
+    width: 35vw;
+  }
+  .courseOfPage .imgCourseOfPage {
+    width: 36vw;
+}
+.courseOfPage .moTaCourseOfPage {
+  width: 33vw;
+}
+.courseOfPage .frameCourse .btnLearnMore {
+  left: 52%;
+}
 }

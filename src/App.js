@@ -22,6 +22,7 @@ import Course from "./Pages/Course/Course/Course";
 import Blog from "./Pages/Blog/Blog";
 import EventPage from "./Pages/EventPage/EventPage";
 import BackToTop from "./Components/BackToTop/BackToTop";
+import CourseAll from "./Pages/Course/CourseAll";
 
 function App() {
   return (
@@ -37,7 +38,7 @@ function App() {
             <Route path="/account" element={<FormLogin />} />
             <Route path="/signup" element={<FormSignup />} />
           </Route>
-          <Route path="/course" element={<Course/>} />
+          <Route path="/course" element={<CourseAll/>} />
           <Route
             path="/personalinfo"
             element={

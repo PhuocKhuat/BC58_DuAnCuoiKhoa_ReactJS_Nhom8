@@ -8,14 +8,9 @@ import {
   RadarChartOutlined,
 } from "@ant-design/icons";
 import "./styleCourse.css";
-import Pagination from "../Pagination/Pagination";
 import CourseOfPage from "./CourseOfPage";
 
 export default function Course() {
-  const renderPaginatedCourseList = () => {
-    return <CourseOfPage />
-  };
-
   return (
     <div className="course">
       <div className="container py-10">
@@ -97,19 +92,6 @@ export default function Course() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className="text-gray-600 body-font">
-          <div className="py-3">
-            <div>
-              <h3 className="mb-5 rounded-3xl bg-yellow-100 p-3 w-36 text-xl titlePaginationCourse">
-                Course List
-              </h3>
-              <div className="flex flex-wrap -mx-4 -my-8 gap-3">
-                {renderPaginatedCourseList()}
-              </div>
-              <Pagination/>
             </div>
           </div>
         </div>
