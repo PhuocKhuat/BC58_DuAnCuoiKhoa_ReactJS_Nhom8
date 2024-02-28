@@ -138,6 +138,12 @@
 .personalInfo .timeStudyItem svg {
   font-size: 20px;
 }
+.personalInfo .timeStudy {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  overflow-y: hidden;
+  height: 178px;
+}
 .personalInfo .borderFrame {
   border-color: #ddbd4a;
   border-radius: 0 0 0 0;
@@ -235,16 +241,195 @@
   text-transform: capitalize;
   background: #3085d6 !important;
 }
-.modalDelete .btnDeleteCourse:hover{
+.modalDelete .btnDeleteCourse:hover {
   background: rgb(48, 133, 214, 0.7) !important;
 }
-.modalDelete .btnCancelCourses{
+.modalDelete .btnCancelCourses {
   padding: 11px 22px !important;
   border-radius: 5px;
   text-transform: capitalize;
   background: #dd3333 !important;
   transition: all 0.3s;
 }
-.modalDelete .btnCancelCourses:hover{
+.modalDelete .btnCancelCourses:hover {
   background: rgba(221, 51, 51, 0.7) !important;
+}
+
+@media screen and (max-width: 1286px) {
+  .personalInfo .ant-progress-inner {
+    width: 15vw !important;
+  }
+}
+@media screen and (max-width: 1232px) {
+  .personalInfo .borderFrame {
+    height: 945px;
+  }
+}
+@media screen and (max-width: 1193px) {
+  .personalInfo .timeStudy{
+    height: 220px;
+  }
+}
+@media screen and (max-width: 1184px) {
+  .personalInfo .borderFrame {
+    height: 992px;
+  }
+}
+@media screen and (max-width: 1145px) {
+  .personalInfo .borderFrame {
+    height: 945px;
+}
+}
+@media screen and (max-width: 1135px) {
+  .personalInfo .ant-progress-inner {
+    width: 13vw !important;
+  }
+}
+@media screen and (max-width: 1020px) {
+  .personalInfo .borderFrame {
+    height: 940px !important;
+  }
+}
+@media screen and (max-width: 990px) {
+  .personalInfo .ant-progress-inner {
+    width: 11vw !important;
+  }
+  .personalInfo .timeStudy {
+    grid-template-columns: auto auto;
+  }
+  .personalInfo .borderFrame {
+    height: 990px !important;
+  }
+  .personalInfo .timeStudy {
+    height: 268px;
+}
+.modals .btnModals {
+  padding: 20px 10px !important;
+  font-size: 10px;
+}
+}
+@media screen and (max-width: 920px) {
+  .personalInfo .borderFrame {
+    height: 1020px !important;
+  }
+}
+@media screen and (max-width: 865px) {
+  .personalInfo .ant-progress-inner {
+    width: 9vw !important;
+  }
+}
+@media screen and (max-width: 840px) {
+  .personalInfo .ant-progress-inner {
+    width: 8vw !important;
+  }
+}
+@media screen and (max-width: 805px) {
+  .personalInfo .timeStudy {
+    height: 306px;
+}
+  .personalInfo .borderFrame {
+    height: 1070px !important;
+  }
+  .personalInfo .timeStudy {
+    height: 306px;
+}
+}
+@media screen and (max-width: 768px) {
+  .personalInfo .borderFrame {
+    height: 1115px !important;
+  }
+  .personalInfo .ant-progress-inner {
+    width: 31vw !important;
+  }
+  .personalInfo .timeStudy {
+    height: 321px;
+}
+.personalInfo .overYSkills {
+  overflow-y: scroll;
+  height: 400px;
+}
+.modals .btnModals {
+  font-size: 8px;
+}
+}
+@media screen and (max-width: 640px) {
+  .personalInfo .borderFrame {
+    height: 1430px !important;
+  }
+  .personalInfo .ant-progress-inner {
+    width: 22vw !important;
+  }
+  .personalInfo .borderFrame {
+    padding: 20px 30px 0 20px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .personalInfo .ant-progress-inner {
+    width: 16vw !important;
+  }
+}
+@media screen and (max-width: 580px) {
+  .personalInfo .timeStudyItem {
+    padding: 14px;
+  }
+  .personalInfo .borderFrame {
+    height: 1455px !important;
+  }
+}
+@media screen and (max-width: 545px) {
+  .personalInfo .borderFrame {
+    height: 1470px !important;
+  }
+}
+@media screen and (max-width: 528px) {
+  .personalInfo .timeStudyItem {
+    padding: 11px;
+  }
+}
+@media screen and (max-width: 515px) {
+  .personalInfo .allSkills {
+    @apply col-span-12 space-x-0;
+  }
+  .personalInfo .ant-progress-inner {
+    width: 44vw !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .personalInfo .overYSkills {
+    overflow-y: scroll;
+    height: 400px;
+  }
+  .personalInfo .borderFrame {
+    height: 1400px !important;
+}
+.personalInfo .allInfo{
+  @apply block overflow-y-scroll h-28
+}
+}
+@media screen and (max-width: 460px) {
+  .personalInfo .ant-progress-inner {
+    width: 41vw !important;
+  }
+}
+@media screen and (max-width: 455px) {
+  .personalInfo .leftInfo {
+    width: 65%;
+  }
+}
+@media screen and (max-width: 445px) {
+  .personalInfo .timeStudy {
+    grid-template-columns: auto;
+    overflow-y: scroll;
+    height: 230px;
+  }
+}
+@media screen and (max-width: 415px){
+  .personalInfo .borderFrame {
+      height: 1300px !important;
+  }
+}
+@media screen and (max-width: 390px) {
+  .personalInfo .ant-progress-inner {
+    width: 32vw !important;
+  }
 }

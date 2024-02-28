@@ -28,6 +28,7 @@
 }
 .footer .link{
     padding-left: 40px;
+    padding-bottom: 40px;
 }
 .footer .link li, .footer .courses li{
     transition: all 0.3s;
@@ -53,4 +54,84 @@
 }
 .footer .khoaHoc span:hover{
     color: #76767a;color: rgb(4, 4, 251);
+}
+.footer .courses{
+    position: absolute;
+    left: 56vw;
+}
+@media screen and (max-width: 1286px) {
+    .footer .addressHeadquaters{
+        @apply space-x-20
+    }
+    .footer .getSocial{
+        @apply w-1/3
+    }
+}
+@media screen and (max-width: 1195px) {
+    .footer .addressHeadquaters{
+        @apply space-x-16
+    }
+}
+@media screen and (max-width: 1138px) {
+    .footer .addressHeadquaters{
+        @apply space-x-10
+    }
+.footer .getSocial {
+    @apply w-2/5
+}
+}
+@media screen and (max-width: 1073px) {
+    .footer .addressHeadquaters{
+        @apply space-x-6
+    }
+}
+@media screen and (max-width: 1053px) {
+    .footer .getSocial {
+        @apply w-1/2
+    }
+}
+@media screen and (max-width: 1053px) {
+    .footer .addressHeadquaters{
+        @apply space-x-2
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .footer .getSocial {
+        @apply w-3/5
+    }
+    .footer .addressHeadquaters{
+        @apply space-x-0
+    }
+}
+@media screen and (max-width: 935px) {
+    .footer .addressHeadquaters{
+        @apply block
+    }
+}
+@media screen and (max-width: 890px) {
+    .footer .link{
+        padding-bottom: 25px;
+    }
+    .footer .getSocial {
+        @apply w-2/3
+    }
+}
+@media screen and (max-width: 827px) {
+    .footer .getSocial {
+        @apply w-4/5
+    }
+}
+@media screen and (max-width: 790px) {
+    .footer .getSocial {
+        @apply w-full
+    }
+}
+@media screen and (max-width: 768px) {
+    .footer .formDKy{
+        @apply grid-cols-1
+    }
+    .footer .copyright div{
+        @apply block space-y-4
+    }
 }

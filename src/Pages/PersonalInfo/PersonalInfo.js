@@ -45,8 +45,8 @@ export default function PersonalInfo() {
               </div>
             </div>
             <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 sm:text-left">
-              <div className="leading-relaxed text-lg mb-4 flex">
-                <div className="space-y-3">
+              <div className="leading-relaxed text-lg mb-4 flex allInfo">
+                <div className="space-y-3 leftInfo">
                   <div>
                     <p>
                       <strong>Full Name: </strong> <span>{infoUser.hoTen}</span>
@@ -64,7 +64,7 @@ export default function PersonalInfo() {
                     </p>
                   </div>
                 </div>
-                <div className="space-y-3 ms-44">
+                <div className="space-y-3 sm:ms-44 ms-4">
                   <div>
                     <p>
                       <strong>Account: </strong>
@@ -89,8 +89,8 @@ export default function PersonalInfo() {
                   <h4 className="font-bold text-2xl text-black">MY SKILLS</h4>
                 </div>
                 <div>
-                  <div className="grid grid-cols-12 space-x-5">
-                    <div className="col-span-6">
+                  <div className="grid grid-cols-12 space-x-5 sm:space-x-0 overYSkills">
+                    <div className="allSkills col-span-6 sm:col-span-12 md:col-span-6">
                       <div className="flex items-center p-3 ps-0">
                         <p className="skillBtn skillBtnHtml">
                           <span>html</span>
@@ -99,7 +99,7 @@ export default function PersonalInfo() {
                           percent={100}
                           status="active"
                           strokeColor="#1677ff"
-                          className="progressInfoHtml"
+                          className="progressInfo"
                           showInfo={false}
                           size={[300, 20]}
                         />
@@ -112,7 +112,7 @@ export default function PersonalInfo() {
                           percent={85}
                           status="active"
                           strokeColor="#ff4560"
-                          className="progressInfoCss"
+                          className="progressInfo"
                           showInfo={false}
                           size={[300, 20]}
                         />
@@ -125,7 +125,7 @@ export default function PersonalInfo() {
                           percent={90}
                           status="active"
                           strokeColor="#feb019"
-                          className="progressInfoGit"
+                          className="progressInfo"
                           showInfo={false}
                           size={[300, 20]}
                         />
@@ -138,7 +138,7 @@ export default function PersonalInfo() {
                           percent={80}
                           status="active"
                           strokeColor="#00e396"
-                          className="progressInfoJs"
+                          className="progressInfo"
                           showInfo={false}
                           size={[300, 20]}
                         />
@@ -151,20 +151,20 @@ export default function PersonalInfo() {
                           percent={92}
                           status="active"
                           strokeColor="#775dd0"
-                          className="progressInfoApi"
+                          className="progressInfo"
                           showInfo={false}
                           size={[300, 20]}
                         />
                       </div>
                     </div>
-                    <div className="col-span-6">
+                    <div className="allSkills col-span-6 sm:col-span-12 md:col-span-6">
                       <div className="flex items-center p-3 ps-0">
                         <p className="skillBtn skillBtnEs6">ES6</p>
                         <Progress
                           percent={75}
                           status="active"
                           strokeColor="#1677ff"
-                          className="progressInfoEs6"
+                          className="progressInfo"
                           showInfo={false}
                           size={[300, 20]}
                         />
@@ -177,7 +177,7 @@ export default function PersonalInfo() {
                           percent={98}
                           status="active"
                           strokeColor="#ff4560"
-                          className="progressInfoReact"
+                          className="progressInfo"
                           showInfo={false}
                           size={[300, 20]}
                         />
@@ -190,7 +190,7 @@ export default function PersonalInfo() {
                           percent={82}
                           status="active"
                           strokeColor="#feb019"
-                          className="progressInfoExpress"
+                          className="progressInfo"
                           showInfo={false}
                           size={[300, 20]}
                         />
@@ -203,7 +203,7 @@ export default function PersonalInfo() {
                           percent={79}
                           status="active"
                           strokeColor="#00e396"
-                          className="progressInfoNode"
+                          className="progressInfo"
                           showInfo={false}
                           size={[300, 20]}
                         />
@@ -216,7 +216,7 @@ export default function PersonalInfo() {
                           percent={72}
                           strokeColor="#775dd0"
                           status="active"
-                          className="progressInfoNest"
+                          className="progressInfo"
                           showInfo={false}
                           size={[300, 20]}
                         />
@@ -231,7 +231,7 @@ export default function PersonalInfo() {
                     MY SCORES
                   </h4>
                 </div>
-                <div className="timeStudy grid grid-cols-3 space-x-3 space-y-3">
+                <div className="timeStudy space-x-3 space-y-3">
                   <div className="timeStudyItem space-x-2 ms-2 mt-2">
                     <FieldTimeOutlined />
                     <div>
