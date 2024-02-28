@@ -6,10 +6,8 @@ import HeaderAbove from "./HeaderAbove";
 import Search from "antd/es/input/Search";
 import { fetchCoursesList } from "../../Redux/personalSliceThunk";
 import { https } from "../../Services/api";
-import {
-  setCatalog,
-  setIsHovering,
-} from "../../Redux/headerSlice";
+import { setCatalog, setIsHovering } from "../../Redux/headerSlice";
+import { MenuUnfoldOutlined } from "@ant-design/icons";
 
 export default function Header() {
   const { user, catalog, isHovering } = useSelector(
@@ -25,6 +23,12 @@ export default function Header() {
   useEffect(() => {
     fetchCourseCatalogs();
   }, []);
+  useEffect(() => {
+    window.addEventListener('scroll', setHeaderFixed)
+    return () => {
+        window.addEventListener('scroll', setHeaderFixed)
+    }
+}, [])
   const fetchCourseCatalogs = async () => {
     try {
       let res = await https.get("/api/QuanLyKhoaHoc/LayDanhMucKhoaHoc");
@@ -36,8 +40,7 @@ export default function Header() {
   const renderCatalog = () =>
     catalog.map((item, index) => (
       <li key={index}>
-        <NavLink to={`/coursecatalog/${item.maDanhMuc}`} 
-        >
+        <NavLink to={`/coursecatalog/${item.maDanhMuc}`}>
           {item.tenDanhMuc}
         </NavLink>
       </li>
@@ -47,10 +50,13 @@ export default function Header() {
       return (
         <>
           <div>
-            <NavLink onClick={()=>{
-              navigate("/personalInfo");
-              window.location.reload();
-            }} className="userInfo">
+            <NavLink
+              onClick={() => {
+                navigate("/personalInfo");
+                window.location.reload();
+              }}
+              className="userInfo"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -144,9 +150,27 @@ export default function Header() {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  // const handleCourseCatalog = async (maDanhMuc)=>{
+  const renderShowMobie = () => {
+    const menuMobie = document.querySelector(".menuHeaderMobie");
+    if (menuMobie) {
+      menuMobie.classList.toggle("active");
+    } else {
+      return "";
+    }
+  };
+  const setHeaderFixed = () => {
+    const headerFixed = document.querySelector('.header')
+    if (headerFixed) {
+        if (window.scrollY >= 200) {
+            headerFixed.classList.add('headerFixed')
+        } else {
+            headerFixed.classList.remove('headerFixed')
+        }
 
-  // }
+    } else {
+        return null
+    }
+}
   return (
     <div>
       <HeaderAbove />
@@ -218,19 +242,45 @@ export default function Header() {
                 </ul>
               </li>
               <li>
-                <NavLink className="catalogHeader" to="/course">Course</NavLink>
+                <NavLink className="catalogHeader" to="/course">
+                  Course
+                </NavLink>
               </li>
               <li>
-                <NavLink className="catalogHeader" to="/event">Event</NavLink>
-              </li>
-              <li>
-                <span className="catalogHeader">Information</span>
+                <NavLink className="catalogHeader" to="/event">
+                  Event
+                </NavLink>
               </li>
             </ul>
           </div>
           <div className="flex space-x-3 items-center mb-14">
             {renderMenu()}
           </div>
+          <MenuUnfoldOutlined onClick={renderShowMobie} />
+          <ul className="menuHeaderMobie">
+            <li>
+              <form onSubmit={handleSubmit}>
+               <Search
+                placeholder="Search courses..."
+                onSearch={onSearch}
+                enterButton={true}
+              />
+              </form>
+            </li>
+            <li className="courseCateMobie">
+              <NavLink>Category</NavLink>
+              <ul className="courseCateListMobie">{renderCatalog()}</ul>
+            </li>
+            <li>
+              <NavLink to="/course">Course</NavLink>
+            </li>
+            <li className="eventHeaderMobie courseCateMobie">
+              <NavLink to="/event">Event</NavLink>
+            </li>
+            <li onClick={handleLogOut}>
+              <NavLink to="/">Logout</NavLink>
+            </li>
+          </ul>     
         </div>
       </div>
     </div>

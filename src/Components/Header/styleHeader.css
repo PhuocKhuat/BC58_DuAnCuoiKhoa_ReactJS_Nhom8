@@ -60,3 +60,64 @@
     scale: 1.1;
     color: #ce44f8;
 }
+div div div form span span input{
+    width: 500px;
+}
+.header .container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.headerFixed {
+    position: fixed;
+    box-shadow: 0 2px 24px 0 rgba(0,0,0,.15);
+    background-color: var(--colorWhite);
+    padding: 5px 50px;
+    transition: all .5s;
+    -webkit-animation: fadeInDown .5s ease-in;
+    animation: fadeInDown .5s ease-in
+}
+.menuHeaderMobie {
+    position: fixed;
+    width: 180px;
+    top: 80px;
+    right: 0;
+    -webkit-transform: translateX(calc(100% + 50px));
+    transform: translateX(calc(100% + 50px));
+    background-color: rgba(1,135,126,.8);
+    -webkit-animation: fadeInDown .5s ease-in;
+    animation: fadeInDown .5s ease-in;
+    transition: all .5s
+}
+
+.menuHeaderMobie.active {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
+}
+
+.menuMobie ul.menuHeaderMobie li {
+    padding: 5px;
+    font-size: 20px;
+    list-style: none;
+    text-align: center
+}
+
+.menuMobie ul.menuHeaderMobie li a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--colorText);
+    text-transform: uppercase;
+    transition: all .5s
+}
+
+.menuMobie ul.menuHeaderMobie li:hover a {
+    color: var(--colorWhite)
+}
+
+
+@media screen and (max-width: 1000px) {
+    .header .container{
+        width: 98% !important;
+        margin: 0 auto;
+    }
+}
