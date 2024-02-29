@@ -7,7 +7,7 @@ import Target from './Target.json';
 export default function TargetParticipate() {
   return (
     <div className="text-gray-600 body-font targetParticipate">
-      <div className="container px-5 py-24 mx-auto">
+      <div className="container px-5 py-20 mx-auto">
         <div className="text-center">
           <h1 className="sm:text-3xl titleTarget font-bold text-center title-font text-white mb-4">
             TARGET

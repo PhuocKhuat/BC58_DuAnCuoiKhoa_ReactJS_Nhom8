@@ -1,6 +1,9 @@
 .schedule{
     background: #f4f8ff;
 }
+.schedule .btnReceive{
+    padding: 22px;
+}
 @media screen and (max-width: 430px) {
     .schedule .btnReceive{
         font-size: 14px;

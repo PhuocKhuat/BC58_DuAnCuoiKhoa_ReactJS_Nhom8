@@ -88,7 +88,7 @@ export default function CourseOfPage() {
       : "";
   return (
     <div className="body-font courseOfPage">
-      <div className="container pt-16 py-14">
+      <div className="container pt-16 pb-24">
         <div className="text-gray-600">
           <div>
             <h3 className="mb-4 rounded-3xl bg-yellow-100 p-3 w-36 text-xl titlePaginationCourse">

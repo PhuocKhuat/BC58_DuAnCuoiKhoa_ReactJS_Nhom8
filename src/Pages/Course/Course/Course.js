@@ -8,12 +8,11 @@ import {
   RadarChartOutlined,
 } from "@ant-design/icons";
 import "./styleCourse.css";
-import CourseOfPage from "./CourseOfPage";
 
 export default function Course() {
   return (
     <div className="course">
-      <div className="container py-10">
+      <div className="container pt-20 pb-14">
         <div>
           <div
             className="sm:text-3xl text-2xl title-font text-center text-gray-900 mb-3 uppercase font-bold"

@@ -7,7 +7,7 @@ import Search from "antd/es/input/Search";
 import { fetchCoursesList } from "../../Redux/personalSliceThunk";
 import { https } from "../../Services/api";
 import { setCatalog, setIsHovering } from "../../Redux/headerSlice";
-import { MenuUnfoldOutlined, CloseOutlined } from "@ant-design/icons";
+import { MenuFoldOutlined, CloseOutlined } from "@ant-design/icons";
 
 export default function Header() {
   const { user, catalog, isHovering } = useSelector(
@@ -35,7 +35,7 @@ export default function Header() {
   const renderCatalog = () =>
     catalog.map((item, index) => (
       <li key={index}>
-        <NavLink to={`/coursecatalog/${item.maDanhMuc}`}>
+        <NavLink to={`/coursecatalog/${item.maDanhMuc}`} onClick={showNavbar}>
           {item.tenDanhMuc}
         </NavLink>
       </li>
@@ -48,6 +48,7 @@ export default function Header() {
             <NavLink
               onClick={() => {
                 navigate("/personalInfo");
+                showNavbar();
                 window.location.reload();
               }}
               className="userInfo catalogHeaderUser"
@@ -71,7 +72,10 @@ export default function Header() {
           <div>
             <NavLink
               className="flex items-center btnLogOut catalogHeaderUser"
-              onClick={handleLogOut}
+              onClick={()=>{
+                handleLogOut();
+                showNavbar();
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +209,7 @@ export default function Header() {
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="w-6 h-6"
+                  className="w-6 h-6 me-5 lg:me-0"
                 >
                   <path
                     stroke-linecap="round"
@@ -214,7 +218,7 @@ export default function Header() {
                   />
                 </svg>
                 <ul
-                  className={`absolute top-10 z-50 space-y-4 catalogUl p-3 ${
+                  className={`absolute top-10 left-28 lg:left-0 z-50 space-y-4 catalogUl p-3 ${
                     isHovering ? "" : "hidden"
                   }`}
                 >
@@ -222,12 +226,12 @@ export default function Header() {
                 </ul>
               </li>
               <li className="h-12 lg:h-0">
-                <NavLink className="catalogHeader" to="/course">
+                <NavLink className="catalogHeader" to="/course" onClick={showNavbar}>
                   Course
                 </NavLink>
               </li>
               <li className="h-12 lg:h-0">
-                <NavLink className="catalogHeader" to="/event">
+                <NavLink className="catalogHeader" to="/event" onClick={showNavbar}>
                   Event
                 </NavLink>
               </li>
@@ -237,7 +241,7 @@ export default function Header() {
             </div>
             <CloseOutlined className="nav-close-btn nav-btn"onClick={showNavbar} />
           </nav>
-        <MenuUnfoldOutlined
+        <MenuFoldOutlined
           onClick={showNavbar}
           className="nav-btn"
         />

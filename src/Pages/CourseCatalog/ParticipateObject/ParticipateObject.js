@@ -4,7 +4,7 @@ import "./styleParticipate.css";
 export default function ParticipateObject() {
   return (
     <div className="text-gray-600 body-font participateObject">
-      <div className="container py-24">
+      <div className="container pt-16 pb-24">
         <div className="text-center font-bold text-white titleParticipate mb-5">
           <h3>PARTICIPATE OBJECT</h3>
         </div>

@@ -65,7 +65,7 @@
     padding: 10px;
 }
 .header .catalogUl{
-    width: 220px;
+    width: 220px !important;
     background: rgba(0, 0, 0, 0.4) !important;
     transition: all 0.3s;
 }
@@ -89,11 +89,8 @@ div div nav form span span input{
 
 /* Header nav */
 .header .nav-btn{
-    font-size: 20px;
-    background: transparent;
-    visibility: hidden;
-    opacity: 0;
-    margin-bottom: 20px;
+    font-size: 25px;
+    display: none;
 }
 .header .nav-btn:hover{
     color: #2f79f9;
@@ -103,10 +100,10 @@ div div nav form span span input{
 }
 
 /* Responsive */
-@media screen and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
     .header .nav-btn{
-        visibility: visible;
-        opacity: 1;
+        display: block;
+        margin-top: 48px;
     }
     .header nav{
         position: fixed;
@@ -129,7 +126,7 @@ div div nav form span span input{
     }
     .header .nav-close-btn{
         position: absolute;
-        top: 1rem;
+        top: -2rem;
         right: 2rem;
         display: block;
         font-size: 20px;
@@ -165,10 +162,25 @@ div div nav form span span input{
         width: 100%;
         opacity: 1;
     }
+    .header .catalogUl{
+        background: #415a77 !important;
+    }
+    .header .catalogUl{
+        width: auto !important;
+    }
 }
 @media screen and (max-width: 1000px) {
     .header .container{
         width: 98% !important;
         margin: 0 auto;
+    }
+}
+@media screen and (max-width: 800px) {
+    .header .headerRight{
+        position: relative;
+        left: 15px;
+    }
+    div div nav form span span input{
+        width: 88vw !important;
     }
 }

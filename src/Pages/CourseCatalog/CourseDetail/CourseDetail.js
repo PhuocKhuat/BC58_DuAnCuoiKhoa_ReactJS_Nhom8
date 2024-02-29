@@ -89,7 +89,7 @@ export default function CourseDetail() {
           <h3>{NameCategory ? NameCategory.maDanhMuc : ""}</h3>
         </strong>
   return (
-    <div className="text-gray-600 body-font courseCatalog mb-4">
+    <div className="text-gray-600 body-font courseCatalog mb-4 mt-9">
       <div className="container py-10">
         <h1
           className="sm:text-3xl text-2xl title-font text-center text-gray-900 mb-3 uppercase font-bold"
