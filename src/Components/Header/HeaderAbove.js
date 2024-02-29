@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 
 export default function HeaderAbove() {
   return (
-    <div className="relative headerAbove text-sm">
+    <div className="h-9">
+      <div className="fixed headerAbove text-sm">
       <div className="container">
         <ul className="flex justify-end space-x-5 cursor-pointer">
           <NavLink to='/blog'>Blog</NavLink>
@@ -28,6 +29,7 @@ export default function HeaderAbove() {
         </ul>
       </div>
       <div className="headerTopWrapper"></div>
+    </div>
     </div>
   );
 }

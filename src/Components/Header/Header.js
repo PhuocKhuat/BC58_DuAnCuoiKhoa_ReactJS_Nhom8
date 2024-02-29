@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./styleHeader.css";
@@ -7,7 +7,7 @@ import Search from "antd/es/input/Search";
 import { fetchCoursesList } from "../../Redux/personalSliceThunk";
 import { https } from "../../Services/api";
 import { setCatalog, setIsHovering } from "../../Redux/headerSlice";
-import { MenuUnfoldOutlined } from "@ant-design/icons";
+import { MenuUnfoldOutlined, CloseOutlined } from "@ant-design/icons";
 
 export default function Header() {
   const { user, catalog, isHovering } = useSelector(
@@ -20,15 +20,10 @@ export default function Header() {
   // console.log("🚀 ~ Header ~ catalog:", catalog)
   // console.log("🚀 ~ Header ~ taiKhoan:", user);
   const dispatch = useDispatch();
+  const navRef = useRef();
   useEffect(() => {
     fetchCourseCatalogs();
   }, []);
-  useEffect(() => {
-    window.addEventListener('scroll', setHeaderFixed)
-    return () => {
-        window.addEventListener('scroll', setHeaderFixed)
-    }
-}, [])
   const fetchCourseCatalogs = async () => {
     try {
       let res = await https.get("/api/QuanLyKhoaHoc/LayDanhMucKhoaHoc");
@@ -55,7 +50,7 @@ export default function Header() {
                 navigate("/personalInfo");
                 window.location.reload();
               }}
-              className="userInfo"
+              className="userInfo catalogHeaderUser"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +58,7 @@ export default function Header() {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6"
+                className="w-6 h-6"
               >
                 <path
                   stroke-linecap="round"
@@ -75,7 +70,7 @@ export default function Header() {
           </div>
           <div>
             <NavLink
-              className="flex items-center btnLogOut"
+              className="flex items-center btnLogOut catalogHeaderUser"
               onClick={handleLogOut}
             >
               <svg
@@ -92,7 +87,7 @@ export default function Header() {
                   d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15"
                 />
               </svg>
-              Log Out
+              <p className="hidden lg:block">Logout</p>
             </NavLink>
           </div>
         </>
@@ -150,36 +145,18 @@ export default function Header() {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  const renderShowMobie = () => {
-    const menuMobie = document.querySelector(".menuHeaderMobie");
-    if (menuMobie) {
-      menuMobie.classList.toggle("active");
-    } else {
-      return "";
-    }
+  const showNavbar = () => {
+    navRef.current.classList.toggle("responsive-nav");
   };
-  const setHeaderFixed = () => {
-    const headerFixed = document.querySelector('.header')
-    if (headerFixed) {
-        if (window.scrollY >= 200) {
-            headerFixed.classList.add('headerFixed')
-        } else {
-            headerFixed.classList.remove('headerFixed')
-        }
-
-    } else {
-        return null
-    }
-}
   return (
     <div>
       <HeaderAbove />
       <div
-        className="bg-black header text-sm text-white
-    font-semibold"
+        className="header bg-black text-sm text-white
+    font-semibold flex items-center"
       >
         <div className="container flex justify-between pt-3">
-          <div className="flex space-x-3 uppercase">
+          <div className="flex space-x-3 uppercase logoHeader">
             <div className="cursor-pointer">
               <a href="/" className="flex space-x-1">
                 <svg
@@ -199,18 +176,21 @@ export default function Header() {
                 <span>E-Learning</span>
               </a>
             </div>
-            <form onSubmit={handleSubmit}>
+          </div>
+          <nav
+            ref={navRef}
+            className="flex uppercase cursor-pointer items-center ms-0 lg:ms-3 mt-10"
+          >
+            <form onSubmit={handleSubmit} className="mb-14 formHeader">
               <Search
                 placeholder="Search courses..."
                 onSearch={onSearch}
                 enterButton={true}
               />
             </form>
-          </div>
-          <div className="uppercase cursor-pointer items-center">
-            <ul className="flex space-x-5">
+            <ul className="space-x-0 lg:space-x-5 ms-20 lg:ms-3 me-5 block lg:flex text-lg lg:text-sm w-full lg:w-56">
               <li
-                className="flex relative h-20 transition-all"
+                className="flex relative h-12 lg:h-20 transition-all"
                 onMouseEnter={() => {
                   dispatch(setIsHovering(true));
                 }}
@@ -218,7 +198,7 @@ export default function Header() {
                   dispatch(setIsHovering(false));
                 }}
               >
-                <span className="catalogHeader catalogHover">Category</span>
+                <div className="catalogHeader catalogHover w-full lg:w-20">Category</div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -241,46 +221,26 @@ export default function Header() {
                   {renderCatalog()}
                 </ul>
               </li>
-              <li>
+              <li className="h-12 lg:h-0">
                 <NavLink className="catalogHeader" to="/course">
                   Course
                 </NavLink>
               </li>
-              <li>
+              <li className="h-12 lg:h-0">
                 <NavLink className="catalogHeader" to="/event">
                   Event
                 </NavLink>
               </li>
             </ul>
-          </div>
-          <div className="flex space-x-3 items-center mb-14">
-            {renderMenu()}
-          </div>
-          <MenuUnfoldOutlined onClick={renderShowMobie} />
-          <ul className="menuHeaderMobie">
-            <li>
-              <form onSubmit={handleSubmit}>
-               <Search
-                placeholder="Search courses..."
-                onSearch={onSearch}
-                enterButton={true}
-              />
-              </form>
-            </li>
-            <li className="courseCateMobie">
-              <NavLink>Category</NavLink>
-              <ul className="courseCateListMobie">{renderCatalog()}</ul>
-            </li>
-            <li>
-              <NavLink to="/course">Course</NavLink>
-            </li>
-            <li className="eventHeaderMobie courseCateMobie">
-              <NavLink to="/event">Event</NavLink>
-            </li>
-            <li onClick={handleLogOut}>
-              <NavLink to="/">Logout</NavLink>
-            </li>
-          </ul>     
+            <div className="block lg:flex space-x-0 lg:space-x-3 items-center ms-0 lg:ms-3 me-5 lg:me-0 space-y-5 lg:space-y-0 text-lg lg:text-sm w-11/12 lg:w-20 headerRight">
+              {renderMenu()}
+            </div>
+            <CloseOutlined className="nav-close-btn nav-btn"onClick={showNavbar} />
+          </nav>
+        <MenuUnfoldOutlined
+          onClick={showNavbar}
+          className="nav-btn"
+        />
         </div>
       </div>
     </div>
