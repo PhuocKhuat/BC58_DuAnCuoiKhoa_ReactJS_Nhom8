@@ -1,3 +1,4 @@
+/* CourseList */
 .courseList{
     background: #505170;
     padding: 74px 0 90px;
@@ -5,6 +6,8 @@
 .courseList .bgCourseList{
     background: white;
     border-radius: 10px;
+    overflow-y: scroll;
+    height: 1020px;
 }
 .courseList .bgCourse{
     background: #272634;
@@ -14,7 +17,7 @@
     line-height: 35px;
 }
 .courseList .exploreTitle{
-    font-size: 40px;
+    font-size: 35px;
     line-height: 50px;
 }
 .courseList .courseDesc{
@@ -38,8 +41,6 @@
     100% {opacity: 0;}
 }
 .courseList .divImgPopular{
-    /* width: 680px;
-    height: 70px; */
     width: 370px;
     height: 70px;
     padding: 20px;
@@ -64,6 +65,9 @@
 }
 .courseList .hoverBorder{
     transition: all 0.25s;
+    width: 120%;
+    background: rgb(184, 179, 179);
+    color: black !important;
 }
 .courseList .hoverBorder:hover{
     border: 1.5px solid #d043f8 !important;
@@ -84,4 +88,61 @@
     border-width: 15px 12px 15px 0;
     content: "";
     position: absolute;
+}
+
+/* Responsive */
+@media screen and (max-width: 1280px) {
+    .courseList .hoverBorder{
+        width: 175%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .courseList .container{
+        width: 94%;
+        margin: 0;
+    }
+    .courseList .hoverBorder{
+        width: 37vw;
+    }
+}
+@media screen and (max-width: 920px) {
+    .courseList .hoverBorder {
+        width: 34vw;
+    }
+    .courseList .frameCourse{
+        grid-template-columns: auto auto;
+    }
+    .courseList .bgCourseList {
+        width: 93vw;
+        margin-bottom: 15px;
+    }
+    .courseList .hoverBorder {
+        width: 85vw;
+    }
+    .courseList .divImgPopular {
+        width: 150px;
+    }
+    .courseList .paddingPopularCourse{
+        padding: 10px !important;
+    }
+}
+@media screen and (max-width: 768px) {
+    .courseList .exploreTitle {
+        font-size: 30px;
+        line-height: 55px;
+    }
+}
+@media screen and (max-width: 640px) {
+    .courseList .exploreTitle {
+        font-size: 25px;
+        line-height: 50px;
+    }
+    .courseList .bgCourseList {
+        width: 90vw;
+    }
+}
+@media screen and (max-width: 500px) {
+    .courseList .hoverBorder {
+        width: 81vw;
+    }
 }

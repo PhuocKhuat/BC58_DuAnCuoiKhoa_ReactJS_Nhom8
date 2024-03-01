@@ -4,12 +4,12 @@ import "./styleOverview.css";
 export default function Overview() {
   return (
     <div className="text-gray-600 body-font overview">
-      <div className="container px-5 py-24 mx-auto flex flex-wrap">
+      <div className="container pt-20 pb-24 mx-auto flex flex-wrap">
         <div className="flex justify-center titleHighlight font-bold pb-9">
           <h1>HIGHLIGHTS AT E-LEARNING</h1>
         </div>
-        <div className="flex flex-wrap w-full">
-          <div className="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
+        <div className="flex flex-wrap w-full overviewContent">
+          <div className="xl:w-2/5 lg:w-1/2 md:pr-10 md:py-6">
             <div className="flex relative pb-12 catalogHighlight">
               <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
                 <div className="h-full w-1 bg-gray-200 pointer-events-none" />
@@ -165,7 +165,7 @@ export default function Overview() {
             </div>
           </div>
           <img
-            className="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12 imgHighlight"
+            className="xl:w-3/5 lg:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12 imgHighlight"
             src="/img/overviewLearning.png"
             alt="step"
           />

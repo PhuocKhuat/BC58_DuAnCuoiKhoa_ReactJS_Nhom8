@@ -1,6 +1,7 @@
+/* Slider */
 .slider{
     background: #f0f8ff;
-    height: 538px;
+    height: 80vh;
 }
 .slider .triangleTopLeft{
     position: absolute;
@@ -80,12 +81,104 @@
     width: 680px !important;
     height: 500px !important;
 }
-
 @keyframes aniText {
     0%{
         width: 0;
     }   
     50%{
         width: 230px;    
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 1286px) {
+    .slider .svgLottie{
+        position: absolute;
+        right: 20px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .slider .sliderHome{
+        grid-template-columns: auto;
+    }
+    .slider{
+        height: 116vh;
+    }
+    .slider .svgLottie{
+        margin-top: 100px;
+        right: 200px;
+    }
+    .slider .sloganBox{
+        text-align: center;
+    }
+    .slider .titleOverview{
+        margin-top: 0;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .slider .svgLottie{
+        margin-top: 100px;
+        right: 120px;
+    }
+}
+@media screen and (max-width: 892px) {
+    .slider .svgLottie{
+        margin-top: 100px;
+        right: 70px;
+    }
+}
+@media screen and (max-width: 830px) {
+    .slider .svgLottie{
+        margin-top: 100px;
+        right: 40px;
+    }
+}
+@media screen and (max-width: 680px) {
+    .slider{
+        height: 110vh;
+    }
+}
+@media screen and (max-width: 640px) {
+    .slider .titleOverview h1:nth-child(1), .slider .titleOverview h1:nth-child(2){
+        font-size: 50px;
+        right: 60px;
+    }
+    .slider .titleOverview h1:nth-child(3){
+        font-size: 55px;
+        right: 40px;
+    }
+    .slider .imgLottie svg {
+        width: 480px !important;
+        height: 440px !important;
+    }
+}
+@media screen and (max-width: 600px) {
+    .slider{
+        height: 100vh;
+    }
+}
+@media screen and (max-width: 480px) {
+    .slider .titleOverview h1:nth-child(1), .slider .titleOverview h1:nth-child(2){
+        font-size: 40px;
+        right: 70px;
+    }
+    .slider .titleOverview h1:nth-child(3){
+        font-size: 45px;
+        right: 50px;
+    }
+}
+@media screen and (max-width: 470px) {
+    .slider{
+        height: 90vh;
+    }
+}
+@media screen and (max-width: 415px) {
+    .slider .titleOverview h1:nth-child(1), .slider .titleOverview h1:nth-child(2){
+        font-size: 35px;
+        right: 110px;
+    }
+    .slider .titleOverview h1:nth-child(3){
+        font-size: 40px;
+        right: 50px;
     }
 }

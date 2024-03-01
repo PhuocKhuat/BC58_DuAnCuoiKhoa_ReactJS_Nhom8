@@ -8,17 +8,8 @@ import { fetchCoursesList } from "../../../Redux/personalSliceThunk";
 export default function CoursesList() {
   const dispatch = useDispatch();
   const { coursesList } = useSelector((state) => state.personalSliceThunk);
-    // console.log("🚀 ~ CoursesList ~ CoursesList:", coursesList);
+  // console.log("🚀 ~ CoursesList ~ CoursesList:", coursesList);
   useEffect(() => {
-    // https
-    //   .get("/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP09")
-    //   .then((res) => {
-        // console.log(res.data);
-    //     dispatch(setCoursesList(res.data));
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
     dispatch(fetchCoursesList());
   }, []);
   const renderCoursesList = () => {
@@ -44,7 +35,7 @@ export default function CoursesList() {
                 </span>
               </div>
               <div className="md:flex-grow truncate h-28">
-                <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">
+                <h2 className="text-lg md:text-xl lg:text-2xl font-medium text-gray-900 title-font mb-2">
                   {course.tenKhoaHoc}
                 </h2>
                 <Tooltip title={course.moTa}>
@@ -52,9 +43,7 @@ export default function CoursesList() {
                     {course.moTa}
                   </p>
                 </Tooltip>
-                <NavLink
-                  className="text-indigo-500 inline-flex items-center mt-4 btnLearnMore"
-                >
+                <NavLink className="text-indigo-500 inline-flex items-center mt-4 btnLearnMore">
                   Learn More
                   <svg
                     className="w-4 h-4 ml-2 arrow"
@@ -77,47 +66,55 @@ export default function CoursesList() {
     ));
   };
   const renderListPopularCourses = () => {
-    return coursesList.slice(3, 7).map((courses, index) => (
-      <NavLink to={`/detail/${courses.maKhoaHoc}`} class="text-gray-600 body-font" key={index} >
+    return coursesList.slice(6, 10).map((courses, index) => (
+      <NavLink
+        to={`/detail/${courses.maKhoaHoc}`}
+        class="text-gray-600 body-font"
+        key={index}
+      >
         <div className="px-3">
-        <div className="flex flex-wrap -m-4">
-        <div className="xl:w-full p-4">
-        <div className="hoverBorder border border-gray-200 p-6 rounded-lg flex justify-evenly space-x-4 relative">
-          <div className="divImgPopular inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-          <div className="popular"><span>Popular</span></div>
-            <img alt="hình ảnh khoá học phổ biến" src={courses.hinhAnh} className="imgPopular"/>
+          <div>
+            <div className="p-4 paddingPopularCourse">
+              <div className="hoverBorder border border-gray-200 p-6 rounded-lg flex justify-evenly space-x-4 relative">
+                <div className="divImgPopular inline-flex items-center justify-center rounded-full bg-indigo-100 mb-4">
+                  <div className="popular">
+                    <span>Popular</span>
+                  </div>
+                  <img
+                    alt="hình ảnh khoá học phổ biến"
+                    src={courses.hinhAnh}
+                    className="imgPopular"
+                  />
+                </div>
+                <div className="h-28 overflow-hidden">
+                  <h2 className="text-lg font-bold title-font mb-2 text-black">
+                    {courses.tenKhoaHoc}
+                  </h2>
+                  <p className="leading-relaxed text-base text-white ">{courses.moTa}</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="h-28 text-white overflow-hidden">
-          <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-            {courses.tenKhoaHoc}
-          </h2>
-          <p className="leading-relaxed text-base">
-            {courses.moTa}
-          </p>
-          </div>
-        </div>
-      </div>
-      </div>
         </div>
       </NavLink>
     ));
   };
   return (
     <div className="courseList">
-    <div className="container">
-      <h1 className="exploreTitle font-bold pb-9  text-white text-center uppercase">
-        Explore E-learing courses
-      </h1>
-      <div className="grid grid-cols-12">
-        <div className="bgCourseList col-span-8">
-          <h3 className="text-xl text-white font-bold bgCourse ">
-            E-learning's courses
-          </h3>
-          {renderCoursesList()}
+      <div className="container">
+        <h1 className="exploreTitle font-bold pb-9  text-white text-center uppercase">
+          Explore E-learing courses
+        </h1>
+        <div className="grid grid-cols-12 frameCourse">
+          <div className="bgCourseList col-span-8">
+            <h3 className="text-xl text-white font-bold bgCourse ">
+              E-learning's courses
+            </h3>
+            {renderCoursesList()}
+          </div>
+          <div className="col-span-4">{renderListPopularCourses()}</div>
         </div>
-        <div className="col-span-4">{renderListPopularCourses()}</div>
       </div>
     </div>
-  </div>
   );
 }

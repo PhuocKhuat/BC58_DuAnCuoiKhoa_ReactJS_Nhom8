@@ -21,3 +21,26 @@
     font-size: 35px;
     line-height: 68px;
 }
+@media screen and (max-width: 1000px) {
+    .statistic .container{
+        width: 98%;
+        margin: 0;
+    }
+}
+@media screen and (max-width: 768px) {
+    .statistic .titleStatistic {
+        font-size: 30px;
+        line-height: 55px;
+    }
+}
+@media screen and (max-width: 640px) {
+    .statistic .titleStatistic {
+        font-size: 25px;
+        line-height: 50px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .statistic .titleStatistic {
+        line-height: 45px;
+    }
+}

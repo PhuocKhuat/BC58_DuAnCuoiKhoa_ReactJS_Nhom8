@@ -74,7 +74,7 @@
     color: #ce44f8;
 }
 div div nav form span span input{
-    width: 500px;
+    width: 300px !important;
 }
 .header .container{
     width: 80%;
@@ -85,6 +85,7 @@ div div nav form span span input{
 }
 .header .headerRight{
     margin-bottom: 54px !important;
+    margin-right: 40px !important;
 }
 
 /* Header nav */
@@ -100,6 +101,26 @@ div div nav form span span input{
 }
 
 /* Responsive */
+@media screen and (max-width: 1255px) {
+    .header .headerRight{
+        position: relative;
+        right: 50px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .header .headerRight{
+        position: relative;
+        right: 120px;
+    }
+}
+@media screen and (max-width: 1125px) {
+    .header .formHeader{
+        margin-right: 10px;
+    }
+    div div nav form span span input{
+        width: 200px !important;
+    }
+}
 @media only screen and (max-width: 1024px) {
     .header .nav-btn{
         display: block;
@@ -168,6 +189,10 @@ div div nav form span span input{
     .header .catalogUl{
         width: auto !important;
     }
+    .header .headerRight{
+        position:unset;
+        margin-right: 120px;
+    }
 }
 @media screen and (max-width: 1000px) {
     .header .container{
@@ -182,5 +207,25 @@ div div nav form span span input{
     }
     div div nav form span span input{
         width: 88vw !important;
+    }
+}
+@media screen and (max-width: 700px) {
+    .header .headerRight{
+       margin-right: 55px;
+    }
+}
+@media screen and (max-width: 575px) {
+    .header .headerRight{
+       margin-right: 34px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .header .headerRight{
+       margin-right: 12px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .header .headerRight{
+        margin-right: 0px;
     }
 }

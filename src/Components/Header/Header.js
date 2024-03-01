@@ -185,14 +185,14 @@ export default function Header() {
             ref={navRef}
             className="flex uppercase cursor-pointer items-center ms-0 lg:ms-3 mt-10"
           >
-            <form onSubmit={handleSubmit} className="mb-14 formHeader">
+            <form onSubmit={handleSubmit} className="mb-14 formHeader lg:me-14">
               <Search
                 placeholder="Search courses..."
                 onSearch={onSearch}
                 enterButton={true}
               />
             </form>
-            <ul className="space-x-0 lg:space-x-5 ms-20 lg:ms-3 me-5 block lg:flex text-lg lg:text-sm w-full lg:w-56">
+            <ul className="space-x-0 lg:space-x-5 ms-20 lg:ms-3 lg:me-48 block lg:flex text-lg lg:text-sm w-full lg:w-56">
               <li
                 className="flex relative h-12 lg:h-20 transition-all"
                 onMouseEnter={() => {
@@ -209,7 +209,7 @@ export default function Header() {
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  className="w-6 h-6 me-5 lg:me-0"
+                  className="w-6 h-6 me-3 lg:me-0"
                 >
                   <path
                     stroke-linecap="round"
@@ -236,7 +236,7 @@ export default function Header() {
                 </NavLink>
               </li>
             </ul>
-            <div className="block lg:flex space-x-0 lg:space-x-3 items-center ms-0 lg:ms-3 me-5 lg:me-0 space-y-5 lg:space-y-0 text-lg lg:text-sm w-11/12 lg:w-20 headerRight">
+            <div className="block lg:flex space-x-0 lg:space-x-3 items-center lg:ms-3 me-10 lg:me-0 space-y-5 lg:space-y-0 text-lg lg:text-sm w-4/5 lg:w-20 headerRight">
               {renderMenu()}
             </div>
             <CloseOutlined className="nav-close-btn nav-btn"onClick={showNavbar} />

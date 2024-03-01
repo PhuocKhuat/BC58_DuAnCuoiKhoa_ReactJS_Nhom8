@@ -1,5 +1,5 @@
 .overview .titleHighlight{
-    padding-left: 360px;
+    padding-left: 340px;
     font-size: 35px;
     color: #c6a63d;
 }
@@ -17,4 +17,32 @@
 .overview .catalogHighlight:hover{
     color: #6366f1;
     background-color: white;
+}
+
+/* Responsive */
+@media screen and (max-width: 1286px) {
+    .overview .titleHighlight {
+        padding-left: 17vw;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .overview .container{
+        width: 98% !important;
+        margin: 0;
+    }
+}
+@media screen and (max-width: 776px) {
+    .overview .titleHighlight {
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 640px) {
+    .overview .titleHighlight {
+        font-size: 25px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .overview .overviewContent {
+        font-size: 14px;
+    }
 }
