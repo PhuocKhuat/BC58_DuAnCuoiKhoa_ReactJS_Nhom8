@@ -9,3 +9,17 @@
 .newPost .bgPost{
     border-radius: 5px;
 }
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .newPost .titleNewPost {
+        font-size: 30px;
+        line-height: 55px;
+    }
+}
+@media screen and (max-width: 640px) {
+    .newPost .titleNewPost {
+        font-size: 25px;
+        line-height: 50px;
+    }
+}

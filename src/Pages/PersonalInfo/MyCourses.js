@@ -30,7 +30,7 @@ export default function MyCourses() {
               <p className="leading-relaxed truncate">{course.moTa}</p>
             </Tooltip>
             <div className="flex items-center border-b-2 border-gray-100 my-2">
-              <div className="flex space-x-5">
+              <div className="flex-wrap flex space-x-5">
                 <div className="space-x-2 text-base">
                   <FieldTimeOutlined className="text-yellow-400" />
                   <span className="mr-3 text-black">
@@ -47,7 +47,7 @@ export default function MyCourses() {
                 </div>
               </div>
             </div>
-            <div className="flex">
+            <div className="flex flex-wrap">
               <span className="flex items-center">
                 <svg
                   fill="currentColor"
@@ -146,7 +146,7 @@ export default function MyCourses() {
     }
   return (
     <div className="text-gray-600 body-font overflow-hidden myCourses">
-      <div className="flex justify-between items-center mb-4">
+      <div className="block sm:flex justify-between items-center mb-4">
         <div>
           <h3 className="text-xl text-black uppercase font-bold">My courses</h3>
         </div>

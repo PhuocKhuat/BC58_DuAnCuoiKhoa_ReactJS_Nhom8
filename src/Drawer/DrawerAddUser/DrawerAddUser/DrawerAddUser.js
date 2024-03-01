@@ -68,7 +68,7 @@ const DrawerAddUser = () => {
       });
   };
   return (
-    <div className="drawerAddUser">
+    <div className="drawerAddUser mb-3">
       <Button type="primary" onClick={showDrawer} icon={<PlusOutlined />}>
         Add User
       </Button>

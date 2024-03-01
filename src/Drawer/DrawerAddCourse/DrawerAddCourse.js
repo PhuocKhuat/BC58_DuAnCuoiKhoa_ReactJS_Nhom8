@@ -86,7 +86,7 @@ const DrawerAddCourse = () => {
     return setStartDate(date);
   };
   return (
-    <div className="drawerAddCourse">
+    <div className="drawerAddCourse mb-3">
       <Button type="primary" onClick={showDrawer} icon={<PlusOutlined />}>
         Add Course
       </Button>

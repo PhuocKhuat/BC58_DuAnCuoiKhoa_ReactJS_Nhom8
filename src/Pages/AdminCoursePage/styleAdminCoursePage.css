@@ -13,3 +13,24 @@ main div div div div div div div table thead tr th:nth-child(6) {
   height: 32px;
   font-size: 16px;
 }
+
+@media screen and (max-width: 1127px) {
+  .formDrawerUserPage .inputCourse {
+    width: 57vw;
+  }
+}
+@media screen and (max-width: 920px) {
+  :where(.css-dev-only-do-not-override-1qhpsh8).ant-table-wrapper .ant-table{
+    overflow-x: scroll !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .formDrawerUserPage .inputCourse {
+    width: 85vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  .formDrawerUserPage .inputCourse {
+    width: 81vw;
+  }
+}

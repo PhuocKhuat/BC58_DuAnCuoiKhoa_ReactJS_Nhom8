@@ -53,3 +53,17 @@
     line-height: 50px;
     color: #db40f9;
 }
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .feedBack .titleFeedBack {
+        font-size: 30px;
+        line-height: 55px;
+    }
+}
+@media screen and (max-width: 640px) {
+    .feedBack .titleFeedBack {
+        font-size: 25px;
+        line-height: 50px;
+    }
+}

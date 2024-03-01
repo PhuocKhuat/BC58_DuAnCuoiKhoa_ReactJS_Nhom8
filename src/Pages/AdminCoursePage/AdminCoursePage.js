@@ -531,7 +531,7 @@ const AdminCoursePage = () => {
   return (
     <>
       <div
-        className="flex items-center gap-3 mb-4 mx-auto formDrawerCoursePage"
+        className="block sm:flex items-center gap-3 mb-4 mx-auto formDrawerCoursePage"
         style={{ width: "97.5%" }}
       >
         <DrawerAddCourse />

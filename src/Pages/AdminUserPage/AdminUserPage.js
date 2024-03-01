@@ -551,7 +551,7 @@ export default function AdminUserPage() {
   };
   return (
     <>
-      <div className="flex gap-3 mb-4 mx-auto formDrawerUserPage" style={{ width: "97.5%" }}>
+      <div className="block md:flex gap-3 mb-4 mx-auto formDrawerUserPage" style={{ width: "97.5%" }}>
         <DrawerAddUser />
         <Formik>
           <Form onSubmit={handleSubmit}>

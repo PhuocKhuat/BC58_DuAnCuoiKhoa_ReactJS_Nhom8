@@ -1,3 +1,4 @@
+/* Detail */
 .detail .containerDetail{
     width: 97%;
     margin: 0 auto;
@@ -227,4 +228,14 @@
     background: rgba(255, 255, 255, 0.25);
     border: 1px solid rgba(255, 255, 255, 0.18);
     font-size: 12px;
+}
+.detail .project{
+    background: rgb(232, 229, 229);
+}
+/* Responsive */
+@media screen and (max-width: 1260px) {
+    .detail .containerDetail{
+        width: 99% !important;
+        margin: 0;
+    }
 }

@@ -1,11 +1,26 @@
 header div span span span button {
-    padding: 2px 14px !important;
+  padding: 2px 14px !important;
 }
 .formDrawerUserPage .inputUser {
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid black;
-    width: 67vw;
-    height: 32px;
-    font-size: 16px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 62vw;
+  height: 32px;
+  font-size: 16px;
+}
+@media screen and (max-width: 1127px) {
+  .formDrawerUserPage .inputUser {
+    width: 57vw;
   }
+}
+@media screen and (max-width: 768px) {
+  .formDrawerUserPage .inputUser {
+    width: 85vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  .formDrawerUserPage .inputUser {
+    width: 81vw;
+  }
+}
