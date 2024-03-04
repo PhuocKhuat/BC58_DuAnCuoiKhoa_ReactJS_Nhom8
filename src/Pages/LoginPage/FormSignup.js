@@ -32,9 +32,9 @@ const FormSignUp = () => {
     console.log("Error: ", values);
   };
   return (
-    <div className="container formSignUp mt-5">
+    <div className="formSignUp">
       <div>
-        <h2 className="title">Create your E-learing account</h2>
+        <h2 className="title mt-24">Create your E-learing account</h2>
       </div>
       <div className="formDky">
         <Form

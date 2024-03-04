@@ -50,6 +50,7 @@ export default function Header() {
                 navigate("/personalInfo");
                 showNavbar();
                 window.location.reload();
+                window.scrollTo(0, 0);
               }}
               className="userInfo catalogHeaderUser"
             >
@@ -99,14 +100,16 @@ export default function Header() {
     }
     return (
       <>
-        <NavLink to="/login" className="flex btnLogIn">
+        <NavLink to="/login" className="flex items-center btnLogIn catalogHeaderUser" onClick={()=>{
+          window.scrollTo(0, 0);
+        }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="w-6 h-6"
+            className="w-6 h-6 hidden lg:block"
           >
             <path
               stroke-linecap="round"
@@ -114,16 +117,18 @@ export default function Header() {
               d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
             />
           </svg>
-          <span>Log In</span>
+          <p className="md:w-2/3 w-44">Log In</p>
         </NavLink>
-        <NavLink to="/signup" className="flex space-x-2 btnSignUp">
+        <NavLink to="/signup" className="flex space-x-2 items-center btnSignUp catalogHeaderUser" onClick={()=>{
+          window.scrollTo(0, 0)
+        }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="w-6 h-6"
+            className="w-6 h-6 hidden lg:block"
           >
             <path
               stroke-linecap="round"
@@ -131,7 +136,7 @@ export default function Header() {
               d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
             />
           </svg>
-          <span>Sign up</span>
+          <span className="md:w-1/2 w-20">Sign up</span>
         </NavLink>
       </>
     );

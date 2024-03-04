@@ -1,184 +1,191 @@
 /* Slider */
-.slider{
-    background: #f0f8ff;
-    height: 80vh;
+.slider {
+  background: #f0f8ff;
+  height: 80vh;
 }
-.slider .triangleTopLeft{
-    position: absolute;
-    transform: rotate(-45deg);
-    top: 8%;
-    left: 10%;
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 50px solid #c6a63d;
+.slider .triangleTopLeft {
+  position: absolute;
+  transform: rotate(-45deg);
+  top: 8%;
+  left: 10%;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 50px solid #c6a63d;
 }
 .slider .smallBoxTopLeft {
-    top: 10%;
-    left: 10%;
-    height: 70px !important;
-    width: 28% !important;
+  top: 10%;
+  left: 10%;
+  height: 70px !important;
+  width: 28% !important;
 }
 .slider .smallBox {
-    position: absolute;
-    z-index: 1;
-    height: 10%;
-    width: 10%;
-    background-image: radial-gradient(#522722 10%,transparent 11%),radial-gradient(#522722 10%,transparent 11%);
-    background-size: 10px 10px;
+  position: absolute;
+  z-index: 1;
+  height: 10%;
+  width: 10%;
+  background-image: radial-gradient(#522722 10%, transparent 11%),
+    radial-gradient(#522722 10%, transparent 11%);
+  background-size: 10px 10px;
 }
 .slider .smallBoxTopRight {
-    top: 24px;
-    right: 0;
-    transform: rotate(45deg);
-    background-image: radial-gradient(#c6a63d 10%,transparent 11%);
+  top: 24px;
+  right: 0;
+  transform: rotate(45deg);
+  background-image: radial-gradient(#c6a63d 10%, transparent 11%);
 }
 .slider .smallBoxRightBottom {
-    bottom: 10%;
-    left: 70%;
-    height: 10% !important;
-    width: 10% !important;
-    background-image: radial-gradient(#c6a63d 10%,transparent 11%);
+  bottom: 10%;
+  left: 70%;
+  height: 10% !important;
+  width: 10% !important;
+  background-image: radial-gradient(#c6a63d 10%, transparent 11%);
 }
-.slider .sloganBox{
-    position: relative;
-    top: 92px;
+.slider .sloganBox {
+  position: relative;
+  top: 92px;
 }
 .slider .sloganBox .doubleBox {
-    left: 74%;
+  left: 74%;
 }
 .slider .sloganContainer h1 {
-    position: relative;
-    z-index: 10;
-    font-weight: 600;
-    font-size: 55px;
+  position: relative;
+  z-index: 10;
+  font-weight: 600;
+  font-size: 55px;
 }
 .slider .sloganContainer h1:nth-child(1) {
-    color: #2f79f9;
+  color: #2f79f9;
 }
 .slider .sloganContainer h1:nth-child(2) {
-    color: #8275f8;
+  color: #8275f8;
 }
 .slider .sloganContainer h1:nth-of-type(3) {
-    font-size: 65px;
-    color: #d343f9;
-    overflow: hidden;
-    animation: aniText 5s steps(10) infinite;
+  font-size: 65px;
+  color: #d343f9;
+  overflow: hidden;
+  animation: aniText 5s steps(10) infinite;
 }
 .slider .sliderPlaneImg {
-    position: absolute;
-    object-fit: cover;
-    right: 20%;
-    top: 20%;
-    width: 20%;
-    height: 20%;
+  position: absolute;
+  object-fit: cover;
+  right: 20%;
+  top: 20%;
+  width: 20%;
+  height: 20%;
 }
-.slider .imgLottie{
-    width: 500px !important;
+.slider .imgLottie {
+  width: 500px !important;
 }
-.slider .imgLottie svg{
-    width: 680px !important;
-    height: 500px !important;
+.slider .imgLottie svg {
+  width: 680px !important;
+  height: 500px !important;
 }
 @keyframes aniText {
-    0%{
-        width: 0;
-    }   
-    50%{
-        width: 230px;    
-    }
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 230px;
+  }
 }
 
 /* Responsive */
 @media screen and (max-width: 1286px) {
-    .slider .svgLottie{
-        position: absolute;
-        right: 20px;
-    }
+  .slider .svgLottie {
+    position: absolute;
+    right: 20px;
+  }
 }
 @media screen and (max-width: 1200px) {
-    .slider .sliderHome{
-        grid-template-columns: auto;
-    }
-    .slider{
-        height: 116vh;
-    }
-    .slider .svgLottie{
-        margin-top: 100px;
-        right: 200px;
-    }
-    .slider .sloganBox{
-        text-align: center;
-    }
-    .slider .titleOverview{
-        margin-top: 0;
-    }
+  .slider .sliderHome {
+    grid-template-columns: auto;
+  }
+  .slider {
+    height: 116vh;
+  }
+  .slider .svgLottie {
+    margin-top: 100px;
+    right: 200px;
+  }
+  .slider .sloganBox {
+    text-align: center;
+  }
+  .slider .titleOverview {
+    margin-top: 0;
+  }
 }
 @media screen and (max-width: 1000px) {
-    .slider .svgLottie{
-        margin-top: 100px;
-        right: 120px;
-    }
+  .slider .svgLottie {
+    margin-top: 100px;
+    right: 120px;
+  }
 }
 @media screen and (max-width: 892px) {
-    .slider .svgLottie{
-        margin-top: 100px;
-        right: 70px;
-    }
+  .slider .svgLottie {
+    margin-top: 100px;
+    right: 70px;
+  }
 }
 @media screen and (max-width: 830px) {
-    .slider .svgLottie{
-        margin-top: 100px;
-        right: 40px;
-    }
+  .slider .svgLottie {
+    margin-top: 100px;
+    right: 40px;
+  }
 }
 @media screen and (max-width: 680px) {
-    .slider{
-        height: 110vh;
-    }
+  .slider {
+    height: 110vh;
+  }
 }
 @media screen and (max-width: 640px) {
-    .slider .titleOverview h1:nth-child(1), .slider .titleOverview h1:nth-child(2){
-        font-size: 50px;
-        right: 60px;
-    }
-    .slider .titleOverview h1:nth-child(3){
-        font-size: 55px;
-        right: 40px;
-    }
-    .slider .imgLottie svg {
-        width: 480px !important;
-        height: 440px !important;
-    }
+  .slider .titleOverview h1:nth-child(1),
+  .slider .titleOverview h1:nth-child(2) {
+    font-size: 50px;
+    right: 60px;
+  }
+  .slider .titleOverview h1:nth-child(3) {
+    font-size: 55px;
+    right: 40px;
+  }
+  .slider .imgLottie svg {
+    width: 480px !important;
+    height: 440px !important;
+  }
 }
 @media screen and (max-width: 600px) {
-    .slider{
-        height: 100vh;
-    }
+  .slider {
+    height: 100vh;
+  }
+}
+@media screen and (max-width: 520px) {
+    
 }
 @media screen and (max-width: 480px) {
-    .slider .titleOverview h1:nth-child(1), .slider .titleOverview h1:nth-child(2){
-        font-size: 40px;
-        right: 70px;
-    }
-    .slider .titleOverview h1:nth-child(3){
-        font-size: 45px;
-        right: 50px;
-    }
+  .slider .titleOverview h1:nth-child(1),
+  .slider .titleOverview h1:nth-child(2) {
+    font-size: 40px;
+    right: 70px;
+  }
+  .slider .titleOverview h1:nth-child(3) {
+    font-size: 45px;
+    right: 50px;
+  }
 }
 @media screen and (max-width: 470px) {
-    .slider{
-        height: 90vh;
-    }
+  .slider {
+    height: 90vh;
+  }
 }
 @media screen and (max-width: 415px) {
-    .slider .titleOverview h1:nth-child(1), .slider .titleOverview h1:nth-child(2){
-        font-size: 35px;
-        right: 110px;
-    }
-    .slider .titleOverview h1:nth-child(3){
-        font-size: 40px;
-        right: 50px;
-    }
+  .slider .titleOverview h1:nth-child(1),
+  .slider .titleOverview h1:nth-child(2) {
+    font-size: 35px;
+    right: 110px;
+  }
+  .slider .titleOverview h1:nth-child(3) {
+    font-size: 40px;
+    right: 50px;
+  }
 }

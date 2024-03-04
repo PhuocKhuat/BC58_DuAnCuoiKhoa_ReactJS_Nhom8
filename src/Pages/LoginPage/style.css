@@ -65,6 +65,7 @@
     background-color: white;
     padding: 25px 50px 50px 25px;
     width: 520px;
+    margin-bottom: 60px;
 }
 .formSignUp .textSignUp{
     position: relative;
@@ -76,12 +77,109 @@
 
 /* BG ANIMATE */
 .bgAnimate{
-    overflow: hidden !important;
+    position: absolute;
+    left: 550px;
 }
 .bgAnimate svg{
     width: 1000px !important;
     height: 1080px !important;
     position: relative;
     right: 70px;
-    bottom: 80px;
+    bottom: 250px;
+}
+.layoutLottie{
+    height: 1050px;
+}
+
+/* Responsive */
+@media screen and (max-width: 1286px) {
+  .layoutLottie.container{
+    width: 98% !important;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 1024px) {
+    .layoutLottie.container{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .formSignUp .formDky {
+        width: 740px;
+    }
+    .bgAnimate{
+        left: 0;
+        height: 500px;
+    }
+    .layoutLottie{
+        height: 1950px;
+    }
+    .bgAnimate svg{
+        bottom: 350px;
+    }
+    .login-form-forgot {
+        margin-left: 45vw;
+    }
+}
+@media screen and (max-width: 786px) {
+    .formSignUp .formDky {
+        width: 93vw;
+    }
+    .bgAnimate{
+        overflow: visible !important;
+        height: 650px;
+    }
+    .formSignUp .formDky{
+        position: relative;
+        z-index: 190;
+    }
+    .bgAnimate svg{
+        width: 100vw !important;
+        bottom: 450px;
+    }
+    .layoutLottie{
+        height: 1700px;
+    }
+    .bgAnimate svg{
+        left: 5px;
+    }
+}
+@media screen and (max-width: 745px) {
+    .formSignUp .formDky {
+        width: 88vw;
+    }
+}
+@media screen and (max-width: 680px) {
+    .layoutLottie{
+        height: 1650px;
+    }
+    .bgAnimate svg{
+        bottom: 500px;
+    }
+    .login-form-forgot {
+        margin-left: 25vw;
+    }
+}
+@media screen and (max-width: 550px) {
+    .bgAnimate svg{
+        bottom: 550px;
+    }
+    .layoutLottie{
+        height: 1500px;
+    }
+}
+@media screen and (max-width: 470px) {
+    .login-form-forgot {
+        margin-left: 10vw;
+    }
+}
+@media screen and (max-width: 390px) {
+    .bgAnimate svg{
+        bottom: 600px;
+    }
+    .layoutLottie{
+        height: 1400px;
+    }
+    .login-form-forgot {
+        margin-left: 5vw;
+    }
 }

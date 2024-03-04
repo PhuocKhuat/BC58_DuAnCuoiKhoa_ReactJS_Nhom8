@@ -1,5 +1,7 @@
 .footer{
     background: #1e1e2a;
+    position: relative;
+    z-index: 190;
 }
 .footer .formFooter {
     margin: 15px 0;

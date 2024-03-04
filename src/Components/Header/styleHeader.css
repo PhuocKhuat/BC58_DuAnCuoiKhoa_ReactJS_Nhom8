@@ -52,7 +52,7 @@
     color: #2f79f9;
 }
 .header .catalogHeader:hover:after{
-    width: 100%;
+    width: 90%;
     opacity: 1;
 }
 .header .btnLogIn, .header .userInfo, .header .btnLogOut, .header .btnSignUp{
@@ -85,7 +85,6 @@ div div nav form span span input{
 }
 .header .headerRight{
     margin-bottom: 54px !important;
-    margin-right: 40px !important;
 }
 
 /* Header nav */
@@ -161,7 +160,6 @@ div div nav form span span input{
     }
     .header .catalogHeaderUser{
         display: block;
-        height: 35px;
         transition: all 0.3s;
         position: relative;
     }
@@ -180,7 +178,7 @@ div div nav form span span input{
         color: #2f79f9;
     }
     .header .catalogHeaderUser:hover:after{
-        width: 100%;
+        width: 90%;
         opacity: 1;
     }
     .header .catalogUl{
@@ -192,6 +190,12 @@ div div nav form span span input{
     .header .headerRight{
         position:unset;
         margin-right: 120px;
+    }
+    .header .btnSignUp{
+        transition: all 0.3s;
+    }
+    .header .btnSignUp:hover{
+        border-bottom: 2px solid black;
     }
 }
 @media screen and (max-width: 1000px) {
@@ -221,7 +225,7 @@ div div nav form span span input{
 }
 @media screen and (max-width: 480px) {
     .header .headerRight{
-       margin-right: 12px;
+       margin-right: 20px;
     }
 }
 @media screen and (max-width: 400px) {
