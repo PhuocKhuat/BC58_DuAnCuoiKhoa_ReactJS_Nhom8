@@ -85,7 +85,7 @@
     height: 1080px !important;
     position: relative;
     right: 70px;
-    bottom: 250px;
+    bottom: 44px;
 }
 .layoutLottie{
     height: 1050px;
@@ -114,7 +114,7 @@
         height: 1950px;
     }
     .bgAnimate svg{
-        bottom: 350px;
+        bottom: 175px;
     }
     .login-form-forgot {
         margin-left: 45vw;
@@ -134,7 +134,7 @@
     }
     .bgAnimate svg{
         width: 100vw !important;
-        bottom: 450px;
+        bottom: 300px;
     }
     .layoutLottie{
         height: 1700px;
@@ -153,7 +153,7 @@
         height: 1650px;
     }
     .bgAnimate svg{
-        bottom: 500px;
+        bottom: 300px;
     }
     .login-form-forgot {
         margin-left: 25vw;
@@ -161,7 +161,7 @@
 }
 @media screen and (max-width: 550px) {
     .bgAnimate svg{
-        bottom: 550px;
+        bottom: 390px;
     }
     .layoutLottie{
         height: 1500px;
@@ -174,7 +174,7 @@
 }
 @media screen and (max-width: 390px) {
     .bgAnimate svg{
-        bottom: 600px;
+        bottom: 430px;
     }
     .layoutLottie{
         height: 1400px;
