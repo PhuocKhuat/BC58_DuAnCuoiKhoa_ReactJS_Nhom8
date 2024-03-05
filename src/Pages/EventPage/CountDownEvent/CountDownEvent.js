@@ -38,7 +38,7 @@ export default function CountDownEvent() {
       <div className="countDownEvent mt-12">
         <div className="timeEvent">
           <div className="uppercase text-white container countDown">
-            <div className="grid grid-cols-2 sm:grid-cols-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 w/1-2 lg:w-2/5">
               <div className="pe-12">
                 <p className=" numberEvent text-yellow-500">{timerDays}</p>
                 <p className="dayEvent">

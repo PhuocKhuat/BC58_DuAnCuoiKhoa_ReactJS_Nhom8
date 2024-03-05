@@ -33,7 +33,9 @@
 /* LOGINPAGE */
 .loginPage{
     background-color: #eff0f5 !important;
-    display: flex;
+}
+.loginPage .bgAnimate{
+    left: 550px;
 }
 /* LOGIN */
 .formLogin .title{
@@ -46,10 +48,12 @@
     background-color: white;
     padding: 25px 50px 50px 25px;
     width: 520px;
+    margin-bottom: 600px;
 }
 .formLogin .textLogin{
     position: relative;
     bottom: 7px;
+    width: 450px;
 }
 .formLogin :where(.css-dev-only-do-not-override-1qhpsh8).ant-form-item:nth-child(4) {
     margin-bottom: 0px;
@@ -93,17 +97,23 @@
 
 /* Responsive */
 @media screen and (max-width: 1286px) {
-  .layoutLottie.container{
+  .layoutLottie.container, .loginPage.container{
     width: 98% !important;
     margin: 0;
   }
+  .loginPage{
+    height: 1050px;
+  }
 }
 @media screen and (max-width: 1024px) {
-    .layoutLottie.container{
+    .layoutLottie.container, .loginPage.container{
         width: 80%;
         margin: 0 auto;
     }
     .formSignUp .formDky {
+        width: 740px;
+    }
+    .formLogin .formDNhap {
         width: 740px;
     }
     .bgAnimate{
@@ -113,11 +123,42 @@
     .layoutLottie{
         height: 1950px;
     }
-    .bgAnimate svg{
+    .bgAnimate svg, .loginPage .bgAnimate{
         bottom: 175px;
     }
     .login-form-forgot {
-        margin-left: 45vw;
+        margin-left: 40vw;
+    }
+    .loginPage{
+        height: 1400px;
+    }
+    .loginPage .bgAnimate svg{
+        bottom: 400px;
+    }
+    .loginPage .bgAnimate {
+        left: 0px;
+    }
+    .formSignUp .formDky, .formLogin .formDNhap{
+        position: relative;
+        z-index: 190;
+    }
+    .formLogin .textLogin{
+        width: 67vw;
+    }
+}
+@media screen and (max-width: 955px) {
+    .formLogin .textLogin{
+        width: 72vw;
+    }
+}
+@media screen and (max-width: 900px) {
+    .formLogin .textLogin{
+        width: 76vw;
+    }
+}
+@media screen and (max-width: 900px) {
+    .formLogin .textLogin{
+        width: 80vw;
     }
 }
 @media screen and (max-width: 786px) {
@@ -127,10 +168,6 @@
     .bgAnimate{
         overflow: visible !important;
         height: 650px;
-    }
-    .formSignUp .formDky{
-        position: relative;
-        z-index: 190;
     }
     .bgAnimate svg{
         width: 100vw !important;
@@ -142,13 +179,49 @@
     .bgAnimate svg{
         left: 5px;
     }
+    .formLogin .textLogin{
+        width: 84vw;
+    }
+    .loginPage .bgAnimate svg{
+        bottom: 200px;
+    }
+    .loginPage{
+        height: 1250px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .formLogin .textLogin{
+        width: 76vw;
+    }
+    .formLogin .formUser{
+        width: 75vw !important;
+    }
 }
 @media screen and (max-width: 745px) {
     .formSignUp .formDky {
         width: 88vw;
     }
 }
+@media screen and (max-width: 720px) {
+    .formLogin .formUser{
+        width: 82vw !important;
+    }
+    .formLogin .textLogin{
+        width: 85vw;
+    }
+}
+@media screen and (max-width: 700px) {
+    .loginPage .bgAnimate svg{
+        bottom: 100px;
+    }
+    .loginPage{
+        height: 1150px;
+    }
+}
 @media screen and (max-width: 680px) {
+    .formLogin .formUser{
+        width: 82vw !important;
+    }
     .layoutLottie{
         height: 1650px;
     }
@@ -157,6 +230,22 @@
     }
     .login-form-forgot {
         margin-left: 25vw;
+    }
+    .loginPage{
+        height: 1100px;
+    }
+}
+@media screen and (max-width: 635px) {
+    .formLogin .textLogin, .formLogin .formUser{
+        width: 76vw !important;
+    }
+}
+@media screen and (max-width: 600px) {
+    .formLogin .textLogin, .formLogin .formUser{
+        width: 80vw !important;
+    }
+    .loginPage .bgAnimate svg{
+        bottom: 70px;
     }
 }
 @media screen and (max-width: 550px) {
@@ -167,9 +256,23 @@
         height: 1500px;
     }
 }
+@media screen and (max-width: 520px) {
+    .loginPage .bgAnimate svg{
+        bottom: 40px;
+    }
+    .loginPage{
+        height: 1050px;
+    }
+}
 @media screen and (max-width: 470px) {
     .login-form-forgot {
         margin-left: 10vw;
+    }
+    .loginPage .bgAnimate svg{
+        bottom: 0px;
+    }
+    .loginPage{
+        height: 950px;
     }
 }
 @media screen and (max-width: 390px) {

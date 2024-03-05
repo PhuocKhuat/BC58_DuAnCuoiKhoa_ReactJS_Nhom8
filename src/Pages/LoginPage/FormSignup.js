@@ -20,7 +20,7 @@ const FormSignUp = () => {
       .then((res) => {
         // console.log(res);
         message.success("Sign up success");
-        navigate("/account");
+        navigate("/login");
       })
       .catch((err) => {
         // console.log(err);
@@ -174,7 +174,7 @@ const FormSignUp = () => {
             </Button>
           </Form.Item>
           <br />
-          Or Already member? <NavLink to="/account">Login</NavLink> here!
+          Or Already member? <NavLink to="/login">Login</NavLink> here!
         </Form>
       </div>
     </div>

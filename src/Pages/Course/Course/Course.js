@@ -7,7 +7,6 @@ import {
   YoutubeOutlined,
   RadarChartOutlined,
 } from "@ant-design/icons";
-import "./styleCourse.css";
 
 export default function Course() {
   return (
@@ -15,15 +14,15 @@ export default function Course() {
       <div className="container pt-20 pb-14">
         <div>
           <div
-            className="sm:text-3xl text-2xl title-font text-center text-gray-900 mb-3 uppercase font-bold"
+            className="sm:text-3xl text-2xl title-font text-center text-gray-900 mb-3 uppercase font-bold titleCourse"
             style={{ letterSpacing: "2px" }}
           >
             <h3 className="mb-2">Courses</h3>
             <p className="text-base">PLEASE SELECT THE COURSE YOU DESIRE</p>
           </div>
           <div className="text-gray-600 body-font">
-            <div className="container px-5 py-10 mx-auto">
-              <div className="flex flex-wrap -m-4">
+            <div className="px-5 py-10 mx-auto">
+              <div className="flex flex-wrap -m-4 programming">
                 <div className="px-5 py-4 lg:w-1/3 md:w-1/2 w-full bgCourseList">
                   <div className="h-full rounded-lg overflow-hidden text-center relative text-white font-bold">
                     <h1 className="title-font sm:text-2xl text-xl mb-2">

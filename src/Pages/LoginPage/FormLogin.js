@@ -29,9 +29,9 @@ const FormLogin = () => {
     console.log("Error: ", values);
   };
   return (
-    <div className="container formLogin mt-5">
+    <div className="formLogin">
       <div>
-        <h2 className="title">Welcome to E_Learning</h2>
+        <h2 className="title mt-24">Welcome to E_Learning</h2>
       </div>
       <div className="formDNhap">
         <Form
@@ -45,6 +45,7 @@ const FormLogin = () => {
         >
           <Form.Item
             name="taiKhoan"
+            className="formUser"
             rules={[
               {
                 required: true,
@@ -59,6 +60,7 @@ const FormLogin = () => {
           </Form.Item>
           <Form.Item
             name="matKhau"
+            className="formUser"
             rules={[
               {
                 required: true,
@@ -81,13 +83,13 @@ const FormLogin = () => {
               Forgot password
             </a>
           </Form.Item>
-          <Form.Item className="flex justify-center">
+          <Form.Item className="flex justify-start">
             <Button
               type="primary"
               htmlType="submit"
               className="login-form-button textLogin"
             >
-              <span className="textLogin">Log in</span>
+              <span className="">Log in</span>
             </Button>
           </Form.Item>
           Or <NavLink to="/signup">register now!</NavLink>

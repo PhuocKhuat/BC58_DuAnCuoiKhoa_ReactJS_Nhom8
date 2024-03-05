@@ -4,7 +4,7 @@ import bgAnimate from './bgAnimate.json'
 
 export default function LottieLogin() {
   return (
-    <div className='bgAnimate'>
+    <div className='bgAnimate absolute'>
         <Lottie animationData={bgAnimate} loop={true}/>
     </div>
   )
