@@ -4,7 +4,7 @@
   align-items: center;
   padding: 20px 10px;
 }
-:where(.css-dev-only-do-not-override-1qhpsh8).ant-modal .ant-modal-title {
+.modals .contentModalUser h1{
   font-size: 20px !important;
   border-bottom: 2px solid #ce44f8 !important;
   background: linear-gradient(
@@ -13,22 +13,14 @@
     rgb(41, 48, 208) 98.38%
   ) !important;
   color: white;
-  text-align: center;
+  font-weight: bold;
 }
-:where(.css-dev-only-do-not-override-1qhpsh8)[class^="ant-modal"]
-  [class*=" ant-modal"] {
-  background: red !important;
-}
-:where(.css-dev-only-do-not-override-1qhpsh8).ant-modal .ant-modal-close {
-  border: 2px solid red;
-}
-:where(.css-dev-only-do-not-override-1qhpsh8).ant-modal .ant-modal-content {
+.modals .contentModalUser{
   position: relative;
-  background: linear-gradient(
-    209.21deg,
-    rgb(58, 161, 183) 13.57%,
-    rgb(41, 48, 208) 98.38%
-  ) !important;
+  background: linear-gradient(209.21deg, rgb(58, 161, 183) 13.57%, rgb(41, 48, 208) 98.38%) !important;
+}
+.modals .btnClose{
+  background: red !important;
 }
 .modalForm label {
   font-size: 16px;
@@ -47,21 +39,18 @@
 }
 .modals .btnUpdate {
   position: absolute;
-  right: 24px;
-  bottom: 20px;
+  right: 12px;
+  bottom: 12px;
   padding: 13px 38px;
   border-radius: 20px;
   color: white;
   background: green !important;
 }
-.modals .ant-modal-footer {
-  display: flex;
-}
 /* btn ok */
-.modals .ant-btn .css-dev-only-do-not-override-1qhpsh8 .ant-btn-primary {
+.modals .btnOK {
   background-color: #3aa1b7 !important;
   position: absolute;
-  left: 200px;
+  left: 220px;
 }
 /* span ok and cancel */
 .modals .ant-btn .css-1qhpsh8 .ant-btn-default span{

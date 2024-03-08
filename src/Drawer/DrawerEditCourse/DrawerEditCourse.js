@@ -365,7 +365,7 @@ const DrawerEditCourse = ({ editCourse }) => {
                 onBlur={handleBlur}
                 name="moTa"
                 as="textarea"
-                className="fieldInput form-textarea"
+                className="fieldInput form-textarea h-20"
                 value={values.moTa}
                 onChange={handleChange}
                 placeholder="Please enter the description course"
