@@ -10,7 +10,6 @@ export default function TabsPersonalInfo() {
     <TabPane
       tab={
         <span>
-          {/* <Icon type="apple" /> */}
           Personal infomation
         </span>
       }
@@ -21,7 +20,6 @@ export default function TabsPersonalInfo() {
     <TabPane
       tab={
         <span>
-          {/* <Icon type="android" /> */}
           My courses  
         </span>
       }

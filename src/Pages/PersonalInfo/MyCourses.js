@@ -145,7 +145,7 @@ export default function MyCourses() {
       e.preventDefault();
     }
   return (
-    <div className="text-gray-600 body-font overflow-hidden myCourses">
+    <div className="text-gray-600 body-font overflow-hidden myCourses mt-3">
       <div className="block sm:flex justify-between items-center mb-4">
         <div>
           <h3 className="text-xl text-black uppercase font-bold">My courses</h3>

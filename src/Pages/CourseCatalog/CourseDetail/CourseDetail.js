@@ -89,18 +89,18 @@ export default function CourseDetail() {
           <h3>{NameCategory ? NameCategory.maDanhMuc : ""}</h3>
         </strong>
   return (
-    <div className="text-gray-600 body-font courseCatalog mb-4 mt-9">
+    <div className="text-gray-600 body-font courseCatalog my-16">
       <div className="container py-10">
         <h1
           className="sm:text-3xl text-2xl title-font text-center text-gray-900 mb-3 uppercase font-bold"
           style={{ letterSpacing: "2px" }}
         >
-          <span>Courses Catalog</span>
+          <p>Courses Catalog</p>
           <br className="hidden sm:block" />
-          <span className="text-base">
+          <p className="text-base">
             {" "}
             Please select the course you desire
-          </span>
+          </p>
         </h1>
         <div>
           <div className="flex gap-2 text-xl mb-10">{renderTitleCatalog()}</div>
