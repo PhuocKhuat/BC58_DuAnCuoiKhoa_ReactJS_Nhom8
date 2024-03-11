@@ -49,16 +49,7 @@ const DrawerEditCourse = ({ editCourse }) => {
         console.log(formData.get("hinhAnh"));
         let result = await https.post(
           "/api/QuanLyKhoaHoc/CapNhatKhoaHocUpload",
-          formData,
-          {
-            onUpLoadProgress: (progressEvent) => {
-              console.log(
-                "Update abc",
-                Math.round(progressEvent.loaded / progressEvent.total* 100) +
-                  "%"
-              );
-            },
-          }
+          formData
         );
         if (result.request.status === 200) {
           resetForm();

@@ -2,5 +2,7 @@
   position: relative;
   top: 5px;
 }
-
-/* ĐẾN VIDEO 42 */
+div aside span{
+  position: relative;
+  z-index: 198 !important;
+}

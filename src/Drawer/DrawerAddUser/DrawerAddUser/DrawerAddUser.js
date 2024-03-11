@@ -69,8 +69,9 @@ const DrawerAddUser = () => {
   };
   return (
     <div className="drawerAddUser mb-3">
-      <Button type="primary" onClick={showDrawer} icon={<PlusOutlined />}>
-        Add User
+      <Button type="primary" onClick={showDrawer}>
+        <i className="fa fa-plus plusUser"></i>
+        <span className="addUser">Add User</span>
       </Button>
       <Drawer
         title="Create a new account"

@@ -20,18 +20,18 @@ export default function AdminUserPage() {
       // console.log("🚀 ~ DrawerAddUser ~ values:", values);
     },
   });
-  useEffect(()=>{
-    if(values.tuKhoa !== ""){
-      if(searchUser.current){
+  useEffect(() => {
+    if (values.tuKhoa !== "") {
+      if (searchUser.current) {
         clearTimeout(searchUser.current);
       }
-      searchUser.current = setTimeout(()=>{
+      searchUser.current = setTimeout(() => {
         dispatch(fetchAdminUser(values.tuKhoa));
-      }, 500)
-    } else{
+      }, 500);
+    } else {
       dispatch(fetchAdminUser());
     }
-  },[values.tuKhoa]);
+  }, [values.tuKhoa]);
   const columns = [
     {
       title: "Account",
@@ -332,6 +332,7 @@ export default function AdminUserPage() {
       onFilter: (value, record) => record.hoTen.indexOf(value) === 0,
       sorter: (a, b) => a.hoTen.length - b.hoTen.length,
       sortDirections: ["descend"],
+      responsive: ['sm'],
     },
     {
       title: "Email",
@@ -480,6 +481,7 @@ export default function AdminUserPage() {
         },
       ],
       onFilter: (value, record) => record.email.indexOf(value) === 0,
+      responsive: ['lg'],
     },
     {
       title: "Phone Number",
@@ -487,6 +489,7 @@ export default function AdminUserPage() {
       key: "soDt",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.soDt - b.soDt,
+      responsive: ['xl'],
     },
     {
       title: "User type code",
@@ -506,6 +509,7 @@ export default function AdminUserPage() {
       onFilter: (value, record) => record.maLoaiNguoiDung.indexOf(value) === 0,
       sorter: (a, b) => a.maLoaiNguoiDung.length - b.maLoaiNguoiDung.length,
       sortDirections: ["descend"],
+      responsive: ['lg'],
     },
     // {
     //   title: "Password",
@@ -522,7 +526,7 @@ export default function AdminUserPage() {
       key: "action",
       render: (_, record) => (
         <Space size="middle" className="cursor-pointer">
-          <DrawerEnrollCourseByUser taiKhoan={record.taiKhoan}/>
+          <DrawerEnrollCourseByUser taiKhoan={record.taiKhoan} />
           <DrawerEditUser editUserInfo={record} />
           <DeleteOutlined
             className="text-red-600"
@@ -551,7 +555,10 @@ export default function AdminUserPage() {
   };
   return (
     <>
-      <div className="block md:flex gap-3 mb-4 mx-auto formDrawerUserPage" style={{ width: "97.5%" }}>
+      <div
+        className="gap-3 mb-4 mt-3 mx-auto formDrawerUserPage"
+        style={{ width: "97.5%" }}
+      >
         <DrawerAddUser />
         <Formik>
           <Form onSubmit={handleSubmit}>

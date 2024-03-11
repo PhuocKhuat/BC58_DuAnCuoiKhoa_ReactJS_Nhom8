@@ -1,10 +1,20 @@
-.drawerAddCourse button{
-    padding: 18px 22px !important;
+.drawerAddCourse button {
+  padding: 18px 72px !important;
 }
-.drawerAddCourse button span span svg{
-    position: relative;
-    top: 0 !important;
+.drawerAddCourse .plusCourse {
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
 }
-span span span button{
-    padding: 10px !important;
+.drawerAddCourse .addCourse {
+  position: absolute;
+  left: 34px;
+  bottom: 7px;
+}
+.drawerAddCourse button span span svg {
+  position: relative;
+  top: 0 !important;
+}
+span span span button {
+  padding: 10px !important;
 }

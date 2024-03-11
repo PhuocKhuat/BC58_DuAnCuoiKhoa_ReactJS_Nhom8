@@ -87,8 +87,9 @@ const DrawerAddCourse = () => {
   };
   return (
     <div className="drawerAddCourse mb-3">
-      <Button type="primary" onClick={showDrawer} icon={<PlusOutlined />}>
-        Add Course
+      <Button type="primary" onClick={showDrawer} className="mt-3">
+        <i className="fa fa-plus plusCourse"></i>
+        <span className="addCourse">Add Course</span>
       </Button>
       <Drawer
         title="Create a new account"

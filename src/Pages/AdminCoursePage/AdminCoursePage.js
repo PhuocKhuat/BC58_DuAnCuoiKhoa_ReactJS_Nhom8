@@ -97,12 +97,15 @@ const AdminCoursePage = () => {
       title: "Aliases",
       dataIndex: "biDanh",
       key: "biDanh",
+      responsive: ['xxl'],
+
       defaultSortOrder: "descend",
       sorter: (a, b) => a.biDanh - b.biDanh,
     },
     {
       title: "Course name",
       dataIndex: "tenKhoaHoc",
+      responsive: ['sm'],
       filters: [
         {
           text: "a",
@@ -217,11 +220,13 @@ const AdminCoursePage = () => {
       title: "Description",
       dataIndex: "moTa",
       key: "moTa",
+      responsive: ['xl'],
     },
     {
       title: "Views",
       dataIndex: "luotXem",
       key: "luotXem",
+      responsive: ['xxl'],
       filters: [
         {
           text: "1",
@@ -268,12 +273,14 @@ const AdminCoursePage = () => {
       title: "Image",
       dataIndex: "hinhAnh",
       key: "hinhAnh",
+      responsive: ['xl'],
       render: (_, record) => <img alt="hinhAnhKhoaHoc" src={record.hinhAnh} />,
     },
     {
       title: "Group Code",
       dataIndex: "maNhom",
       key: "maNhom",
+      responsive: ['lg'],
       filters: [
         {
           text: "GP01",
@@ -296,15 +303,15 @@ const AdminCoursePage = () => {
           value: "GP05",
         },
         {
-          text: "Design",
+          text: "GP06",
           value: "GP06",
         },
         {
-          text: "DiDong",
+          text: "GP07",
           value: "GP07",
         },
         {
-          text: "FrontEnd",
+          text: "GP08",
           value: "GP08",
         },
         {
@@ -321,12 +328,14 @@ const AdminCoursePage = () => {
     {
       title: "Date created",
       dataIndex: "ngayTao",
+      responsive: ['xl'],
       key: "ngayTao",
     },
     {
       title: "Course Catalog",
       dataIndex: "danhMucKhoaHoc.maDanhMucKhoahoc",
       key: "danhMucKhoaHoc.maDanhMucKhoahoc",
+      responsive: ['md'],
       filters: [
         {
           text: "BackEnd",
@@ -361,6 +370,7 @@ const AdminCoursePage = () => {
       title: "Creator account",
       dataIndex: "nguoiTao.taiKhoan",
       key: "nguoiTao.taiKhoan",
+      responsive: ['md'],
       filters: [
         {
           text: "1",

@@ -5,22 +5,43 @@ header div span span span button {
   outline: none;
   border-radius: 5px;
   border: 1px solid black;
-  width: 62vw;
+  width: 68vw;
   height: 32px;
   font-size: 16px;
+  padding: 18px 10px;
+}
+.formDrawerUserPage{
+  display: flex;
+}
+
+/* Responsive */
+@media screen and (max-width: 1286px) {
+  .formDrawerUserPage .inputUser {
+    width: 64vw;
+  }
 }
 @media screen and (max-width: 1127px) {
   .formDrawerUserPage .inputUser {
     width: 57vw;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .formDrawerUserPage .inputUser {
-    width: 85vw;
+    width: 50vw;
+  }
+}
+@media screen and (max-width: 902px) {
+  .formDrawerUserPage {
+    display: block;
   }
 }
 @media screen and (max-width: 500px) {
   .formDrawerUserPage .inputUser {
     width: 81vw;
+  }
+}
+@media screen and (max-width: 390px) {
+  .formDrawerUserPage .inputUser {
+    width: 70vw;
   }
 }

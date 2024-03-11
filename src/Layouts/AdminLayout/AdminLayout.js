@@ -30,7 +30,7 @@ const AdminLayout = () => {
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["1"]}
-          style={{ marginTop: "85px" }}
+          style={{ marginTop: "120px" }}
         >
           <Menu.Item key="1" icon={<UserOutlined />}>
             <NavLink to="users" >User Management</NavLink>
