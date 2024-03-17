@@ -18,6 +18,7 @@
 }
 .courseOfPage {
   background: white;
+  margin-top: 600px;
 }
 .courseOfPage .frameCourse {
   position: relative;
@@ -43,6 +44,12 @@
   transform: skewX(-25deg);
   transition: all 0.75s;
 }
+.courseOfPage .frameCourse:hover:before {
+  left: 100%;
+}
+.course{
+  margin-top: 30px;
+}
 .course .paginationCourseOverlay {
   position: absolute;
   top: 0;
@@ -55,9 +62,6 @@
 }
 .course .paginationCourseOverlay:hover {
   opacity: 1;
-}
-.courseOfPage .frameCourse:hover:before {
-  left: 100%;
 }
 .course .titlePaginationCourse {
   transition: all 0.3s;
@@ -146,6 +150,9 @@
   .courseOfPage .footerCourseOfPage {
     display: block;
   }
+  .courseOfPage{
+    margin-top: 800px;
+  }
 }
 @media screen and (max-width: 1000px) {
   .course .container{
@@ -170,6 +177,9 @@
   .courseOfPage .footerCourseOfPage {
     display: flex;
   }
+  .courseOfPage{
+    margin-top: 1250px;
+  }
 }
 @media screen and (max-width: 640px) {
   .courseOfPage .frameCourse .btnLearnMore {
@@ -177,6 +187,9 @@
   }
   .courseOfPage .moTaCourseOfPage {
     width: 53vw;
+  }
+  .course .programming {
+    width: 84vw !important;
   }
 }
 @media screen and (max-width: 540px) {
@@ -204,6 +217,9 @@
     position: relative;
     left: -9px !important;
   }
+  .course .programming {
+    width: 78vw !important;
+  }
   .courseOfPage .frameCourse .btnLearnMore {
     left: 41vw;
   }
@@ -219,6 +235,9 @@
 @media screen and (max-width: 430px) {
   .courseOfPage .frameCourse .btnLearnMore {
     left: 58%;
+  }
+  .course .programming {
+    width: 76vw !important;
   }
 }
 @media screen and (max-width: 359px) {

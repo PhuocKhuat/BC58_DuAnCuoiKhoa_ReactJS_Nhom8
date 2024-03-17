@@ -83,6 +83,10 @@
 .personalInfo .skillBtnHtml {
   background-color: #1677ff;
 }
+.tabsPersonalInfo .tabMyCourse{
+  position: relative;
+  z-index: 210;
+}
 .personalInfo .skillBtnCss {
   background-color: #ff4560;
 }

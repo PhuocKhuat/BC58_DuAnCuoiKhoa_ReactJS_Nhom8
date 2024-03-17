@@ -2,6 +2,7 @@
 .courseList{
     background: #505170;
     padding: 74px 0 90px;
+    margin-top: 1270px;
 }
 .courseList .bgCourseList{
     background: white;
@@ -104,6 +105,9 @@
     .courseList .hoverBorder{
         width: 37vw;
     }
+    .courseList{
+        margin-top: 1650px;
+    }
 }
 @media screen and (max-width: 920px) {
     .courseList .hoverBorder {
@@ -132,6 +136,11 @@
         line-height: 55px;
     }
 }
+@media screen and (max-width: 672px) {
+    .courseList{
+        margin-top: 1770px;
+    }
+}
 @media screen and (max-width: 640px) {
     .courseList .exploreTitle {
         font-size: 25px;
@@ -141,8 +150,21 @@
         width: 90vw;
     }
 }
+@media screen and (max-width: 600px) {
+    .courseList{
+        margin-top: 1630px;
+    }
+}
 @media screen and (max-width: 500px) {
     .courseList .hoverBorder {
         width: 81vw;
     }
+}
+@media screen and (max-width: 499px) {
+    .courseList{
+        margin-top: 1700px;
+    }
+}
+@media screen and (max-width: 455px) {
+    
 }

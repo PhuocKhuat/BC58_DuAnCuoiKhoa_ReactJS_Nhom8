@@ -35,7 +35,7 @@ export default function CountDownEvent() {
   },[]);
   return (
     <div>
-      <div className="countDownEvent mt-12">
+      <div className="countDownEvent mt-16">
         <div className="timeEvent">
           <div className="uppercase text-white container countDown">
             <div className="grid grid-cols-2 sm:grid-cols-4 w/1-2 lg:w-2/5">
@@ -64,7 +64,7 @@ export default function CountDownEvent() {
                 </p>
               </div>
             </div>
-            <div>
+            <div className='titleEvent'>
               <h2 className="eventBiggest">The biggest technology event of 2021</h2>
               <h3 className="text-lg font-bold">March 20-25, 2024, Vietnam</h3>
             </div>

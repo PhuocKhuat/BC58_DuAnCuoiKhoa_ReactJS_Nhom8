@@ -147,7 +147,7 @@ export default function Header() {
   };
   const onSearch = async (value) => {
     // console.log("🚀 ~ onSearch ~ value:", typeof value)
-    await navigate("/searchcourse");
+    await navigate(`/searchcourse/${value}`);
     await dispatch(fetchCoursesList(value));
     // dispatch(setSearchCourse(true));
   };

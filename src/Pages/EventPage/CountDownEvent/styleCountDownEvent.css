@@ -2,7 +2,7 @@
     background-image: url('../../../img//backroundTech.jpg');
     background-size: cover;
     background-position: left;
-    padding: 200px 50px;
+    padding: 220px 50px;
 }
 .countDownEvent .timeEvent::after{
     content: "";
@@ -38,3 +38,22 @@
     padding: 10px 0;
     font-weight: 600;
 }
+@media screen and (max-width: 640px) {
+    .titleEvent{
+        margin-left: 64px;      
+    }
+}
+@media screen and (max-width: 500px) {
+    .eventBiggest{
+      font-size: 30px !important;
+    }
+    .titleEvent{
+        margin-left: 38px;      
+    }
+}
+@media screen and (max-width: 425px) {
+    .titleEvent{
+        margin-left: 20px;      
+    }
+}
+/* ms-16 sm:ms-0' */

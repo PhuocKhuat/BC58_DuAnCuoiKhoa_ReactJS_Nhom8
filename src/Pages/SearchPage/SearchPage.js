@@ -12,7 +12,6 @@ import "./styleSearchPage.css";
 
 export default function SearchPage() {
   const { coursesList } = useSelector((state) => state.personalSliceThunk);
-  const { catalog } = useSelector((state) => state.headerSlice);
   //   console.log("🚀 ~ SearchPage ~ catalog:", catalog)
   //   console.log("🚀 ~ SearchPage ~ coursesList:", coursesList);
   const dispatch = useDispatch();
@@ -166,7 +165,7 @@ export default function SearchPage() {
   };
 
   return (
-    <div className="searchPage text-gray-600 body-font overflow-hidden">
+    <div className="searchPage text-gray-600 body-font overflow-hidden mt-14">
       <div className="container">
         <div className="grid grid-cols-12">
           <div className="col-span-3 mt-24">

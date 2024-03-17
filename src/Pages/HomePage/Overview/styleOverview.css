@@ -25,10 +25,18 @@
         padding-left: 17vw;
     }
 }
+@media screen and (max-width: 1200px) {
+    .overview{
+        margin-top: 300px;
+    }
+}
 @media screen and (max-width: 1000px) {
     .overview .container{
         width: 98% !important;
         margin: 0;
+    }
+    .overview{
+        margin-top: 350px;
     }
 }
 @media screen and (max-width: 776px) {
@@ -36,13 +44,31 @@
         font-size: 30px;
     }
 }
+@media screen and (max-width: 672px) {
+    .overview{
+        margin-top: 300px;
+    }
+}
 @media screen and (max-width: 640px) {
     .overview .titleHighlight {
         font-size: 25px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .overview{
+        margin-top: 200px;
     }
 }
 @media screen and (max-width: 500px) {
     .overview .overviewContent {
         font-size: 14px;
     }
+    .overview {
+        margin-top: 0px;
+    }
 }
+@media screen and (max-width: 412px) {
+    .overview {
+      margin-top: 0px;
+    }
+  }

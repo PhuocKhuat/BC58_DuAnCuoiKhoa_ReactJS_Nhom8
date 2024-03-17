@@ -9,6 +9,7 @@ import "../styleCourseCatalog.css";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCourseCatalog } from "../../../Redux/searchCatalogThunk";
+import './styleCourseDetail.css';
 
 export default function CourseDetail() {
   const { courseCatalogById } = useSelector(
@@ -89,7 +90,7 @@ export default function CourseDetail() {
           <h3>{NameCategory ? NameCategory.maDanhMuc : ""}</h3>
         </strong>
   return (
-    <div className="text-gray-600 body-font courseCatalog my-16">
+    <div className="text-gray-600 body-font courseCatalog mt-28 mb-24">
       <div className="container py-10">
         <h1
           className="sm:text-3xl text-2xl title-font text-center text-gray-900 mb-3 uppercase font-bold"

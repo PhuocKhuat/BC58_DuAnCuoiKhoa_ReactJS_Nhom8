@@ -9,7 +9,7 @@ export default function CoCreator() {
           <h3 className="uppercase text-3xl font-bold text-yellow-500 text-center mb-3">
             Co-creators
           </h3>
-          <p className="text-white">
+          <p className="text-white paragraphCreator">
             The co-creators, who are dedicated people, have put a lot of effort into developing the learning system. They are also highly specialized in designing and implementing effective online learning systems and have excellent strategic vision and leadership abilities. They have more than 20 years of e-learning teaching and research experience.
           </p>
         </div>

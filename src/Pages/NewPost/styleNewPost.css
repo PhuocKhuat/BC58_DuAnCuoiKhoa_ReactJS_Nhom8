@@ -1,5 +1,6 @@
 .newPost{
     background: #272634;
+    margin-top: 375px;
 }
 .newPost .titleNewPost{
     font-size: 40px;
@@ -21,5 +22,20 @@
     .newPost .titleNewPost {
         font-size: 25px;
         line-height: 50px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .newPost{
+        margin-top: 450px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .newPost{
+        margin-top: 500px;
+    }
+}
+@media screen and (max-width: 412px) {
+    .newPost{
+        margin-top: 600px;
     }
 }

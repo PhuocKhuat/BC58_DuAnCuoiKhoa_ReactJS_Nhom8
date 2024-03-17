@@ -232,10 +232,40 @@
 .detail .project{
     background: rgb(232, 229, 229);
 }
+.detail .coursesOutput .divImgCertificate{
+    width: 2000px;
+    max-width: 2000px;
+}
 /* Responsive */
+@media screen and (max-width: 1286px) {
+    .coursesOutput .container{
+        /* width: 96% !important;
+        margin: 0; */
+    }
+    .detail .coursesOutput .divImgCertificate{
+        width: 2000px;
+    }
+}
 @media screen and (max-width: 1260px) {
     .detail .containerDetail{
         width: 99% !important;
         margin: 0;
+    }
+}
+@media screen and (max-width: 1162px) {
+    .detail .coursesOutput .imgCertificate{
+        height: 408px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .detail .coursesOutput .imgCertificate{
+        margin-left: 18vw; 
+        height: 540px;
+    }
+}
+@media screen and (max-width: 844px) {
+    .detail .coursesOutput .imgCertificate{
+        margin-left: 13vw; 
+        height: 540px;
     }
 }

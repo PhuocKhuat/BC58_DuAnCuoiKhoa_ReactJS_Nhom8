@@ -32,3 +32,27 @@
     transition: all 0.5s ease !important;
     background-image: linear-gradient(90deg, #2d7af9 30%, #a752f8 80%) !important;
 }
+.targetParticipate{
+  margin-top: 1800px;
+}
+
+@media screen and (max-width: 768px) {
+  .targetParticipate{
+      margin-top: 2700px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .targetParticipate{
+    margin-top: 2850px;
+}
+}
+@media screen and (max-width: 590px) {
+  .targetParticipate{
+    margin-top: 2950px;
+}
+}
+@media screen and (max-width: 440px) {
+  .targetParticipate{
+    margin-top: 3050px;
+}
+}

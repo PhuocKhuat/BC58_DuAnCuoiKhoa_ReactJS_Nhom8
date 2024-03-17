@@ -8,6 +8,7 @@
   background-image: url('../../../img/bgTech2.jpg');
   background-size: cover;
   background-position: center;
+  margin-top: 670px;
 }
 .startUpEvent .btnParticipate:hover,
 .startUpEvent .btnLearnMore:hover {
@@ -18,4 +19,38 @@
   border-radius: 5px;
   padding: 15px 20px;
   transition: all 0.3s;
+  position: relative;
+}
+.startUpEvent .btnParticipate span{
+  position: relative;
+  bottom: 10px;
+}
+.startUpEvent .btnLearnMore span{
+  position: relative;
+  bottom: 10px;
+}
+@media screen and (max-width: 1286px) {
+  .startUpEvent{
+    margin-top: 680px;
+  }
+}
+@media screen and (max-width: 1140px) {
+  .startUpEvent{
+    margin-top: 700px;
+  }
+}
+@media screen and (max-width: 1140px) {
+  .startUpEvent{
+    margin-top: 700px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .startUpEvent{
+    margin-top: 730px;
+  }
+}
+@media screen and (max-width: 940px) {
+  .startUpEvent{
+    margin-top: 745px;
+  }
 }

@@ -12,7 +12,7 @@ export default function BackToTop() {
   };
   useEffect(() => {
     const handleScroll = () => {
-      setGoToTop(window.scrollY >= 800);
+      setGoToTop(window.scrollY >= 100);
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -21,7 +21,7 @@ export default function BackToTop() {
   }, []);
   return (
     <>
-      {goToTop && <button className="backTop relative" onClick={scrollToTop}>
+      {goToTop && <button className="backTop" onClick={scrollToTop}>
         <ArrowUpOutlined className="absolute top-4 left-4 text-xl" />
       </button>}
     </>

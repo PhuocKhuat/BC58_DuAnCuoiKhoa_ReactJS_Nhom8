@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import {

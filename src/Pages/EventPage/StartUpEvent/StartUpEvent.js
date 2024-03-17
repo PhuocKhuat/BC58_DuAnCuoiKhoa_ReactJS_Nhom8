@@ -31,8 +31,8 @@ export default function StartUpEvent() {
             </p>
           </div>
           <div className="flex mt-3 space-x-4">
-            <Button className="btnParticipate">Participate</Button>
-            <Button className="btnLearnMore">Learn More</Button>
+            <Button className="btnParticipate"><span>Participate</span></Button>
+            <Button className="btnLearnMore"><span>Learn More</span></Button>
           </div>
         </div>
       </div>

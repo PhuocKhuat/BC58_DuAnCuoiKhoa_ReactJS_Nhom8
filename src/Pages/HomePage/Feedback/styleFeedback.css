@@ -14,7 +14,7 @@
 }
 .feedBack .slick-next, .feedBack .slick-prev{
     overflow: hidden;
-    padding: 15px 45px;
+    padding: 15px 45px !important;
     z-index: 90;   
 }
 .feedBack .slick-next:before{   
@@ -55,10 +55,30 @@
 }
 
 /* Responsive */
+@media screen and (max-width: 1200px) {
+    .feedBack{
+        margin-top: 360px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .feedBack{
+        margin-top: 860px;
+    }
+}
+@media screen and (max-width: 920px) {
+    .feedBack{
+        margin-top: 1950px;
+    }
+}
 @media screen and (max-width: 768px) {
     .feedBack .titleFeedBack {
         font-size: 30px;
         line-height: 55px;
+    }
+}
+@media screen and (max-width: 672px) {
+    .feedBack{
+        margin-top: 2050px;
     }
 }
 @media screen and (max-width: 640px) {
@@ -67,3 +87,18 @@
         line-height: 50px;
     }
 }
+@media screen and (max-width: 600px) {
+    .feedBack{
+        margin-top: 1800px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .feedBack {
+      margin-top: 1750px;
+    }
+  }
+@media screen and (max-width: 412px) {
+    .feedBack {
+      margin-top: 1600px;
+    }
+  }
