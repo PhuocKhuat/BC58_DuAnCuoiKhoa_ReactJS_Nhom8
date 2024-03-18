@@ -1,6 +1,6 @@
 .participateObject{
     background: #343754;
-    margin-top: 1500px;
+    margin-top: 1350px;
 }
 .participateObject .titleParticipate{
     font-size: 32px;
@@ -10,11 +10,18 @@
     background: linear-gradient(to right, #227df952, #e0dcff, #df3ef817);
     padding: 25px;
 }
+@media screen and (max-width: 1286px) {
+    .participateObject{
+        margin-top: 1300px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .participateObject{
+        margin-top: 1500px;
+    }
+  }
 @media screen and (max-width: 768px) {
     .participateObject{
-        margin-top: 1850px;
-    }
-    .targetParticipate{
-        margin-top: 2400px;
+        margin-top: 2850px;
     }
 }

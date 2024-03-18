@@ -236,12 +236,11 @@
     width: 2000px;
     max-width: 2000px;
 }
+.detail .coursesOutput input{
+    background: red !important;
+}
 /* Responsive */
 @media screen and (max-width: 1286px) {
-    .coursesOutput .container{
-        /* width: 96% !important;
-        margin: 0; */
-    }
     .detail .coursesOutput .divImgCertificate{
         width: 2000px;
     }
@@ -267,5 +266,49 @@
     .detail .coursesOutput .imgCertificate{
         margin-left: 13vw; 
         height: 540px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .detail .coursesOutput .imgCertificate{
+        margin-left: 8vw; 
+        height: 540px;
+    }
+    .detail .titleNDKHoc{
+        font-size: 32px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .detail .coursesOutput .imgCertificate{
+        margin-left: 1vw; 
+        height: 540px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .detail .coursesOutput .imgCertificate{
+        margin-left: -1vw; 
+        height: 480px;
+    }
+    .detail .titleNDKHoc{
+        font-size: 26px;
+    }
+    .detail .titleDetail{
+        font-size: 25px;
+    }
+    .detail .coursesOutput .courseOutputTitle{
+        font-size: 25px;
+    }
+}
+@media screen and (max-width: 476px) {
+    .detail .btnRegisterCourse{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 430px) {
+    .detail .coursesOutput .imgCertificate{
+        margin-left: -5vw; 
+        height: 450px;
+    }
+    .detail .btnRegisterCourse{
+        font-size: 14px;
     }
 }

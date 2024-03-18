@@ -7,10 +7,10 @@ import { UserOutlined, CheckOutlined } from "@ant-design/icons";
 import "./styleDetail.css";
 import Swal from "sweetalert2";
 import { fetchThongTinTaiKhoan, setAddCourse } from "../../Redux/personalSlice";
-import Project from "./Project";
+import Project from "./Project/Project";
 import { Parallax } from "@react-spring/parallax";
 import Footer from "../../Components/Footer/Footer";
-import CourseOutputs from "./CoursesOutput";
+import CourseOutputs from "./CoursesOutput/CoursesOutput";
 
 export default function DetailPage() {
   const { idKhoaHoc } = useParams();
@@ -57,7 +57,7 @@ export default function DetailPage() {
   };
   return (
     <Parallax>
-      <div className="text-gray-600 body-font detail mt-10">
+      <div className="text-gray-600 body-font detail mt-20">
         <div className="containerDetail">
           <div className="px-5 py-14 mx-auto flex flex-wrap justify-between">
             <div className="flex flex-col flex-wrap  -mb-10 lg:w-1/2 lg:text-left">

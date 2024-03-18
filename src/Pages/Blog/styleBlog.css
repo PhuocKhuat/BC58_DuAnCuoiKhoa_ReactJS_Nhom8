@@ -45,6 +45,10 @@
 }
 .blog .borderFrame{
     height: 485px;
+    transition: all 0.3s;
+}
+.blog .borderFrame:hover{
+    transform: translateY(-30px);
 }
 .blog .bgFrame{
     background: #1c1f26;

@@ -11,16 +11,15 @@
   filter: drop-shadow(5px -3px 5px #000000);
   -webkit-filter: drop-shadow(5px -3px 5px #000000);
   -moz-filter: drop-shadow(5px -3px 5px #000000);
+  position: relative;
+  overflow: hidden;
+  z-index: 299 !important;
 }
 .courseCatalog .btnLearnMores {
   transition: all 0.3s;
 }
 .courseCatalog .btnLearnMores:hover .arrows {
   animation: arrow 1.25s linear 0.25s infinite;
-}
-.courseCatalog .borderCourse {
-  position: relative;
-  overflow: hidden;
 }
 .courseCatalog .borderCourse::before {
   content: "";

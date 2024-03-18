@@ -13,6 +13,10 @@ header div span span span button {
 .formDrawerUserPage{
   display: flex;
 }
+div div div ul li button span svg{
+  position: absolute;
+  bottom: 4px;
+}
 
 /* Responsive */
 @media screen and (max-width: 1286px) {
