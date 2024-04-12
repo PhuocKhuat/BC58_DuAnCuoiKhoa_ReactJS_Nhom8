@@ -3,12 +3,15 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input, message } from "antd";
 import { NavLink, useNavigate } from "react-router-dom";
 import { https } from "../../Services/api";
-import { useDispatch } from "react-redux";
-import { setUser } from "../../Redux/headerSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoginFB, setUser } from "../../Redux/headerSlice";
+import { LoginSocialFacebook } from "reactjs-social-login";
+import { FacebookLoginButton } from "react-social-login-buttons";
 
 const FormLogin = () => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
+  const { profile } = useSelector((state) => state.headerSlice);
   const onFinish = (values) => {
     console.log("Success: ", values);
     https
@@ -89,9 +92,27 @@ const FormLogin = () => {
               htmlType="submit"
               className="login-form-button textLogin"
             >
-              <span className="">Log in</span>
+              <span className="relative bottom-2">Log in</span>
             </Button>
           </Form.Item>
+          {!profile ? (
+            <LoginSocialFacebook
+              appId="1488191668439263"
+              onResolve={(response) => {
+                // console.log("🚀 ~ FormLogin ~ response:", response);
+                dispatch(setLoginFB(response.data));
+                localStorage.setItem("LOGIN_FACEBOOK", JSON.stringify(response.data));
+                navigate("/");
+              }}
+              onReject={(error) => {
+                console.log("🚀 ~ FormLogin ~ error:", error);
+              }}
+            >
+              <FacebookLoginButton />
+            </LoginSocialFacebook>
+          ) : (
+            ""
+          )}
           Or <NavLink to="/signup">register now!</NavLink>
         </Form>
       </div>

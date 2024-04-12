@@ -1,235 +1,287 @@
 /* Header */
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
-.header{
-    height: 60px;
-    position: fixed;
-    width: 100%;
-    z-index: 199;
+.header {
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  z-index: 199;
 }
-.computer{
-    height: 60px;
+.computer {
+  height: 60px;
+  position: relative;
+  bottom: 15px;
+}
+.headerTopWrapper::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to right, #227df9, #7462f9, #df3ef8);
+}
+.headerAbove {
+  padding: 3px 0 9px;
+  z-index: 1000;
+  width: 100% !important;
+  background: white;
+}
+.header .catalogHeader {
+  display: block;
+  height: 35px;
+  transition: all 0.3s;
+  position: relative;
+}
+.header .catalogHeader::after {
+  content: "";
+  background-color: #825df9;
+  width: 0%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all 0.3s;
+  padding: 0 10px;
+  opacity: 0;
+}
+.header .catalogHeader:hover {
+  color: #2f79f9;
+}
+.header .catalogHeader:hover:after {
+  width: 90%;
+  opacity: 1;
+}
+.header .btnLogIn,
+.header .userInfo,
+.header .btnLogOut,
+.header .btnSignUp {
+  transition: all 0.3s;
+}
+.header .btnLogIn:hover,
+.header .userInfo:hover,
+.header .btnLogOut:hover,
+.header .btnSignUp:hover {
+  color: #2f79f9;
+}
+.header
+  :where(.css-dev-only-do-not-override-1qhpsh8).ant-input-search
+  > .ant-input-group
+  > .ant-input-group-addon:last-child
+  .ant-input-search-button {
+  padding: 10px;
+}
+.header .catalogUl {
+  width: 220px !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.3s;
+}
+.header .catalogUl li:hover {
+  scale: 1.1;
+  color: #ce44f8;
+}
+div div nav form span span input {
+  width: 300px !important;
+}
+.header .container {
+  width: 80%;
+  margin: 0 auto;
+}
+.header .logoHeader {
+  margin-top: 42px;
+}
+.header .headerRight {
+  margin-bottom: 54px !important;
+}
+
+/* Header nav */
+.header .nav-btn {
+  font-size: 25px;
+  display: none;
+}
+.header .nav-btn:hover {
+  color: #2f79f9;
+}
+.header .nav-close-btn {
+  display: none;
+}
+
+/* Responsive */
+@media screen and (max-width: 1255px) {
+  .header .headerRight {
     position: relative;
-    bottom: 15px;
+    right: 50px;
+  }
 }
-.headerTopWrapper::after{
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 5px;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(to right, #227df9, #7462f9, #df3ef8);
+@media screen and (max-width: 1200px) {
+  .header .headerRight {
+    position: relative;
+    right: 120px;
+  }
 }
-.headerAbove{
-    padding: 3px 0 9px;
-    z-index: 1000;
-    width: 100% !important;
-    background: white;
+@media screen and (max-width: 1125px) {
+  .header .formHeader {
+    margin-right: 10px;
+  }
+  div div nav form span span input {
+    width: 200px !important;
+  }
 }
-.header .catalogHeader{
+@media only screen and (max-width: 1024px) {
+  .header .nav-btn {
     display: block;
-    height: 35px;
+    margin-top: 48px;
+  }
+  .header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    transition: 1s;
+    transform: translateY(-100vh);
+    background: #000000;
+    opacity: 0.8;
+    z-index: 100;
+  }
+  .header .logoHeader {
+    margin-bottom: 32px;
+  }
+  .header .responsive-nav {
+    transform: none;
+  }
+  .header .nav-close-btn {
+    position: absolute;
+    top: -2rem;
+    right: 2rem;
+    display: block;
+    font-size: 20px;
+    color: red;
+  }
+  .header .formHeader {
+    margin-top: 70px;
+  }
+  div div nav form span span input {
+    width: 92vw !important;
+  }
+  .header .catalogHeaderUser {
+    /* display: block; */
     transition: all 0.3s;
     position: relative;
-}
-.header .catalogHeader::after{
+  }
+  .header .catalogHeaderUser::after {
     content: "";
     background-color: #825df9;
     width: 0%;
     height: 2px;
     position: absolute;
-    bottom: 0; left: 0;
+    bottom: 0;
+    left: 0;
     transition: all 0.3s;
     padding: 0 10px;
     opacity: 0;
-}
-.header .catalogHeader:hover{
+  }
+  .header .catalogHeaderUser:hover {
     color: #2f79f9;
-}
-.header .catalogHeader:hover:after{
-    width: 90%;
+  }
+  .header .catalogHeaderUser:hover:after {
+    width: 98%;
     opacity: 1;
-}
-.header .btnLogIn, .header .userInfo, .header .btnLogOut, .header .btnSignUp{
+  }
+  .header .catalogUl {
+    background: #415a77 !important;
+  }
+  .header .catalogUl {
+    width: auto !important;
+  }
+  .header .headerRight {
+    position: unset;
+    margin-right: 120px;
+  }
+  .header .btnSignUp {
     transition: all 0.3s;
-}
-.header .btnLogIn:hover, .header .userInfo:hover, .header .btnLogOut:hover, .header .btnSignUp:hover{
-    color: #2f79f9;
-}
-.header :where(.css-dev-only-do-not-override-1qhpsh8).ant-input-search >.ant-input-group >.ant-input-group-addon:last-child .ant-input-search-button {
-    padding: 10px;
-}
-.header .catalogUl{
-    width: 220px !important;
-    background: rgba(0, 0, 0, 0.4) !important;
-    transition: all 0.3s;
-}
-.header .catalogUl li:hover{
-    scale: 1.1;
-    color: #ce44f8;
-}
-div div nav form span span input{
-    width: 300px !important;
-}
-.header .container{
-    width: 80%;
-    margin: 0 auto;
-}
-.header .logoHeader{
-    margin-top: 42px;
-}
-.header .headerRight{
-    margin-bottom: 54px !important;
-}
-
-/* Header nav */
-.header .nav-btn{
-    font-size: 25px;
-    display: none;
-}
-.header .nav-btn:hover{
-    color: #2f79f9;
-}
-.header .nav-close-btn{
-    display: none;
-}
-
-/* Responsive */
-@media screen and (max-width: 1255px) {
-    .header .headerRight{
-        position: relative;
-        right: 50px;
-    }
-}
-@media screen and (max-width: 1200px) {
-    .header .headerRight{
-        position: relative;
-        right: 120px;
-    }
-}
-@media screen and (max-width: 1125px) {
-    .header .formHeader{
-        margin-right: 10px;
-    }
-    div div nav form span span input{
-        width: 200px !important;
-    }
-}
-@media only screen and (max-width: 1024px) {
-    .header .nav-btn{
-        display: block;
-        margin-top: 48px;
-    }
-    .header nav{
-        position: fixed;
-        top: 0;
-        left: 0;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-        transition: 1s;
-        transform: translateY(-100vh);
-        background: #000000;
-        opacity: 0.8;
-        z-index: 100;
-    }
-    .header .logoHeader{
-        margin-bottom: 32px;
-    }
-    .header .responsive-nav{
-        transform: none;
-    }
-    .header .nav-close-btn{
-        position: absolute;
-        top: -2rem;
-        right: 2rem;
-        display: block;
-        font-size: 20px;
-        color: red;
-    }
-    .header .formHeader{
-        margin-top: 70px;
-    }
-    div div nav form span span input{
-        width: 92vw !important;
-    }
-    .header .catalogHeaderUser{
-        display: block;
-        transition: all 0.3s;
-        position: relative;
-    }
-    .header .catalogHeaderUser::after{
-        content: "";
-        background-color: #825df9;
-        width: 0%;
-        height: 2px;
-        position: absolute;
-        bottom: 0; left: 0;
-        transition: all 0.3s;
-        padding: 0 10px;
-        opacity: 0;
-    }
-    .header .catalogHeaderUser:hover{
-        color: #2f79f9;
-    }
-    .header .catalogHeaderUser:hover:after{
-        width: 90%;
-        opacity: 1;
-    }
-    .header .catalogUl{
-        background: #415a77 !important;
-    }
-    .header .catalogUl{
-        width: auto !important;
-    }
-    .header .headerRight{
-        position:unset;
-        margin-right: 120px;
-    }
-    .header .btnSignUp{
-        transition: all 0.3s;
-    }
-    .header .btnSignUp:hover{
-        border-bottom: 2px solid black;
-    }
+  }
+  .header .btnSignUp:hover {
+    border-bottom: 2px solid black;
+  }
 }
 @media screen and (max-width: 1000px) {
-    .header .container{
-        width: 98% !important;
-        margin: 0 auto;
-    }
+  .header .container {
+    width: 98% !important;
+    margin: 0 auto;
+  }
 }
 @media screen and (max-width: 800px) {
-    .header .headerRight{
-        position: relative;
-        left: 15px;
-    }
-    div div nav form span span input{
-        width: 88vw !important;
-    }
+  .header .headerRight {
+    position: relative;
+    left: 15px;
+  }
+  div div nav form span span input {
+    width: 88vw !important;
+  }
+  .header .btnLogOut2 {
+    margin-left: 300px;
+  }
+}
+@media screen and (max-width: 736px) {
+  .header .btnLogOut2 {
+    margin-left: 250px;
+  }
 }
 @media screen and (max-width: 700px) {
-    .header .headerRight{
-       margin-right: 55px;
-    }
+  .header .headerRight {
+    margin-right: 55px;
+  }
+  .header .btnLogOut2 {
+    margin-left: 150px;
+  }
+}
+@media screen and (max-width: 605px) {
+  .header .btnLogOut2 {
+    margin-left: 100px;
+  }
 }
 @media screen and (max-width: 575px) {
-    .header .headerRight{
-       margin-right: 34px;
-    }
+  .header .headerRight {
+    margin-right: 34px;
+  }
+  .header .btnLogOut2 {
+    margin-left: 50px;
+  }
+}
+@media screen and (max-width: 510px) {
+  .header .btnLogOut2 {
+    margin-left: 0px;
+  }
 }
 @media screen and (max-width: 480px) {
-    .header .headerRight{
-       margin-right: 20px;
-    }
+  .header .headerRight {
+    margin-right: 20px;
+  }
+  .header .btnLogOut2 {
+    margin-left: -30px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .header .btnLogOut2 {
+    margin-left: -60px;
+  }
 }
 @media screen and (max-width: 400px) {
-    .header .headerRight{
-        margin-right: 0px;
-    }
+  .header .headerRight {
+    margin-right: 0px;
+  }
+  .header .btnLogOut2 {
+    margin-left: -100px;
+  }
 }
+@media screen and (max-width: 370px) {
+    .header .btnLogOut2 {
+      margin-left: -150px;
+    }
+  }

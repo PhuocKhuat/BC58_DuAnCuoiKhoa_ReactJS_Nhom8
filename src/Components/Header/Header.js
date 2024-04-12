@@ -10,7 +10,7 @@ import { setCatalog, setIsHovering } from "../../Redux/headerSlice";
 import { MenuFoldOutlined, CloseOutlined } from "@ant-design/icons";
 
 export default function Header() {
-  const { user, catalog, isHovering } = useSelector(
+  const { user, catalog, isHovering, profile } = useSelector(
     (state) => state.headerSlice
   );
   const navigate = useNavigate();
@@ -22,6 +22,7 @@ export default function Header() {
   const dispatch = useDispatch();
   const navRef = useRef();
   useEffect(() => {
+    console.log("🚀 ~ Header ~ profile:", profile);
     fetchCourseCatalogs();
   }, []);
   const fetchCourseCatalogs = async () => {
@@ -73,7 +74,7 @@ export default function Header() {
           <div>
             <NavLink
               className="flex items-center btnLogOut catalogHeaderUser"
-              onClick={()=>{
+              onClick={() => {
                 handleLogOut();
                 showNavbar();
               }}
@@ -97,12 +98,58 @@ export default function Header() {
           </div>
         </>
       );
+    } else if (profile) {
+        return (
+          <div className="flex catalogHeaderUser relative">
+            <div
+              onClick={() => {
+                navigate("/personalInfo");
+                showNavbar();
+                window.scrollTo(0, 0);
+              }}
+              className="userInfo flex"
+            >
+              <span className="text-sm mt-1 text-blue-400">{profile?.name},</span>
+              <img
+                alt="avatar"
+                src={profile?.picture.data.url}
+                className="ms-3"
+              />
+            </div>
+            <NavLink
+              className="flex items-center btnLogOut btnLogOut2 absolute left-96 ms-96 lg:left-36 lg:mt-4 lg:ms-0"
+              onClick={() => {
+                handleLogOut();
+                showNavbar();
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 me-2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15"
+                />
+              </svg>
+            </NavLink>
+          </div>
+        );
     }
     return (
       <>
-        <NavLink to="/login" className="flex items-center btnLogIn catalogHeaderUser" onClick={()=>{
-          window.scrollTo(0, 0);
-        }}>
+        <NavLink
+          to="/login"
+          className="flex items-center btnLogIn catalogHeaderUser"
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -119,9 +166,13 @@ export default function Header() {
           </svg>
           <p className="md:w-2/3 w-44">Log In</p>
         </NavLink>
-        <NavLink to="/signup" className="flex space-x-2 items-center btnSignUp catalogHeaderUser" onClick={()=>{
-          window.scrollTo(0, 0)
-        }}>
+        <NavLink
+          to="/signup"
+          className="flex space-x-2 items-center btnSignUp catalogHeaderUser"
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -142,7 +193,12 @@ export default function Header() {
     );
   };
   const handleLogOut = () => {
-    localStorage.removeItem("USER_INFO");
+    if(user){
+      localStorage.removeItem("USER_INFO");
+      window.location.reload();
+      return;
+    } 
+    localStorage.removeItem("LOGIN_FACEBOOK");
     window.location.reload();
   };
   const onSearch = async (value) => {
@@ -207,7 +263,9 @@ export default function Header() {
                   dispatch(setIsHovering(false));
                 }}
               >
-                <div className="catalogHeader catalogHover w-full lg:w-20">Category</div>
+                <div className="catalogHeader catalogHover w-full lg:w-20">
+                  Category
+                </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -231,12 +289,20 @@ export default function Header() {
                 </ul>
               </li>
               <li className="h-12 lg:h-0">
-                <NavLink className="catalogHeader" to="/course" onClick={showNavbar}>
+                <NavLink
+                  className="catalogHeader"
+                  to="/course"
+                  onClick={showNavbar}
+                >
                   Course
                 </NavLink>
               </li>
               <li className="h-12 lg:h-0">
-                <NavLink className="catalogHeader" to="/event" onClick={showNavbar}>
+                <NavLink
+                  className="catalogHeader"
+                  to="/event"
+                  onClick={showNavbar}
+                >
                   Event
                 </NavLink>
               </li>
@@ -244,12 +310,12 @@ export default function Header() {
             <div className="block lg:flex space-x-0 lg:space-x-3 items-center lg:ms-3 me-10 lg:me-0 space-y-5 lg:space-y-0 text-lg lg:text-sm w-4/5 lg:w-20 headerRight">
               {renderMenu()}
             </div>
-            <CloseOutlined className="nav-close-btn nav-btn"onClick={showNavbar} />
+            <CloseOutlined
+              className="nav-close-btn nav-btn"
+              onClick={showNavbar}
+            />
           </nav>
-        <MenuFoldOutlined
-          onClick={showNavbar}
-          className="nav-btn"
-        />
+          <MenuFoldOutlined onClick={showNavbar} className="nav-btn" />
         </div>
       </div>
     </div>
