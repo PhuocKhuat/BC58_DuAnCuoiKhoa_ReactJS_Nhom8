@@ -11,6 +11,7 @@ import Project from "./Project/Project";
 import { Parallax } from "@react-spring/parallax";
 import Footer from "../../Components/Footer/Footer";
 import CourseOutputs from "./CoursesOutput/CoursesOutput";
+import PreviewVideo from "./PreviewVideo/PreviewVideo";
 
 export default function DetailPage() {
   const { idKhoaHoc } = useParams();
@@ -359,6 +360,7 @@ export default function DetailPage() {
           </div>
           <Project />
         </div>
+        <PreviewVideo/>
         <CourseOutputs />
         <Footer />
       </div>

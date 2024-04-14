@@ -12,7 +12,7 @@ export default function CourseCatalog() {
         <ParallaxLayer speed={0.25} offset={0}>
           <CourseDetail />
         </ParallaxLayer>
-        <ParallaxLayer speed={0.35}>
+        <ParallaxLayer speed={0.35} className="parallaxPObject">
           <ParticipateObject />
         </ParallaxLayer>
           <TargetParticipate/>

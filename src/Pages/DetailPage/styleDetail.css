@@ -239,6 +239,9 @@
 .detail .coursesOutput input{
     background: red !important;
 }
+.detail .coursesOutput {
+    background: #ffcdb2 !important;
+}
 /* Responsive */
 @media screen and (max-width: 1286px) {
     .detail .coursesOutput .divImgCertificate{

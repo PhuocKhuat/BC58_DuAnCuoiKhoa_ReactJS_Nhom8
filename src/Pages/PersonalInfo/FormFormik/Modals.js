@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Button, Modal } from "antd";
+import { Button } from "antd";
 import { Field, Form, Formik, useFormik } from "formik";
 import { https } from "../../../Services/api";
 import { useDispatch } from "react-redux";
 import { setUpdateForm } from "../../../Redux/personalSlice";
 import { updateValidate } from "../../../Validation/updateValidate";
+import './styleModals.css';
 
 const Modals = ({ infoUser }) => {
   console.log("🚀 ~ Modals ~ infoUser:", infoUser);
@@ -77,7 +78,7 @@ const Modals = ({ infoUser }) => {
       </Button>
       <div
         title="Edit personal information"
-        className="modal fade"
+        className="modal fade editInformation"
         id="exampleModal"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"

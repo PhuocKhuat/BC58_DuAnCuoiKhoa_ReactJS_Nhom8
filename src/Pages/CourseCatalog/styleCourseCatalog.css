@@ -53,3 +53,7 @@
 .courseCatalog .borderCourse:hover:before {
   left: 100%;
 }
+.parallaxPObject{
+  position: relative !important;
+  z-index: 201 !important;
+}

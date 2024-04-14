@@ -1,0 +1,16 @@
+.previewVideo{
+    background-color: #e7c6ff;
+    padding: 90px 0 60px;
+}
+.previewVideo .courseContent{
+    letter-spacing: 2px;
+}
+.previewVideo .sectionCourse{
+    background-color: #FAFAFA;
+}
+.previewVideo .lessonContent{
+    font-size: 18px;
+    padding: 10px;
+    box-shadow: 3px 3px 4px 3px rgba(239,244,190,.27);
+    cursor: pointer;
+}
