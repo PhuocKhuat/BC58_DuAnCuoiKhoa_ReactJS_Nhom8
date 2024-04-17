@@ -8,7 +8,7 @@ import Footer from "../../Components/Footer/Footer";
 export default function CourseCatalog() {
   return (
     <div>
-      <Parallax>
+      <Parallax className="parallaxTargetParticipate">
         <ParallaxLayer speed={0.25} offset={0}>
           <CourseDetail />
         </ParallaxLayer>

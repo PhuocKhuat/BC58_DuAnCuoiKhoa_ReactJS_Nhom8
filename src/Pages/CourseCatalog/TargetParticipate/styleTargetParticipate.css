@@ -33,7 +33,12 @@
     background-image: linear-gradient(90deg, #2d7af9 30%, #a752f8 80%) !important;
 }
 .targetParticipate{
-  margin-top: 1800px;
+  position: relative;
+  bottom: 185px;
+}
+.parallaxTargetParticipate .footer{
+  position: relative;
+  bottom: 185px !important;
 }
 
 /* Responsive */
