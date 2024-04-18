@@ -168,6 +168,86 @@ export default function PreviewVideo() {
             </div>
           </div>
         </div>
+        <div className="courseDetailItem mt-5">
+          <div className="courseDetailContent bg-white">
+            <div className="sectionCourse flex items-center p-3 space-x-5">
+              <span className="uppercase text-lg">
+                Section 3: In-depth knowledge
+              </span>
+            </div>
+            <p className="text-green-900 text-xl px-3 pt-3 pb-0">
+              <CodeOutlined /> Preview Video
+            </p>
+            <div className="lessonContainer p-3">
+            <div
+                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                onClick={showModal}
+              >
+                <span className="space-x-2">
+                  {" "}
+                  <PlayCircleOutlined />
+                  <span>React</span>
+                </span>
+                <span className="space-x-2">
+                  <ClockCircleOutlined /> <span>14:35</span>
+                </span>
+              </div>
+              <div
+                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                onClick={showModal}
+              >
+                <span className="space-x-2">
+                  {" "}
+                  <PlayCircleOutlined />
+                  <span>Props</span>
+                </span>
+                <span className="space-x-2">
+                  <ClockCircleOutlined /> <span>14:35</span>
+                </span>
+              </div>
+              <div
+                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                onClick={showModal}
+              >
+                <span className="space-x-2">
+                  {" "}
+                  <PlayCircleOutlined />
+                  <span>Redux</span>
+                </span>
+                <span className="space-x-2">
+                  <ClockCircleOutlined /> <span>14:35</span>
+                </span>
+              </div>
+              <div
+                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                onClick={showModal}
+              >
+                <span className="space-x-2">
+                  {" "}
+                  <PlayCircleOutlined />
+                  <span>Redux toolkit</span>
+                </span>
+                <span className="space-x-2">
+                  <ClockCircleOutlined /> <span>14:35</span>
+                </span>
+              </div>
+              <div
+                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                onClick={showModal}
+              >
+                <span className="space-x-2">
+                  {" "}
+                  <PlayCircleOutlined />
+                  <span>Redux thunk</span>
+                </span>
+                <span className="space-x-2">
+                  <ClockCircleOutlined /> <span>14:35</span>
+                </span>
+              </div>
+              <VideoJS isModalOpen={isModalOpen} handleCancel={handleCancel} />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
