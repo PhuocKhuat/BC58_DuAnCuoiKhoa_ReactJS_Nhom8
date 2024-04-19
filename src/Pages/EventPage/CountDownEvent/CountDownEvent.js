@@ -9,7 +9,7 @@ export default function CountDownEvent() {
   // console.log("🚀 ~ CountDownEvent ~ timerDays, timerHours, timerMinutes, timerSeconds:", timerDays, timerHours, timerMinutes, timerSeconds)
   const dispatch = useDispatch();
   const startTimer = ()=>{
-    const countDownDate = new Date('March 30, 2024 00:00:00').getTime();
+    const countDownDate = new Date('June 30, 2024 00:00:00').getTime();
     interval = setInterval(()=>{
       const now = new Date().getTime();
       const distance = countDownDate - now;

@@ -9,6 +9,8 @@ import { Checkbox, Tooltip } from "antd";
 import { NavLink } from "react-router-dom";
 import { fetchCoursesList } from "../../Redux/personalSliceThunk";
 import "./styleSearchPage.css";
+import Footer from "../../Components/Footer/Footer";
+import { Parallax } from "@react-spring/parallax";
 
 export default function SearchPage() {
   const { coursesList } = useSelector((state) => state.personalSliceThunk);
@@ -150,7 +152,7 @@ export default function SearchPage() {
           </div>
         </div>
       </NavLink>
-    )) 
+    ));
   };
   const renderFilterCourse = () => {
     return coursesList.map((course, index) => (
@@ -165,45 +167,53 @@ export default function SearchPage() {
   };
 
   return (
-    <div className="searchPage text-gray-600 body-font overflow-hidden mt-14">
-      <div className="container">
-        <div className="grid grid-cols-12">
-          <div className="col-span-3 mt-24">
-            <div className="flex items-center justify-center p-4">
-              <div
-                id="dropdown"
-                className="z-10 w-56 p-3 bg-white rounded-lg shadow dark:bg-gray-700 scrollFilter"
-              >
-                <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl">
-                  Category
-                </h3>
-                <h6 className="mb-3 text-base font-medium text-gray-900 dark:text-white">
-                  Courses
-                </h6>
-                <Checkbox.Group
-                  style={{
-                    width: "100%",
-                  }}
-                  onChange={onChangeFilterCourse}
+    <Parallax>
+      <div className="searchPage text-gray-600 body-font overflow-hidden mt-14">
+        <div className="container">
+          <div className="grid grid-cols-12">
+            <div className="col-span-3 mt-24">
+              <div className="flex items-center justify-center p-4">
+                <div
+                  id="dropdown"
+                  className="z-10 w-56 p-3 bg-white rounded-lg shadow dark:bg-gray-700 scrollFilter"
                 >
-                  <ul
-                    className="space-y-2 text-sm"
-                    aria-labelledby="dropdownDefault"
+                  <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl">
+                    Category
+                  </h3>
+                  <h6 className="mb-3 text-base font-medium text-gray-900 dark:text-white">
+                    Courses
+                  </h6>
+                  <Checkbox.Group
+                    style={{
+                      width: "100%",
+                    }}
+                    onChange={onChangeFilterCourse}
                   >
-                    {renderFilterCourse()}
-                  </ul>
-                </Checkbox.Group>
+                    <ul
+                      className="space-y-2 text-sm"
+                      aria-labelledby="dropdownDefault"
+                    >
+                      {renderFilterCourse()}
+                    </ul>
+                  </Checkbox.Group>
+                </div>
+              </div>
+            </div>
+            <div className="m-5 col-span-9">
+              <h2 className="mb-9 text-xl font-bold">
+                Showing {coursesList.length} results
+              </h2>
+              <div
+                className="overflow-y-scroll"
+                style={{ height: "500px", background: "white" }}
+              >
+                {renderSearchCourseList()}
               </div>
             </div>
           </div>
-          <div
-            className="m-5 col-span-9"
-          >
-            <h2 className="mb-9 text-xl font-bold">Showing {coursesList.length}  results</h2>
-            <div className="overflow-y-scroll" style={{height: "500px", background: "white"}}>{renderSearchCourseList()}</div>
-          </div>
         </div>
+        <Footer />
       </div>
-    </div>
+    </Parallax>
   );
 }

@@ -7,8 +7,9 @@ import {
 } from "../../Redux/personalSlice";
 import { https } from "../../Services/api";
 import Swal from "sweetalert2";
+import { Modal } from "antd";
 
-export default function ModalDelete({ course }) {
+export default function ModalDelete({ course, isModalOpen, handleCancel }) {
   // console.log("🚀 ~ ModalDelete ~ course:", course.maKhoaHoc)
 
   const handleHuyGhiDanh = async (maKhoaHoc) => {
@@ -37,21 +38,20 @@ export default function ModalDelete({ course }) {
 
   const dispatch = useDispatch();
   return (
-    <div
-      className="modal fade modalDelete"
-      id="exampleModal"
-      tabIndex={-1}
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
+    <Modal
+      className="modalDelete"
+      open={isModalOpen}
+      onCancel={handleCancel}
+      footer
     >
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h1 className="modal-title fs-5" id="exampleModalLabel">
-              <ExclamationCircleOutlined />
+      <div>
+        <div>
+          <div>
+            <h1 className="fs-5 ms-48 mb-4">
+              <ExclamationCircleOutlined className="logoInfo"/>
             </h1>
           </div>
-          <div className="modal-body">
+          <div>
             <h1 className="text-center text-3xl font-medium mb-4">
               Are you sure ?
             </h1>
@@ -59,28 +59,28 @@ export default function ModalDelete({ course }) {
               You won't be able to revert this!
             </p>
           </div>
-          <div className="modal-footer">
+          <div className="mt-4 ms-28">
             <button
               type="button"
               className="btn btn-primary btnDeleteCourse"
-              data-bs-dismiss="modal"
               onClick={() => {
                 handleHuyGhiDanh(course.maKhoaHoc);
                 dispatch(setDeleteCourse(course.maKhoaHoc));
+                handleCancel();
               }}
             >
               Yes, delete it !
             </button>
             <button
               type="button"
-              className="btn btn-secondary btnCancelCourses"
-              data-bs-dismiss="modal"
+              className="btn btn-secondary btnCancelCourses ms-2"
+              onClick={handleCancel}
             >
               Cancel
             </button>
           </div>
         </div>
       </div>
-    </div>
+    </Modal>
   );
 }

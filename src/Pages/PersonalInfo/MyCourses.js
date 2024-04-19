@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   FieldTimeOutlined,
   CalendarOutlined,
   BarChartOutlined,
 } from "@ant-design/icons";
-import { Tooltip } from "antd";
+import { Button, Tooltip } from "antd";
 import Search from "antd/es/input/Search";
 import { setSearchForm } from "../../Redux/personalSlice";
 import ModalDelete from "./ModalDelete";
 
 export default function MyCourses() {
   const { coursesList } = useSelector((state) => state.personalSlice);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   const dispatch = useDispatch();
   const renderRegisterCourses = () =>
     coursesList.map((course, index) => (
@@ -124,26 +131,22 @@ export default function MyCourses() {
               <span className="title-font font-medium text-xl text-gray-900">
                 $1.200
               </span>
-              <button
-                className="flex ml-auto text-white border-0 py-2 px-6 focus:outline-none rounded btnCancelCourse"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                Cancel Course
-              </button>
-              <ModalDelete course={course}/>  
+              <Button onClick={showModal} className="flex ml-auto text-white border-0 py-2 px-6 focus:outline-none rounded btnCancelCourse">
+                Cancel course
+              </Button>
+              <ModalDelete course={course} isModalOpen={isModalOpen} handleCancel={handleCancel} />
             </div>
           </div>
         </div>
       </div>
     ));
-    const onSearch = (value) => {
-      // console.log("🚀 ~ onSearch ~ value:", value)
-      dispatch(setSearchForm(value))
-    };
-    const handleSubmit = (e)=>{
-      e.preventDefault();
-    }
+  const onSearch = (value) => {
+    // console.log("🚀 ~ onSearch ~ value:", value)
+    dispatch(setSearchForm(value));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="text-gray-600 body-font overflow-hidden myCourses mt-3">
       <div className="block sm:flex justify-between items-center mb-4">

@@ -4,7 +4,7 @@
   align-items: center;
   padding: 20px 10px;
 }
-.modals .contentModalUser h1{
+.modals .contentModalUser h1 {
   font-size: 20px !important;
   border-bottom: 2px solid #ce44f8 !important;
   background: linear-gradient(
@@ -15,11 +15,15 @@
   color: white;
   font-weight: bold;
 }
-.modals .contentModalUser{
+.modals .contentModalUser {
   position: relative;
-  background: linear-gradient(209.21deg, rgb(58, 161, 183) 13.57%, rgb(41, 48, 208) 98.38%) !important;
+  background: linear-gradient(
+    209.21deg,
+    rgb(58, 161, 183) 13.57%,
+    rgb(41, 48, 208) 98.38%
+  ) !important;
 }
-.modals .btnClose{
+.modals .btnClose {
   background: red !important;
 }
 .modalForm label {
@@ -53,14 +57,14 @@
   left: 220px;
 }
 /* span ok and cancel */
-.modals .ant-btn .css-1qhpsh8 .ant-btn-default span{
+.modals .ant-btn .css-1qhpsh8 .ant-btn-default span {
   position: relative;
   bottom: 6px;
 }
-.modals .ant-btn .css-1qhpsh8 .ant-btn-default:nth-child(1){
+.modals .ant-btn .css-1qhpsh8 .ant-btn-default:nth-child(1) {
   background: blue;
 }
-.modals .ant-btn .css-1qhpsh8 .ant-btn-default:nth-child(2){
+.modals .ant-btn .css-1qhpsh8 .ant-btn-default:nth-child(2) {
   background: red;
 }
 :where(.css-dev-only-do-not-override-1qhpsh8).ant-modal .ant-modal-close-x {
@@ -83,7 +87,7 @@
 .personalInfo .skillBtnHtml {
   background-color: #1677ff;
 }
-.tabsPersonalInfo .tabMyCourse{
+.tabsPersonalInfo .tabMyCourse {
   position: relative;
   z-index: 210;
 }
@@ -150,8 +154,8 @@
 }
 
 /* tabsPersonalInfo */
-.tabsPersonalInfo{
-  margin-top: 95px;
+.tabsPersonalInfo {
+  margin-top: 125px;
 }
 .tabsPersonalInfo:where(.css-dev-only-do-not-override-1qhpsh8).ant-tabs
   .ant-tabs-tab.ant-tabs-tab-active
@@ -229,8 +233,16 @@
   margin-top: 25px;
 }
 .modalDelete svg {
-  font-size: 90px !important;
+  font-size: 20px !important;
+  /* color: #fce2cc !important; */
+  color: white;
+  background-color: red;
+  border: red;
+}
+.modalDelete .logoInfo svg {
   color: #fce2cc !important;
+  background-color: transparent;
+  font-size: 90px !important;
 }
 .modalDelete .btnDeleteCourse {
   padding: 11px 22px !important;
@@ -263,7 +275,7 @@
   }
 }
 @media screen and (max-width: 1193px) {
-  .personalInfo .timeStudy{
+  .personalInfo .timeStudy {
     height: 220px;
   }
 }
@@ -275,7 +287,7 @@
 @media screen and (max-width: 1145px) {
   .personalInfo .borderFrame {
     height: 945px;
-}
+  }
 }
 @media screen and (max-width: 1135px) {
   .personalInfo .ant-progress-inner {
@@ -299,11 +311,11 @@
   }
   .personalInfo .timeStudy {
     height: 268px;
-}
-.modals .btnModals {
-  padding: 20px 10px !important;
-  font-size: 10px;
-}
+  }
+  .modals .btnModals {
+    padding: 20px 10px !important;
+    font-size: 10px;
+  }
 }
 @media screen and (max-width: 920px) {
   .personalInfo .borderFrame {
@@ -323,13 +335,13 @@
 @media screen and (max-width: 805px) {
   .personalInfo .timeStudy {
     height: 306px;
-}
+  }
   .personalInfo .borderFrame {
     height: 1070px !important;
   }
   .personalInfo .timeStudy {
     height: 306px;
-}
+  }
 }
 @media screen and (max-width: 768px) {
   .personalInfo .borderFrame {
@@ -340,14 +352,14 @@
   }
   .personalInfo .timeStudy {
     height: 321px;
-}
-.personalInfo .overYSkills {
-  overflow-y: scroll;
-  height: 400px;
-}
-.modals .btnModals {
-  font-size: 8px;
-}
+  }
+  .personalInfo .overYSkills {
+    overflow-y: scroll;
+    height: 400px;
+  }
+  .modals .btnModals {
+    font-size: 8px;
+  }
 }
 @media screen and (max-width: 640px) {
   .personalInfo .borderFrame {
@@ -398,10 +410,10 @@
   }
   .personalInfo .borderFrame {
     height: 1400px !important;
-}
-.personalInfo .allInfo{
-  @apply block overflow-y-scroll h-28
-}
+  }
+  .personalInfo .allInfo {
+    @apply block overflow-y-scroll h-28;
+  }
 }
 @media screen and (max-width: 460px) {
   .personalInfo .ant-progress-inner {
@@ -420,9 +432,9 @@
     height: 230px;
   }
 }
-@media screen and (max-width: 415px){
+@media screen and (max-width: 415px) {
   .personalInfo .borderFrame {
-      height: 1300px !important;
+    height: 1300px !important;
   }
 }
 @media screen and (max-width: 390px) {
