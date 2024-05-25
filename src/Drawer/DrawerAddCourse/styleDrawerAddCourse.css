@@ -18,3 +18,7 @@
 span span span button {
   padding: 10px !important;
 }
+.spanAdd{
+  position: relative;
+  bottom: 8px !important;
+}

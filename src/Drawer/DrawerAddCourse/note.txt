@@ -356,3 +356,7 @@ const DrawerAddCourse = () => {
   );
 };
 export default DrawerAddCourse;
+
+// console.log("🚀 ~ handleDatePicker ~ date:", date.toString());
+    // console.log("🚀 ~ handleEditCourse ~ values.ngayTao:", moment(values.ngayTao).format('DD/MM/YYYY'));
+    // values.ngayTao = moment(values.ngayTao).format('DD/MM/YYYY');

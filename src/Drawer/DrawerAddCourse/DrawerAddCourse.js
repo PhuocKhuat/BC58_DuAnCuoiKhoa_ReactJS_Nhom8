@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { PlusOutlined } from "@ant-design/icons";
 import { Button, Drawer, Form, Space, message } from "antd";
 import "./styleDrawerAddCourse.css";
 import { Field, Formik, useFormik } from "formik";
@@ -7,8 +6,9 @@ import ReactDatePicker from "react-datepicker";
 import moment from "moment";
 import { courseValidation } from "../../Validation/courseValidation";
 import { https } from "../../Services/api";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchCoursesList } from "../../Redux/personalSliceThunk";
+import { setImage } from "../../Redux/adminCourseSlice";
 
 const saveFormAddCourse = () => {
   const storeAddCourse = localStorage.getItem("FORM_ADD_COURSE");
@@ -22,7 +22,7 @@ const saveFormAddCourse = () => {
     luotXem: 0,
     danhGia: 0,
     moTa: "",
-    hinhAnh: "",
+    hinhAnh: {},
     maNhom: "",
     ngayTao: "",
     maDanhMucKhoaHoc: "",
@@ -39,52 +39,119 @@ const saveErrorAddCourse = () => {
 
 const DrawerAddCourse = () => {
   const [open, setOpen] = useState(false);
+
   const [startDate, setStartDate] = useState(new Date());
-  const { handleChange, values, handleSubmit, errors } = useFormik({
-    initialValues: saveFormAddCourse(),
+
+  const dispatch = useDispatch();
+
+  const { image } = useSelector((state) => state.adminCourseSlice);
+  console.log("🚀 ~ DrawerAddCourse ~ image:", image);
+
+  const initialValues = {
+    maKhoaHoc: "",
+    biDanh: "",
+    tenKhoaHoc: "",
+    luotXem: 0,
+    danhGia: 0,
+    moTa: "",
+    hinhAnh: {},
+    maNhom: "",
+    ngayTao: "",
+    maDanhMucKhoaHoc: "",
+    taiKhoanNguoiTao: "",
+  };
+
+  const {
+    handleChange,
+    values,
+    handleSubmit,
+    errors,
+    handleBlur,
+    resetForm,
+    setFieldValue,
+  } = useFormik({
+    initialValues: initialValues && saveFormAddCourse(),
     validationSchema: courseValidation,
     initialErrors: saveErrorAddCourse(),
     onSubmit: (values) => {
       console.log("values", values);
-      // console.log("🚀 ~ handleEditCourse ~ values.ngayTao:", moment(values.ngayTao).format('DD/MM/YYYY'));
     },
   });
-  const dispatch = useDispatch();
-  const handleAddCourse = (course) => {
-    https
-      .post("/api/QuanLyKhoaHoc/ThemKhoaHoc", course)
-      .then((res) => {
-        console.log(res);
-        message.success("Add course successfully");
-        dispatch(fetchCoursesList());
-        setOpen(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        message.error(err.response.data);
-      });
-  };
+
   React.useEffect(() => {
     localStorage.setItem("FORM_ADD_COURSE", JSON.stringify(values));
   }, [values]);
   React.useEffect(() => {
     localStorage.setItem("ERROR_ADD_COURSE", JSON.stringify(errors));
   }, [errors]);
+
   const showDrawer = () => {
     setOpen(true);
   };
+
   const onClose = () => {
     setOpen(false);
   };
+
   const handleDatePicker = (date) => {
     handleChange({
       target: { name: "ngayTao", value: moment(date).format("DD/MM/YYYY") },
     });
-    // console.log("🚀 ~ handleDatePicker ~ date:", date.toString());
-    // console.log("🚀 ~ handleEditCourse ~ values.ngayTao:", moment(values.ngayTao).format('DD/MM/YYYY'));
-    // values.ngayTao = moment(values.ngayTao).format('DD/MM/YYYY');
     return setStartDate(date);
   };
+
+  const handleAddCourse = async (course) => {
+    console.log("🚀 ~ handleAddCourse ~ course:", course);
+    if (course.hinhAnh.name) {
+      const formData = new FormData();
+      for (let key in course) {
+        if (key !== "hinhAnh") {
+          formData.append(key, course[key]);
+        } else {
+          formData.append("hinhAnh", course.hinhAnh, course.hinhAnh.name);
+        }
+        console.log(formData.get("moTa"));
+      }
+
+      try {
+        await https.post("/api/QuanLyKhoaHoc/ThemKhoaHocUploadHinh", formData);
+        dispatch(fetchCoursesList());
+        setOpen(false);
+        message.success("Add course successfully");
+      } catch (error) {
+        console.log("🚀 ~ handleAddImage ~ error:", error);
+        message.error(error.response.data);
+      }
+      return;
+    }
+    try {
+      await https.post("/api/QuanLyKhoaHoc/ThemKhoaHoc", course);
+      message.success("Add course successfully");
+      dispatch(fetchCoursesList());
+      setOpen(false);
+    } catch (error) {
+      console.log("🚀 ~ handleAddCourse ~ error:", error);
+      message.error(error.response.data);
+    }
+  };
+
+  const handleChangeImage = (e) => {
+    const file = e.target.files[0];
+
+    const reader = new FileReader();
+
+    reader.readAsDataURL(file);
+    reader.onload = (e) => {
+      dispatch(
+        setImage({
+          file,
+          url: e.target.result,
+        })
+      );
+      setFieldValue("hinhAnh", file);
+    };
+  };
+
   return (
     <div className="drawerAddCourse mb-3">
       <Button type="primary" onClick={showDrawer} className="mt-3">
@@ -115,13 +182,16 @@ const DrawerAddCourse = () => {
             errors.maDanhMucKhoaHoc ||
             errors.taiKhoanNguoiTao ? (
               <Button disabled type="primary" className="btnNotAllowed">
-                Add
+                <span className="spanAdd">Add</span>
               </Button>
             ) : (
-              <Button type="primary" onClick={()=>{
-                handleAddCourse(values)
-              }}>
-                Add
+              <Button
+                type="primary"
+                onClick={() => {
+                  handleAddCourse(values);
+                }}
+              >
+                <span className="spanAdd">Add</span>
               </Button>
             )}
           </Space>
@@ -143,6 +213,7 @@ const DrawerAddCourse = () => {
                     className="fieldInput"
                     value={values.maKhoaHoc}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     placeholder="Please enter the code course"
                   />
                   {errors.maKhoaHoc && (
@@ -157,6 +228,7 @@ const DrawerAddCourse = () => {
                     className="fieldInput"
                     value={values.biDanh}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     placeholder="Please enter the aliases course"
                   />
                   {errors.biDanh && (
@@ -171,6 +243,7 @@ const DrawerAddCourse = () => {
                     className="fieldInput"
                     value={values.tenKhoaHoc}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     placeholder="Please enter the course name"
                   />
                   {errors.tenKhoaHoc && (
@@ -185,6 +258,7 @@ const DrawerAddCourse = () => {
                     className="fieldInput"
                     value={values.luotXem}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     placeholder="Please enter views"
                   />
                   {errors.luotXem && (
@@ -214,6 +288,7 @@ const DrawerAddCourse = () => {
                     className="fieldInput"
                     value={values.danhGia}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     placeholder="Please enter the image course"
                   />
                   {errors.danhGia && (
@@ -222,12 +297,15 @@ const DrawerAddCourse = () => {
                 </div>
                 <div className="flex flex-col space-y-3">
                   <label>Image</label>
-                  <Field
+                  <img alt="course-img" src={image.url} className="w-50" />
+                  <input
                     name="hinhAnh"
-                    type="text"
+                    type="file"
                     className="fieldInput"
-                    value={values.hinhAnh}
-                    onChange={handleChange}
+                    accept="image/jpg,image/png,image/jpeg"
+                    onChange={handleChangeImage}
+                    onClick={(e) => e.stopPropagation()}
+                    onBlur={handleBlur}
                     placeholder="Please enter the image course"
                   />
                   {errors.hinhAnh && (
@@ -242,6 +320,7 @@ const DrawerAddCourse = () => {
                     className="fieldInput h-9"
                     value={values.maNhom}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     placeholder="Please enter the course code"
                   >
                     <option>GP01</option>
@@ -264,6 +343,7 @@ const DrawerAddCourse = () => {
                     as="select"
                     value={values.maDanhMucKhoaHoc}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     placeholder="Please enter the course code"
                   >
                     <option>BackEnd</option>
@@ -282,6 +362,7 @@ const DrawerAddCourse = () => {
                     as="select"
                     value={values.taiKhoanNguoiTao}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     placeholder="Please enter the course code"
                   >
                     <option>DuyAdmin22</option>
@@ -305,6 +386,7 @@ const DrawerAddCourse = () => {
                 className="fieldInput form-textarea"
                 value={values.moTa}
                 onChange={handleChange}
+                onBlur={handleBlur}
                 placeholder="Please enter the description course"
               />
               {errors.moTa && <p className="text-red-500">{errors.moTa}</p>}

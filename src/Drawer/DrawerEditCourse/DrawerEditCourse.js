@@ -21,33 +21,22 @@ const DrawerEditCourse = ({ editCourse }) => {
     course && setCourseUpdate(course);
   };
   const [thumb, setThumb] = useState(courseUpdate.hinhAnh);
-  const initialValues = {
-    maKhoaHoc: "",
-    biDanh: "",
-    tenKhoaHoc: "",
-    luotXem: 0,
-    moTa: "",
-    hinhAnh: {},
-    maNhom: "",
-    ngayTao: "",
-    maDanhMucKhoaHoc: "",
-    taiKhoanNguoiTao: "",
-  };
+
   const handleUpdateImage = async (values) => {
     console.log("🚀 ~ handleUpdateImage ~ values:", values);
     if (values.hinhAnh.name) {
       let formData = new FormData();
       for (let key in values) {
+        console.log("🚀 ~ handleUpdateImage ~ key:", key)
         if (key !== "hinhAnh") {
           formData.append(key, values[key]);
         } else {
           formData.append("hinhAnh", values.hinhAnh, values.hinhAnh.name);
         }
-        console.log(formData.get("moTa"));
       }
       try {
         console.log(formData.get("hinhAnh"));
-        let result = await https.post(
+        const result = await https.post(
           "/api/QuanLyKhoaHoc/CapNhatKhoaHocUpload",
           formData
         );
@@ -55,12 +44,14 @@ const DrawerEditCourse = ({ editCourse }) => {
           resetForm();
           dispatch(fetchCoursesList());
           setOpen(false);
-          message.success("Update successfully");
+          message.success("Update course successfully");
         }
       } catch (error) {
         console.log("🚀 ~ handleUpdateImage ~ error:", error);
         message.error(error.response.data);
       }
+        console.log("🚀 ~ handleUpdateImage ~ formData:", formData)
+    
     } else {
       try {
         let result = await https.put(
@@ -78,6 +69,20 @@ const DrawerEditCourse = ({ editCourse }) => {
       }
     }
   };
+
+  const initialValues = {
+    maKhoaHoc: "",
+    biDanh: "",
+    tenKhoaHoc: "",
+    luotXem: 0,
+    moTa: "",
+    hinhAnh: {},
+    maNhom: "",
+    ngayTao: "",
+    maDanhMucKhoaHoc: "",
+    taiKhoanNguoiTao: "",
+  };
+
   const {
     handleChange,
     values,
@@ -96,7 +101,6 @@ const DrawerEditCourse = ({ editCourse }) => {
   });
   const dispatch = useDispatch();
   useEffect(() => {
-    setThumb(courseUpdate.hinhAnh);
     setValues({
       maKhoaHoc: courseUpdate.maKhoaHoc,
       biDanh: courseUpdate.biDanh,
@@ -125,6 +129,17 @@ const DrawerEditCourse = ({ editCourse }) => {
       target: { name: "ngayTao", value: moment(date).format("DD/MM/YYYY") },
     });
     return setStartDate(date);
+  };
+
+  const handleChangeImage = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (e) => {
+      setThumb(e.target.result);
+      setFieldValue("hinhAnh", file);
+      // console.log(values.hinhAnh);
+    };
   };
 
   return (
@@ -165,7 +180,7 @@ const DrawerEditCourse = ({ editCourse }) => {
                   handleUpdateImage(values);
                 }}
               >
-                Update
+                <span className="relative bottom-2">Update</span>
               </Button>
             )}
           </Space>
@@ -268,16 +283,7 @@ const DrawerEditCourse = ({ editCourse }) => {
                     accept="image/jpg,image/png,image/jpeg"
                     className="fieldInput"
                     onClick={(e) => e.stopPropagation()}
-                    onChange={(e) => {
-                      let file = e.target.files[0];
-                      console.log("🚀 ~ DrawerEditCourse ~ file:", file);
-                      let reader = new FileReader();
-                      reader.readAsDataURL(file);
-                      reader.onload = (e) => {
-                        setThumb(e.target.result);
-                      };
-                      setFieldValue("hinhAnh", file);
-                    }}
+                    onChange={handleChangeImage}
                     onBlur={handleBlur}
                     placeholder="Please enter the image course"
                   />

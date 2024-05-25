@@ -19,6 +19,7 @@ import courseSlice from './Redux/courseSlice';
 import userRegistrationSlice from './Redux/userRegistrationSlice';
 import courseRegistrationSlice from './Redux/courseRegistrationSlice';
 import countDownEventSlice from './Redux/countDownEventSlice';
+import adminCourseSlice from './Redux/adminCourseSlice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export const store = configureStore({reducer:{
@@ -34,6 +35,7 @@ export const store = configureStore({reducer:{
   userRegistrationSlice,
   courseRegistrationSlice,
   countDownEventSlice,
+  adminCourseSlice
 }})
 root.render(
   <Provider store={store}>

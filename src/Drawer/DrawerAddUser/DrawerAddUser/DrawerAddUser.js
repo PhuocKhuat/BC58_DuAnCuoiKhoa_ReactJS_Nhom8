@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { PlusOutlined } from "@ant-design/icons";
 import { Button, Drawer, Space, message } from "antd";
 import "./styleDrawerAddUser.css";
 import { Formik, Form, Field, useFormik } from "formik";
@@ -90,14 +89,14 @@ const DrawerAddUser = () => {
               className="btnNotAllowed"
               type="primary"
             >
-              Add
+              <span className="spanAdd">Add</span>
             </Button> : <Button
               onClick={() => {
                 handleAddUser(values);
               }}
               type="primary"
             >
-              Add
+              <span className="spanAdd">Add</span>
             </Button>}
           </Space>
         }

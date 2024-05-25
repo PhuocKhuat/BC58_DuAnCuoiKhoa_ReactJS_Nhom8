@@ -21,6 +21,9 @@
     font-size: 35px;
     line-height: 68px;
 }
+.statistic{
+    margin-top: 300px;
+}
 @media screen and (max-width: 1200px) {
     .statistic{
         margin-top: 270px;

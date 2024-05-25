@@ -68,3 +68,7 @@ div div div div div div div div:nth-child(2) button{
 .btnNotAllowed{
   @apply cursor-not-allowed text-white font-bold uppercase text-xs rounded-3xl
 }
+.spanAdd{
+  position: relative;
+  bottom: 8px !important;
+}

@@ -6,7 +6,11 @@
 .overview .imgHighlight{
     border: 4px dashed #cf44f8 !important;
     transition: all 0.3s;
+    height: 40vh;
     background: radial-gradient(#eb2f96, transparent);
+}
+.overview .imgHighlight2{
+    margin-top: 30px !important;
 }
 .overview .imgHighlight:hover{
     transform: translateY(-40px);
@@ -17,6 +21,7 @@
 .overview .catalogHighlight:hover{
     color: #6366f1;
     background-color: white;
+    border-radius: 20px;
 }
 
 /* Responsive */
@@ -27,7 +32,7 @@
 }
 @media screen and (max-width: 1200px) {
     .overview{
-        margin-top: 300px;
+        margin-top: 20px;
     }
 }
 @media screen and (max-width: 1000px) {
@@ -35,28 +40,21 @@
         width: 98% !important;
         margin: 0;
     }
-    .overview{
-        margin-top: 350px;
-    }
 }
 @media screen and (max-width: 776px) {
     .overview .titleHighlight {
         font-size: 30px;
     }
 }
-@media screen and (max-width: 672px) {
-    .overview{
-        margin-top: 300px;
-    }
-}
+
 @media screen and (max-width: 640px) {
     .overview .titleHighlight {
         font-size: 25px;
     }
 }
 @media screen and (max-width: 600px) {
-    .overview{
-        margin-top: 200px;
+    .overview .container{
+        padding-top: 0px;
     }
 }
 @media screen and (max-width: 500px) {
