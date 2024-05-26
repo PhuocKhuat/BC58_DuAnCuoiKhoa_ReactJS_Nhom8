@@ -40,7 +40,7 @@ export default function Feedback() {
                   <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6" />
                   <div className="flex justify-center items-center space-x-5">
                     <img
-                      src="/img/student1.jpg"
+                      src="/img/common-student-1.jpg"
                       alt="hocVien"
                       className="imgFeedBack"
                     />
@@ -76,7 +76,7 @@ export default function Feedback() {
                   <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6" />
                   <div className="flex justify-center items-center space-x-5">
                     <img
-                      src="/img/student2.jpg"
+                      src="/img/common-student-2.jpg"
                       alt="hocVien"
                       className="imgFeedBack"
                     />
@@ -112,7 +112,7 @@ export default function Feedback() {
                   <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6" />
                   <div className="flex justify-center items-center space-x-5">
                     <img
-                      src="/img/student3.jpg"
+                      src="/img/common-student-3.jpg"
                       alt="hocVien"
                       className="imgFeedBack"
                     />
@@ -148,7 +148,7 @@ export default function Feedback() {
                   <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6" />
                   <div className="flex justify-center items-center space-x-5">
                     <img
-                      src="/img/student4.jpg"
+                      src="/img/common-student-4.jpg"
                       alt="hocVien"
                       className="imgFeedBack"
                     />
@@ -184,7 +184,7 @@ export default function Feedback() {
                   <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6" />
                   <div className="flex justify-center items-center space-x-5">
                     <img
-                      src="/img/student5.jpg"
+                      src="/img/common-student-5.jpg"
                       alt="hocVien"
                       className="imgFeedBack"
                     />
@@ -220,7 +220,7 @@ export default function Feedback() {
                   <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6" />
                   <div className="flex justify-center items-center space-x-5">
                     <img
-                      src="/img/student6.jpg"
+                      src="/img/common-student-6.jpg"
                       alt="hocVien"
                       className="imgFeedBack"
                     />
@@ -256,7 +256,7 @@ export default function Feedback() {
                   <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6" />
                   <div className="flex justify-center items-center space-x-5">
                     <img
-                      src="/img/student7.jpg"
+                      src="/img/common-student-7.jpg"
                       alt="hocVien"
                       className="imgFeedBack"
                     />
@@ -292,7 +292,7 @@ export default function Feedback() {
                   <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6" />
                   <div className="flex justify-center items-center space-x-5">
                     <img
-                      src="/img/student8.jpg"
+                      src="/img/common-student-8.jpg"
                       alt="hocVien"
                       className="imgFeedBack"
                     />

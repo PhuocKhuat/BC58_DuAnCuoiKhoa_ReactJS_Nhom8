@@ -1,170 +1,182 @@
 /* CourseList */
-.courseList{
-    background: #505170;
-    padding: 74px 0 90px;
-    margin-top: 1270px;
+.courseList {
+  background: #505170;
+  padding: 74px 0 90px;
+  margin-top: 1330px;
 }
-.courseList .bgCourseList{
-    background: white;
-    border-radius: 10px;
-    overflow-y: scroll;
-    height: 1020px;
+.courseList .bgCourseList {
+  background: white;
+  border-radius: 10px;
+  overflow-y: scroll;
+  height: 1020px;
 }
-.courseList .bgCourse{
-    background: #272634;
-    border-radius: 10px 10px 0 0;
-    padding: 30px;
-    font-size: 25px;
-    line-height: 35px;
+.courseList .bgCourse {
+  background: #272634;
+  border-radius: 10px 10px 0 0;
+  padding: 30px;
+  font-size: 25px;
+  line-height: 35px;
 }
-.courseList .exploreTitle{
-    font-size: 35px;
-    line-height: 50px;
+.courseList .exploreTitle {
+  font-size: 35px;
+  line-height: 50px;
 }
-.courseList .courseDesc{
-    margin-top: 30px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid gray;
+.courseList .courseDesc {
+  margin-top: 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
 }
-.courseList .courseMoTa{
-    color: #989898 !important;
+.courseList .courseMoTa {
+  color: #989898 !important;
 }
 
-.courseList .btnLearnMore{
-    transition: all 0.3s;
+.courseList .btnLearnMore {
+  transition: all 0.3s;
 }
-.courseList .btnLearnMore:hover .arrow{
-    animation: arrow 1.25s linear 0.25s infinite; 
-    /* animation: name duration timing-function delay iteration-count direction fill-mode;  */
+.courseList .btnLearnMore:hover .arrow {
+  animation: arrow 1.25s linear 0.25s infinite;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode;  */
 }
 @keyframes arrow {
-    50% {transform: translateX(20px); opacity: 0;}
-    100% {opacity: 0;}
+  50% {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-.courseList .divImgPopular{
-    width: 370px;
-    height: 70px;
-    padding: 20px;
-    border-radius: 50%;
+.courseList .divImgPopular {
+  width: 370px;
+  height: 70px;
+  padding: 20px;
+  border-radius: 50%;
 }
-.courseList .imgPopular{
-    width: 35px;
-    height: 35px;
-    object-fit: cover;
+.courseList .imgPopular {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
 }
-.courseList .popular{
-    position: absolute;
-    left: -7px;
-    top: 5px;
-    background-color: red;
-    font-weight: bold;
-    width: 85px;
-    height: 30px;
-    padding: 5px 8px 4px;
-    color: white;
-    text-transform: uppercase;
+.courseList .popular {
+  position: absolute;
+  left: -7px;
+  top: 5px;
+  background-color: red;
+  font-weight: bold;
+  width: 85px;
+  height: 30px;
+  padding: 5px 8px 4px;
+  color: white;
+  text-transform: uppercase;
 }
-.courseList .hoverBorder{
-    transition: all 0.25s;
-    width: 120%;
-    background: rgb(184, 179, 179);
-    color: black !important;
+.courseList .hoverBorder {
+  transition: all 0.25s;
+  width: 120%;
+  background: rgb(184, 179, 179);
+  color: black !important;
 }
-.courseList .hoverBorder:hover{
-    border: 1.5px solid #d043f8 !important;
+.courseList .hoverBorder:hover {
+  border: 1.5px solid #d043f8 !important;
 }
-.courseList .popular::before{
-    content: "";
-    left: 2px;
-    bottom: -10px;
-    position: absolute;
-    border-bottom: 10px solid transparent;
-    border-right: 5px solid red;
+.courseList .popular::before {
+  content: "";
+  left: 2px;
+  bottom: -10px;
+  position: absolute;
+  border-bottom: 10px solid transparent;
+  border-right: 5px solid red;
 }
-.courseList .popular::after{
-    top: 0;
-    right: -12px;
-    border-color: red transparent;
-    border-style: solid;
-    border-width: 15px 12px 15px 0;
-    content: "";
-    position: absolute;
+.courseList .popular::after {
+  top: 0;
+  right: -12px;
+  border-color: red transparent;
+  border-style: solid;
+  border-width: 15px 12px 15px 0;
+  content: "";
+  position: absolute;
 }
 
 /* Responsive */
 @media screen and (max-width: 1280px) {
-    .courseList .hoverBorder{
-        width: 175%;
-    }
+  .courseList .hoverBorder {
+    width: 175%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .courseList {
+    margin-top: 1400px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .courseList {
+    margin-top: 1900px;
+  }
 }
 @media screen and (max-width: 1000px) {
-    .courseList .container{
-        width: 94%;
-        margin: 0;
-    }
-    .courseList .hoverBorder{
-        width: 37vw;
-    }
-    .courseList{
-        margin-top: 1650px;
-    }
+  .courseList .container {
+    width: 94%;
+    margin: 0;
+  }
+  .courseList .hoverBorder {
+    width: 37vw;
+  }
 }
 @media screen and (max-width: 920px) {
-    .courseList .hoverBorder {
-        width: 34vw;
-    }
-    .courseList .frameCourse{
-        grid-template-columns: auto auto;
-    }
-    .courseList .bgCourseList {
-        width: 93vw;
-        margin-bottom: 15px;
-    }
-    .courseList .hoverBorder {
-        width: 85vw;
-    }
-    .courseList .divImgPopular {
-        width: 150px;
-    }
-    .courseList .paddingPopularCourse{
-        padding: 10px !important;
-    }
+  .courseList .hoverBorder {
+    width: 34vw;
+  }
+  .courseList .frameCourse {
+    grid-template-columns: auto auto;
+  }
+  .courseList .bgCourseList {
+    width: 93vw;
+    margin-bottom: 15px;
+  }
+  .courseList .hoverBorder {
+    width: 85vw;
+  }
+  .courseList .divImgPopular {
+    width: 150px;
+  }
+  .courseList .paddingPopularCourse {
+    padding: 10px !important;
+  }
 }
 @media screen and (max-width: 768px) {
-    .courseList .exploreTitle {
-        font-size: 30px;
-        line-height: 55px;
-    }
-}
-@media screen and (max-width: 672px) {
-    .courseList{
-        margin-top: 1770px;
-    }
+  .courseList .exploreTitle {
+    font-size: 30px;
+    line-height: 55px;
+  }
+  .courseList {
+    margin-top: 2000px;
+  }
 }
 @media screen and (max-width: 640px) {
-    .courseList .exploreTitle {
-        font-size: 25px;
-        line-height: 50px;
-    }
-    .courseList .bgCourseList {
-        width: 90vw;
-    }
-}
-@media screen and (max-width: 600px) {
-    .courseList{
-        margin-top: 1630px;
-    }
+  .courseList .exploreTitle {
+    font-size: 25px;
+    line-height: 50px;
+  }
+  .courseList .bgCourseList {
+    width: 90vw;
+  }
 }
 @media screen and (max-width: 500px) {
-    .courseList .hoverBorder {
-        width: 81vw;
-    }
+  .courseList .hoverBorder {
+    width: 81vw;
+  }
 }
 @media screen and (max-width: 499px) {
-    .courseList{
-        margin-top: 1700px;
-    }
+  .courseList {
+    margin-top: 2100px;
+  }
 }
-@media screen and (max-width: 455px) {
-    
+@media screen and (max-width: 400px) {
+  .courseList {
+    margin-top: 2150px;
+  }
+}
+@media screen and (max-width: 330px) {
+  .courseList {
+    margin-top: 2250px;
+  }
 }

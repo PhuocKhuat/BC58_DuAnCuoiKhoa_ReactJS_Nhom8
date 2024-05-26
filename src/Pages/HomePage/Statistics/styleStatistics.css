@@ -1,70 +1,86 @@
-.boxNumberColor{
-    padding: 74px 0 90px;
-    background:  #f0fff0;
+.boxNumberColor {
+  padding: 74px 0 90px;
+  background: #f0fff0;
 }
-.statistic .boxNumber{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.statistic .boxNumber {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.statistic .imgStatistical{
-    height: 80px !important;
-    width: 80px !important;
+.statistic .imgStatistical {
+  height: 100px !important;
+  width: 100px !important;
+  border-radius: 50%;
+  line-height: 100px;
 }
 .statistic .textNumber {
-    font-family: fontNumber;
-    color: #7b5ff9;
-    font-size: 50px;
-    font-weight: bold;
+  font-family: fontNumber;
+  color: #7b5ff9;
+  font-size: 50px;
+  font-weight: bold;
 }
-.statistic .titleStatistic{
-    font-size: 35px;
-    line-height: 68px;
+.statistic .titleStatistic {
+  font-size: 35px;
+  line-height: 68px;
 }
-.statistic{
-    margin-top: 300px;
+.statistic {
+  margin-top: 300px;
 }
 @media screen and (max-width: 1200px) {
-    .statistic{
-        margin-top: 270px;
-    }
+  .statistic {
+    margin-top: 370px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .statistic {
+    margin-top: 1000px;
+  }
 }
 @media screen and (max-width: 1000px) {
-    .statistic .container{
-        width: 98%;
-        margin: 0;
-    }
-    .statistic{
-        margin-top: 850px;
-    }
+  .statistic .container {
+    width: 98%;
+    margin: 0;
+  }
 }
 @media screen and (max-width: 768px) {
-    .statistic .titleStatistic {
-        font-size: 30px;
-        line-height: 55px;
-    }
-}
-@media screen and (max-width: 672px) {
-    .statistic{
-        margin-top: 750px;
-    }
+  .statistic .titleStatistic {
+    font-size: 30px;
+    line-height: 55px;
+  }
 }
 @media screen and (max-width: 640px) {
-    .statistic .titleStatistic {
-        font-size: 25px;
-        line-height: 50px;
-    }
+  .statistic .titleStatistic {
+    font-size: 25px;
+    line-height: 50px;
+  }
 }
 @media screen and (max-width: 600px) {
-    .statistic{
-        margin-top: 550px;
-    }
+  .statistic {
+    margin-top: 700px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .statistic {
+    margin-top: 800px;
+  }
 }
 @media screen and (max-width: 500px) {
-    .statistic .titleStatistic {
-        line-height: 45px;
-    }
-    .statistic {
-        margin-top: 300px;
-      }
+  .statistic .titleStatistic {
+    line-height: 45px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .statistic {
+    margin-top: 850px;
+  }
+}
+@media screen and (max-width: 370px) {
+  .statistic {
+    margin-top: 900px;
+  }
+}
+@media screen and (max-width: 330px) {
+  .statistic {
+    margin-top: 950px;
+  }
 }

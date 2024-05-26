@@ -1,20 +1,26 @@
 .course .bgCourseList:nth-child(1) {
   background: #1778ff;
+  opacity: 0.7;
 }
 .course .bgCourseList:nth-child(2) {
   background: #ff4560;
+  opacity: 0.7;
 }
 .course .bgCourseList:nth-child(3) {
   background: #feb424;
+  opacity: 0.7;
 }
 .course .bgCourseList:nth-child(4) {
   background: #00e396;
+  opacity: 0.7;
 }
 .course .bgCourseList:nth-child(5) {
   background: #785ed0;
+  opacity: 0.7;
 }
 .course .bgCourseList:nth-child(6) {
   background: #dc3ff8;
+  opacity: 0.7;
 }
 .courseOfPage {
   background: white;
@@ -23,7 +29,6 @@
 .courseOfPage .frameCourse {
   position: relative;
   overflow: hidden;
-
 }
 .courseOfPage .frameCourse:hover {
   background: #f0f4fa;
@@ -49,6 +54,10 @@
 }
 .course{
   margin-top: 30px;
+  background-image: url("../../../img/teamwork.jpg");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .course .paginationCourseOverlay {
   position: absolute;

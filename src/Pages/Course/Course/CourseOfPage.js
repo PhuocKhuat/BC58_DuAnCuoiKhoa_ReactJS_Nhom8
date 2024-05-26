@@ -22,7 +22,7 @@ export default function CourseOfPage() {
           >
             <div className="h-full flex items-start">
               <div className="w-12 flex-shrink-0 flex flex-col text-center leading-none">
-                <span className="text-gray-500 pb-2 mb-2 border-b-2 border-gray-200">
+                <span className="text-gray-500 pb-2 mb-2 border-b-2 border-gray-200 text-white">
                   Jul
                 </span>
                 <span className="font-medium text-lg text-gray-800 title-font leading-none">

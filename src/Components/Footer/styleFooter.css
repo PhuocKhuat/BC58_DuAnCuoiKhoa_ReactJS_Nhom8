@@ -1,139 +1,150 @@
-.footer{
-    background: #1e1e2a;
-    position: relative;
-    z-index: 190;
+.footer {
+  background: #1e1e2a;
+  position: relative;
+  z-index: 190;
 }
 .footer .formFooter {
-    margin: 15px 0;
-    outline: none;
-    border: none;
-    width: 100%;
-    max-width: 100%;
-    height: 40px;
-    border-radius: 8px;
-    padding-left: 10px;
-    background-color: #f5f5f5;
-    color: black;
+  margin: 15px 0;
+  outline: none;
+  border: none;
+  width: 100%;
+  max-width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  padding-left: 10px;
+  background-color: #f5f5f5;
+  color: black;
 }
-.footer .tittleSignUp{
-    font-size: 14px;
-    letter-spacing: 1px;
+.footer .tittleSignUp {
+  font-size: 14px;
+  letter-spacing: 1px;
 }
-.footer .introFooter{
-    font-size: 14px;
-    color: #f0f8ff !important;
+.footer .introFooter {
+  font-size: 14px;
+  color: #f0f8ff !important;
 }
-.footer .btnFooter{
-    width: 100%;
-    border-radius: 0;  
-    padding: 11px; 
+.footer .btnFooter {
+  width: 100%;
+  border-radius: 0;
+  padding: 11px;
 }
-.footer .link{
-    padding-left: 40px;
-    padding-bottom: 40px;
+.footer .link {
+  padding-left: 40px;
+  padding-bottom: 40px;
 }
-.footer .link li, .footer .courses li{
-    transition: all 0.3s;
+.footer .link li,
+.footer .courses li {
+  transition: all 0.3s;
 }
-.footer .link li:hover, .footer .courses li:hover {
-    transform: translateY(-2px);
-    color: #6366f1;
+.footer .link li:hover,
+.footer .courses li:hover {
+  transform: translateY(-2px);
+  color: #6366f1;
 }
-.footer .address h3{
-    width: 185px;
-    padding: 5px 0;
+.footer .address h3 {
+  width: 185px;
+  padding: 5px 0;
 }
-.footer .address h6{
-    width: 155px;
-    color: #76767a;
+.footer .address h6 {
+  width: 155px;
+  color: #76767a;
 }
-.footer .copyright{
-    color: white;
-    border-top: 5px solid white;
+.footer .copyright {
+  color: white;
+  border-top: 5px solid white;
 }
-.footer .khoaHoc span{
-    transition: all 0.3s;
+.footer .khoaHoc span {
+  transition: all 0.3s;
 }
-.footer .khoaHoc span:hover{
-    color: #76767a;color: rgb(4, 4, 251);
+.footer .khoaHoc span:hover {
+  color: #76767a;
+  color: rgb(4, 4, 251);
 }
-.footer .courses{
-    position: absolute;
-    left: 56vw;
+.footer .courses {
+  position: absolute;
+  left: 56vw;
 }
 @media screen and (max-width: 1286px) {
-    .footer .addressHeadquaters{
-        @apply space-x-20
-    }
-    .footer .getSocial{
-        @apply w-1/3
-    }
+  .footer .addressHeadquaters {
+    @apply space-x-20;
+  }
+  .footer .getSocial {
+    @apply w-1/3;
+  }
 }
 @media screen and (max-width: 1195px) {
-    .footer .addressHeadquaters{
-        @apply space-x-16
-    }
+  .footer .addressHeadquaters {
+    @apply space-x-16;
+  }
 }
 @media screen and (max-width: 1138px) {
-    .footer .addressHeadquaters{
-        @apply space-x-10
-    }
-.footer .getSocial {
-    @apply w-2/5
-}
+  .footer .addressHeadquaters {
+    @apply space-x-10;
+  }
+  .footer .getSocial {
+    @apply w-2/5;
+  }
 }
 @media screen and (max-width: 1073px) {
-    .footer .addressHeadquaters{
-        @apply space-x-6
-    }
+  .footer .addressHeadquaters {
+    @apply space-x-6;
+  }
 }
 @media screen and (max-width: 1053px) {
-    .footer .getSocial {
-        @apply w-1/2
-    }
+  .footer .getSocial {
+    @apply w-1/2;
+  }
 }
 @media screen and (max-width: 1053px) {
-    .footer .addressHeadquaters{
-        @apply space-x-2
-    }
+  .footer .addressHeadquaters {
+    @apply space-x-2;
+  }
 }
 
 @media screen and (max-width: 960px) {
-    .footer .getSocial {
-        @apply w-3/5
-    }
-    .footer .addressHeadquaters{
-        @apply space-x-0
-    }
+  .footer .getSocial {
+    @apply w-3/5;
+  }
+  .footer .addressHeadquaters {
+    @apply space-x-0;
+  }
 }
 @media screen and (max-width: 935px) {
-    .footer .addressHeadquaters{
-        @apply block
-    }
+  .footer .addressHeadquaters {
+    @apply block;
+  }
 }
 @media screen and (max-width: 890px) {
-    .footer .link{
-        padding-bottom: 25px;
-    }
-    .footer .getSocial {
-        @apply w-2/3
-    }
+  .footer .link {
+    padding-bottom: 25px;
+  }
+  .footer .getSocial {
+    @apply w-2/3;
+  }
 }
 @media screen and (max-width: 827px) {
-    .footer .getSocial {
-        @apply w-4/5
-    }
+  .footer .getSocial {
+    @apply w-4/5;
+  }
 }
 @media screen and (max-width: 790px) {
-    .footer .getSocial {
-        @apply w-full
-    }
+  .footer .getSocial {
+    @apply w-full;
+  }
 }
 @media screen and (max-width: 768px) {
-    .footer .formDKy{
-        @apply grid-cols-1
+  .footer .formDKy {
+    @apply grid-cols-1;
+  }
+  .footer .copyright div {
+    @apply block space-y-4;
+  }
+}
+@media screen and (max-width: 500px) {
+    .footer .menuFooter{
+        @apply block
     }
-    .footer .copyright div{
-        @apply block space-y-4
+    .footer .address{
+        @apply mt-80
     }
 }

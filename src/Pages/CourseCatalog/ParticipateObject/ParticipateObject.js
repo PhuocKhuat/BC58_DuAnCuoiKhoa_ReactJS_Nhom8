@@ -10,7 +10,11 @@ export default function ParticipateObject() {
         </div>
         <div className="flex items-center bgParticipate lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
           <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
-            <img alt="careerChange" src="/img/student4.jpg" className="" />
+            <img
+              alt="careerChange"
+              src="/img/common-student-4.jpg"
+              className="h-32 w-32 rounded-full"
+            />
           </div>
           <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
             <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
@@ -35,12 +39,20 @@ export default function ParticipateObject() {
             </p>
           </div>
           <div className="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
-            <img alt="ITStudent" src="/img/student2.jpg" />
+            <img
+              alt="ITStudent"
+              src="/img/common-student-2.jpg"
+              className="h-32 w-32 rounded-full"
+            />
           </div>
         </div>
         <div className="flex items-center bgParticipate lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
           <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
-            <img alt="graduatedStudent" src="/img/student3.jpg" />
+            <img
+              alt="graduatedStudent"
+              src="/img/common-student-7.jpg"
+              className="h-32 w-32 rounded-full"
+            />
           </div>
           <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
             <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
@@ -55,7 +67,11 @@ export default function ParticipateObject() {
         </div>
         <div className="flex items-center bgParticipate lg:w-3/5 mx-auto sm:flex-row flex-col">
           <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center sm:ml-10 justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
-            <img alt="graduatedStudent" src="/img/student7.jpg" />
+            <img
+              alt="graduatedStudent"
+              src="/img/enterprise.jpg"
+              className="h-32 w-32 rounded-full"
+            />
           </div>
           <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
             <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
