@@ -5,10 +5,11 @@
   transition: all 0.3s;
 }
 .startUpEvent{
-  background-image: url('../../../img/bgTech2.jpg');
+  /* background-image: url('../../../img/bgTech2.jpg'); */
+  background: black;
   background-size: cover;
   background-position: center;
-  margin-top: 670px;
+  margin-top: 750px;
 }
 .startUpEvent .btnParticipate:hover,
 .startUpEvent .btnLearnMore:hover {
@@ -52,5 +53,15 @@
 @media screen and (max-width: 940px) {
   .startUpEvent{
     margin-top: 745px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .startUpEvent{
+    margin-top: 820px;
+  }
+}
+@media screen and (max-width: 310px) {
+  .startUpEvent{
+    margin-top: 850px;
   }
 }

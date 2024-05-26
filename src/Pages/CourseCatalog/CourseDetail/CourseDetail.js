@@ -9,7 +9,6 @@ import "../styleCourseCatalog.css";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCourseCatalog } from "../../../Redux/searchCatalogThunk";
-import './styleCourseDetail.css';
 
 export default function CourseDetail() {
   const { courseCatalogById } = useSelector(
@@ -22,16 +21,16 @@ export default function CourseDetail() {
   // console.log("🚀 ~ CourseCatalog ~ idMaDanhMuc:", idMaDanhMuc)
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchCourseCatalog(idMaDanhMuc))
-}, [idMaDanhMuc])
+    dispatch(fetchCourseCatalog(idMaDanhMuc));
+  }, [idMaDanhMuc]);
   const NameCategory = catalog.find((item) => {
-    return item.maDanhMuc === idMaDanhMuc ? item : ""
+    return item.maDanhMuc === idMaDanhMuc ? item : "";
   });
   const rednerCourseCatalog = () =>
     courseCatalogById.map((course, index) => (
       <NavLink
         to={`/detail/${course.maKhoaHoc}`}
-        className="p-4 md:w-full flex borderCourse"
+        className="p-4 md:w-full flex borderCourse opacity-70"
         key={index}
       >
         <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4 flex-shrink-0">
@@ -80,28 +79,24 @@ export default function CourseDetail() {
         <div className="courseOverlay"></div>
       </NavLink>
     ));
-  const renderTitleCatalog = () =>
-    <strong
-          className="titleCourseCatalog flex p-2 gap-2 rounded-2xl"
-        >
-          <span className="text-yellow-400">
-            <LaptopOutlined />
-          </span>
-          <h3>{NameCategory ? NameCategory.maDanhMuc : ""}</h3>
-        </strong>
+  const renderTitleCatalog = () => (
+    <strong className="titleCourseCatalog flex p-2 gap-2 rounded-2xl">
+      <span className="text-yellow-400">
+        <LaptopOutlined />
+      </span>
+      <h3>{NameCategory ? NameCategory.maDanhMuc : ""}</h3>
+    </strong>
+  );
   return (
-    <div className="text-gray-600 body-font courseCatalog mt-28 mb-24">
-      <div className="container py-10">
+    <div className="text-gray-600 body-font courseCatalog mt-12 mb-20">
+      <div className="container pt-10 pb-48">
         <h1
-          className="sm:text-3xl text-2xl title-font text-center text-gray-900 mb-3 uppercase font-bold"
+          className="sm:text-3xl text-2xl title-font text-center text-gray-900 my-4 uppercase font-bold"
           style={{ letterSpacing: "2px" }}
         >
-          <p>Courses Catalog</p>
+          <p className="text-white">Courses Catalog</p>
           <br className="hidden sm:block" />
-          <p className="text-base">
-            {" "}
-            Please select the course you desire
-          </p>
+          <p className="text-base text-slate-400"> Please select the course you desire</p>
         </h1>
         <div>
           <div className="flex gap-2 text-xl mb-10">{renderTitleCatalog()}</div>

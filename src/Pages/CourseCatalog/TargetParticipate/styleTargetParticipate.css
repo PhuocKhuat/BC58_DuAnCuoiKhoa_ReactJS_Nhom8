@@ -35,6 +35,7 @@
 .targetParticipate{
   position: relative;
   bottom: 185px;
+  margin-top: 30px;
 }
 .parallaxTargetParticipate .footer{
   position: relative;
