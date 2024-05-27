@@ -25,9 +25,9 @@ const adminUserSliceThunk = createSlice({
   name: "adminUserSliceThunk",
   initialState,
   reducers: {
-    // addNewUserToTop: (state, action) => {
-    //   state.userList.unshift(action.payload);
-    // },
+    addNewUserToTop: (state, action) => {
+      state.userList.unshift(action.payload);
+    },
   },
   extraReducers: (buider) => {
     buider.addCase(fetchAdminUser.fulfilled, (state, action) => {
@@ -36,6 +36,6 @@ const adminUserSliceThunk = createSlice({
   },
 });
 
-export const { setDeleteUser, setAddUser } = adminUserSliceThunk.actions;
+export const { setDeleteUser, setAddUser, addNewUserToTop } = adminUserSliceThunk.actions;
 
 export default adminUserSliceThunk.reducer;

@@ -5,7 +5,7 @@ import { Formik, Form, Field, useFormik } from "formik";
 import { addUserValidation } from "../../../Validation/addUserValidation";
 import { https } from "../../../Services/api";
 import { useDispatch } from "react-redux";
-import { fetchAdminUser } from "../../../Redux/adminUserSliceThunk";
+import { addNewUserToTop, fetchAdminUser } from "../../../Redux/adminUserSliceThunk";
 
 const saveFormAddUser = ()=>{
   const storeAddUser = localStorage.getItem("FORM_ADD_USER");
@@ -59,7 +59,7 @@ const DrawerAddUser = () => {
         console.log(res);
         message.success("Add user successfully");
         onClose();
-        // dispatch(addNewUserToTop(res.data));
+        dispatch(addNewUserToTop(res.data));
         dispatch(fetchAdminUser());
       })
       .catch((err) => {
