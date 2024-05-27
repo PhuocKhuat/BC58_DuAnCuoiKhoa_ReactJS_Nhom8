@@ -54,7 +54,7 @@ export default function CourseOfPage() {
                   <div className="footerCourseOfPage items-center">
                     <img
                       alt="imageLecture"
-                      src="/img/student3.jpg"
+                      src="/img/common-student-2.jpg"
                       className="w-8 h-8 rounded-full flex-shrink-0 object-cover object-center"
                     />
                     <span className="flex-grow flex flex-col pl-3">

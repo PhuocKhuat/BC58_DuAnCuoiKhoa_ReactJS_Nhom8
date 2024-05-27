@@ -59,6 +59,7 @@ const DrawerAddUser = () => {
         console.log(res);
         message.success("Add user successfully");
         onClose();
+        // dispatch(addNewUserToTop(res.data));
         dispatch(fetchAdminUser());
       })
       .catch((err) => {

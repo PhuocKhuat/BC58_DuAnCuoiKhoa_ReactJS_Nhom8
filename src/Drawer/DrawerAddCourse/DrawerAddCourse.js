@@ -117,10 +117,11 @@ const DrawerAddCourse = () => {
         await https.post("/api/QuanLyKhoaHoc/ThemKhoaHocUploadHinh", formData);
         dispatch(fetchCoursesList());
         setOpen(false);
+        resetForm();
         message.success("Add course successfully");
       } catch (error) {
         console.log("🚀 ~ handleAddImage ~ error:", error);
-        message.error(error.response.data);
+        message.error(error.response?.data);
       }
       return;
     }
@@ -131,7 +132,7 @@ const DrawerAddCourse = () => {
       setOpen(false);
     } catch (error) {
       console.log("🚀 ~ handleAddCourse ~ error:", error);
-      message.error(error.response.data);
+      message.error(error.response?.data);
     }
   };
 

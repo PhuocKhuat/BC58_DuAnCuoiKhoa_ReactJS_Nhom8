@@ -1,31 +1,41 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { https } from '../Services/api';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { https } from "../Services/api";
 
 const initialState = {
-  userList :  [],
-}
+  userList: [],
+};
 
-export const fetchAdminUser = createAsyncThunk("fetchAdminUser", async (value="")=>{
-  if(value.trim() !== ""){
-    let res = await https.get(`/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01&tuKhoa=${value}`);
+export const fetchAdminUser = createAsyncThunk(
+  "fetchAdminUser",
+  async (value = "") => {
+    if (value.trim() !== "") {
+      let res = await https.get(
+        `/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01&tuKhoa=${value}`
+      );
+      return res.data;
+    }
+    let res = await https.get(
+      "/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01"
+    );
     return res.data;
   }
-  let res = await https.get("/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01");
-    return res.data;
-})
+);
 
 const adminUserSliceThunk = createSlice({
   name: "adminUserSliceThunk",
   initialState,
   reducers: {
+    // addNewUserToTop: (state, action) => {
+    //   state.userList.unshift(action.payload);
+    // },
   },
-  extraReducers: (buider)=>{
-    buider.addCase(fetchAdminUser.fulfilled, (state, action)=>{
+  extraReducers: (buider) => {
+    buider.addCase(fetchAdminUser.fulfilled, (state, action) => {
       state.userList = action.payload;
-    },)    
-  }
+    });
+  },
 });
 
-export const { setDeleteUser, setAddUser } = adminUserSliceThunk.actions
+export const { setDeleteUser, setAddUser } = adminUserSliceThunk.actions;
 
-export default adminUserSliceThunk.reducer
+export default adminUserSliceThunk.reducer;

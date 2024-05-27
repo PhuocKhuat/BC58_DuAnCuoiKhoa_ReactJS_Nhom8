@@ -12,6 +12,8 @@ import { Field, Form, Formik, useFormik } from "formik";
 
 export default function AdminUserPage() {
   const { userList } = useSelector((state) => state.adminUserSliceThunk);
+  const reserveUserList = [...userList].reverse();
+
   const searchUser = useRef(null);
   const dispatch = useDispatch();
   const { values, handleChange, handleSubmit } = useFormik({
@@ -575,7 +577,7 @@ export default function AdminUserPage() {
       </div>
       <Table
         columns={columns}
-        dataSource={userList}
+        dataSource={reserveUserList}
         onChange={onChange}
         className="mt-2 adminUserPage"
       />

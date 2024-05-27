@@ -118,7 +118,7 @@ export default function MyCourses() {
                   <img
                     className="imgLectures"
                     alt="giangVien"
-                    src="/img/student3.jpg"
+                    src="/img/common-student-2.jpg"
                   />
                 </p>
                 <p>
