@@ -52,6 +52,13 @@ export default function DetailPage() {
           showConfirmButton: false,
         });
       } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Registered for this course!",
+          text: "An error occurred. Please return to the home page or try again",
+          timer: 1500,
+          showConfirmButton: false,
+        });
         console.log("🚀 ~ handleRegisterCourse ~ error:", error);
       }
     }

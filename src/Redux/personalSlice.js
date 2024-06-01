@@ -39,13 +39,6 @@ const personalSlice = createSlice({
       if (indexCourse === -1) {
         cloneCoursesList.push(action.payload);
       }
-      Swal.fire({
-        icon: "error",
-        title: "Registered for this course!",
-        text: "An error occurred. Please return to the home page or try again",
-        timer: 1500,
-        showConfirmButton: false,
-      });
       state.coursesList = cloneCoursesList;
       saveLocalStorage(state.coursesList.map((course) => course));
     },
@@ -70,17 +63,13 @@ const personalSlice = createSlice({
       // localStorage.setItem("UPDATE_USER", JSON.stringify(state.infoUser));
     },
   },
-  extraReducers: (builder)=>{
-    builder.addCase(fetchThongTinTaiKhoan.fulfilled, (state, action)=>{
+  extraReducers: (builder) => {
+    builder.addCase(fetchThongTinTaiKhoan.fulfilled, (state, action) => {
       state.infoUser = action.payload;
-    },)
-  }
+    });
+  },
 });
-export const {
-  setAddCourse,
-  setDeleteCourse,
-  setSearchForm,
-  setUpdateForm,
-} = personalSlice.actions;
+export const { setAddCourse, setDeleteCourse, setSearchForm, setUpdateForm } =
+  personalSlice.actions;
 
 export default personalSlice.reducer;
