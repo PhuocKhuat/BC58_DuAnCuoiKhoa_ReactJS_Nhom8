@@ -20,9 +20,9 @@ export default function PersonalInfo() {
   useEffect(() => {
     dispatch(fetchThongTinTaiKhoan());
   }, []);
-  const informationUser = useMemo(() => {
-    return infoUser;
-  }, []);
+  // const informationUser = useMemo(() => {
+  //   return infoUser;
+  // }, []);
 
   return (
     <div className="text-gray-600 body-font personalInfo">
@@ -43,7 +43,7 @@ export default function PersonalInfo() {
                 </h2>
                 <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4" />
                 <p className="text-base mb-2">Front End programmer</p>
-                <Modals infoUser={informationUser} />
+                <Modals infoUser={infoUser} />
               </div>
             </div>
             <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 sm:text-left">
