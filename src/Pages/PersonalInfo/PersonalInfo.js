@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import Modals from "./FormFormik/Modals";
 import "./stylePersonalInfo.css";
 import { useDispatch, useSelector } from "react-redux";
-// import { setInfoUser } from "../../Redux/personalSlice";
 import { Progress } from "antd";
 import {
   FieldTimeOutlined,
@@ -21,6 +20,10 @@ export default function PersonalInfo() {
   useEffect(() => {
     dispatch(fetchThongTinTaiKhoan());
   }, []);
+  const informationUser = useMemo(() => {
+    return infoUser;
+  }, []);
+
   return (
     <div className="text-gray-600 body-font personalInfo">
       <div className="mb-5 sflex flex-col">
@@ -40,7 +43,7 @@ export default function PersonalInfo() {
                 </h2>
                 <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4" />
                 <p className="text-base mb-2">Front End programmer</p>
-                <Modals infoUser={infoUser} />
+                <Modals infoUser={informationUser} />
               </div>
             </div>
             <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 sm:text-left">
