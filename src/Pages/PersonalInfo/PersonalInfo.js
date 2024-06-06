@@ -22,7 +22,7 @@ export default function PersonalInfo() {
   }, []);
   // const informationUser = useMemo(() => {
   //   return infoUser;
-  // }, []);
+  // }, [infoUser]);
 
   return (
     <div className="text-gray-600 body-font personalInfo">
