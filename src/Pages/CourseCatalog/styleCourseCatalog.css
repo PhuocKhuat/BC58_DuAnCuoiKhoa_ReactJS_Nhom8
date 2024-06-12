@@ -2,7 +2,7 @@
   background-image: url("../../img/javascript.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center ;
+  background-position: center;
   height: 1205px;
 }
 .courseCatalog .titleCourseCatalog {
@@ -63,4 +63,10 @@
 .parallaxPObject {
   position: relative !important;
   z-index: 201 !important;
+}
+
+@media screen and (max-width: 375px) {
+  .courseCatalog {
+    height: 1938px;
+  }
 }
