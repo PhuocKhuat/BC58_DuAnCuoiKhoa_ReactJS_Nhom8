@@ -27,7 +27,7 @@ export default function SearchPage() {
           <div className="lg:w-11/12 flex w-4/5 flex-wrap">
             <img
               alt="imageCourses"
-              className="lg:w-1/2 w-1/3 h-64 object-cover object-center rounded"
+              className="lg:w-1/2 w-full h-64 object-cover object-center rounded"
               src={course.hinhAnh}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:pb-6 mt-0 lg:mt-0">
@@ -171,11 +171,11 @@ export default function SearchPage() {
       <div className="searchPage text-gray-600 body-font overflow-hidden mt-14">
         <div className="container">
           <div className="grid grid-cols-12">
-            <div className="col-span-3 mt-24">
+            <div className="md:col-span-3 col-span-4 md:w-full w-[80vw] mt-24">
               <div className="flex items-center justify-center p-4">
                 <div
                   id="dropdown"
-                  className="z-10 w-56 p-3 bg-white rounded-lg shadow dark:bg-gray-700 scrollFilter"
+                  className="z-10 w-56 p-3 bg-white rounded-lg shadow dark:bg-gray-700 scrollFilter md:h-full h-[175px]"
                 >
                   <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl">
                     Category
@@ -190,7 +190,7 @@ export default function SearchPage() {
                     onChange={onChangeFilterCourse}
                   >
                     <ul
-                      className="space-y-2 text-sm"
+                      className="space-y-2 text-sm grid grid-cols-2"
                       aria-labelledby="dropdownDefault"
                     >
                       {renderFilterCourse()}
