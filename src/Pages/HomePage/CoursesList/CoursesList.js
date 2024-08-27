@@ -90,7 +90,9 @@ export default function CoursesList() {
                   <h2 className="text-lg font-bold title-font mb-2 text-black">
                     {courses.tenKhoaHoc}
                   </h2>
-                  <p className="leading-relaxed text-base text-white ">{courses.moTa}</p>
+                  <p className="leading-relaxed text-base text-white ">
+                    {courses.moTa}
+                  </p>
                 </div>
               </div>
             </div>
@@ -103,7 +105,7 @@ export default function CoursesList() {
     <div className="courseList">
       <div className="container">
         <h1 className="exploreTitle font-bold pb-9  text-white text-center uppercase">
-          Explore E-learing courses
+          Explore E-learning courses
         </h1>
         <div className="grid grid-cols-12 frameCourse">
           <div className="bgCourseList col-span-8">

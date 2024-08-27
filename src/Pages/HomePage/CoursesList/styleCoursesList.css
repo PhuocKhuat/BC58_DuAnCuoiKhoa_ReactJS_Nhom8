@@ -104,12 +104,12 @@
 }
 @media screen and (max-width: 1200px) {
   .courseList {
-    margin-top: 1400px;
+    margin-top: 1500px;
   }
 }
 @media screen and (max-width: 1024px) {
   .courseList {
-    margin-top: 1900px;
+    margin-top: 1550px;
   }
 }
 @media screen and (max-width: 1000px) {
@@ -119,6 +119,11 @@
   }
   .courseList .hoverBorder {
     width: 37vw;
+  }
+}
+@media screen and (max-width: 992px) {
+  .courseList {
+    margin-top: 2000px;
   }
 }
 @media screen and (max-width: 920px) {
@@ -147,9 +152,6 @@
     font-size: 30px;
     line-height: 55px;
   }
-  .courseList {
-    margin-top: 2000px;
-  }
 }
 @media screen and (max-width: 640px) {
   .courseList .exploreTitle {
@@ -159,24 +161,17 @@
   .courseList .bgCourseList {
     width: 90vw;
   }
+  .courseList {
+    margin-top: 2250px;
+  }
+}
+@media screen and (max-width: 551px) {
+  .courseList {
+    margin-top: 2500px;
+  }
 }
 @media screen and (max-width: 500px) {
   .courseList .hoverBorder {
     width: 81vw;
-  }
-}
-@media screen and (max-width: 499px) {
-  .courseList {
-    margin-top: 2100px;
-  }
-}
-@media screen and (max-width: 400px) {
-  .courseList {
-    margin-top: 2150px;
-  }
-}
-@media screen and (max-width: 330px) {
-  .courseList {
-    margin-top: 2250px;
   }
 }

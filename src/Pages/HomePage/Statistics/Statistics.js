@@ -1,6 +1,10 @@
 import React from "react";
 import CountUp from "react-countup";
 import "./styleStatistics.css";
+import imgSta1 from "../../../img/statistics-1a.png";
+import imgSta2 from "../../../img/statistics-2a.jpg";
+import imgSta3 from "../../../img/statistics-3.jpg";
+import imgSta4 from "../../../img/statistics-4.jpg";
 
 export default function Statistics() {
   return (
@@ -15,11 +19,7 @@ export default function Statistics() {
         <div className="grid grid-cols-2 md:grid-cols-4">
           <div className="boxNumber">
             <div>
-              <img
-                className="imgStatistical"
-                alt=""
-                src="/img/statistics-1a.png"
-              />
+              <img className="imgStatistical" alt="" src={imgSta1} />
             </div>
             <div>
               <span className="textNumber">
@@ -32,11 +32,7 @@ export default function Statistics() {
           </div>
           <div className="boxNumber">
             <div>
-              <img
-                className="imgStatistical"
-                alt=""
-                src="/img/statistics-2a.jpg"
-              />
+              <img className="imgStatistical" alt="" src={imgSta2} />
             </div>
             <div>
               <span className="textNumber">
@@ -49,11 +45,7 @@ export default function Statistics() {
           </div>
           <div className="boxNumber">
             <div>
-              <img
-                className="imgStatistical"
-                alt=""
-                src="/img/statistics-3.jpg"
-              />
+              <img className="imgStatistical" alt="" src={imgSta3} />
             </div>
             <div>
               <span className="textNumber">
@@ -66,7 +58,7 @@ export default function Statistics() {
           </div>
           <div className="boxNumber">
             <div>
-              <img className="imgStatistical" alt="" src="/img/statistics-4.jpg" />
+              <img className="imgStatistical" alt="" src={imgSta4} />
             </div>
             <div>
               <span className="textNumber">

@@ -33,13 +33,18 @@
 }
 @media screen and (max-width: 1024px) {
   .statistic {
-    margin-top: 1000px;
+    margin-top: 100px;
   }
 }
 @media screen and (max-width: 1000px) {
   .statistic .container {
     width: 98%;
     margin: 0;
+  }
+}
+@media screen and (max-width: 992px) {
+  .statistic {
+    margin-top: 1100px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -61,7 +66,7 @@
 }
 @media screen and (max-width: 550px) {
   .statistic {
-    margin-top: 800px;
+    margin-top: 550px;
   }
 }
 @media screen and (max-width: 500px) {
@@ -69,18 +74,8 @@
     line-height: 45px;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 415px) {
   .statistic {
-    margin-top: 850px;
-  }
-}
-@media screen and (max-width: 370px) {
-  .statistic {
-    margin-top: 900px;
-  }
-}
-@media screen and (max-width: 330px) {
-  .statistic {
-    margin-top: 950px;
+    margin-top: 600px;
   }
 }
