@@ -1,22 +1,19 @@
-.participateObject{
-    background: #343754;
-    margin-top: 1300px;
+.participateObject {
+  background: #343754;
+  margin-top: 1300px;
 }
-.participateObject .titleParticipate{
-    font-size: 32px;
-    letter-spacing: 2px;
+.participateObject .titleParticipate {
+  font-size: 32px;
+  letter-spacing: 2px;
 }
-.participateObject .bgParticipate{
-    background: linear-gradient(to right, #227df952, #e0dcff, #df3ef817);
-    padding: 25px;
+.participateObject .bgParticipate {
+  background: linear-gradient(to right, #227df952, #e0dcff, #df3ef817);
+  padding: 25px;
 }
 @media screen and (max-width: 1024px) {
-    .participateObject{
-        margin-top: 1250px;
-    }
+  .participateObject {
+    margin-top: 1250px;
   }
-@media screen and (max-width: 768px) {
-    .participateObject{
-        margin-top: 2100px;
-    }
+}
+@media screen and (max-width: 640px) {
 }

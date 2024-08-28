@@ -30,7 +30,7 @@ export default function CourseDetail() {
     courseCatalogById.map((course, index) => (
       <NavLink
         to={`/detail/${course.maKhoaHoc}`}
-        className="p-4 md:w-full flex borderCourse opacity-70"
+        className="p-4 md:w-full flex borderCourse opacity-70 h-[180px]"
         key={index}
       >
         <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4 flex-shrink-0">
@@ -88,7 +88,7 @@ export default function CourseDetail() {
     </strong>
   );
   return (
-    <div className="text-gray-600 body-font courseCatalog mt-12 mb-20">
+    <div className="text-gray-600 body-font courseCatalog mt-12 mb-20 ">
       <div className="container pt-10 pb-48">
         <h1
           className="sm:text-3xl text-2xl title-font text-center text-gray-900 my-4 uppercase font-bold"
@@ -96,11 +96,14 @@ export default function CourseDetail() {
         >
           <p className="text-white">Courses Catalog</p>
           <br className="hidden sm:block" />
-          <p className="text-base text-slate-400"> Please select the course you desire</p>
+          <p className="text-base text-slate-400">
+            {" "}
+            Please select the course you desire
+          </p>
         </h1>
         <div>
           <div className="flex gap-2 text-xl mb-10">{renderTitleCatalog()}</div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6 gap-3 overflow-y-auto max-h-[700px]">
             {rednerCourseCatalog()}
           </div>
         </div>

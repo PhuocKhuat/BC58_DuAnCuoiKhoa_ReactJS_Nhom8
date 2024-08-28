@@ -24,14 +24,14 @@ export default function SearchPage() {
     return coursesList.map((course, index) => (
       <NavLink to={`/detail/${course.maKhoaHoc}`}>
         <div className="mb-5 p-3 courseBorder" key={index}>
-          <div className="lg:w-11/12 flex w-4/5 flex-wrap">
+          <div className="lg:w-11/12 flex flex-wrap">
             <img
               alt="imageCourses"
               className="lg:w-1/2 w-full h-64 object-cover object-center rounded"
               src={course.hinhAnh}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:pb-6 mt-0 lg:mt-0">
-              <h1 className="text-gray-900 text-2xl title-font font-medium mb-2">
+              <h1 className="text-gray-900 text-2xl title-font font-medium mb-2 xs:text-start text-center">
                 {course.tenKhoaHoc}
               </h1>
               <Tooltip title={course.moTa}>
@@ -55,8 +55,8 @@ export default function SearchPage() {
                   </div>
                 </div>
               </div>
-              <div className="flex">
-                <span className="flex items-center">
+              <div className="xs:flex block">
+                <span className="flex items-center justify-center">
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
@@ -114,7 +114,7 @@ export default function SearchPage() {
                   </svg>
                   <span className="text-gray-600 ml-3">4 Reviews</span>
                 </span>
-                <span className="flex items-center space-x-2 ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">
+                <span className="xs:flex block items-center space-x-2 ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">
                   <p>
                     <img
                       className="imgLectures"
@@ -122,7 +122,7 @@ export default function SearchPage() {
                       src="/img/student3.jpg"
                     />
                   </p>
-                  <p>
+                  <p className="xs:block flex justify-center gap-2">
                     <p>{course.nguoiTao.hoTen}</p>
                     <p>Lecture</p>
                   </p>
@@ -171,7 +171,7 @@ export default function SearchPage() {
       <div className="searchPage text-gray-600 body-font overflow-hidden mt-14">
         <div className="container">
           <div className="grid grid-cols-12">
-            <div className="md:col-span-3 col-span-4 md:w-full w-[80vw] mt-24">
+            <div className="lg:col-span-3 col-span-4 lg:w-full w-[80vw] mt-24">
               <div className="flex items-center justify-center p-4">
                 <div
                   id="dropdown"
@@ -190,7 +190,7 @@ export default function SearchPage() {
                     onChange={onChangeFilterCourse}
                   >
                     <ul
-                      className="space-y-2 text-sm grid grid-cols-2"
+                      className="space-y-2 text-sm grid md:grid-cols-1 grid-cols-2"
                       aria-labelledby="dropdownDefault"
                     >
                       {renderFilterCourse()}
@@ -204,7 +204,7 @@ export default function SearchPage() {
                 Showing {coursesList.length} results
               </h2>
               <div
-                className="overflow-y-scroll"
+                className="overflow-y-scroll lg:w-full w-[71vw]"
                 style={{ height: "500px", background: "white" }}
               >
                 {renderSearchCourseList()}

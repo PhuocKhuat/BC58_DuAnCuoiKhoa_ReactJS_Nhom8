@@ -9,7 +9,7 @@ export default function ParticipateObject() {
           <h3>PARTICIPATE OBJECT</h3>
         </div>
         <div className="flex items-center bgParticipate lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
-          <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
+          <div className="sm:w-32 sm:h-32 h-20 w-64 sm:mr-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
             <img
               alt="careerChange"
               src="/img/common-student-4.jpg"
@@ -38,7 +38,7 @@ export default function ParticipateObject() {
               orientation after graduation.
             </p>
           </div>
-          <div className="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
+          <div className="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-64 sm:ml-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
             <img
               alt="ITStudent"
               src="/img/common-student-2.jpg"
@@ -47,7 +47,7 @@ export default function ParticipateObject() {
           </div>
         </div>
         <div className="flex items-center bgParticipate lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
-          <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
+          <div className="sm:w-32 sm:h-32 h-20 w-64 sm:mr-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
             <img
               alt="graduatedStudent"
               src="/img/common-student-7.jpg"
@@ -66,7 +66,7 @@ export default function ParticipateObject() {
           </div>
         </div>
         <div className="flex items-center bgParticipate lg:w-3/5 mx-auto sm:flex-row flex-col">
-          <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center sm:ml-10 justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
+          <div className="sm:w-32 sm:h-32 h-20 w-64 sm:mr-10 inline-flex items-center sm:ml-10 justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
             <img
               alt="graduatedStudent"
               src="/img/enterprise.jpg"
