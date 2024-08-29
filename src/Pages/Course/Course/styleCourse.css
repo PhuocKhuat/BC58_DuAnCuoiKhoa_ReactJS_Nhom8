@@ -52,7 +52,7 @@
 .courseOfPage .frameCourse:hover:before {
   left: 100%;
 }
-.course{
+.course {
   margin-top: 30px;
   background-image: url("../../../img/teamwork.jpg");
   background-position: top;
@@ -97,7 +97,7 @@
 .course .programming {
   width: 1150px !important;
 }
-.course .titleCourse{
+.course .titleCourse {
   margin-left: 0vw !important;
 }
 
@@ -130,7 +130,7 @@
   .course .programming {
     width: 91vw !important;
   }
-  .course .titleCourse{
+  .course .titleCourse {
     margin-left: 18vw !important;
   }
 }
@@ -159,16 +159,19 @@
   .courseOfPage .footerCourseOfPage {
     display: block;
   }
-  .courseOfPage{
+  .courseOfPage {
     margin-top: 800px;
+  }
+  .course {
+    height: 900px;
   }
 }
 @media screen and (max-width: 1000px) {
-  .course .container{
+  .course .container {
     width: 90% !important;
     margin: 0;
   }
-  .course .titleCourse{
+  .course .titleCourse {
     margin-left: 18vw;
   }
 }
@@ -186,8 +189,11 @@
   .courseOfPage .footerCourseOfPage {
     display: flex;
   }
-  .courseOfPage{
-    margin-top: 1250px;
+  .course {
+    height: 1450px;
+  }
+  .courseOfPage {
+    margin-top: 1220px;
   }
 }
 @media screen and (max-width: 640px) {

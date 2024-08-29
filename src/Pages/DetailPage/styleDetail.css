@@ -1,317 +1,404 @@
 /* Detail */
-.detail .containerDetail{
-    width: 97%;
-    margin: 0 auto;
+.detail .containerDetail {
+  width: 97%;
+  margin: 0 auto;
 }
-.detail .titleDetail{
-    font-size: 30px;
-    line-height: 40px;
-    font-weight: 700;
-    letter-spacing: 2px;
+.detail .titleDetail {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
-.detail .imgDetail{
-    position: relative;
-    z-index: 4;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5% 35% 5% 5%/6% 35% 0% 0%;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+.detail .imgDetail {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5% 35% 5% 5%/6% 35% 0% 0%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.detail .borderBig{
-    border-radius: 5% 35% 5% 5%/6% 35% 5% 5%;
-    border: 10px solid #3f73f9;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 40px;
-    bottom: 40px;
+.detail .borderBig {
+  border-radius: 5% 35% 5% 5%/6% 35% 5% 5%;
+  border: 10px solid #3f73f9;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
 }
-.detail .borderSmall{
-    border-radius: 5% 35% 5% 5%/6% 35% 5% 5%;
-    border: 10px solid #c347f8;
-    width: 30%;
-    height: 30%;
-    position: absolute;
-    left: -40px;
-    bottom: -473px;
+.detail .borderSmall {
+  border-radius: 5% 35% 5% 5%/6% 35% 5% 5%;
+  border: 10px solid #c347f8;
+  width: 30%;
+  height: 30%;
+  position: absolute;
+  left: -40px;
+  bottom: -473px;
 }
-.detail .detailRight{
-    width: 100%;
-    /* aspect-ratio: 1/1; */
-    position: relative;
-    border-radius: 5% 35% 5% 5%/6% 35% 5% 5%;
-    z-index: 1;
+.detail .detailRight {
+  width: 100%;
+  /* aspect-ratio: 1/1; */
+  position: relative;
+  border-radius: 5% 35% 5% 5%/6% 35% 5% 5%;
+  z-index: 1;
 }
-.detail .payCourseDetail{
-    z-index: 100;
-    position: relative;
-    background: white;
-    border-radius: 0 0 5% 5%;
-    line-height: 50px;
+.detail .payCourseDetail {
+  z-index: 100;
+  position: relative;
+  background: white;
+  border-radius: 0 0 5% 5%;
+  line-height: 50px;
 }
-.detail .btnRegisterCourse{
-    background: white;
-    color: #227df9 !important;
-    transition: all 0.3s;
-    border: 1px solid #227df9 ;
+.detail .btnRegisterCourse {
+  background: white;
+  color: #227df9 !important;
+  transition: all 0.3s;
+  border: 1px solid #227df9;
 }
-.detail .btnRegisterCourse:hover{
-    background: linear-gradient(to right, #227df9, #7462f9, #df3ef8);
-    color: white !important;
+.detail .btnRegisterCourse:hover {
+  background: linear-gradient(to right, #227df9, #7462f9, #df3ef8);
+  color: white !important;
 }
-.detail .payCourseDetail .infoDetail li{
-    border-bottom: 2px solid #f0f8ff;
+.detail .payCourseDetail .infoDetail li {
+  border-bottom: 2px solid #f0f8ff;
 }
-.detail .priceCourseDetail{
-    color: #895bf9;
+.detail .priceCourseDetail {
+  color: #895bf9;
 }
-.detail .infoDetail svg{
-    color: #df3ef8;
+.detail .infoDetail svg {
+  color: #df3ef8;
 }
-.detail .participateDetail .anticon-check{
-    color: black;
-    font-weight: bold;
+.detail .participateDetail .anticon-check {
+  color: black;
+  font-weight: bold;
 }
-.detail .catalogHeader{
-    color: #7462f9;
-    font-weight: bold;
+.detail .catalogHeader {
+  color: #7462f9;
+  font-weight: bold;
 }
-.detail .titleNDKHoc{
-    font-size: 38px;
-    line-height: 50px;
-    font-weight: 700;
+.detail .titleNDKHoc {
+  font-size: 38px;
+  line-height: 50px;
+  font-weight: 700;
 }
-.detail .imgChuongTrinh{
-    z-index: 100;
-    position: relative;
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    margin-bottom: 20px;
+.detail .imgChuongTrinh {
+  z-index: 100;
+  position: relative;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: 20px;
 }
-.detail .bgChuongTrinh{
-    position: relative;
-    padding: 15px;
-    transition: all 0.5s;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 16px;
-    height: 100%;
-    color: white;
+.detail .bgChuongTrinh {
+  position: relative;
+  padding: 15px;
+  transition: all 0.5s;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  height: 100%;
+  color: white;
 }
-.detail .bgChuongTrinh:hover{
-    transform: scale(1.05);
+.detail .bgChuongTrinh:hover {
+  transform: scale(1.05);
 }
-.detail .bgOverlay1{
-    position: absolute;
-    transition: height 0.5s ease;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(209.21deg, rgb(4, 55, 174) 13.57%, rgb(29, 81, 146) 98.38%) !important;
+.detail .bgOverlay1 {
+  position: absolute;
+  transition: height 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    209.21deg,
+    rgb(4, 55, 174) 13.57%,
+    rgb(29, 81, 146) 98.38%
+  ) !important;
 }
-.detail .bgOverlay2{
-    position: absolute;
-    transition: height 0.5s ease;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(209.21deg, rgb(211,40,149) 13.57%, rgb(75,20,167) 98.38%);
+.detail .bgOverlay2 {
+  position: absolute;
+  transition: height 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    209.21deg,
+    rgb(211, 40, 149) 13.57%,
+    rgb(75, 20, 167) 98.38%
+  );
 }
-.detail .bgOverlay3{
-    position: absolute;
-    transition: height 0.5s ease;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(209.21deg, rgb(0,223,255) 13.57%, rgb(78,123,211) 98.38%);
+.detail .bgOverlay3 {
+  position: absolute;
+  transition: height 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    209.21deg,
+    rgb(0, 223, 255) 13.57%,
+    rgb(78, 123, 211) 98.38%
+  );
 }
-.detail .bgOverlay4{
-    position: absolute;
-    transition: height 0.5s ease;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(209.21deg, rgb(210,221,249) 13.57%, rgb(210,221,249) 98.38%);
+.detail .bgOverlay4 {
+  position: absolute;
+  transition: height 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    209.21deg,
+    rgb(210, 221, 249) 13.57%,
+    rgb(210, 221, 249) 98.38%
+  );
 }
-.detail .bgOverlay5{
-    position: absolute;
-    transition: height 0.5s ease;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(209.21deg, rgb(132,205,247) 13.57%, rgb(152,218,232) 98.38%);
+.detail .bgOverlay5 {
+  position: absolute;
+  transition: height 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    209.21deg,
+    rgb(132, 205, 247) 13.57%,
+    rgb(152, 218, 232) 98.38%
+  );
 }
-.detail .bgOverlay6{
-    position: absolute;
-    transition: height 0.5s ease;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(209.21deg, rgb(231,237,253) 13.57%, rgb(147,180,251) 98.38%);
+.detail .bgOverlay6 {
+  position: absolute;
+  transition: height 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    209.21deg,
+    rgb(231, 237, 253) 13.57%,
+    rgb(147, 180, 251) 98.38%
+  );
 }
-.detail .bgOverlay7{
-    position: absolute;
-    transition: height 0.5s ease;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(209.21deg, rgb(249,214,24) 13.57%, rgb(26,46,53) 98.38%);
+.detail .bgOverlay7 {
+  position: absolute;
+  transition: height 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    209.21deg,
+    rgb(249, 214, 24) 13.57%,
+    rgb(26, 46, 53) 98.38%
+  );
 }
-.detail .bgOverlay8{
-    position: absolute;
-    transition: height 0.5s ease;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(209.21deg, rgb(147,180,251) 13.57%, rgb(91,74,238) 98.38%);
+.detail .bgOverlay8 {
+  position: absolute;
+  transition: height 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    209.21deg,
+    rgb(147, 180, 251) 13.57%,
+    rgb(91, 74, 238) 98.38%
+  );
 }
-.detail .bgOverlay9{
-    position: absolute;
-    transition: height 0.5s ease;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(209.21deg, rgb(81,57,185) 13.57%, rgb(82,201,243) 98.38%);
+.detail .bgOverlay9 {
+  position: absolute;
+  transition: height 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    209.21deg,
+    rgb(81, 57, 185) 13.57%,
+    rgb(82, 201, 243) 98.38%
+  );
 }
-.detail .bgOverlay10{
-    position: absolute;
-    transition: height 0.5s ease;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(209.21deg, rgb(119,183,223) 13.57%, rgb(110,108,202) 98.38%);
+.detail .bgOverlay10 {
+  position: absolute;
+  transition: height 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    209.21deg,
+    rgb(119, 183, 223) 13.57%,
+    rgb(110, 108, 202) 98.38%
+  );
 }
-.detail .bgOverlay11{
-    position: absolute;
-    transition: height 0.5s ease;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(209.21deg, rgb(225,164,113) 13.57%, rgb(52,114,233) 98.38%);
+.detail .bgOverlay11 {
+  position: absolute;
+  transition: height 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    209.21deg,
+    rgb(225, 164, 113) 13.57%,
+    rgb(52, 114, 233) 98.38%
+  );
 }
-.detail .bgOverlay12{
-    position: absolute;
-    transition: height 0.5s ease;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(209.21deg, rgb(197,164,221) 13.57%, rgb(91,167,235) 98.38%);
+.detail .bgOverlay12 {
+  position: absolute;
+  transition: height 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    209.21deg,
+    rgb(197, 164, 221) 13.57%,
+    rgb(91, 167, 235) 98.38%
+  );
 }
-.detail .bgChuongTrinh h3, .detail .bgChuongTrinh span{
-   position: relative;
-   z-index: 100;
+.detail .bgChuongTrinh h3,
+.detail .bgChuongTrinh span {
+  position: relative;
+  z-index: 100;
 }
-.detail .bgChuongTrinh span{
-    top: 8px;
-    display: inline-block;
-    /* width: 100px; */
-    border: 1px solid gray;
-    border-radius: 50px;
-    padding: 2px 6px;
-    color: white;
-    margin-top: 4px;        
-    margin-left: 6px;
-    background: rgba(255, 255, 255, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    font-size: 12px;
+.detail .bgChuongTrinh span {
+  top: 8px;
+  display: inline-block;
+  /* width: 100px; */
+  border: 1px solid gray;
+  border-radius: 50px;
+  padding: 2px 6px;
+  color: white;
+  margin-top: 4px;
+  margin-left: 6px;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 12px;
 }
-.detail .project{
-    background: rgb(232, 229, 229);
+.detail .project {
+  background: rgb(232, 229, 229);
 }
-.detail .coursesOutput .divImgCertificate{
-    width: 2000px;
-    max-width: 2000px;
+.detail .coursesOutput .divImgCertificate {
+  width: 2000px;
+  max-width: 2000px;
 }
-.detail .coursesOutput input{
-    background: red !important;
+.detail .coursesOutput input {
+  background: red !important;
 }
 .detail .coursesOutput {
-    background: #ffcdb2 !important;
+  background: #ffcdb2 !important;
+}
+.courseOutputCourseCatalog {
+  margin-top: -300px;
 }
 /* Responsive */
 @media screen and (max-width: 1286px) {
-    .detail .coursesOutput .divImgCertificate{
-        width: 2000px;
-    }
+  .detail .coursesOutput .divImgCertificate {
+    width: 2000px;
+  }
 }
 @media screen and (max-width: 1260px) {
-    .detail .containerDetail{
-        width: 99% !important;
-        margin: 0;
-    }
+  .detail .containerDetail {
+    width: 99% !important;
+    margin: 0;
+  }
 }
 @media screen and (max-width: 1162px) {
-    .detail .coursesOutput .imgCertificate{
-        height: 408px;
-    }
+  .detail .coursesOutput .imgCertificate {
+    height: 408px;
+  }
 }
 @media screen and (max-width: 1024px) {
-    .detail .coursesOutput .imgCertificate{
-        margin-left: 18vw; 
-        height: 540px;
-    }
+  .detail .coursesOutput .imgCertificate {
+    margin-left: 18vw;
+    height: 540px;
+  }
+  .courseOutputCourseCatalog {
+    margin-top: 1000px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .courseOutputCourseCatalog {
+    margin-top: 700px;
+  }
+  .footerCourseCatalog {
+    margin-top: 550px;
+  }
 }
 @media screen and (max-width: 844px) {
-    .detail .coursesOutput .imgCertificate{
-        margin-left: 13vw; 
-        height: 540px;
-    }
+  .detail .coursesOutput .imgCertificate {
+    margin-left: 13vw;
+    height: 540px;
+  }
 }
 @media screen and (max-width: 768px) {
-    .detail .coursesOutput .imgCertificate{
-        margin-left: 8vw; 
-        height: 540px;
-    }
-    .detail .titleNDKHoc{
-        font-size: 32px;
-    }
+  .detail .coursesOutput .imgCertificate {
+    margin-left: 8vw;
+    height: 540px;
+  }
+  .detail .titleNDKHoc {
+    font-size: 32px;
+  }
+  .courseOutputCourseCatalog {
+    margin-top: 800px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .courseOutputCourseCatalog {
+    margin-top: 1150px;
+  }
 }
 @media screen and (max-width: 600px) {
-    .detail .coursesOutput .imgCertificate{
-        margin-left: 1vw; 
-        height: 540px;
-    }
+  .detail .coursesOutput .imgCertificate {
+    margin-left: 1vw;
+    height: 540px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .courseOutputCourseCatalog {
+    margin-top: 1450px;
+  }
+  .footerCourseCatalog {
+    margin-top: 650px;
+  }
 }
 @media screen and (max-width: 500px) {
-    .detail .coursesOutput .imgCertificate{
-        margin-left: -1vw; 
-        height: 480px;
-    }
-    .detail .titleNDKHoc{
-        font-size: 26px;
-    }
-    .detail .titleDetail{
-        font-size: 25px;
-    }
-    .detail .coursesOutput .courseOutputTitle{
-        font-size: 25px;
-    }
+  .detail .coursesOutput .imgCertificate {
+    margin-left: -1vw;
+    height: 480px;
+  }
+  .detail .titleNDKHoc {
+    font-size: 26px;
+  }
+  .detail .titleDetail {
+    font-size: 25px;
+  }
+  .detail .coursesOutput .courseOutputTitle {
+    font-size: 25px;
+  }
 }
 @media screen and (max-width: 476px) {
-    .detail .btnRegisterCourse{
-        font-size: 16px;
-    }
+  .detail .btnRegisterCourse {
+    font-size: 16px;
+  }
 }
 @media screen and (max-width: 430px) {
-    .detail .coursesOutput .imgCertificate{
-        margin-left: -5vw; 
-        height: 450px;
-    }
-    .detail .btnRegisterCourse{
-        font-size: 14px;
-    }
+  .detail .coursesOutput .imgCertificate {
+    margin-left: -5vw;
+    height: 450px;
+  }
+  .detail .btnRegisterCourse {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 415px) {
+  .courseOutputCourseCatalog {
+    margin-top: 1950px;
+  }
+  .footerCourseCatalog {
+    margin-top: 650px;
+  }
 }
