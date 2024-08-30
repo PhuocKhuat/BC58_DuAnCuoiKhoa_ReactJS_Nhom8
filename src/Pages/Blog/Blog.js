@@ -14,7 +14,7 @@ export default function Blog() {
               <div className="lg:w-full flex flex-wrap">
                 <div className="lg:w-1/3 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0 bg-black pt-3 px-3 pb-4 z-50">
                   <div className="flex mb-4">
-                    <p className="flex-grow py-2 text-lg px-1 uppercase blogBorder">
+                    <p className="flex-grow py-2 sm:text-lg text-base px-1 uppercase blogBorder">
                       Description
                     </p>
                   </div>
@@ -67,7 +67,7 @@ export default function Blog() {
                 <div className="pe-3 lg:px-3 borderFrame md:w-1/2 lg:w-1/3 cursor-pointer mb-3 md:mb-0 ">
                   <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bgFrame">
                     <div className="px-6 pt-6">
-                      <h1 className="title-font text-lg font-bold text-white">
+                      <h1 className="title-font sm:text-lg text-base font-bold text-white">
                         Tips to "beat" the automatic CV filtering system -
                         Submit your CV now
                       </h1>
@@ -109,7 +109,7 @@ export default function Blog() {
                           6 comments
                         </span>
                       </div>
-                      <p className="leading-relaxed mb-3 text-gray-400">
+                      <p className="leading-relaxed mb-3 text-gray-400 sm:text-base text-sm">
                         When participating in interviews, many programmers often
                         focus on how to impress the employer at the first
                         meeting but forget how to ...
@@ -137,7 +137,7 @@ export default function Blog() {
                 <div className="ps-2 borderFrame md:w-1/2 lg:w-1/3 cursor-pointer md:mb-0">
                   <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bgFrame">
                     <div className="px-6 pt-6">
-                      <h1 className="title-font text-lg font-bold text-white">
+                      <h1 className="title-font sm:text-lg text-base font-bold text-white">
                         Outsource Or Product? What is the optimal choice for
                         Fresher Developers?
                       </h1>
@@ -179,7 +179,7 @@ export default function Blog() {
                           6 comments
                         </span>
                       </div>
-                      <p className="leading-relaxed mb-3 text-gray-400">
+                      <p className="leading-relaxed mb-3 text-gray-400 sm:text-base text-sm">
                         Outsource is a strange term in the information
                         technology industry, especially for developers. This
                         process brings many benefits...
@@ -211,7 +211,7 @@ export default function Blog() {
                 <div className="px-2 borderFrame md:w-1/2 lg:w-1/3 opacity-0 hidden lg:block">
                   <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bgFrame">
                     <div className="px-6 pt-6">
-                      <h1 className="title-font text-lg font-bold text-white">
+                      <h1 className="title-font sm:text-lg text-base font-bold text-white">
                         Tips to "beat" the automatic CV filtering system -
                         Submit your CV now
                       </h1>
@@ -253,7 +253,7 @@ export default function Blog() {
                           6 comments
                         </span>
                       </div>
-                      <p className="leading-relaxed mb-3 text-gray-400">
+                      <p className="leading-relaxed mb-3 text-gray-400 sm:text-base text-sm">
                         When participating in interviews, many programmers often
                         focus on how to impress the ...
                       </p>
@@ -277,10 +277,10 @@ export default function Blog() {
                     </div>
                   </div>
                 </div>
-                <div className="px-3 borderFrame md:w-1/2 lg:w-1/3 cursor-pointer mb-4 md:mb-0">
+                <div className="px-3 borderFrame md:w-1/2 lg:w-1/3 cursor-pointer mb-4 md:mb-0 relative top-[550px] mds:top-0">
                   <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden  bgFrame">
                     <div className="px-6 pt-6">
-                      <h1 className="title-font text-lg font-bold text-white">
+                      <h1 className="title-font sm:text-lg text-base font-bold text-white">
                         Which API is suitable for new Developers?
                       </h1>
                     </div>
@@ -321,7 +321,7 @@ export default function Blog() {
                           6 comments
                         </span>
                       </div>
-                      <p className="leading-relaxed mb-3 text-gray-400">
+                      <p className="leading-relaxed mb-3 text-gray-400 sm:text-base text-sm">
                         API, or Application Programming Interface, is an
                         intermediary between different applications and
                         libraries. They provide a way to connect and...
@@ -346,10 +346,10 @@ export default function Blog() {
                     </div>
                   </div>
                 </div>
-                <div className="px-2 borderFrame md:w-1/2 lg:w-1/3 cursor-pointer md:mb-0">
+                <div className="px-2 borderFrame md:w-1/2 lg:w-1/3 cursor-pointer md:mb-0 relative top-[550px] mds:top-0">
                   <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bgFrame">
                     <div className="px-6 pt-6">
-                      <h1 className="title-font text-lg font-bold text-white">
+                      <h1 className="title-font sm:text-lg text-base font-bold text-white">
                         C and C++ – Things you may not know and knew
                       </h1>
                     </div>
@@ -390,7 +390,7 @@ export default function Blog() {
                           6 comments
                         </span>
                       </div>
-                      <p className="leading-relaxed mb-3 text-gray-400">
+                      <p className="leading-relaxed mb-3 text-gray-400 sm:text-base text-sm">
                         When starting to learn programming, there is often a
                         risk of confusion between the two programming languages
                         C and C++...
@@ -422,7 +422,7 @@ export default function Blog() {
                 <div className="px-2 borderFrame md:w-1/2 lg:w-1/3 opacity-0 hidden lg:block">
                   <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bgFrame">
                     <div className="px-6 pt-6">
-                      <h1 className="title-font text-lg font-bold text-white">
+                      <h1 className="title-font sm:text-lg text-base font-bold text-white">
                         Tips to "beat" the automatic CV filtering system -
                         Submit your CV now
                       </h1>
@@ -464,7 +464,7 @@ export default function Blog() {
                           6 comments
                         </span>
                       </div>
-                      <p className="leading-relaxed mb-3 text-gray-400">
+                      <p className="leading-relaxed mb-3 text-gray-400 sm:text-base text-sm">
                         When participating in interviews, many programmers often
                         focus on how to impress the ...
                       </p>
@@ -488,10 +488,10 @@ export default function Blog() {
                     </div>
                   </div>
                 </div>
-                <div className="px-3 borderFrame md:w-1/2 lg:w-1/3 cursor-pointer mb-4 md:mb-0">
+                <div className="px-3 borderFrame md:w-1/2 lg:w-1/3 cursor-pointer mb-4 md:mb-0 relative top-[550px] mds:top-0">
                   <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bgFrame">
                     <div className="px-6 pt-6">
-                      <h1 className="title-font text-lg font-bold text-white">
+                      <h1 className="title-font sm:text-lg text-base font-bold text-white">
                         James Himman's success and what he shares?
                       </h1>
                     </div>
@@ -532,7 +532,7 @@ export default function Blog() {
                           6 comments
                         </span>
                       </div>
-                      <p className="leading-relaxed mb-3 text-gray-400">
+                      <p className="leading-relaxed mb-3 text-gray-400 sm:text-base text-sm">
                         API, or Application Programming Interface, is an
                         intermediary between different applications and
                         libraries. They provide a way to connect and...
@@ -557,10 +557,10 @@ export default function Blog() {
                     </div>
                   </div>
                 </div>
-                <div className="px-2 borderFrame md:w-1/2 lg:w-1/3 cursor-pointer">
+                <div className="px-2 borderFrame md:w-1/2 lg:w-1/3 cursor-pointer relative top-[550px] mds:top-0">
                   <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bgFrame">
                     <div className="px-6 pt-6">
-                      <h1 className="title-font text-lg font-bold text-white">
+                      <h1 className="title-font sm:text-lg text-base font-bold text-white">
                         The secret to achieving your goals quickly in less time
                       </h1>
                     </div>
@@ -601,7 +601,7 @@ export default function Blog() {
                           6 comments
                         </span>
                       </div>
-                      <p className="leading-relaxed mb-3 text-gray-400">
+                      <p className="leading-relaxed mb-3 text-gray-400 sm:text-base text-sm">
                         When starting to learn programming, there is often a
                         risk of confusion between the two programming languages
                         C and C++...
@@ -630,10 +630,10 @@ export default function Blog() {
             </div>
             <div className="col-span-12 bottomFrame spacePost">
               <div className="flex flex-wrap -m-4">
-                <div className="px-2 borderFrame md:w-1/2 lg:w-1/3 opacity-0 hidden lg:block">
+                <div className="px-2 borderFrame md:w-1/2 lg:w-1/3 opacity-0 hidden lg:block relative top-[550px] mds:top-0">
                   <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bgFrame">
                     <div className="px-6 pt-6">
-                      <h1 className="title-font text-lg font-bold text-white">
+                      <h1 className="title-font sm:text-lg text-base font-bold text-white">
                         Tips to "beat" the automatic CV filtering system -
                         Submit your CV now
                       </h1>
@@ -675,7 +675,7 @@ export default function Blog() {
                           6 comments
                         </span>
                       </div>
-                      <p className="leading-relaxed mb-3 text-gray-400">
+                      <p className="leading-relaxed mb-3 text-gray-400 sm:text-base text-sm">
                         When participating in interviews, many programmers often
                         focus on how to impress the ...
                       </p>
@@ -699,10 +699,10 @@ export default function Blog() {
                     </div>
                   </div>
                 </div>
-                <div className="px-3 borderFrame md:w-1/2 lg:w-1/3 cursor-pointer mb-4 md:mb-0">
+                <div className="px-3 borderFrame md:w-1/2 lg:w-1/3 cursor-pointer mb-4 md:mb-0 relative top-[550px] mds:top-0">
                   <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bgFrame">
                     <div className="px-6 pt-6">
-                      <h1 className="title-font text-lg font-bold text-white">
+                      <h1 className="title-font sm:text-lg text-base font-bold text-white">
                         The popularity of Reactjs in the Vietnamese market
                       </h1>
                     </div>
@@ -743,7 +743,7 @@ export default function Blog() {
                           6 comments
                         </span>
                       </div>
-                      <p className="leading-relaxed mb-3 text-gray-400">
+                      <p className="leading-relaxed mb-3 text-gray-400 sm:text-base text-sm">
                         When starting to learn programming, there is often a
                         risk of confusion between the two programming languages
                         C and C++...
@@ -768,10 +768,10 @@ export default function Blog() {
                     </div>
                   </div>
                 </div>
-                <div className="px-2 borderFrame md:w-1/2 lg:w-1/3 cursor-pointer">
+                <div className="px-2 borderFrame md:w-1/2 lg:w-1/3 cursor-pointer relative top-[550px] mds:top-0">
                   <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bgFrame">
                     <div className="px-6 pt-6">
-                      <h1 className="title-font text-lg font-bold text-white">
+                      <h1 className="title-font sm:text-lg text-base font-bold text-white">
                         Why should we use responsive and their benefits?
                       </h1>
                     </div>
@@ -812,7 +812,7 @@ export default function Blog() {
                           6 comments
                         </span>
                       </div>
-                      <p className="leading-relaxed mb-3 text-gray-400">
+                      <p className="leading-relaxed mb-3 text-gray-400 sm:text-base text-sm">
                         When starting to learn programming, there is often a
                         risk of confusion between the two programming languages
                         C and C++...
@@ -842,7 +842,7 @@ export default function Blog() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </Parallax>
   );
 }

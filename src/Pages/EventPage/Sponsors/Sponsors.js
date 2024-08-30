@@ -12,7 +12,7 @@ export default function Sponsors() {
           <h1 className="titleSponsers uppercase sm:text-3xl text-2xl font-bold title-font mb-3 text-gray-800">
             Potential and leading sponsors
           </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-white">
+          <p className="lg:w-2/3 mx-auto leading-relaxed sm:text-base text-sm text-white">
             Sponsors are important companions, contributing to the success of
             many activities, organizations and projects. Cooperating and
             building good relationships with donors is a key factor in ensuring
@@ -33,7 +33,7 @@ export default function Sponsors() {
               <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
                 Facebook
               </h2>
-              <p className="leading-relaxed text-base">
+              <p className="leading-relaxed sm:text-base text-sm ">
                 Facebook is a social networking platform founded by Mark
                 Zuckerberg, Eduardo Saverin, Dustin Moskovitz and Chris Hughes
                 when they were ...
@@ -53,8 +53,10 @@ export default function Sponsors() {
               <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
                 Microsoft
               </h2>
-              <p className="leading-relaxed text-base">
-              Microsoft is a multinational technology company headquartered in Redmond, Washington. The company was founded in 1975 by Bill Gates and ...
+              <p className="leading-relaxed sm:text-base text-sm ">
+                Microsoft is a multinational technology company headquartered in
+                Redmond, Washington. The company was founded in 1975 by Bill
+                Gates and ...
               </p>
             </div>
           </div>
@@ -71,8 +73,10 @@ export default function Sponsors() {
               <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
                 Google
               </h2>
-              <p className="leading-relaxed text-base">
-              Google is an American multinational technology company specializing in Internet-related services and products.The company was ...
+              <p className="leading-relaxed sm:text-base text-sm ">
+                Google is an American multinational technology company
+                specializing in Internet-related services and products.The
+                company was ...
               </p>
             </div>
           </div>
@@ -89,8 +93,10 @@ export default function Sponsors() {
               <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
                 Amazon
               </h2>
-              <p className="leading-relaxed text-base">
-              Amazon is an American multinational technology company focused on e-commerce, cloud computing, digital streaming, and artificial intelligence...
+              <p className="leading-relaxed sm:text-base text-sm ">
+                Amazon is an American multinational technology company focused
+                on e-commerce, cloud computing, digital streaming, and
+                artificial intelligence...
               </p>
             </div>
           </div>
@@ -107,8 +113,10 @@ export default function Sponsors() {
               <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
                 Adidas
               </h2>
-              <p className="leading-relaxed text-base">
-              Adidas was founded in 1949 by Adolf Dassler in Herzogenaurach, Germany. Adidas initially specialized in the production of sports shoes, then...
+              <p className="leading-relaxed sm:text-base text-sm ">
+                Adidas was founded in 1949 by Adolf Dassler in Herzogenaurach,
+                Germany. Adidas initially specialized in the production of
+                sports shoes, then...
               </p>
             </div>
           </div>
@@ -125,8 +133,9 @@ export default function Sponsors() {
               <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
                 Samsung
               </h2>
-              <p className="leading-relaxed text-base">
-              Samsung is a Korean multinational corporation headquartered in Samsung City, Seoul. This is the largest corporation in Korea...
+              <p className="leading-relaxed sm:text-base text-sm ">
+                Samsung is a Korean multinational corporation headquartered in
+                Samsung City, Seoul. This is the largest corporation in Korea...
               </p>
             </div>
           </div>
@@ -141,10 +150,12 @@ export default function Sponsors() {
                 GOLD SPONSOR
               </h3>
               <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
-                Youtube 
+                Youtube
               </h2>
-              <p className="leading-relaxed text-base">
-              YouTube sponsors are businesses or organizations that partner with YouTube to promote their brands, products or services on the YouTube platform...
+              <p className="leading-relaxed sm:text-base text-sm ">
+                YouTube sponsors are businesses or organizations that partner
+                with YouTube to promote their brands, products or services on
+                the YouTube platform...
               </p>
             </div>
           </div>
@@ -161,8 +172,10 @@ export default function Sponsors() {
               <h2 className="text-xl text-yellow-500 font-bold title-font mb-3">
                 Tiktok
               </h2>
-              <p className="leading-relaxed text-base">
-              TikTok is a popular short video sharing social media platform that allows users to create and share short videos, often with background music...
+              <p className="leading-relaxed sm:text-base text-sm ">
+                TikTok is a popular short video sharing social media platform
+                that allows users to create and share short videos, often with
+                background music...
               </p>
             </div>
           </div>

@@ -106,10 +106,7 @@
     width: 100%;
   }
   .blog .borderFrame .bgFrame {
-    height: 615px;
-  }
-  .blog .spacePostFirst {
-    margin-bottom: 255px;
+    height: 535px;
   }
   .blog .spacePost {
     margin-top: 60px;
@@ -118,15 +115,22 @@
     height: 2820px;
   }
   .blog .borderFrame {
-    height: 605px;
+    height: 150px;
+  }
+  .blog .bottomFrame {
+    bottom: 585px;
   }
 }
-@media screen and (max-width: 912px) {
+@media screen and (max-width: 992px) {
   .blog .borderFrame .bgFrame {
     height: 460px;
   }
+  .blog .spacePost {
+    margin-top: 10px;
+  }
   .blog .borderFrame {
     height: 430px;
+    margin-top: 60px;
   }
   .blog .frame {
     height: 2720px;
@@ -139,13 +143,13 @@
 }
 @media screen and (max-width: 640px) {
   .blog .borderFrame .bgFrame {
-    height: 550px;
+    height: 470px;
   }
   .blog .borderFrame {
-    height: 560px;
+    height: 400px;
   }
   .blog .frame {
-    height: 5475px !important;
+    height: 5075px !important;
   }
 }
 @media screen and (max-width: 455px) {
@@ -156,6 +160,6 @@
     height: 595px;
   }
   .blog .frame {
-    height: 5765px !important;
+    height: 6265px !important;
   }
 }

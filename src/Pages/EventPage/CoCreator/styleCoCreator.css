@@ -1,66 +1,66 @@
-.coCreator{
-  background-image: url('../../../img/lightTech.jpg');
+.coCreator {
+  background-image: url("../../../img/lightTech.jpg");
   background-size: cover;
   background-position: center;
   margin-top: 320px;
 }
-.coCreator .borderCoCreator{
+.coCreator .borderCoCreator {
   border: 1px solid black;
   border-radius: 5px;
   background: white;
 }
 @media screen and (max-width: 1286px) {
-  .coCreator{
+  .coCreator {
     margin-top: 242px;
   }
 }
 @media screen and (max-width: 1110px) {
-  .coCreator{
+  .coCreator {
     margin-top: 300px;
   }
 }
 @media screen and (max-width: 1024px) {
-  .coCreator{
+  .coCreator {
     margin-top: 250px;
   }
 }
 @media screen and (max-width: 880px) {
-  .coCreator{
+  .coCreator {
     margin-top: 300px;
   }
 }
 @media screen and (max-width: 773px) {
-  .coCreator{
+  .coCreator {
     margin-top: 350px;
   }
 }
 @media screen and (max-width: 768px) {
-  .coCreator{
+  .coCreator {
+    margin-top: 300px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .coCreator {
     margin-top: 450px;
   }
 }
-/* @media screen and (max-width: 680px) {
-  .coCreator{
-    margin-top: 630px;
-  }
-} */
 @media screen and (max-width: 640px) {
-  .coCreator{
+  .coCreator {
     margin-top: 340px;
   }
 }
-@media screen and (max-width: 545px) {
-  /* .coCreator{
-    margin-top: 450px;
-  } */
+@media screen and (max-width: 551px) {
+  .coCreator {
+    margin-top: 300px;
+  }
 }
 @media screen and (max-width: 420px) {
-  .coCreator{
+  .coCreator {
     margin-top: 320px;
   }
 }
 @media screen and (max-width: 365px) {
-  .coCreator{
+  .coCreator {
     margin-top: 350px;
   }
 }

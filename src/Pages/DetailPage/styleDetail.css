@@ -382,7 +382,7 @@
 }
 @media screen and (max-width: 476px) {
   .detail .btnRegisterCourse {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 @media screen and (max-width: 430px) {
@@ -400,5 +400,8 @@
   }
   .footerCourseCatalog {
     margin-top: 650px;
+  }
+  .detail .btnRegisterCourse {
+    font-size: 8px;
   }
 }

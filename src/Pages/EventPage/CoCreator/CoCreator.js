@@ -23,7 +23,7 @@ export default function CoCreator() {
             <a className="block relative h-48 rounded overflow-hidden">
               <img
                 alt="ecommerce"
-                className="object-cover object-center block w-96 h-96"
+                className="object-cover object-center block md:w-96 w-full h-96"
                 src="/img/co-creator-1.jpg"
               />
             </a>
@@ -34,7 +34,7 @@ export default function CoCreator() {
               <h2 class="text-blue-300 mb-2 title-font text-sm font-medium">
                 Mr. Oscar Wimmer
               </h2>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
+              <h2 className="text-gray-900 title-font md:text-lg sm:text-base text-sm font-medium">
                 Financial expert with more than 10 years of experience in
                 financial management for startup businesses.
               </h2>
@@ -44,7 +44,7 @@ export default function CoCreator() {
             <a className="block relative h-48 rounded overflow-hidden">
               <img
                 alt="ecommerce"
-                className="object-cover object-center block w-96 h-96"
+                className="object-cover object-center block md:w-96 w-full h-96"
                 src="/img/co-creator-2.jpg"
               />
             </a>
@@ -55,7 +55,7 @@ export default function CoCreator() {
               <h2 class="text-blue-300 mb-2 title-font text-sm font-medium">
                 Mr. Oscar Wimmer
               </h2>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
+              <h2 className="text-gray-900 title-font md:text-lg sm:text-base text-sm font-medium">
                 Financial expert with more than 10 years of experience in
                 financial management for startup businesses.
               </h2>
@@ -65,7 +65,7 @@ export default function CoCreator() {
             <a className="block relative h-48 rounded overflow-hidden">
               <img
                 alt="ecommerce"
-                className="object-cover object-center block w-96 h-96"
+                className="object-cover object-center block md:w-96 w-full h-96"
                 src="/img/co-creator-3.jpg"
               />
             </a>
@@ -76,7 +76,7 @@ export default function CoCreator() {
               <h2 class="text-blue-300 mb-2 title-font text-sm font-medium">
                 Mr. Oscar Wimmer
               </h2>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
+              <h2 className="text-gray-900 title-font md:text-lg sm:text-base text-sm font-medium">
                 Financial expert with more than 10 years of experience in
                 financial management for startup businesses.
               </h2>
@@ -86,7 +86,7 @@ export default function CoCreator() {
             <a className="block relative h-48 rounded overflow-hidden">
               <img
                 alt="ecommerce"
-                className="object-cover object-center block w-96 h-96"
+                className="object-cover object-center block md:w-96 w-full h-96"
                 src="/img/co-creator-4.jpg"
               />
             </a>
@@ -97,7 +97,7 @@ export default function CoCreator() {
               <h2 class="text-blue-300 mb-2 title-font text-sm font-medium">
                 Mr. Oscar Wimmer
               </h2>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
+              <h2 className="text-gray-900 title-font md:text-lg sm:text-base text-sm font-medium">
                 Financial expert with more than 10 years of experience in
                 financial management for startup businesses.
               </h2>
@@ -107,7 +107,7 @@ export default function CoCreator() {
             <a className="block relative h-48 rounded overflow-hidden">
               <img
                 alt="ecommerce"
-                className="object-cover object-center block w-96 h-64"
+                className="object-cover object-center block md:w-96 w-full md:h-64 h-96"
                 src="/img/co-creator-5.jpg"
               />
             </a>
@@ -118,7 +118,7 @@ export default function CoCreator() {
               <h2 class="text-blue-300 mb-2 title-font text-sm font-medium">
                 Mr. Oscar Wimmer
               </h2>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
+              <h2 className="text-gray-900 title-font md:text-lg sm:text-base text-sm font-medium">
                 Financial expert with more than 10 years of experience in
                 financial management for startup businesses.
               </h2>
@@ -128,7 +128,7 @@ export default function CoCreator() {
             <a className="block relative h-48 rounded overflow-hidden">
               <img
                 alt="ecommerce"
-                className="object-cover object-center w-96 h-96 block"
+                className="object-cover object-center md:w-96 w-full h-96 block"
                 src="/img/co-creator-6.jpg"
               />
             </a>
@@ -139,7 +139,7 @@ export default function CoCreator() {
               <h2 class="text-blue-300 mb-2 title-font text-sm font-medium">
                 Mr. Oscar Wimmer
               </h2>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
+              <h2 className="text-gray-900 title-font md:text-lg sm:text-base text-sm font-medium">
                 Financial expert with more than 10 years of experience in
                 financial management for startup businesses.
               </h2>
@@ -149,7 +149,7 @@ export default function CoCreator() {
             <a className="block relative h-48 rounded overflow-hidden">
               <img
                 alt="ecommerce"
-                className="object-cover object-center w-96 h-64 block"
+                className="object-cover object-center md:w-96 w-full md:h-64 h-96 block"
                 src="/img/co-creator-7.jpg"
               />
             </a>
@@ -160,7 +160,7 @@ export default function CoCreator() {
               <h2 class="text-blue-300 mb-2 title-font text-sm font-medium">
                 Mr. Oscar Wimmer
               </h2>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
+              <h2 className="text-gray-900 title-font md:text-lg sm:text-base text-sm font-medium">
                 Financial expert with more than 10 years of experience in
                 financial management for startup businesses.
               </h2>
@@ -170,7 +170,7 @@ export default function CoCreator() {
             <a className="block relative h-48 rounded overflow-hidden">
               <img
                 alt="ecommerce"
-                className="object-cover object-center w-96 h-96 block"
+                className="object-cover object-center md:w-96 w-full h-96 block"
                 src="/img/co-creator-8.jpg"
               />
             </a>
@@ -181,7 +181,7 @@ export default function CoCreator() {
               <h2 class="text-blue-300 mb-2 title-font text-sm font-medium">
                 Mr. Oscar Wimmer
               </h2>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
+              <h2 className="text-gray-900 title-font md:text-lg sm:text-base text-sm font-medium">
                 Financial expert with more than 10 years of experience in
                 financial management for startup businesses.
               </h2>

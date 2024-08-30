@@ -31,7 +31,7 @@ export default function PreviewVideo() {
             </p>
             <div className="lessonContainer p-3">
               <div
-                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                className="lessonContent mt-1 xs:flex block items-center justify-between text-green-700"
                 onClick={showModal}
               >
                 <span className="space-x-2">
@@ -39,12 +39,12 @@ export default function PreviewVideo() {
                   <PlayCircleOutlined />
                   <span>Concept of React components</span>
                 </span>
-                <span className="space-x-2">
+                <p className="space-x-2">
                   <ClockCircleOutlined /> <span>14:35</span>
-                </span>
+                </p>
               </div>
               <div
-                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                className="lessonContent mt-1 xs:flex block items-center justify-between text-green-700"
                 onClick={showModal}
               >
                 <span className="space-x-2">
@@ -52,12 +52,12 @@ export default function PreviewVideo() {
                   <PlayCircleOutlined />
                   <span>Set up the environment for Windows</span>
                 </span>
-                <span className="space-x-2">
+                <p className="space-x-2">
                   <ClockCircleOutlined /> <span>14:35</span>
-                </span>
+                </p>
               </div>
               <div
-                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                className="lessonContent mt-1 xs:flex block items-center justify-between text-green-700"
                 onClick={showModal}
               >
                 <span className="space-x-2">
@@ -65,12 +65,12 @@ export default function PreviewVideo() {
                   <PlayCircleOutlined />
                   <span>Create React applications - React-Scripts</span>
                 </span>
-                <span className="space-x-2">
+                <p className="space-x-2">
                   <ClockCircleOutlined /> <span>14:35</span>
-                </span>
+                </p>
               </div>
               <div
-                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                className="lessonContent mt-1 xs:flex block items-center justify-between text-green-700"
                 onClick={showModal}
               >
                 <span className="space-x-2">
@@ -80,9 +80,9 @@ export default function PreviewVideo() {
                     A quick note about quotes for string interpolation
                   </span>
                 </span>
-                <span className="space-x-2">
+                <p className="space-x-2">
                   <ClockCircleOutlined /> <span>14:35</span>
-                </span>
+                </p>
               </div>
               <VideoJS isModalOpen={isModalOpen} handleCancel={handleCancel} />
             </div>
@@ -100,7 +100,7 @@ export default function PreviewVideo() {
             </p>
             <div className="lessonContainer p-3">
               <div
-                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                className="lessonContent mt-1 xs:flex block items-center justify-between text-green-700"
                 onClick={showModal}
               >
                 <span className="space-x-2">
@@ -108,12 +108,12 @@ export default function PreviewVideo() {
                   <PlayCircleOutlined />
                   <span>Home page and directory component</span>
                 </span>
-                <span className="space-x-2">
+                <p className="space-x-2">
                   <ClockCircleOutlined /> <span>14:35</span>
-                </span>
+                </p>
               </div>
               <div
-                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                className="lessonContent mt-1 xs:flex block items-center justify-between text-green-700"
                 onClick={showModal}
               >
                 <span className="space-x-2">
@@ -121,12 +121,12 @@ export default function PreviewVideo() {
                   <PlayCircleOutlined />
                   <span>Course Guide + Github Link</span>
                 </span>
-                <span className="space-x-2">
+                <p className="space-x-2">
                   <ClockCircleOutlined /> <span>14:35</span>
-                </span>
+                </p>
               </div>
               <div
-                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                className="lessonContent mt-1 xs:flex block items-center justify-between text-green-700"
                 onClick={showModal}
               >
                 <span className="space-x-2">
@@ -134,12 +134,12 @@ export default function PreviewVideo() {
                   <PlayCircleOutlined />
                   <span>E-commerce home page + SASS setup</span>
                 </span>
-                <span className="space-x-2">
+                <p className="space-x-2">
                   <ClockCircleOutlined /> <span>14:35</span>
-                </span>
+                </p>
               </div>
               <div
-                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                className="lessonContent mt-1 xs:flex block items-center justify-between text-green-700"
                 onClick={showModal}
               >
                 <span className="space-x-2">
@@ -147,12 +147,12 @@ export default function PreviewVideo() {
                   <PlayCircleOutlined />
                   <span>CSS and SCSS files</span>
                 </span>
-                <span className="space-x-2">
+                <p className="space-x-2">
                   <ClockCircleOutlined /> <span>14:35</span>
-                </span>
+                </p>
               </div>
               <div
-                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                className="lessonContent mt-1 xs:flex block items-center justify-between text-green-700"
                 onClick={showModal}
               >
                 <span className="space-x-2">
@@ -160,9 +160,9 @@ export default function PreviewVideo() {
                   <PlayCircleOutlined />
                   <span>React 17: Updated packages + Latest React version</span>
                 </span>
-                <span className="space-x-2">
+                <p className="space-x-2">
                   <ClockCircleOutlined /> <span>14:35</span>
-                </span>
+                </p>
               </div>
               <VideoJS isModalOpen={isModalOpen} handleCancel={handleCancel} />
             </div>
@@ -179,8 +179,8 @@ export default function PreviewVideo() {
               <CodeOutlined /> Preview Video
             </p>
             <div className="lessonContainer p-3">
-            <div
-                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+              <div
+                className="lessonContent mt-1 xs:flex block items-center justify-between text-green-700"
                 onClick={showModal}
               >
                 <span className="space-x-2">
@@ -193,7 +193,7 @@ export default function PreviewVideo() {
                 </span>
               </div>
               <div
-                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                className="lessonContent mt-1 xs:flex block items-center justify-between text-green-700"
                 onClick={showModal}
               >
                 <span className="space-x-2">
@@ -206,7 +206,7 @@ export default function PreviewVideo() {
                 </span>
               </div>
               <div
-                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                className="lessonContent mt-1 xs:flex block items-center justify-between text-green-700"
                 onClick={showModal}
               >
                 <span className="space-x-2">
@@ -219,7 +219,7 @@ export default function PreviewVideo() {
                 </span>
               </div>
               <div
-                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                className="lessonContent mt-1 xs:flex block items-center justify-between text-green-700"
                 onClick={showModal}
               >
                 <span className="space-x-2">
@@ -232,7 +232,7 @@ export default function PreviewVideo() {
                 </span>
               </div>
               <div
-                className="lessonContent mt-1 flex items-center justify-between text-green-700"
+                className="lessonContent mt-1 xs:flex block items-center justify-between text-green-700"
                 onClick={showModal}
               >
                 <span className="space-x-2">

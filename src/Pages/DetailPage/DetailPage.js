@@ -367,7 +367,7 @@ export default function DetailPage() {
           </div>
           <Project />
         </div>
-        <PreviewVideo/>
+        <PreviewVideo />
         <CourseOutputs />
         <Footer />
       </div>

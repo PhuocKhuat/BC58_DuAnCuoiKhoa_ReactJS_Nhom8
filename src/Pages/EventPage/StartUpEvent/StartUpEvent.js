@@ -7,7 +7,12 @@ export default function StartUpEvent() {
     <div className="text-gray-600 body-font startUpEvent">
       <div className="container flex flex-wrap pt-8 pb-14 items-center">
         <div className="md:w-1/2 md:pr-12 md:py-8 md:border-r md:border-b-0 mb-10 md:mb-0 pb-10 border-b border-gray-200">
-          <video src="/videos/re_ techonlogy.mp4" controls={true} loop={true} />
+          <video
+            src="/videos/re_ technology.mp4"
+            controls={true}
+            loop={true}
+            autoPlay
+          />
         </div>
         <div className="flex flex-col md:w-1/2 md:pl-12 bgTechStartUp">
           <div>
