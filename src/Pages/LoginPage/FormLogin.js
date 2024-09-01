@@ -5,8 +5,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { https } from "../../Services/api";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoginFB, setUser } from "../../Redux/headerSlice";
-import { LoginSocialFacebook } from "reactjs-social-login";
-import { FacebookLoginButton } from "react-social-login-buttons";
 
 const FormLogin = () => {
   let navigate = useNavigate();
@@ -95,24 +93,6 @@ const FormLogin = () => {
               <span className="relative bottom-2">Log in</span>
             </Button>
           </Form.Item>
-          {!profile ? (
-            <LoginSocialFacebook
-              appId="1488191668439263"
-              onResolve={(response) => {
-                // console.log("🚀 ~ FormLogin ~ response:", response);
-                dispatch(setLoginFB(response.data));
-                localStorage.setItem("LOGIN_FACEBOOK", JSON.stringify(response.data));
-                navigate("/");
-              }}
-              onReject={(error) => {
-                console.log("🚀 ~ FormLogin ~ error:", error);
-              }}
-            >
-              <FacebookLoginButton />
-            </LoginSocialFacebook>
-          ) : (
-            ""
-          )}
           Or <NavLink to="/signup">register now!</NavLink>
         </Form>
       </div>

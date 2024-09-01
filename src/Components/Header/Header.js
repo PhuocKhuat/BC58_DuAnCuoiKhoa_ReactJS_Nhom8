@@ -98,106 +98,65 @@ export default function Header() {
           </div>
         </>
       );
-    } else if (profile) {
-        return (
-          <div className="flex catalogHeaderUser relative">
-            <div
-              onClick={() => {
-                navigate("/personalInfo");
-                showNavbar();
-                window.scrollTo(0, 0);
-              }}
-              className="userInfo flex"
+    } else {
+      return (
+        <>
+          <NavLink
+            to="/login"
+            className="flex items-center btnLogIn catalogHeaderUser"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-6 h-6 hidden lg:block"
             >
-              <span className="text-sm mt-1 text-blue-400">{profile?.name},</span>
-              <img
-                alt="avatar"
-                src={profile?.picture.data.url}
-                className="ms-3"
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
               />
-            </div>
-            <NavLink
-              className="flex items-center btnLogOut btnLogOut2 absolute left-96 ms-96 lg:left-36 lg:mt-4 lg:ms-0"
-              onClick={() => {
-                handleLogOut();
-                showNavbar();
-              }}
+            </svg>
+            <p className="md:w-2/3 w-44">Log In</p>
+          </NavLink>
+          <NavLink
+            to="/signup"
+            className="flex space-x-2 items-center btnSignUp catalogHeaderUser"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-6 h-6 hidden lg:block"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-6 h-6 me-2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15"
-                />
-              </svg>
-            </NavLink>
-          </div>
-        );
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              />
+            </svg>
+            <span className="md:w-1/2 w-20">Sign up</span>
+          </NavLink>
+        </>
+      );
     }
-    return (
-      <>
-        <NavLink
-          to="/login"
-          className="flex items-center btnLogIn catalogHeaderUser"
-          onClick={() => {
-            window.scrollTo(0, 0);
-          }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            className="w-6 h-6 hidden lg:block"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-            />
-          </svg>
-          <p className="md:w-2/3 w-44">Log In</p>
-        </NavLink>
-        <NavLink
-          to="/signup"
-          className="flex space-x-2 items-center btnSignUp catalogHeaderUser"
-          onClick={() => {
-            window.scrollTo(0, 0);
-          }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            className="w-6 h-6 hidden lg:block"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-            />
-          </svg>
-          <span className="md:w-1/2 w-20">Sign up</span>
-        </NavLink>
-      </>
-    );
   };
   const handleLogOut = () => {
-    if(user){
+    if (user) {
       localStorage.removeItem("USER_INFO");
       window.location.reload();
       return;
-    } 
+    }
     localStorage.removeItem("LOGIN_FACEBOOK");
     window.location.reload();
   };
